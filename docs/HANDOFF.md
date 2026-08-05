@@ -4,92 +4,66 @@
 DOC: docs/HANDOFF.md
 DATE: 2026-08-05
 STATUS: BINDING · 新窗唯一入口（开场先读 docs/CANON.md）
-FROM: 前总管窗（Pico 收尾 → 曾误写 OpenWork 主线 → 已正本清源）
-TO: 新开执行总管窗
-UPDATED: 2026-08-05 · 主线 = Dify Web + DeepSeek + 现网；OpenWork = 二期；见 CANON 作废表
+FROM: 执行总管窗
+TO: 后续执行/审查窗
+UPDATED: 2026-08-05 · 阶段 A 功能出口收口；下一刀 = 入口硬化 + 阶段 B；OpenWork = 二期
 ```
 
 ---
 
 ## 0. 你是谁 · 怎么接
 
-1. 新开对话，**先读** [`docs/CANON.md`](./CANON.md) + **本文全文** + `docs/PROJECT-PLAN.md` + `ops/INFRA.md`  
+1. 新开对话，**先读** [`docs/CANON.md`](./CANON.md) + **本文全文** + [`ops/PHASE-A-CLOSEOUT.md`](../ops/PHASE-A-CLOSEOUT.md) + `ops/INFRA.md`  
 2. 报约 **15 行状态**（见 §5 模板）再干活  
 3. 真源只认：  
    - **主仓：** https://github.com/juanwan99/aivia-workbench  
-   - **主底座上游：** https://github.com/langgenius/dify （Web 工作台）  
-   - **旧仓 pico：** https://github.com/juanwan99/pico — **大功能冻结**，仅安全/停机级  
-   - **基础设施：** 见 §3.1 / `ops/INFRA.md`（**沿用现有服务器与域名**）  
-4. 禁止：密钥进仓、自 PASS、空成功当绿、再开 Pico 大叙事包、拆 WorkBuddy 闭源、**Dify 与 OpenWork 双主线并列**  
-5. 若记忆/旧评论与 CANON 冲突 → **以 CANON 为准**  
+   - **主底座上游：** https://github.com/langgenius/dify  
+   - **旧仓 pico：** https://github.com/juanwan99/pico — 大功能冻结  
+   - **基础设施：** §3.1 / `ops/INFRA.md`  
+4. 禁止：密钥进仓、自 PASS、空成功当绿、Pico 大包、拆 WB 闭源、Dify/OpenWork 双主线  
+5. 冲突 → **CANON + 本文最新 UPDATED**  
 
 ---
 
 ## 1. 北极星（一句话）
 
-> **浏览器打开域名** → 登录 → 任务 → Agent/工作流 **真执行** → **可下载产物** → 停/重试 → **状态诚实**。  
-> 模型默认 **DeepSeek**。业务真源 **edu-core**（后置桥）。  
-> 体验对标 WorkBuddy **响应逻辑**（clean-room），不抄皮、不拆包盗码。  
-> 中心化知识库/模板由平台治理，不指望老师本机建库。
+> **浏览器打开域名** → 登录 → 任务 → Agent/工作流真执行 → **可下载产物** → 停/重试 → **状态诚实**。  
+> 模型默认 **DeepSeek**。业务 **edu-core** 后置桥。  
+> 对标 WorkBuddy **响应逻辑**（clean-room）。
 
 **禁止：** 「终态成功但无文件」。
 
 ---
 
-## 2. 为什么离开 Pico · 以及为何不以 OpenWork 为主线
-
-| 事实 | 结论 |
-|------|------|
-| Pico 长周期「出文档」不稳、空成功 | 换底座自救 |
-| 产品原定义 = **浏览器/公网工作台** | 桌面-only 主线不对齐 |
-| 业主要云端优先、挂现网服务器+域名 | 需要 Web 自托管平台 |
-| 选型调查 v2 | **Dify** 作云端主台 |
-| 仓内曾短暂写「OpenWork 主线」 | **已正本清源作废**（见 CANON §2） |
-| OpenWork | **二期**本地文件增强，不是默认主入口 |
-
----
-
-## 3. 已拍板决策（勿重新辩论除非业主再改口）
+## 2. 主线决策（BINDING）
 
 | # | 决策 |
 |---|------|
-| D1 | 新主线仓 **aivia-workbench**，不是继续 Pico 大包 |
-| **D2** | **基线 = Dify（Web）**；Agent/工作流以 Dify 应用与画布为主 — **不乱 fork Dify 核** |
-| D3 | 模型 **DeepSeek** API |
-| D4 | 改：DS 配置、应用/工作流、交付规则、品牌、后置 edu 桥、知识库/模板 |
-| D5 | 不改：无必要重写 Agent 框架；不为像素抄 WB 大改 UI；不拆闭源 |
-| D6 | edu-core = 业务真源；AI 只读/提案，**不直写**业务库 |
-| D7 | WorkBuddy 只作响应逻辑对标 |
-| D8 | OnlyOffice 等云端 Office 精修 = **后置可选**；先模板生成 + 下载 |
-| **D9** | **基础设施：继续用现有服务器 / 公网 IP / 域名**，不强制换机 |
-| **D10** | **OpenWork / 桌面客户端 = 二期可选**，不占主入口；禁止与 Dify 双主线 |
-
-### 曾调研但当前不作主底座的
-
-- Open WebUI / LibreChat / FastGPT / n8n 等：可参考，**主线不是它们**  
-- OpenWork / AionUi / Eigent：**二期或备选本地**，不是现在默认入口  
+| D1 | 主仓 aivia-workbench，非 Pico 大包 |
+| **D2** | **基线 = Dify Web**；不乱 fork 核 |
+| D3 | 模型 DeepSeek API |
+| D4 | 改：配置/应用/工作流/交付规则/品牌/后置 edu |
+| D5 | 不改：无必要重写 Agent 框架；不像素抄 WB |
+| D6 | AI 不直写 edu 业务库 |
+| D9 | 沿用现网服务器/域名 |
+| D10 | OpenWork = **二期**，不占主入口 |
 
 ---
 
-## 3.1 服务器 · 域名 · IP（BINDING）
+## 3.1 服务器 · 域名（BINDING）
 
-> 业主确认：**继续用之前的服务器和域名 IP。** 详见 [`ops/INFRA.md`](../ops/INFRA.md)
-
-| 资源 | 决策 |
+| 资源 | 状态 |
 |------|------|
-| **机器 / 公网 IP** | **沿用**现有服务器（或同集群） |
-| **域名** | **沿用** `aivia.asia` 体系 |
-| **Dify 跑哪** | **现网 Docker**；主入口建议 `workbench.aivia.asia` → 反代到 Dify |
-| **pico.aivia.asia** | 过渡保留旧站；大功能冻结 |
-| **OpenWork** | 不占主入口；二期本机可选 |
-| **证书 HTTPS** | 旧域续期；新子域加证书 |
-| **密钥** | 仅服务器 env / 密钥库；**禁止进 Git** |
+| 机器 | 沿用现网（IP/SSH **不进 Git**） |
+| 域名 | `aivia.asia` 体系 |
+| **主入口** | **`https://workbench.aivia.asia`** → Dify |
+| pico 子域 | 过渡保留，大功能冻结 |
+| 证书 | **A 阶段临时自签** → 正式证书见 CLOSEOUT R-A1 |
 
 ```text
-同一 IP/机器（示意）
-├── pico.aivia.asia        → 旧 Pico（冻结，可缩容）
-├── workbench.aivia.asia   → Dify Web 主台（阶段 A 目标入口）
-└── （二期）本机 OpenWork   → 可选本地文件增强
+同一机器（示意）
+├── pico.aivia.asia        → 旧 Pico（冻结）
+└── workbench.aivia.asia   → Dify Web 主台
 ```
 
 ---
@@ -98,36 +72,32 @@ UPDATED: 2026-08-05 · 主线 = Dify Web + DeepSeek + 现网；OpenWork = 二期
 
 | 路径 | 用途 |
 |------|------|
-| [docs/CANON.md](./CANON.md) | **正本清源 · 作废表** |
-| [README.md](../README.md) | 总览（Web + Dify + DS） |
+| [docs/CANON.md](./CANON.md) | 正本 |
+| [ops/PHASE-A-CLOSEOUT.md](../ops/PHASE-A-CLOSEOUT.md) | **A 收口与残留风险** |
+| [ops/PHASE-A-PACK.md](../ops/PHASE-A-PACK.md) | A 执行包 |
 | [docs/PROJECT-PLAN.md](./PROJECT-PLAN.md) | 阶段 A–D |
-| [docs/SELECTION-WEB-v2.md](./SELECTION-WEB-v2.md) | 选型结论 |
-| [docs/ARCHITECTURE.md](./ARCHITECTURE.md) | 分层 |
-| [docs/CHANGE-POLICY.md](./CHANGE-POLICY.md) | 改/不改 |
-| [docs/GOLD-PATHS.md](./GOLD-PATHS.md) | 浏览器金路径 |
-| [docs/DELIVERY-RULES.md](./DELIVERY-RULES.md) | 交付纪律 |
-| [ops/INSTALL.md](../ops/INSTALL.md) | **Dify Docker + DS** |
-| [ops/INFRA.md](../ops/INFRA.md) | 服务器/域名 |
-| [ops/INSTALL-OPENWORK-optional.md](../ops/INSTALL-OPENWORK-optional.md) | 二期桌面（非主线） |
-| [upstream/PIN.md](../upstream/PIN.md) | 版本钉（Dify 为主） |
+| [upstream/PIN.md](../upstream/PIN.md) | 版本钉 + A 验收摘要 |
+| [ops/INFRA.md](../ops/INFRA.md) | 基建 |
+| [docs/DELIVERY-RULES.md](./DELIVERY-RULES.md) | B 纪律 |
 
 **Issue：** https://github.com/juanwan99/aivia-workbench/issues/1  
 
 ---
 
-## 5. 新窗开场 · 状态报告模板（约 15 行）
+## 5. 新窗开场 · 状态报告模板
 
 ```text
 【状态】Aivia Workbench 交接后首报
 主仓: juanwan99/aivia-workbench @ <sha>
 正本: CANON = Dify Web + DeepSeek + 现网
-主底座: Dify pin=<未装则写未装> · 模型 DeepSeek
-基建: 沿用现网 IP/域名；入口 workbench 子域 → Dify
-阶段: A 跑通 | 下一刀: 现网 Docker 装 Dify + DS + 浏览器 G1
+主底座: Dify pin=1.16.1 · DeepSeek deepseek-chat
+入口: https://workbench.aivia.asia
+阶段: A 功能出口已收 · 入口硬化 OPEN（见 PHASE-A-CLOSEOUT）
+下一刀: 清 R-A1/R-A2（证书+公网可达）→ 阶段 B 纪律/课件 10 次空成功=0
 已拍板: Web+Dify+DeepSeek；OpenWork=二期；空成功禁止；edu 后置
-阻塞: <无 / 列出>
-不做什么: Pico 大包、OpenWork 当主线、双主线、拆 WB、密钥进仓
-请业主: <仅当需要授权时>
+阻塞: <证书/WAF/…>
+不做什么: Pico 大包、OpenWork 当主线、密钥进仓、无证据自 PASS
+请业主: <仅授权时>
 ```
 
 ---
@@ -136,19 +106,21 @@ UPDATED: 2026-08-05 · 主线 = Dify Web + DeepSeek + 现网；OpenWork = 二期
 
 | 项 | 状态 |
 |----|------|
-| 云端 Web 优先口径 | **已确认** |
-| 主底座 Dify | **已定** |
-| 正本清源（CANON） | **已落盘** |
-| 服务器/域名策略 | **已定：沿用** |
-| 现网安装 Dify | **未做** |
-| DeepSeek 配置 | **未做** |
-| 浏览器 G1 | **未做** |
-| 课件应用/工作流 | **未做**（阶段 B） |
-| edu 桥 | **未做**（阶段 C，须授权） |
-| OpenWork | **二期**，非当前下一刀 |
+| 云端 Web 优先 / 主底座 Dify | **已定** |
+| 正本清源 CANON | **已落盘** |
+| 现网安装 Dify 1.16.1 | **已做**（PIN） |
+| DeepSeek | **已做** |
+| 默认课件入口 | **已做** |
+| G0 / G0b / G1 / G1+ | **功能 PASS**（PIN） |
+| 正式 HTTPS / 公网无 403 | **未完成**（R-A1/R-A2） |
+| G4 反空成功 | **未测**（R-A3） |
+| 阶段 B 十次空成功清零 | **未做** |
+| edu 桥 | **未做**（须授权） |
+| OpenWork | **二期** |
 
-**下一刀（唯一）：**  
-`ops/INSTALL.md` → 现网 Docker 部署 Dify → DeepSeek → `GOLD-PATHS` G0/G0b/G1（浏览器）→ 回写 Issue #1 + `upstream/PIN.md`。
+**下一刀：**  
+1) 运维消化 `ops/PHASE-A-CLOSEOUT.md` 中 **R-A1、R-A2**  
+2) 然后阶段 **B**：交付纪律 + 课件稳定 + 10 次空成功=0  
 
 ---
 
@@ -156,65 +128,30 @@ UPDATED: 2026-08-05 · 主线 = Dify Web + DeepSeek + 现网；OpenWork = 二期
 
 | 阶段 | 目标 | 出口 |
 |------|------|------|
-| **A** | 现网 Dify + DS + 浏览器出文件 | G1 绿 |
-| **B** | 交付纪律 + 课件应用/工作流 | 空成功=0 |
-| **C** | edu JWT 桥 | 身份入任务（授权后） |
-| **D** | 试点；本地客户端可选 | 小范围教师 |
+| **A** | 现网 Dify + DS + 出文件 | G0–G1+ 功能绿 · 入口硬化跟进 |
+| **B** | 交付纪律 + 课件应用 | 空成功=0 |
+| **C** | edu JWT 桥 | 授权后 |
+| **D** | 试点 | 小范围教师 |
 
 ---
 
-## 8. 任务卡纪律
+## 8–10. 纪律与禁止
 
-不自 PASS；密钥不进 Issue；工程绿 ≠ 产品绿。
-
----
-
-## 9. 业主偏好与雷区（硬）
-
-| 要 | 不要 |
-|----|------|
-| 人话、进度诚实 | 假 PASS、空成功 |
-| **浏览器公网工作台** | 把桌面 OpenWork 写成主入口 |
-| DeepSeek + 真 Agent/工作流 | 纯闲聊壳 |
-| 中心化知识库/模板 | 只靠老师本机建库 |
-| **沿用现网 IP/域名** | 无必要换机、清空旧服无过渡 |
-| 成品少自焊 | 再堆 Pico 大包 / 乱 fork Dify 核 |
+不自 PASS；密钥不进 Issue；工程绿 ≠ 产品绿。  
+禁止：Pico 大包；OpenWork 写回主线；无 G 证据宣称完成；未备份拆 pico 域名。
 
 ---
 
-## 10. 首周禁止清单
-
-1. 在 pico 开大功能包  
-2. **把 OpenWork 写回主线或与 Dify 双主入口**  
-3. 无 G1 就做 edu 全量  
-4. 提交 API Key  
-5. 无金路径证据宣称交付完成  
-6. 未备份就下线 pico 域名或清空服务器  
-7. **用已作废记忆（本机 OpenWork 主线）指挥执行**  
-
----
-
-## 11. 给新窗的第一封行动令
+## 11. 行动令（当前）
 
 ```text
-1) 读 CANON + HANDOFF + PROJECT-PLAN + CHANGE-POLICY + INFRA
-2) 按 §5 打状态报告（主底座=Dify Web）
-3) 现网：Docker 装 Dify + DeepSeek + 浏览器 G1
-4) 结果写入 Issue #1 与 upstream/PIN.md
-5) G1 绿后才开阶段 B；OpenWork 仅二期
+1) 读 CANON + HANDOFF + PHASE-A-CLOSEOUT + PIN
+2) 按 §5 打状态（勿再说「下一刀=装 Dify」）
+3) 优先：正式证书 + 公网可达复验
+4) 通过后开阶段 B（DELIVERY-RULES + 10 次要课件）
+5) 结果回写 Issue #1
 ```
 
 ---
 
-## 12. 联系真源索引（历史）
-
-| 主题 | 位置 |
-|------|------|
-| **正本** | **docs/CANON.md** |
-| Pico 旧交接 | pico#273 |
-| 选型 | docs/SELECTION-WEB-v2.md |
-| 服务器/域名 | §3.1 + ops/INFRA.md |
-
----
-
-**交接完成条件：** 新窗已读 CANON，用 §5 打出首报，且承认下一刀 = **现网 Dify + DeepSeek + 浏览器 G1**。
+**交接完成条件：** 新窗承认：A **功能**已 PIN 收口；**入口硬化**与 **B** 为当前工作，而非重新安装 OpenWork/Dify 大叙事。

@@ -1,70 +1,54 @@
 # 金路径执行清单（阶段 A · 浏览器）
 
-日期：________    执行人：________  
-工作台 URL：________  
-Dify 版本/tag：________  
-DeepSeek 模型：________  
-默认入口名称：________  
+```
+执行记录（PIN）: 2026-08-05 · 功能 PASS
+复验时重开空白勾选即可
+```
 
-完整步骤见 `ops/PHASE-A-PACK.md`。
+工作台 URL：`https://workbench.aivia.asia`  
+Dify：`1.16.1`  
+DeepSeek：`deepseek-chat`  
+默认入口：`Aivia 课件（阶段A）` · site `dV3HeqgfVt4Xmm7f`  
 
-## G0 打开
+完整步骤：`ops/PHASE-A-PACK.md` · 收口：`ops/PHASE-A-CLOSEOUT.md`
 
-- [ ] 浏览器打开 URL
-- [ ] 登录或初始化管理员完成
-- **结果：** PASS / FAIL    备注：________
+## G0 打开 — PASS（PIN）
 
-## G0b DeepSeek
+- [x] 浏览器打开 URL / 管理员 setup  
 
-- [ ] 模型供应商已配 DeepSeek（Key 不进 Git）
-- [ ] 短聊「只回：好」→ 回复为「好」
-- **结果：** PASS / FAIL
+## G0b DeepSeek — PASS（PIN）
 
-## 默认入口
+- [x] 供应商 DeepSeek；短聊「只回：好」  
 
-- [ ] 存在已发布/可点的课件入口（非仅草稿）
-- [ ] 提示/工作流要求：要文件必须可下载
-- **结果：** PASS / FAIL
+## 默认入口 — PASS（PIN）
 
-## G1 可下载产物
+- [x] 「Aivia 课件（阶段A）」  
 
-话术示例：请做一份初中生物「豌豆杂交」HTML 课件，要能下载打开。
+## G1 — PASS（PIN）
 
-- [ ] 从默认入口发起
-- [ ] 过程可见
-- [ ] **能下载** `.html`
-- [ ] 非「仅聊天长代码」
-- **产物文件名：** ________
-- **结果：** PASS / FAIL
+- [x] 产物 `g1-pea-hybrid.html`  
 
-## G1+ 同会话改稿仍有文件
+## G1+ — PASS（PIN）
 
-话术示例：请在上一份基础上再增加 3 道练习题，并给出更新后的可下载 HTML。
+- [x] 产物 `g1plus-pea-hybrid-with-quiz.html`  
 
-- [ ] 同一会话
-- [ ] 再次可下载
-- [ ] 打开可见更新相关内容
-- **产物文件名：** ________
-- **结果：** PASS / FAIL
+## G4 反空成功 — 未测
 
-## G4 反空成功（建议）
+- [ ] 失败/中断不显示「成功无文件」  
 
-- [ ] 失败/中断不显示「成功无文件」
-- **结果：** PASS / FAIL / 跳过
+## 回写 — 部分完成
 
-## 回写
-
-- [ ] `upstream/PIN.md` 已填 Dify tag
-- [ ] Issue #1 已贴结果（无密钥）
+- [x] PIN  
+- [x] Issue #1 收口评论  
+- [ ] 入口硬化（证书/可达）回写  
 
 ```text
-记录摘要：
-日期:
-URL:
-Dify:
-DeepSeek:
-默认入口:
-G0 / G0b / G1 / G1+:
-产物:
-备注:
+摘要（已记 PIN）:
+日期: 2026-08-05
+URL: https://workbench.aivia.asia
+Dify: 1.16.1
+DeepSeek: deepseek-chat
+G0/G0b/G1/G1+: PASS
+G4: 未测
+HTTPS: 临时自签
 ```
