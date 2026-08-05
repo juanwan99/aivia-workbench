@@ -3,42 +3,35 @@
 ```
 主线组件：Dify（Web）
 OpenWork：optional / 二期
-STATUS: A 功能绿 · B 纪律电池有条件绿 · B 硬化 OPEN · 见 PHASE-B-CLOSEOUT
+STATUS: A 功能出口 · B 电池有条件 M3 · B-HARDEN 应用硬化绿(H1/H3/H7) · H2 证书未满
 ```
 
 | 组件 | 版本 / 镜像 tag | 日期 | 备注 |
 |------|-----------------|------|------|
-| **Dify** | `1.16.1`（compose project `dify`） | 2026-08-05 | 镜像 `langgenius/dify-api:1.16.1` / `langgenius/dify-web:1.16.1` · 入口 **https://workbench.aivia.asia**（本机反代 `127.0.0.1:13080`） |
+| **Dify** | `1.16.1`（compose project `dify`） | 2026-08-05 | 入口 **https://workbench.aivia.asia** · 默认 Chat `.../chat/lOMVPbz7rZmbJSJl` · 本机 `127.0.0.1:13080` |
 | DeepSeek 模型 id | `deepseek-chat`（插件 `langgenius/deepseek` `0.0.19`） | 2026-08-05 | 默认 LLM |
 | OpenWork（optional） | _二期再填_ | | 非主线 |
 
 > **安全：** 公网 IP / SSH / 面板 **不进本文件**。
 
-## 阶段 A 验收摘要（无密钥）
+## 阶段 A 摘要
+
+G0/G0b/G1/G1+ PASS · G4 在 B0/Harden 补测 PASS · HTTPS **临时自签**
+
+## 阶段 B 摘要
+
+10 次电池空成功 **0** · B0–B5（B3 后 Harden 升格）· 见 `ops/B-PATH-RUNBOOK.md`
+
+## 阶段 B-HARDEN 出口（2026-08-05）
 
 | 项 | 结果 |
 |----|------|
-| G0 / G0b / G1 / G1+ | **PASS** |
-| 默认入口（历史） | Aivia 课件（阶段A）agent · `dV3HeqgfVt4Xmm7f` |
-| G4 | **PASS**（B0 补测） |
-| HTTPS | **临时自签** · 待正式证书 |
-| 公网可达 | **有隐患** · 外网曾 403 |
+| H1 真下载 | **PASS** · Chatflow Code 节点 → `DOWNLOAD_READY` + data-URL 点击下载 |
+| H2 证书/公网 | **范围限制** · 自签仍在；正式证书待 DNS-01 |
+| H3 配额 | **PASS** · `max_active_requests=8` + nginx `30r/m/IP` + 失败人话 |
+| H4 教案 | **MD only**（DOCX 后置） |
+| H5 单入口 | **PASS** · 仅主推 Chatflow；Agent 公开关闭 |
+| H7 回归空成功 | **0**（R1–R5） |
+| 产物 | `/home/ops/aivia-phase-b-harden/` |
 
-## 阶段 B 出口（2026-08-05 · 纪律电池）
-
-| 项 | 结果 |
-|----|------|
-| 默认应用 | **Aivia 课件** Chatflow · `https://workbench.aivia.asia/chat/lOMVPbz7rZmbJSJl` |
-| 10 次电池空成功 | **0** |
-| B0 / B1 / B2 / B4 / B5 | **PASS** |
-| **B3 配额** | **PARTIAL** · 仅有 max_tokens/temperature 起点；**真日配额见 Harden H3** |
-| 交付形态 | **代码块/另存为主** · 平台附件见 Harden H1 |
-| 教案格式 | **MD** · DOCX 见 Harden H4 |
-| 产物目录 | 服务器 `/home/ops/aivia-phase-b-artifacts/`（无 Key） |
-
-## 阶段 B 硬化（OPEN）
-
-见 `ops/PHASE-B-HARDEN-PACK.md` · `ops/PHASE-B-CLOSEOUT.md`。  
-Harden 绿前：禁止对外「教师正式可用」；禁止无授权开 C。
-
-更新主线上游前：跑浏览器回归，失败则回退 PIN。
+**CLAIM：** 应用硬化绿（H1+H3+H7）；**不可**教师正式上线直至 H2 满。  

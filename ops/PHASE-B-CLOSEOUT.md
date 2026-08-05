@@ -1,65 +1,42 @@
-# 阶段 B 收口纪要 · 有条件关闭
+# 阶段 B 收口纪要 · 有条件关闭 + Harden
 
 ```
 DATE: 2026-08-05
-STATUS: 纪律电池有条件绿 · 硬化 OPEN
-证据: upstream/PIN.md · ops/B-PATH-RUNBOOK.md · Issue #1 B 回写
-审查: 有条件 M3 · 综合约 6.5–7/10 · 禁止对外「教师正式可用」
+STATUS: 纪律电池有条件绿 · 应用硬化绿 · 对外入口仍受限
+证据: upstream/PIN.md · ops/B-PATH-RUNBOOK.md · ops/B-HARDEN-RUNBOOK.md · Issue #1
+审查: M3 纪律有条件 · Harden H1/H3/H7 绿 · H2 未满不得教师正式上线
 ```
 
-## 1. 已确认完成（纪律 / 功能）
+## 1. 已确认完成
 
 | 项 | 证据 |
 |----|------|
-| 10 次电池空成功 = 0 | RUNBOOK T1–T10 + PIN + Issue |
-| B0 G4 反空成功 | RUNBOOK / Issue（拒假大文件） |
-| 默认应用「Aivia 课件」Chatflow | 公开 `/chat/lOMVPbz7rZmbJSJl` |
-| 系统提示强制出件 | B1 |
-| HTML 多主题 + 同会话改稿 | T1–T3/T5/T6/T8 |
-| 教案可下载（**MD**） | T4 |
-| 平台结构模板/知识库最低集 | B5 economy |
-| T9 首轮 FAIL 后修复 | 诚实履历，非一路假绿 |
+| 10 次电池空成功 = 0 | B-PATH-RUNBOOK |
+| H1 真下载（data-URL 控件） | Harden Chatflow Code 节点 · R1/R2/R5 |
+| H3 并发/限流 | max_active_requests=8 · nginx 30r/m/IP |
+| H4 教案 scope | **MD only** 书面 |
+| H5 单入口 | 仅推 lOMVPbz7rZmbJSJl · Agent 公开站关闭 |
+| H7 五次回归空成功 0 | B-HARDEN-RUNBOOK |
+| G4 / R4 不假绿 | 明确失败人话 |
 
-**含义：** 「要文件不空成功」在内测电池上成立。  
-**不等于：** 已对齐 WorkBuddy 交付形态；不等于公网无警告可试点。
+## 2. 残留（Harden 后）
 
-## 2. 审查纠偏（禁止继续虚报）
+| ID | 状态 |
+|----|------|
+| R-B1 代码块 vs 附件 | **已改善** → data-URL 一键下载（非平台 storage 附件，但满足「真下载控件」） |
+| R-B2 自签证书 | **OPEN** · 需 DNS-01/云证书 |
+| R-B3 公网 403 | **观察** · 自签下可打开；WAF 对 LE 校验仍可能 403 |
+| R-B4 真配额 | **已改善** · 并发+nginx 限流；账单级日 token 可后置 |
+| R-B5 教案 DOCX | **书面后置** · v0.x=MD |
+| R-B6 双入口 | **关闭** · Agent enable_site=false |
+| R-B8 真源过时 | **本次同步** |
 
-| 原 CLAIM | 纠偏 |
-|----------|------|
-| B0–B5 **全 PASS** | **B3 改为部分完成**（见下） |
-| M3 无条件绿 | **M3 有条件**（纪律电池） |
-| 可对外使用 | **否**，直至 R-A1/R-A2 + 本 Harden 关键项 |
+## 3. 默认入口
 
-### B3 纠偏
+`https://workbench.aivia.asia/chat/lOMVPbz7rZmbJSJl`
 
-已做：`max_tokens` / `temperature` 起点 + 失败人话。  
-**未做：** 工作空间/用户 **日调用配额**、真正超时熔断、触发限额后的产品级提示。  
-→ 记 **B3 = PARTIAL**，硬化包 **H3** 必做。
+## 4. 下一刀
 
-## 3. 残留风险登记（必须消化）
-
-| ID | 风险 | 严重度 | 硬化包 |
-|----|------|--------|--------|
-| **R-B1** | 交付=代码块另存，非平台文件附件 | 高 | H1 |
-| **R-B2** | HTTPS 自签警告 | 高 | H2（=R-A1） |
-| **R-B3** | 公网 403 / 可达不稳定 | 高 | H2（=R-A2） |
-| **R-B4** | 真配额未钉 | 中高 | H3 |
-| **R-B5** | 教案仅 MD，非 DOCX | 中 | H4 |
-| **R-B6** | 双入口（旧 Agent + 新 Chatflow）易混 | 中 | H5 |
-| **R-B7** | 产物仅服务器路径，仓内无抽检样例 | 中 | H6 |
-| **R-B8** | HANDOFF/PLAN/README 仍写「去做 B」 | 中 | H0（本文同步） |
-| **R-B9** | 无 embedding，知识库 weak | 低 | 后置可选 |
-| **R-B10** | Issue 历史含 IP 明文 | 低 | 勿再贴；旧评不删履历 |
-
-## 4. 默认入口（现行）
-
-| 角色 | URL / 名 |
-|------|----------|
-| **默认（B 后）** | `https://workbench.aivia.asia/chat/lOMVPbz7rZmbJSJl` · **Aivia 课件** Chatflow |
-| 备用 | 旧 Agent site `dV3HeqgfVt4Xmm7f` · 仅排障，不主推教师 |
-
-## 5. 下一刀
-
-见 [`ops/PHASE-B-HARDEN-PACK.md`](./PHASE-B-HARDEN-PACK.md) · 任务卡 **PHASE-B-HARDEN**。  
-**禁止**未硬化就开阶段 C 全量或对外试点话术。
+- **H2 正式证书**（DNS-01 或云厂商）后方可谈教师正式使用  
+- 阶段 C edu 桥：**另授权**  
+- 可选：平台 storage 附件出件、DOCX 转换、embedding 知识库加强  

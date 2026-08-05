@@ -1,14 +1,13 @@
 # Aivia Workbench
 
-学校 / 办公向 **浏览器公网 AI Agent 工作台**（任务 → 过程 → 可下载产物 → 状态诚实）。
+学校 / 办公向 **浏览器公网 AI Agent 工作台**（任务 → 过程 → **可下载产物** → 状态诚实）。
 
 | 项 | 决策 |
 |----|------|
 | 形态 | Web / 公网 |
 | 底座 | [Dify](https://github.com/langgenius/dify) 自托管 **1.16.1** |
 | 模型 | DeepSeek |
-| 入口 | https://workbench.aivia.asia |
-| 默认应用 | https://workbench.aivia.asia/chat/lOMVPbz7rZmbJSJl |
+| **默认入口（唯一主推）** | https://workbench.aivia.asia/chat/lOMVPbz7rZmbJSJl |
 | 正本 | [docs/CANON.md](./docs/CANON.md) |
 
 ## 状态
@@ -17,8 +16,9 @@
 |----|------|
 | 阶段 A 功能 | **绿** |
 | 阶段 B 10 次空成功 | **0**（纪律有条件绿） |
-| B 硬化（真下载/证书/真配额） | **进行中** |
-| **下一刀** | [ops/PHASE-B-HARDEN-PACK.md](./ops/PHASE-B-HARDEN-PACK.md) |
+| B-HARDEN 应用侧（H1/H3/H7） | **绿** |
+| 正式 HTTPS 无警告 | **未满**（自签；H2） |
+| **下一刀** | 正式证书（DNS-01/云厂商）或授权后 edu 桥 |
 
 ## 文档
 
@@ -26,8 +26,8 @@
 |------|------|
 | [CANON](./docs/CANON.md) | 正本 |
 | [HANDOFF](./docs/HANDOFF.md) | 交接 |
-| [PHASE-B-CLOSEOUT](./ops/PHASE-B-CLOSEOUT.md) | B 收口与残留 |
-| [PHASE-B-HARDEN-PACK](./ops/PHASE-B-HARDEN-PACK.md) | **当前执行** |
+| [PHASE-B-CLOSEOUT](./ops/PHASE-B-CLOSEOUT.md) | B/Harden 收口 |
+| [B-HARDEN-RUNBOOK](./ops/B-HARDEN-RUNBOOK.md) | 硬化勾选结果 |
 | [PIN](./upstream/PIN.md) | 版本钉 |
 
 ## 二期
