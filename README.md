@@ -1,56 +1,65 @@
 # Aivia Workbench
 
-学校 / 办公向 **AI Agent 工作台**（任务 → 过程 → 产物 → 停/重试 → 状态诚实）。
+学校 / 办公向 **浏览器公网 AI Agent 工作台**（任务 → 过程 → 可下载产物 → 停/重试 → 状态诚实）。
 
 | 项 | 决策 |
 |----|------|
-| **基线成品** | [OpenWork](https://github.com/different-ai/openwork)（powered by OpenCode） |
-| **模型** | **DeepSeek**（默认） |
-| **业务真源** | edu-core（后置对接；AI 不直写业务库） |
+| **产品形态** | **Web / 公网**（人在浏览器里下任务；对齐原 Pico WHAT-IS） |
+| **主底座** | **[Dify](https://github.com/langgenius/dify)**（自托管 Docker） |
+| **模型** | **DeepSeek** API（默认） |
+| **部署** | **云端优先**：挂**现有服务器 + 域名/IP**（见 `ops/INFRA.md`） |
+| **业务真源** | edu-core（后置身份桥；AI **不**直写业务库） |
 | **体验对标** | WorkBuddy **响应逻辑**（clean-room，不抄闭源） |
-| **旧仓** | `juanwan99/pico` 冻结大功能；本仓为新主线 |
+| **旧仓** | `juanwan99/pico` 大功能冻结；本仓为新主线 |
 
 ## 一句话目标
 
-> 老师/用户下任务 → Agent 真工具循环 → **工作区有可下载产物** → 失败诚实可再试。  
+> 打开域名 → 登录 → 下任务 → Agent/工作流真执行 → **有可下载产物** → 失败诚实可再试。  
 > **禁止「终态成功但无文件」。**
 
-## 仓库结构（规划）
+## 用户成功（产品尺子）
+
+1. 浏览器打开工作台 URL（子域或现网入口）  
+2. 能登录  
+3. 能下任务，过程可见  
+4. 要 HTML / DOCX / PPTX 时，**能下载到真文件**  
+5. 能停、能再试；失败不假绿  
+
+## 仓库结构
 
 ```text
-docs/                 规划与纪律（本阶段主内容）
-upstream/             OpenWork 上游说明与 pin 版本（不vend整个巨仓时可只记 pin）
-skills/               我们自建的课件/文档 Skills
+docs/                 规划、架构、选型、金路径、交付纪律
+ops/                  现网安装、基建、DeepSeek 样例（无密钥）
+upstream/             上游版本钉（Dify 为主）
+skills/               课件/教案类提示与工作流资产（阶段 B）
 bridge/               edu JWT / 身份桥（后置）
-ops/                  安装、DeepSeek 配置样例（无密钥）
 ```
 
 ## 文档入口
 
 | 文档 | 内容 |
 |------|------|
-| [docs/PROJECT-PLAN.md](./docs/PROJECT-PLAN.md) | **总规划**（阶段、里程碑、验收） |
-| [docs/ARCHITECTURE.md](./docs/ARCHITECTURE.md) | 架构与分层 |
-| [docs/CHANGE-POLICY.md](./docs/CHANGE-POLICY.md) | **改什么 / 不改什么** |
-| [docs/GOLD-PATHS.md](./docs/GOLD-PATHS.md) | 金路径验收 |
-| [docs/RESPONSE-LOGIC.md](./docs/RESPONSE-LOGIC.md) | WorkBuddy 向响应逻辑清单 |
-| [docs/DELIVERY-RULES.md](./docs/DELIVERY-RULES.md) | 交付硬规则（阶段 B） |
-| [ops/INSTALL.md](./ops/INSTALL.md) | **本机安装 + DeepSeek + 金路径** |
-| [ops/G-PATH-RUNBOOK.md](./ops/G-PATH-RUNBOOK.md) | G0–G4 勾选清单 |
+| [docs/HANDOFF.md](./docs/HANDOFF.md) | **总管交接 · 唯一入口** |
+| [docs/PROJECT-PLAN.md](./docs/PROJECT-PLAN.md) | 阶段 A–D、里程碑 |
+| [docs/SELECTION-WEB-v2.md](./docs/SELECTION-WEB-v2.md) | 云端 Web 选型结论 |
+| [docs/ARCHITECTURE.md](./docs/ARCHITECTURE.md) | 分层（Dify 主台） |
+| [docs/CHANGE-POLICY.md](./docs/CHANGE-POLICY.md) | 改 / 不改 |
+| [docs/GOLD-PATHS.md](./docs/GOLD-PATHS.md) | **浏览器**金路径 |
+| [docs/DELIVERY-RULES.md](./docs/DELIVERY-RULES.md) | 交付硬规则 |
+| [ops/INSTALL.md](./ops/INSTALL.md) | **现网 Dify + DeepSeek** |
+| [ops/INFRA.md](./ops/INFRA.md) | 服务器 / 域名 / IP |
 
-## 与 OpenWork 关系
+## 二期 · 非主线（可选）
 
-- **上游：** https://github.com/different-ai/openwork  
-- **策略：** 配置 + Skills + 薄桥优先；不重写 OpenCode 核  
-- **许可：** 遵循上游 LICENSE；自研文件见本仓声明  
+**OpenWork**（桌面 + OpenCode）降级为 **本地文件增强**，不占主入口、不与 Dify 并列当默认基线。  
+说明见 [ops/INSTALL-OPENWORK-optional.md](./ops/INSTALL-OPENWORK-optional.md)。
 
 ## 安全
 
 - 禁止提交 API Key / edu 密钥  
-- `.env` 仅本地；仓库只收 `.env.example`  
+- `.env` 仅服务器本地；仓库只收 `.env.example`  
 
 ## 状态
 
-`A+B 任务包已落盘`（安装文档 / DeepSeek 样例 / 金路径清单 / 交付规则 / 课件·教案 Skills 骨架）。  
-**下一刀（本机）：** 按 [ops/INSTALL.md](./ops/INSTALL.md) 安装 OpenWork + DeepSeek + **G1 真文件** → 回写 Issue #1 与 `upstream/PIN.md`。  
-G1 未绿前不宣称阶段 A 完成、不启用阶段 B 实测。
+`BINDING · 主线 = Dify Web + DeepSeek + 现网部署`（2026-08-05 业主口径覆盖旧 OpenWork 主线）。  
+**下一刀：** 现网 Docker 部署 Dify → 配 DeepSeek → 浏览器金路径 G1 → 回写 Issue #1 与 `upstream/PIN.md`。

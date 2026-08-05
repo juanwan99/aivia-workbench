@@ -1,71 +1,90 @@
 # 架构 · Aivia Workbench
 
 ```
-STATUS: v0.1 · 对齐 OpenWork 成品 + 薄自建层
+STATUS: v0.2 · 对齐 Dify Web 主台 + 薄自建层
+UPDATED: 2026-08-05 · OpenWork 桌面不进主拓扑（脚注二期）
 ```
 
-## 1. 总图
+## 1. 总图（主线）
 
 ```text
 ┌──────────────────────────────────────────────────────────┐
-│  L1  壳 UI          OpenWork Desktop（不重写）            │
+│  L1  壳 UI          Dify Web（浏览器；反代子域）           │
 ├──────────────────────────────────────────────────────────┤
-│  L2  控制/会话      OpenWork 任务与会话（上游）           │
+│  L2  控制/会话      Dify 应用 / 会话 / 工作空间           │
 ├──────────────────────────────────────────────────────────┤
-│  L3  Agent 核       OpenCode（随 OpenWork，不重写）       │
+│  L3  Agent 核       Dify Agent + 工作流画布（不乱 fork）  │
 ├──────────────────────────────────────────────────────────┤
-│  L4  工具/Skills    上游 MCP + 本仓 skills/（课件等）     │
+│  L4  工具/知识      工具调用 · 知识库/模板（平台治理）    │
 ├──────────────────────────────────────────────────────────┤
-│  L5  工作区         每任务目录 + 路径边界（对齐 WB 思路） │
+│  L5  产物           生成文件 → 可下载 Artifact            │
 ├──────────────────────────────────────────────────────────┤
-│  L6  模型           DeepSeek API（BYOK）                  │
+│  L6  模型           DeepSeek API                          │
 ├──────────────────────────────────────────────────────────┤
 │  L7  业务           edu-core ← bridge/（后置）            │
 └──────────────────────────────────────────────────────────┘
+
+部署：现有服务器 Docker Compose + HTTPS 反代
 ```
 
-## 2. 逻辑对象（目标语义）
+> **脚注（二期，非主拓扑）：** OpenWork / 其他桌面客户端可用于本地深文件处理；不替代 L1 主入口。
+
+## 2. 七层与 Dify 覆盖
+
+| 层 | 职责 | 主实现 |
+|----|------|--------|
+| L1–L3 | UI、会话、Agent/工作流 | **Dify 大量覆盖** |
+| L4 | 工具、知识库、模板 | Dify 能力 + 本仓应用设计 |
+| L5 | 可下载产物 | 工作流强制出件 + 交付规则 |
+| L6 | 模型 | DeepSeek 供应商配置 |
+| L7 | 业务身份/数据 | 后置 `bridge/`；AI 不直写 |
+
+强编码 Agent（如服务端 OpenCode / OpenHands）可 **侧挂**，后置评估，不当教师唯一门户。
+
+## 3. 逻辑对象
 
 | 对象 | 含义 |
 |------|------|
-| Task/Session | 一次用户任务 |
-| Workspace | 任务工作目录 |
-| ToolCall | 写盘/读/生成等 |
-| Artifact | 可交付文件（必须可定位） |
+| App / Workflow | Dify 应用或画布流程 |
+| Session | 一次用户对话/任务 |
+| ToolCall | 检索/生成/导出等 |
+| Artifact | **可下载**文件（必须可定位） |
+| Knowledge | 中心知识库/模板 |
 | Principal | 后置：school + membership |
 
-## 3. 响应逻辑硬规则（BINDING）
+## 4. 响应逻辑硬规则（BINDING）
 
-见 [RESPONSE-LOGIC.md](./RESPONSE-LOGIC.md)。摘要：
+见 [RESPONSE-LOGIC.md](./RESPONSE-LOGIC.md) 与 [DELIVERY-RULES.md](./DELIVERY-RULES.md)。
 
 - 交付类意图无 Artifact → 不得成功  
-- 工具写盘优先于嘴炮  
-- 工作区默认出不去  
+- 工具/工作流出件优先于纯文本长贴  
+- 中心模板优于老师本机散落文件  
 
-## 4. 与 WorkBuddy 映射（clean-room）
+## 5. 与 WorkBuddy 映射（clean-room）
 
-| WB 本机 | 本方案 |
+| WB 思路 | 本方案 |
 |---------|--------|
-| Electron 壳 | OpenWork 桌面 |
-| CodeBuddy serve | OpenCode |
-| Write + present_files | 工具 + 产物呈现 |
-| workDir allowlist | 工作区策略 |
-| copilot.tencent.com | DeepSeek |
-| 连接器 | MCP + 后置 edu 桥 |
+| 壳 + 会话 | Dify Web |
+| Agent serve | Dify Agent/工作流 |
+| 写盘 + 呈现文件 | 工具/节点 → 下载 |
+| 工作区边界 | 应用与权限边界 |
+| 模型 | DeepSeek |
+| 连接器 | 工具 + 后置 edu 桥 |
 
-## 5. 部署形态
+## 6. 部署形态
 
 | 阶段 | 形态 |
 |------|------|
-| A/B | 教师/开发者 **本机桌面** |
-| C+ | 可选：身份网关 + 统一配置分发；Web 门户另决策 |
+| A/B | **现网 Dify Web**（主） |
+| C+ | edu 身份桥挂同机或侧车 |
+| D+ | 可选本地桌面增强；OnlyOffice 可选 |
 
-## 6. 本仓代码边界
+## 7. 本仓代码边界
 
 | 目录 | 允许 |
 |------|------|
-| `skills/` | 自研 Skill 定义 |
+| `ops/` | 安装、基建、环境样例 |
+| `skills/` / 应用导出 | 课件/教案类资产与提示 |
 | `bridge/` | edu 适配 |
-| `ops/` | 安装与配置样例 |
-| `patches/` | 最小上游补丁（须说明） |
-| 禁止 | 无说明 vend 整份上游后改到无法同步 |
+| `docs/` | 真源规划 |
+| 禁止 | 无说明大改 Dify 核；密钥进仓 |
