@@ -1,0 +1,135 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Aivia Edu Bridge",
+    "version": "0.1.0"
+  },
+  "servers": [
+    {
+      "url": "http://172.17.0.1:18090/bridge/v1"
+    }
+  ],
+  "paths": {
+    "/me": {
+      "get": {
+        "operationId": "bridge_me",
+        "summary": "当前教师身份",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "ok"
+          }
+        }
+      }
+    },
+    "/schools/{school_id}/classes": {
+      "get": {
+        "operationId": "list_my_classes",
+        "summary": "本校班级列表",
+        "parameters": [
+          {
+            "name": "school_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "ok"
+          },
+          "403": {
+            "description": "cross"
+          }
+        }
+      }
+    },
+    "/schools/{school_id}/courses/{id}": {
+      "get": {
+        "operationId": "get_course_meta",
+        "summary": "课程元数据",
+        "parameters": [
+          {
+            "name": "school_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "ok"
+          }
+        }
+      }
+    },
+    "/proposals": {
+      "post": {
+        "operationId": "create_proposal",
+        "summary": "创建变更提案（不写edu库）",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "pending"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,31 +1,37 @@
-# Aivia Workbench · 项目总规划 v0.9
+# Aivia Workbench · 项目总规划 v0.6
 
 ```
 STATUS: BINDING · 2026-08-05
-UPDATED: 阶段 C 已授权 · 执行 PHASE-C-PACK · E1 后置
+BASE: Dify Web · DeepSeek · edu bridge mock
+UPDATED: CLAIM-C 绿(mock)；E1 后置；CLAIM-B 否
 ```
 
-## 阶段
+## 1. 产品
 
-| 阶段 | 状态 |
-|------|------|
-| A/B/Harden/DEBT 应用 | 已收 |
-| E1 证书 | 后置 |
-| **C edu 桥** | **当前主战场** |
-| D 试点 | E1 建议先过 + C 基本绿 |
+打开域名 → 登录 → 任务 → **可一键下载产物** → 诚实状态。  
+对标 WorkBuddy **行为**，不抄 UI。  
+C：租户身份 + 只读 + 提案人审。
 
-## C 交付摘要
+## 2. 阶段
 
-身份 Principal → 只读工具 → 提案人审 → Ce 金路径。  
-详见 `ops/PHASE-C-PACK.md`。对标一线：租户隔离、角色、审计、AI 不直写核心库。
+### A · 跑通 — 功能绿
+### B · 纪律 — 电池有条件绿
+### B-HARDEN — 应用硬化绿
+### DEBT-CLEAR — 应用侧绿 · E1 后置
+### C · edu 桥 — **CLAIM-C 绿（MODE=mock）**
+### D · 试点 — E1 绿后
 
-## 里程碑
+## 3. 里程碑
 
-- [x] M0–M3 应用  
-- [ ] M2b/E1（后置）  
-- [ ] **M4 edu 桥（C）**  
+- [x] M0–M2 功能  
+- [x] M3 纪律电池（有条件）  
+- [x] M3b 应用硬化  
+- [ ] M2b/H2/E1 正式 HTTPS（后置）  
+- [x] M4 edu 桥（mock 契约绿；real 后置）  
 - [ ] M5 试点  
 
-## 下一刀
+## 4. 近期下一刀
 
-`ops/PHASE-C-PACK.md` · `ops/C-PATH-RUNBOOK.md` · `docs/EDU-BRIDGE.md`
+1. 接 edu-core real 只读白名单（回归 Ce2–Ce5）  
+2. E1 DNS-01（业主）  
+3. Dify 控制台挂载 `bridge/openapi.json` 自定义工具（可选增强）  
