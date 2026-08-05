@@ -34,6 +34,9 @@ ops/                  安装、DeepSeek 配置样例（无密钥）
 | [docs/CHANGE-POLICY.md](./docs/CHANGE-POLICY.md) | **改什么 / 不改什么** |
 | [docs/GOLD-PATHS.md](./docs/GOLD-PATHS.md) | 金路径验收 |
 | [docs/RESPONSE-LOGIC.md](./docs/RESPONSE-LOGIC.md) | WorkBuddy 向响应逻辑清单 |
+| [docs/DELIVERY-RULES.md](./docs/DELIVERY-RULES.md) | 交付硬规则（阶段 B） |
+| [ops/INSTALL.md](./ops/INSTALL.md) | **本机安装 + DeepSeek + 金路径** |
+| [ops/G-PATH-RUNBOOK.md](./ops/G-PATH-RUNBOOK.md) | G0–G4 勾选清单 |
 
 ## 与 OpenWork 关系
 
@@ -48,4 +51,6 @@ ops/                  安装、DeepSeek 配置样例（无密钥）
 
 ## 状态
 
-`PLANNING` → 下一刀：本机安装 OpenWork + DeepSeek + G1 金路径。
+`A+B 任务包已落盘`（安装文档 / DeepSeek 样例 / 金路径清单 / 交付规则 / 课件·教案 Skills 骨架）。  
+**下一刀（本机）：** 按 [ops/INSTALL.md](./ops/INSTALL.md) 安装 OpenWork + DeepSeek + **G1 真文件** → 回写 Issue #1 与 `upstream/PIN.md`。  
+G1 未绿前不宣称阶段 A 完成、不启用阶段 B 实测。
