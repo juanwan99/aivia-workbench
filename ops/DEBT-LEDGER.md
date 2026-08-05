@@ -6,11 +6,13 @@ UPDATED: 2026-08-06
 
 | 项 | 状态 |
 |----|------|
-| A/B/C-mock/C-FIX | **关** |
-| E1 | 后置 OPEN |
-| Dify 工具挂载 | **C-REAL 还债** |
-| real edu | **C-REAL** |
-| 课件用户验证 | **D-PILOT-LITE** |
-| CLAIM-B | NO |
+| A/B/Harden/DEBT 应用 | **关** |
+| C mock + C-FIX | **关** |
+| **D-PILOT-LITE** | **关 · CLAIM-D-LITE** |
+| **E1 正式证书** | **OPEN（业主可后置，但 CLAIM-B 门）** |
+| **C-REAL** | **OPEN**（真身份+只读+Dify 网） |
+| CLAIM-B 教师正式 | **NO** |
 
-下一刀：C-REAL + D-PILOT-LITE 并行。
+**下一刀（二选一或串行）：**  
+1. `ops/PHASE-E1-PACK.md` → CLAIM-B 门  
+2. `ops/PHASE-C-REAL-PACK.md` → 真 edu / 工具进 Chat  
