@@ -1,12 +1,10 @@
-# Skills / 应用资产（本仓）
+# Skills / 应用资产
 
-**阶段 B：** 课件、教案类提示词与约束必须**翻译进 Dify 运行时**（系统提示 / 工作流），不能只躺在 Git 里。  
-主运行时 = **Dify Web**。OpenWork 桌面不是现行实现位置。
+运行时 = **Dify Web**（已部署提示进应用，非仅本目录）。
 
-| 目录 | 说明 | B 用途 |
-|------|------|--------|
-| `courseware-html/` | HTML 课件强制可下载 | B1/B2 系统提示与出件约束 |
-| `lesson-plan-docx/` | 教案可下载 | B2 教案能力 |
+| 目录 | 现行 scope |
+|------|------------|
+| `courseware-html/` | HTML 课件 + 强制可下载 |
+| `lesson-plan-docx/` | **v0.x = Markdown only**（目录名历史遗留；DOCX 后置） |
 
-执行：`ops/PHASE-B-PACK.md`。  
-将 `SKILL.md` 纪律贴入 Dify 后，可在此目录追加「已部署提示词摘要」（无密钥）。
+总账与后置项：`ops/DEBT-LEDGER.md`。
