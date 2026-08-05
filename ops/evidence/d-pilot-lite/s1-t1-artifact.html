@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>初中生物 · 细胞结构</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+      background: linear-gradient(145deg, #f0f7f0 0%, #e3f0e3 100%);
+      color: #1e3a2f;
+      line-height: 1.6;
+      padding: 2rem 1rem;
+    }
+    .slide {
+      max-width: 1000px;
+      margin: 0 auto 2rem auto;
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(4px);
+      border-radius: 32px;
+      box-shadow: 0 20px 40px rgba(30, 60, 40, 0.15);
+      padding: 2.5rem 2.8rem;
+      border: 1px solid #cde0cd;
+      transition: all 0.2s;
+    }
+    h1 {
+      font-size: 2.6rem;
+      font-weight: 700;
+      color: #1b4d3e;
+      letter-spacing: 1px;
+      border-left: 8px solid #4c9a6e;
+      padding-left: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+    .subhead {
+      font-size: 1.1rem;
+      color: #3a6b58;
+      margin-bottom: 1.8rem;
+      font-weight: 400;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .subhead::before {
+      content: "🧬";
+      font-size: 1.4rem;
+    }
+    h2 {
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: #1e4d3a;
+      margin: 1.8rem 0 1rem 0;
+      padding-bottom: 0.4rem;
+      border-bottom: 3px dashed #7ab893;
+      display: inline-block;
+    }
+    h3 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #2b5e47;
+      margin: 1.2rem 0 0.6rem 0;
+    }
+    .goal-box {
+      background: #e5f2e9;
+      border-radius: 20px;
+      padding: 1.5rem 2rem;
+      margin: 1.2rem 0 1.8rem 0;
+      border-left: 6px solid #3f8f68;
+    }
+    .goal-box ul {
+      list-style: none;
+    }
+    .goal-box li {
+      margin-bottom: 0.6rem;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    .goal-box li::before {
+      content: "🎯";
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin: 1.5rem 0;
+    }
+    .card {
+      background: #f9fdf9;
+      border-radius: 20px;
+      padding: 1.5rem 1.8rem;
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.04);
+      border: 1px solid #d6e8d6;
+    }
+    .card h3 {
+      margin-top: 0;
+      border-bottom: 2px solid #b8d9c0;
+      padding-bottom: 0.4rem;
+      display: inline-block;
+    }
+    .card p {
+      margin: 0.8rem 0;
+    }
+    .highlight {
+      background: #dff0e3;
+      border-radius: 30px;
+      padding: 0.2rem 0.9rem;
+      font-weight: 600;
+      color: #1b4d3e;
+      display: inline-block;
+    }
+    .table-wrap {
+      overflow-x: auto;
+      margin: 1.5rem 0;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fafffa;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+    }
+    th {
+      background: #3f8f68;
+      color: white;
+      font-weight: 600;
+      padding: 0.9rem 1rem;
+      text-align: left;
+    }
+    td {
+      padding: 0.9rem 1rem;
+      border-bottom: 1px solid #d8e8da;
+    }
+    tr:last-child td {
+      border-bottom: none;
+    }
+    .practice {
+      background: #f4fbf7;
+      border-radius: 24px;
+      padding: 1.8rem 2rem;
+      margin: 2rem 0 0.5rem 0;
+      border: 1px solid #bcdcc6;
+    }
+    .practice h2 {
+      border-bottom: none;
+      margin-top: 0;
+    }
+    .question {
+      background: white;
+      border-radius: 16px;
+      padding: 1.2rem 1.5rem;
+      margin: 1.2rem 0;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.03);
+      border-left: 6px solid #4c9a6e;
+    }
+    .question p {
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    .options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+      margin: 0.5rem 0 0.2rem 0;
+    }
+    .option-item {
+      background: #eef5ee;
+      padding: 0.3rem 1rem;
+      border-radius: 30px;
+      font-weight: 500;
+      color: #1e4d3a;
+    }
+    .answer-hint {
+      background: #d9eeda;
+      border-radius: 30px;
+      padding: 0.4rem 1.2rem;
+      display: inline-block;
+      margin-top: 0.6rem;
+      font-size: 0.95rem;
+      color: #1b4d3e;
+      font-weight: 500;
+    }
+    .footer-note {
+      text-align: center;
+      margin-top: 2rem;
+      color: #4b7a64;
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+    .btn-download {
+      background: #2f6b4f;
+      color: white;
+      border: none;
+      padding: 0.7rem 1.8rem;
+      border-radius: 60px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: 0.2s;
+      margin-top: 0.5rem;
+    }
+    .btn-download:hover {
+      background: #1f543c;
+      transform: scale(1.02);
+    }
+    @media (max-width: 700px) {
+      .slide {
+        padding: 1.8rem 1.2rem;
+      }
+      h1 {
+        font-size: 2rem;
+      }
+      .grid-2 {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="slide">
+    <h1>🔬 细胞结构</h1>
+    <div class="subhead">初中生物 · 核心单元</div>
+
+    <!-- 学习目标 -->
+    <div class="goal-box">
+      <h2 style="border-bottom: none; margin-top: 0;">📌 学习目标</h2>
+      <ul>
+        <li>说出动植物细胞的基本结构（细胞膜、细胞质、细胞核）</li>
+        <li>识别植物细胞特有的结构：细胞壁、液泡、叶绿体</li>
+        <li>区分动物细胞与植物细胞的主要异同点</li>
+        <li>通过示意图建立“结构与功能相适应”的生命观念</li>
+      </ul>
+    </div>
+
+    <!-- 知识点 -->
+    <h2>🧪 核心知识</h2>
+    <div class="grid-2">
+      <div class="card">
+        <h3>🌿 植物细胞</h3>
+        <p><span class="highlight">细胞壁</span>（保护+支持）</p>
+        <p><span class="highlight">细胞膜</span>（控制物质进出）</p>
+        <p><span class="highlight">细胞核</span>（遗传信息库）</p>
+        <p><span class="highlight">叶绿体</span>（光合作用）</p>
+        <p><span class="highlight">液泡</span>（内含细胞液）</p>
+        <p><span class="highlight">细胞质</span>（生命活动场所）</p>
+      </div>
+      <div class="card">
+        <h3>🐾 动物细胞</h3>
+        <p><span class="highlight">细胞膜</span>（保护+控制）</p>
+        <p><span class="highlight">细胞质</span>（含线粒体等）</p>
+        <p><span class="highlight">细胞核</span>（遗传控制中心）</p>
+        <p style="margin-top: 0.8rem; color: #3f6b58;">✖ 无细胞壁</p>
+        <p style="color: #3f6b58;">✖ 无叶绿体</p>
+        <p style="color: #3f6b58;">✖ 通常无大液泡</p>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>结构</th>
+            <th>植物细胞</th>
+            <th>动物细胞</th>
+            <th>主要功能</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>细胞壁</td><td>✔ 有</td><td>✘ 无</td><td>保护、支持</td></tr>
+          <tr><td>细胞膜</td><td>✔ 有</td><td>✔ 有</td><td>控制物质进出</td></tr>
+          <tr><td>细胞核</td><td>✔ 有</td><td>✔ 有</td><td>遗传信息库</td></tr>
+          <tr><td>叶绿体</td><td>✔ 有（绿色部分）</td><td>✘ 无</td><td>光合作用</td></tr>
+          <tr><td>液泡</td><td>✔ 有（成熟细胞大液泡）</td><td>✘ 无</td><td>储存物质、维持渗透压</td></tr>
+          <tr><td>线粒体</td><td>✔ 有</td><td>✔ 有</td><td>呼吸作用供能</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>🧠 记忆小贴士</h3>
+    <p style="background: #e9f3ea; padding: 0.8rem 1.2rem; border-radius: 30px; display: inline-block;">“植物三独有：壁、叶、液；动物无壁无叶无大液泡”</p>
+
+    <!-- 练习部分 -->
+    <div class="practice">
+      <h2>📝 随堂练习</h2>
+
+      <div class="question">
+        <p>1️⃣ 下列结构中，动物细胞和植物细胞共有的是（　）</p>
+        <div class="options">
+          <span class="option-item">A. 细胞壁</span>
+          <span class="option-item">B. 叶绿体</span>
+          <span class="option-item">C. 细胞核</span>
+          <span class="option-item">D. 液泡</span>
+        </div>
+        <div class="answer-hint">✅ 答案：C（细胞核是动植物共有的基本结构）</div>
+      </div>
+
+      <div class="question">
+        <p>2️⃣ 植物细胞中，与光合作用直接相关的结构是（　）</p>
+        <div class="options">
+          <span class="option-item">A. 线粒体</span>
+          <span class="option-item">B. 叶绿体</span>
+          <span class="option-item">C. 细胞核</span>
+          <span class="option-item">D. 细胞膜</span>
+        </div>
+        <div class="answer-hint">✅ 答案：B（叶绿体是光合作用的场所）</div>
+      </div>
+
+      <div class="question">
+        <p>3️⃣ 判断：所有植物细胞都含有叶绿体。（　）</p>
+        <div class="options">
+          <span class="option-item">A. 正确</span>
+          <span class="option-item">B. 错误</span>
+        </div>
+        <div class="answer-hint">✅ 答案：B（根尖细胞等非绿色部位无叶绿体）</div>
+      </div>
+    </div>
+
+    <!-- 小结 -->
+    <h2>📖 课堂小结</h2>
+    <div style="background: #f0f9f2; border-radius: 20px; padding: 1.2rem 1.8rem;">
+      <p>✔ 细胞是生物体结构和功能的基本单位。</p>
+      <p>✔ 动植物细胞共有的结构：<strong>细胞膜、细胞质、细胞核</strong>（以及线粒体）。</p>
+      <p>✔ 植物细胞特有的结构：<strong>细胞壁、叶绿体、液泡</strong>（成熟植物细胞通常有大液泡）。</p>
+      <p>✔ 细胞核是遗传信息库，细胞膜控制物质进出，细胞质进行生命活动。</p>
+    </div>
+
+    <div style="display: flex; justify-content: flex-end; margin-top: 1.5rem;">
+      <button class="btn-download" onclick="alert('课件已就绪，可直接保存HTML文件使用')">📥 保存课件</button>
+    </div>
+    <div class="footer-note">
+      ⚡ 初中生物 · 细胞结构课件 | 单文件可下载
+    </div>
+  </div>
+
+</body>
+</html>

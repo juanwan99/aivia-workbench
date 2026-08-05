@@ -1,10 +1,49 @@
 # Aivia Workbench
 
-| 项 | 值 |
-|----|-----|
-| 入口 | https://workbench.aivia.asia/chat/lOMVPbz7rZmbJSJl |
-| 已收 | A/B · C mock · C-FIX |
-| **当前双线** | [C-REAL](./ops/PHASE-C-REAL-PACK.md) · [D 轻试点](./ops/PHASE-D-PILOT-LITE-PACK.md) |
-| CLAIM-B | 否（E1 后置） |
+学校 / 办公向 **浏览器公网 AI Agent 工作台**（任务 → 过程 → **可下载产物** → 状态诚实）。
 
-正本 [docs/CANON.md](./docs/CANON.md)
+| 项 | 决策 |
+|----|------|
+| 形态 | Web / 公网 |
+| 底座 | [Dify](https://github.com/langgenius/dify) 自托管 **1.16.1** |
+| 模型 | DeepSeek |
+| **默认入口（唯一主推）** | https://workbench.aivia.asia/chat/lOMVPbz7rZmbJSJl |
+| 正本 | [docs/CANON.md](./docs/CANON.md) |
+
+## 状态
+
+| 项 | 状态 |
+|----|------|
+| 阶段 A 功能 | **绿** |
+| 阶段 B 10 次空成功 | **0** |
+| B-HARDEN 应用侧（H1/H3/H7） | **绿** |
+| DEBT-CLEAR E2–E8 | **应用/回归可报**（E8 空成功 0） |
+| 阶段 C edu 桥 | **CLAIM-C 绿（MODE=mock）** |
+| C-FIX-DEPLOY | **CLAIM-C-FIX 绿**（systemd + smoke） |
+| **D-PILOT-LITE** | **CLAIM-D-LITE 绿**（4 会话 · 空成功 0） |
+| 正式 HTTPS 无警告（E1） | **后置** |
+| **CLAIM-B 教师正式可用** | **否**（E1 后置） |
+| **正式上线** | **否**（试点 ≠ 上线） |
+| **下一刀** | E1 DNS-01（优先）或 real edu 只读 |
+
+## 文档
+
+| 文档 | 内容 |
+|------|------|
+| [CANON](./docs/CANON.md) | 正本 |
+| [HANDOFF](./docs/HANDOFF.md) | 交接 |
+| [PHASE-D-PILOT-LITE-PACK](./ops/PHASE-D-PILOT-LITE-PACK.md) | 轻量内测执行包 |
+| [D-PILOT-RUNBOOK](./ops/D-PILOT-RUNBOOK.md) | 会话勾选 |
+| [D-PILOT-LITE-REPORT](./ops/D-PILOT-LITE-REPORT.md) | 短报告 + 下一刀 |
+| [PHASE-C-PACK](./ops/PHASE-C-PACK.md) | edu 身份桥执行包 |
+| [EDU-BRIDGE](./docs/EDU-BRIDGE.md) | 桥契约 |
+| [bridge/](./bridge/) | 侧车服务 |
+| [PIN](./upstream/PIN.md) | 版本钉 |
+
+## 二期
+
+OpenWork 桌面可选，非主入口。
+
+## 安全
+
+禁止 API Key / 公网 IP / SSH 进仓。

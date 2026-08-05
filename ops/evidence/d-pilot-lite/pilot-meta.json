@@ -1,0 +1,230 @@
+{
+  "phase": "PHASE-D-PILOT-LITE",
+  "date": "2026-08-06T07:20:08+08:00",
+  "public_url": "https://workbench.aivia.asia/chat/lOMVPbz7rZmbJSJl",
+  "site_code": "lOMVPbz7rZmbJSJl",
+  "base_loopback": "http://127.0.0.1:13080",
+  "app_mode": "advanced-chat",
+  "claim": "CLAIM-D-LITE",
+  "claim_note": "试点完成 ≠ 正式上线；E1 后置；CLAIM-B=NO；未接 edu real",
+  "empty_success": 0,
+  "session_count": 4,
+  "pass_count": 4,
+  "results": [
+    {
+      "id": "S1",
+      "title": "HTML课件·一句话出件",
+      "needs_file": true,
+      "result": "PASS",
+      "user": "pilot-lite-s1-193185",
+      "conversation_id": "09989ede-05de-4a06-9d14-35fa38595507",
+      "turns": [
+        {
+          "turn": 1,
+          "http": 200,
+          "elapsed_s": 23.8,
+          "answer_len": 23136,
+          "conversation_id": "09989ede-05de-4a06-9d14-35fa38595507",
+          "message_id": "1ffc2686-d669-4428-b56b-a0dbb1ecc206",
+          "events": [
+            "message",
+            "message_end",
+            "node_finished",
+            "node_started",
+            "workflow_finished",
+            "workflow_started"
+          ],
+          "file": "s1-t1-artifact.html",
+          "has_dl": true,
+          "file_size": 10452,
+          "head": "交付文件：课件-细胞结构.html  DOWNLOAD_READY  [点击下载 课件-细胞结构.html](data:text/html;base64,[REDACTED_IN_REPO]"
+        }
+      ],
+      "final_file": "s1-t1-artifact.html",
+      "has_dl": true,
+      "quality": {
+        "openable": true,
+        "has_title": true,
+        "size": 10452,
+        "pass": true
+      },
+      "notes": [],
+      "events_last": [
+        "message",
+        "message_end",
+        "node_finished",
+        "node_started",
+        "workflow_finished",
+        "workflow_started"
+      ]
+    },
+    {
+      "id": "S2",
+      "title": "同会话改稿",
+      "needs_file": true,
+      "result": "PASS",
+      "user": "pilot-lite-s2r-80cb62",
+      "conversation_id": "814f1190-b146-4258-a25f-ea6f7d304e2c",
+      "turns": [
+        {
+          "turn": 1,
+          "http": 200,
+          "elapsed_s": 23.5,
+          "answer_len": 26224,
+          "conversation_id": "814f1190-b146-4258-a25f-ea6f7d304e2c",
+          "message_id": "b3845bff-7eb6-4848-9150-0d37b925869d",
+          "events": [
+            "message",
+            "message_end",
+            "node_finished",
+            "node_started",
+            "workflow_finished",
+            "workflow_started"
+          ],
+          "file": "s2-t1-artifact.html",
+          "has_dl": true,
+          "file_size": 11700,
+          "head": "交付文件：课件-一元二次方程.html  DOWNLOAD_READY  [点击下载 课件-一元二次方程.html](data:text/html;base64,[REDACTED_IN_REPO]"
+        },
+        {
+          "turn": 2,
+          "http": 200,
+          "elapsed_s": 27.7,
+          "answer_len": 26309,
+          "conversation_id": "814f1190-b146-4258-a25f-ea6f7d304e2c",
+          "message_id": "5d563844-83ad-4a9d-b96d-6ece4ad5ffcc",
+          "events": [
+            "message",
+            "message_end",
+            "node_finished",
+            "node_started",
+            "workflow_finished",
+            "workflow_started"
+          ],
+          "file": "s2-t2-artifact.html",
+          "has_dl": true,
+          "file_size": 11747,
+          "head": "交付文件：课件-求根公式例题2道.html  DOWNLOAD_READY  [点击下载 课件-求根公式例题2道.html](data:text/html;base64,[REDACTED_IN_REPO]",
+          "error_body": null
+        }
+      ],
+      "final_file": "s2-t2-artifact.html",
+      "has_dl": true,
+      "quality": {
+        "openable": true,
+        "has_title": true,
+        "size": 11747,
+        "pass": true
+      },
+      "notes": [],
+      "events_last": [
+        "message",
+        "message_end",
+        "node_finished",
+        "node_started",
+        "workflow_finished",
+        "workflow_started"
+      ],
+      "fix": "same passport token for multi-turn (passport-per-turn caused 404)"
+    },
+    {
+      "id": "S3",
+      "title": "教案Markdown",
+      "needs_file": true,
+      "result": "PASS",
+      "user": "pilot-lite-s3-b59fd5",
+      "conversation_id": "96aabf15-acb7-41e2-bdbf-7f278e91855f",
+      "turns": [
+        {
+          "turn": 1,
+          "http": 200,
+          "elapsed_s": 19.8,
+          "answer_len": 9919,
+          "conversation_id": "96aabf15-acb7-41e2-bdbf-7f278e91855f",
+          "message_id": "eb14a451-5066-4dbc-8942-68fcc21490fd",
+          "events": [
+            "message",
+            "message_end",
+            "node_finished",
+            "node_started",
+            "workflow_finished",
+            "workflow_started"
+          ],
+          "file": "s3-t1-artifact.md",
+          "has_dl": true,
+          "file_size": 5605,
+          "head": "交付文件：教案-背影（第一课时）.md  DOWNLOAD_READY  [点击下载 教案-背影（第一课时）.md](data:text/markdown;base64,[REDACTED_IN_REPO]"
+        }
+      ],
+      "final_file": "s3-t1-artifact.md",
+      "has_dl": true,
+      "quality": {
+        "openable": true,
+        "has_title": true,
+        "size": 5605,
+        "pass": true
+      },
+      "notes": [],
+      "events_last": [
+        "message",
+        "message_end",
+        "node_finished",
+        "node_started",
+        "workflow_finished",
+        "workflow_started"
+      ]
+    },
+    {
+      "id": "S4",
+      "title": "只要大纲·不假绿",
+      "needs_file": false,
+      "result": "PASS",
+      "user": "pilot-lite-s4-998f0a",
+      "conversation_id": "aff26289-1646-4b70-9d7c-a50cf149f372",
+      "turns": [
+        {
+          "turn": 1,
+          "http": 200,
+          "elapsed_s": 3.1,
+          "answer_len": 340,
+          "conversation_id": "aff26289-1646-4b70-9d7c-a50cf149f372",
+          "message_id": "6b5eb55f-23c6-4368-aa51-8f3efa9e1ae1",
+          "events": [
+            "message",
+            "message_end",
+            "node_finished",
+            "node_started",
+            "workflow_finished",
+            "workflow_started"
+          ],
+          "file": null,
+          "has_dl": false,
+          "file_size": 0,
+          "head": "好的，这是「光合作用」的 5 条知识点大纲：  1. **概念与场所**：绿色植物通过叶绿体，利用光能，把二氧化碳和水转化成储存能量的有机物（主要是淀粉），并释放氧气的过程。 2. **原料与条件**：原料是二氧化碳和水；条件是光照（光能）和叶绿体。 3. **产物与实质**：产物是有机物（淀粉）和氧气；实质包含物质转化（无机物→有机物）和能量转化（光能→化…"
+        }
+      ],
+      "final_file": null,
+      "has_dl": false,
+      "quality": null,
+      "notes": [],
+      "events_last": [
+        "message",
+        "message_end",
+        "node_finished",
+        "node_started",
+        "workflow_finished",
+        "workflow_started"
+      ]
+    }
+  ],
+  "constraints": {
+    "no_school_wide_rollout": true,
+    "no_claim_b": true,
+    "no_disable_rate_limit": true,
+    "no_e1": true,
+    "no_edu_real": true
+  },
+  "s2_fix": "passport reused across turns",
+  "evidence_in_repo": "ops/evidence/d-pilot-lite/",
+  "server_mirror": "/home/ops/aivia-phase-d-pilot-lite/"
+}

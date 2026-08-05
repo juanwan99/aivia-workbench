@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>高一数学 · 一元二次方程</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            background: linear-gradient(145deg, #f5f7fa 0%, #e9edf5 100%);
+            color: #1e2b3c;
+            line-height: 1.7;
+            padding: 2rem 1rem;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: rgba(255,255,255,0.85);
+            backdrop-filter: blur(4px);
+            border-radius: 32px;
+            box-shadow: 0 20px 40px rgba(0,20,40,0.15);
+            padding: 2.5rem 2.8rem;
+            border: 1px solid rgba(255,255,255,0.6);
+        }
+        h1 {
+            font-size: 2.4rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #1e3a5f, #2d5f8b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.25rem;
+            letter-spacing: -0.5px;
+            border-left: 6px solid #2d5f8b;
+            padding-left: 1.2rem;
+        }
+        .subhead {
+            font-size: 1.1rem;
+            color: #4a6a8a;
+            margin-bottom: 2rem;
+            padding-left: 1.2rem;
+            font-weight: 400;
+            border-bottom: 1px dashed #b8c9dd;
+            padding-bottom: 0.8rem;
+        }
+        .section {
+            background: white;
+            border-radius: 20px;
+            padding: 1.8rem 2rem;
+            margin-bottom: 1.8rem;
+            box-shadow: 0 6px 14px rgba(0,0,0,0.04);
+            border: 1px solid #eef2f7;
+            transition: all 0.2s;
+        }
+        .section:hover {
+            box-shadow: 0 10px 20px rgba(0,0,0,0.06);
+            border-color: #cbd8e8;
+        }
+        .section h2 {
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: #1e3a5f;
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .section h2::before {
+            content: "▍";
+            font-size: 1.8rem;
+            color: #2d5f8b;
+        }
+        .highlight {
+            background: #f0f6ff;
+            border-left: 4px solid #2d5f8b;
+            padding: 0.8rem 1.2rem;
+            border-radius: 0 12px 12px 0;
+            margin: 1rem 0;
+            font-weight: 500;
+        }
+        .formula {
+            background: #f8fafd;
+            padding: 0.6rem 1.2rem;
+            border-radius: 40px;
+            display: inline-block;
+            font-family: 'Cambria Math', 'Times New Roman', serif;
+            font-size: 1.15rem;
+            border: 1px solid #d9e2ec;
+            margin: 0.3rem 0;
+        }
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+        @media (max-width: 700px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+            .container {
+                padding: 1.5rem;
+            }
+            h1 {
+                font-size: 1.9rem;
+            }
+        }
+        .btn-download {
+            display: inline-block;
+            background: #1e3a5f;
+            color: white;
+            padding: 0.6rem 1.8rem;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 500;
+            margin-top: 1rem;
+            border: none;
+            cursor: pointer;
+            transition: 0.2s;
+            box-shadow: 0 4px 10px rgba(30,58,95,0.2);
+        }
+        .btn-download:hover {
+            background: #2d5f8b;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(30,58,95,0.25);
+        }
+        .example-box {
+            background: #f9fbfe;
+            border-radius: 16px;
+            padding: 1.2rem 1.5rem;
+            margin: 1rem 0;
+            border: 1px solid #e0e9f2;
+        }
+        .example-box strong {
+            color: #1e3a5f;
+        }
+        .tag {
+            background: #e8f0fe;
+            color: #1e3a5f;
+            padding: 0.2rem 0.8rem;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            display: inline-block;
+            margin-right: 0.5rem;
+        }
+        .footer-note {
+            text-align: center;
+            margin-top: 2.5rem;
+            color: #6b7f94;
+            font-size: 0.9rem;
+            border-top: 1px solid #dce4ee;
+            padding-top: 1.5rem;
+        }
+        .practice {
+            background: #f4f9ff;
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin-top: 1rem;
+        }
+        .practice h3 {
+            color: #1e3a5f;
+            margin-bottom: 0.8rem;
+        }
+        .practice ol {
+            padding-left: 1.5rem;
+        }
+        .practice li {
+            margin-bottom: 0.5rem;
+        }
+        .answer-hint {
+            font-size: 0.9rem;
+            color: #4a6a8a;
+            background: #eef3fa;
+            padding: 0.5rem 1rem;
+            border-radius: 30px;
+            display: inline-block;
+            margin-top: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>一元二次方程</h1>
+    <div class="subhead">高一数学 · 基础模块 · 解法与判别式</div>
+
+    <!-- 学习目标 -->
+    <div class="section">
+        <h2>学习目标</h2>
+        <ul style="list-style-type: none; padding-left: 0;">
+            <li style="margin-bottom: 0.6rem;">✔ 掌握一元二次方程的标准形式 <span class="formula">ax² + bx + c = 0 (a≠0)</span></li>
+            <li style="margin-bottom: 0.6rem;">✔ 熟练运用因式分解法、配方法、公式法求解</li>
+            <li style="margin-bottom: 0.6rem;">✔ 理解判别式 Δ = b² − 4ac 与根的关系</li>
+            <li>✔ 能利用根与系数的关系（韦达定理）解决简单问题</li>
+        </ul>
+    </div>
+
+    <!-- 知识点 -->
+    <div class="section">
+        <h2>核心知识点</h2>
+        <div class="grid-2">
+            <div>
+                <div class="tag">标准形式</div>
+                <p style="margin-top: 0.5rem;"><span class="formula">ax² + bx + c = 0</span> (a≠0)</p>
+                <p style="font-size: 0.95rem; color: #3a5670;">a 为二次项系数，b 为一次项系数，c 为常数项。</p>
+            </div>
+            <div>
+                <div class="tag">判别式</div>
+                <p style="margin-top: 0.5rem;"><span class="formula">Δ = b² − 4ac</span></p>
+                <p style="font-size: 0.95rem;">Δ>0 两个不等实根；Δ=0 两个相等实根；Δ<0 无实根。</p>
+            </div>
+        </div>
+        <div class="highlight" style="margin-top: 1.2rem;">
+            <strong>求根公式：</strong> 
+            <span class="formula" style="font-size: 1.2rem;">x = (−b ± √Δ) / (2a)</span>
+        </div>
+    </div>
+
+    <!-- 解法详解 -->
+    <div class="section">
+        <h2>三种核心解法</h2>
+        <div style="display: flex; flex-direction: column; gap: 1.2rem;">
+            <div style="background: #f7faff; padding: 1rem 1.4rem; border-radius: 14px;">
+                <strong>① 因式分解法</strong>
+                <p style="margin-top: 0.3rem;">适用于方程可分解为 (mx+p)(nx+q)=0 的形式。例：x² − 5x + 6 = 0 → (x−2)(x−3)=0 → x=2 或 x=3</p>
+            </div>
+            <div style="background: #f7faff; padding: 1rem 1.4rem; border-radius: 14px;">
+                <strong>② 配方法</strong>
+                <p style="margin-top: 0.3rem;">将方程化为 (x + m)² = n 的形式，再开平方。例：x² + 6x + 5 = 0 → (x+3)² = 4 → x = −1 或 x = −5</p>
+            </div>
+            <div style="background: #f7faff; padding: 1rem 1.4rem; border-radius: 14px;">
+                <strong>③ 公式法（通用）</strong>
+                <p style="margin-top: 0.3rem;">直接代入求根公式，适用于所有一元二次方程。</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 典型例题 -->
+    <div class="section">
+        <h2>典型例题</h2>
+        <div class="example-box">
+            <strong>例1（公式法）：</strong> 解方程 2x² − 4x − 6 = 0
+            <br>解：a=2, b=−4, c=−6 → Δ = (−4)² − 4·2·(−6) = 16 + 48 = 64
+            <br>x = (4 ± 8) / 4 → x₁ = 3, x₂ = −1
+        </div>
+        <div class="example-box">
+            <strong>例2（判别式分析）：</strong> 判断方程 x² + 2x + 5 = 0 根的情况
+            <br>解：Δ = 4 − 20 = −16 < 0 → 无实数根（有两个共轭虚根，高中阶段说明无实根）
+        </div>
+        <div class="example-box">
+            <strong>例3（韦达定理）：</strong> 已知方程 3x² − 6x + 2 = 0 的两根为 x₁, x₂，求 x₁ + x₂ 与 x₁·x₂
+            <br>解：x₁ + x₂ = −b/a = 2，x₁·x₂ = c/a = 2/3
+        </div>
+    </div>
+
+    <!-- 课堂练习 -->
+    <div class="section">
+        <h2>随堂练习</h2>
+        <div class="practice">
+            <h3>🔍 试试看</h3>
+            <ol>
+                <li>用因式分解法解：x² − 7x + 12 = 0</li>
+                <li>用配方法解：x² + 4x − 1 = 0</li>
+                <li>利用判别式判断：2x² − 3x + 5 = 0 的根的情况</li>
+                <li>若方程 x² − kx + 9 = 0 有两个相等实根，求 k 的值。</li>
+            </ol>
+            <div class="answer-hint">
+                💡 提示：第4题 Δ = k² − 36 = 0 → k = ±6
+            </div>
+        </div>
+    </div>
+
+    <!-- 小结 -->
+    <div class="section">
+        <h2>本节小结</h2>
+        <div style="display: flex; flex-wrap: wrap; gap: 0.8rem;">
+            <span class="tag">标准形式</span>
+            <span class="tag">判别式 Δ</span>
+            <span class="tag">求根公式</span>
+            <span class="tag">因式分解</span>
+            <span class="tag">配方法</span>
+            <span class="tag">韦达定理</span>
+        </div>
+        <p style="margin-top: 1rem; background: #eef4fb; padding: 0.8rem 1.2rem; border-radius: 12px;">
+            📌 核心逻辑：先看能否因式分解 → 否则用公式法（配方法作为理解工具）。判别式决定根的存在性，韦达定理沟通根与系数。
+        </p>
+    </div>
+
+    <!-- 下载按钮（点击保存） -->
+    <div style="text-align: center; margin-top: 2rem;">
+        <button class="btn-download" onclick="downloadPage()">⬇ 下载课件 HTML 文件</button>
+        <p style="font-size: 0.85rem; color: #6b7f94; margin-top: 0.8rem;">点击后自动保存为「课件-一元二次方程.html」</p>
+    </div>
+
+    <div class="footer-note">
+        Aivia 课件助手 · 高一数学 · 可自由编辑使用
+    </div>
+</div>
+
+<script>
+function downloadPage() {
+    // 获取当前文档的完整HTML内容
+    const htmlContent = document.documentElement.outerHTML;
+    // 创建Blob对象
+    const blob = new Blob([htmlContent], { type: 'text/html;charset=utf-8' });
+    // 创建下载链接
+    const link = document.createElement('a');
+    link.href = URL.createObjectURL(blob);
+    link.download = '课件-一元二次方程.html';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(link.href);
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>课件：一元二次方程 · 求根公式</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', system-ui, sans-serif;
+            background: #f0f4fa;
+            color: #1e2b3c;
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+        .slide {
+            max-width: 1000px;
+            margin: 0 auto 2rem auto;
+            background: white;
+            border-radius: 28px;
+            box-shadow: 0 12px 30px rgba(0, 20, 40, 0.12);
+            padding: 2.2rem 2.5rem;
+            transition: all 0.2s;
+            border-left: 8px solid #3b82f6;
+        }
+        h1 {
+            font-size: 2.4rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+        h2 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #1e3a8a;
+            border-bottom: 3px solid #dbeafe;
+            padding-bottom: 0.4rem;
+            margin: 1.8rem 0 1rem 0;
+        }
+        h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #2563eb;
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        .badge {
+            display: inline-block;
+            background: #e0edff;
+            color: #1e40af;
+            font-weight: 600;
+            font-size: 0.85rem;
+            padding: 0.2rem 1rem;
+            border-radius: 30px;
+            margin-right: 0.5rem;
+            letter-spacing: 0.3px;
+        }
+        .formula-box {
+            background: #f8fafc;
+            border-radius: 18px;
+            padding: 1.2rem 1.8rem;
+            margin: 1.2rem 0;
+            border: 1px solid #d9e2ef;
+            font-size: 1.2rem;
+            box-shadow: inset 0 2px 6px rgba(0,0,0,0.02);
+        }
+        .formula-box .frac {
+            display: inline-block;
+            vertical-align: middle;
+            text-align: center;
+            margin: 0 0.2rem;
+        }
+        .frac > span {
+            display: block;
+            padding: 0 0.3rem;
+        }
+        .frac .den {
+            border-top: 2px solid #1e3a8a;
+        }
+        .example {
+            background: #ffffff;
+            border: 1px solid #bfdbfe;
+            border-radius: 20px;
+            padding: 1.6rem 2rem;
+            margin: 1.8rem 0;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.06);
+        }
+        .example-title {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: #1e40af;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 0.8rem;
+        }
+        .example-title::before {
+            content: "✎";
+            background: #3b82f6;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            font-weight: bold;
+        }
+        .solution {
+            background: #f1f5f9;
+            border-radius: 14px;
+            padding: 1rem 1.5rem;
+            margin-top: 1rem;
+            border-left: 5px solid #3b82f6;
+        }
+        .solution p {
+            margin: 0.4rem 0;
+        }
+        .tag {
+            background: #dbeafe;
+            color: #1e3a8a;
+            border-radius: 30px;
+            padding: 0.2rem 1rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-right: 0.6rem;
+        }
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+        .highlight {
+            background: #fef9c3;
+            padding: 0.2rem 0.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+        }
+        .footer-note {
+            margin-top: 2.5rem;
+            text-align: center;
+            color: #64748b;
+            font-size: 0.9rem;
+            border-top: 1px dashed #cbd5e1;
+            padding-top: 1.5rem;
+        }
+        .btn-download {
+            background: #1e3a8a;
+            color: white;
+            border: none;
+            padding: 0.6rem 1.8rem;
+            border-radius: 40px;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: 0.2s;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            margin-top: 0.8rem;
+        }
+        .btn-download:hover {
+            background: #2563eb;
+            transform: translateY(-2px);
+        }
+        .learning-objectives li {
+            margin-left: 1.2rem;
+            margin-bottom: 0.3rem;
+        }
+        @media (max-width: 700px) {
+            .slide { padding: 1.5rem; }
+            .grid-2 { grid-template-columns: 1fr; }
+            h1 { font-size: 1.9rem; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- 课件主体：一元二次方程 · 求根公式（含2道新例题） -->
+<div class="slide">
+    <span class="badge">📘 初中数学 · 九年级</span>
+    <span class="badge">✏️ 一元二次方程</span>
+    <h1>求根公式 · 深度应用</h1>
+    <p style="font-size:1.1rem; color:#334155;">配方法推导 · 判别式 · 典型例题（新增2道）</p>
+
+    <!-- 学习目标 -->
+    <h2>🎯 学习目标</h2>
+    <ul class="learning-objectives" style="list-style-type: '✔️ '; padding-left: 1.5rem;">
+        <li>理解求根公式的推导过程（配方法）</li>
+        <li>熟练使用公式 \(x = \frac{-b \pm \sqrt{b^2-4ac}}{2a}\) 解方程</li>
+        <li>掌握判别式 Δ 与根的关系，灵活选择解法</li>
+        <li><strong>新增：</strong>通过两道典型例题巩固求根公式在复杂系数、含参方程中的应用</li>
+    </ul>
+
+    <!-- 知识点回顾 -->
+    <h2>📌 核心知识点</h2>
+    <div class="formula-box">
+        <div style="font-size:1.3rem; font-weight:600; margin-bottom:0.5rem;">求根公式（一元二次方程 ax²+bx+c=0, a≠0）</div>
+        <div style="font-size:1.5rem; text-align:center;">
+            \( x = \dfrac{-b \pm \sqrt{b^2-4ac}}{2a} \)
+        </div>
+        <div style="margin-top:0.8rem; background:#eef2ff; padding:0.5rem 1rem; border-radius:12px;">
+            <span class="tag">判别式</span> Δ = b² − 4ac <br>
+            • Δ > 0：两个不等实根 &nbsp; • Δ = 0：两个相等实根 &nbsp; • Δ < 0：无实根
+        </div>
+    </div>
+
+    <!-- 例题1 (新增) -->
+    <h2>🧮 例题精讲 · 新增2道</h2>
+    
+    <div class="example">
+        <div class="example-title">例题 1 · 系数为分数/根号</div>
+        <p style="font-size:1.2rem; font-weight:500;">解方程：<strong>\( 2x^2 - 2\sqrt{2}x + 1 = 0 \)</strong></p>
+        <div class="solution">
+            <p><strong>【分析】</strong> a = 2, b = −2√2, c = 1。直接用求根公式。</p>
+            <p>Δ = b² − 4ac = (−2√2)² − 4·2·1 = 8 − 8 = 0</p>
+            <p>因为 Δ = 0，方程有两个相等的实数根：</p>
+            <p style="font-size:1.2rem; background:#e0f2fe; padding:0.4rem 0.8rem; border-radius:10px;">
+                \( x = \dfrac{-b}{2a} = \dfrac{2\sqrt{2}}{4} = \dfrac{\sqrt{2}}{2} \)
+            </p>
+            <p><strong>∴ 根为 \( x_1 = x_2 = \dfrac{\sqrt{2}}{2} \)</strong> （也可写为 \( x = \frac{\sqrt{2}}{2} \)）</p>
+        </div>
+    </div>
+
+    <div class="example">
+        <div class="example-title">例题 2 · 含参数 · 判别式讨论</div>
+        <p style="font-size:1.2rem; font-weight:500;">已知关于 \(x\) 的方程 \( x^2 - (2k-1)x + k^2 - k = 0 \)，<br>求证：无论 \(k\) 取何值，方程总有两个不相等的实数根。</p>
+        <div class="solution">
+            <p><strong>【证明】</strong> a = 1, b = −(2k−1), c = k² − k</p>
+            <p>Δ = b² − 4ac = [−(2k−1)]² − 4·1·(k² − k)</p>
+            <p> = (4k² − 4k + 1) − 4k² + 4k = <span class="highlight">1</span></p>
+            <p>∵ Δ = 1 > 0 恒成立</p>
+            <p><strong>∴ 无论 k 取何值，方程总有两个不相等的实数根。</strong>（求根公式也适用：\(x = \frac{2k-1 \pm 1}{2}\)，得 \(x_1 = k, x_2 = k-1\)）</p>
+        </div>
+    </div>
+
+    <!-- 额外补充一道常规例题（保留原例题风格） -->
+    <h3>📐 经典例题回顾</h3>
+    <div class="example" style="background:#f8fafc;">
+        <div class="example-title">例题 3 · 标准形式</div>
+        <p style="font-size:1.1rem;">解方程：\( 3x^2 - 4x - 2 = 0 \)</p>
+        <div class="solution">
+            <p>a=3, b=−4, c=−2</p>
+            <p>Δ = (−4)² − 4·3·(−2) = 16 + 24 = 40</p>
+            <p>\( x = \dfrac{4 \pm \sqrt{40}}{6} = \dfrac{4 \pm 2\sqrt{10}}{6} = \dfrac{2 \pm \sqrt{10}}{3} \)</p>
+            <p><strong>\( x_1 = \frac{2 + \sqrt{10}}{3}, \quad x_2 = \frac{2 - \sqrt{10}}{3} \)</strong></p>
+        </div>
+    </div>
+
+    <!-- 小结与易错点 -->
+    <h2>📝 小结 & 易错提醒</h2>
+    <div style="display:flex; flex-wrap:wrap; gap:1.2rem;">
+        <div style="flex:1; min-width:200px; background:#eef2ff; border-radius:16px; padding:1rem 1.2rem;">
+            <strong>✅ 使用步骤</strong>
+            <ul style="padding-left:1.2rem; margin-top:0.4rem;">
+                <li>化为一般式 ax²+bx+c=0</li>
+                <li>确定a,b,c（注意符号）</li>
+                <li>计算 Δ = b²−4ac</li>
+                <li>代入公式，化简结果</li>
+            </ul>
+        </div>
+        <div style="flex:1; min-width:200px; background:#fff7ed; border-radius:16px; padding:1rem 1.2rem;">
+            <strong>⚠️ 常见失误</strong>
+            <ul style="padding-left:1.2rem; margin-top:0.4rem;">
+                <li>漏写负号（尤其b为负）</li>
+                <li>Δ<0 时误写实根</li>
+                <li>未约分（如√8 未化为2√2）</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 随堂练习（可选） -->
+    <h2>✏️ 随堂小练</h2>
+    <div style="background:#f1f5f9; border-radius:18px; padding:1.2rem 1.8rem;">
+        <p>1. 用求根公式解：\( x^2 - 5x + 3 = 0 \)</p>
+        <p>2. 解方程：\( 2x^2 + 4x - 1 = 0 \)（结果保留根号）</p>
+        <p style="color:#475569; margin-top:0.6rem;">（答案：1. \(x=\frac{5\pm\sqrt{13}}{2}\)；2. \(x=\frac{-2\pm\sqrt{6}}{2}\)）</p>
+    </div>
+
+    <!-- 下载提示（强制交付） -->
+    <div style="text-align:center; margin-top:2.5rem;">
+        <div style="background:#dbeafe; padding:0.8rem; border-radius:50px; display:inline-block;">
+            📥 完整课件 · 含新增2道例题 · 单文件HTML
+        </div>
+    </div>
+
+    <div class="footer-note">
+        <span style="font-weight:500;">课件 · 一元二次方程求根公式</span> ｜ 新增例题2道 ｜ 可下载独立文件
+    </div>
+</div>
+
+<!-- 说明：交付文件行 -->
+<div style="max-width:1000px; margin: 0 auto 2rem auto; background: #e6f0ff; border-radius: 20px; padding: 1rem 2rem; border: 1px solid #b7d0f0; text-align: center;">
+    <span style="font-weight:700;">交付文件：课件-求根公式例题2道.html</span>  （右键 → 另存为 .html 即可使用）
+</div>
+
+</body>
+</html>

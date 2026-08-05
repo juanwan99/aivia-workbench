@@ -1,9 +1,11 @@
 # 上游版本钉扎
 
 ```
-STATUS: CLAIM-C + CLAIM-C-FIX 绿(mock) · E1 后置 · CLAIM-B NO
+STATUS: CLAIM-D-LITE=YES · CLAIM-C/C-FIX=YES(mock) · E1后置 · CLAIM-B=NO · 正式上线=否
 DATE: 2026-08-06
+ONE_LINE: D-LITE 4会话空成功0已进仓；可内测不可正式上线
 ```
+
 
 | 组件 | 版本 | 日期 | 备注 |
 |------|------|------|------|
@@ -28,3 +30,16 @@ DATE: 2026-08-06
 | R2 G1 | **PASS** |
 | **CLAIM-C-FIX** | **YES** |
 | **CLAIM-B** | **NO** |
+
+## D-PILOT-LITE 出口
+
+| 项 | 结果 |
+|----|------|
+| 会话数 | **4**（≥3） |
+| 空成功 | **0** |
+| S1 HTML / S2 改稿 / S3 教案 / S4 大纲 | **全 PASS** |
+| 产物（进仓） | `ops/evidence/d-pilot-lite/` |
+| RUNBOOK / 报告 | `ops/D-PILOT-RUNBOOK.md` · `ops/D-PILOT-LITE-REPORT.md` |
+| **CLAIM-D-LITE** | **YES** |
+| 正式上线 / CLAIM-B | **NO** |
+
