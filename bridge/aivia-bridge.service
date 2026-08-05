@@ -1,5 +1,5 @@
 [Unit]
-Description=Aivia edu-bridge (MODE=mock) identity/read-only/proposals
+Description=Aivia edu-bridge (MODE=hybrid) identity/read-only/proposals
 After=network-online.target
 Wants=network-online.target
 
@@ -9,16 +9,16 @@ WorkingDirectory=/home/ops/aivia-workbench
 Environment=HOME=/home/ops
 Environment=PATH=/home/ops/.local/bin:/usr/local/bin:/usr/bin:/bin
 EnvironmentFile=-/home/ops/.secrets/bridge.env
-Environment=BRIDGE_HOST=127.0.0.1
+Environment=BRIDGE_HOST=0.0.0.0
+# 0.0.0.0 requires BRIDGE_EXCHANGE_TOKEN (enforced). Cloud SG must not open 18090.
 Environment=BRIDGE_PORT=18090
-Environment=BRIDGE_MODE=mock
+Environment=BRIDGE_MODE=hybrid
+Environment=BRIDGE_JWT_ISS=bridge-hybrid
 Environment=BRIDGE_DATA_DIR=/home/ops/aivia-workbench/bridge/data
 ExecStart=/home/ops/aivia-workbench/bridge/run.sh
-# always: recover from crash and accidental kill (ops revive)
 Restart=always
 RestartSec=2
 KillMode=mixed
-# Do not open public ports; bind stays loopback via BRIDGE_HOST
 
 [Install]
 WantedBy=default.target

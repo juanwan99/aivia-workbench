@@ -1,10 +1,16 @@
 #!/usr/bin/env python3
-"""Aivia edu-bridge (MODE=mock) — identity, read-only, proposals, audit.
+"""Aivia edu-bridge — identity, read-only, proposals, audit.
+
+MODE:
+  mock    — in-memory demo catalog (CLAIM-C)
+  hybrid  — fixture catalog (true structure, not live edu API) + exchange gate
+  real    — live edu-core only-read (exchange still gate; live paths later)
 
 Hard rules:
   - No AI write path to edu business DB
   - No /apply for agents
   - school_id isolation
+  - Never bind public anonymous exchange
 """
 from __future__ import annotations
 
@@ -22,7 +28,7 @@ from urllib.parse import parse_qs, urlparse
 
 import jwt
 
-VERSION = "0.1.1"
+VERSION = "0.2.0"
 WEAK_SECRETS = frozenset(
     {
         "",
@@ -34,35 +40,59 @@ WEAK_SECRETS = frozenset(
     }
 )
 
-MODE = os.environ.get("BRIDGE_MODE", "mock")
+MODE = os.environ.get("BRIDGE_MODE", "mock").strip().lower()
 HOST = os.environ.get("BRIDGE_HOST", "127.0.0.1")
+# comma-separated extra bind addresses (e.g. docker host gateway 172.22.0.1)
+EXTRA_HOSTS = [
+    h.strip()
+    for h in os.environ.get("BRIDGE_EXTRA_HOSTS", "").split(",")
+    if h.strip() and h.strip() != HOST
+]
 PORT = int(os.environ.get("BRIDGE_PORT", "18090"))
 JWT_SECRET = os.environ.get("BRIDGE_JWT_SECRET", "")
-JWT_ISS = os.environ.get("BRIDGE_JWT_ISS", "bridge-mock")
+_DEFAULT_ISS = {
+    "mock": "bridge-mock",
+    "hybrid": "bridge-hybrid",
+    "real": "bridge-real",
+}.get(MODE, "bridge-mock")
+JWT_ISS = os.environ.get("BRIDGE_JWT_ISS", _DEFAULT_ISS)
 JWT_TTL = int(os.environ.get("BRIDGE_JWT_TTL", "3600"))
-# Optional gate for mock /auth/exchange (header X-Bridge-Exchange-Token or body exchange_token)
+# Gate for /auth/exchange (header X-Bridge-Exchange-Token or body exchange_token)
 EXCHANGE_TOKEN = os.environ.get("BRIDGE_EXCHANGE_TOKEN", "").strip()
 DATA_DIR = Path(os.environ.get("BRIDGE_DATA_DIR", str(Path(__file__).resolve().parent / "data")))
 DB_PATH = DATA_DIR / "bridge.sqlite3"
 AUDIT_PATH = DATA_DIR / "audit.jsonl"
+FIXTURE_PATH = Path(
+    os.environ.get(
+        "BRIDGE_HYBRID_FIXTURE",
+        str(Path(__file__).resolve().parent / "data" / "hybrid-fixture.json"),
+    )
+)
 
 
 def require_strong_secret() -> None:
     """F1: refuse to start with missing/weak JWT secret."""
+    if MODE not in ("mock", "hybrid", "real"):
+        raise SystemExit(f"[aivia-bridge] FATAL: BRIDGE_MODE invalid: {MODE!r}")
     if not JWT_SECRET or JWT_SECRET in WEAK_SECRETS or len(JWT_SECRET) < 24:
         raise SystemExit(
             "[aivia-bridge] FATAL: BRIDGE_JWT_SECRET missing or weak. "
             "Set a long random value in ~/.secrets/bridge.env (never commit)."
         )
-    if HOST not in ("127.0.0.1", "localhost", "::1") and not EXCHANGE_TOKEN and MODE == "mock":
-        # non-loopback bind with open mock exchange is a high-risk misconfig
-        print(
-            "[aivia-bridge] WARN: non-loopback bind without BRIDGE_EXCHANGE_TOKEN; "
-            "mock exchange is open to network peers.",
-            flush=True,
+    binds = [HOST, *EXTRA_HOSTS]
+    non_loop = [h for h in binds if h not in ("127.0.0.1", "localhost", "::1")]
+    if non_loop and not EXCHANGE_TOKEN:
+        raise SystemExit(
+            "[aivia-bridge] FATAL: non-loopback bind requires BRIDGE_EXCHANGE_TOKEN "
+            f"(binds={binds}). Refusing open exchange on network peers."
+        )
+    if MODE in ("hybrid", "real") and not EXCHANGE_TOKEN:
+        raise SystemExit(
+            f"[aivia-bridge] FATAL: MODE={MODE} requires BRIDGE_EXCHANGE_TOKEN (no anonymous exchange)."
         )
 
-# Mock catalog (MODE=mock)
+
+# Built-in mock catalog
 MOCK_CLASSES = {
     "school-demo": [
         {"id": "cls-101", "name": "高一(1)班", "grade": "高一"},
@@ -91,6 +121,29 @@ MOCK_COURSES = {
         "eng-1": {"id": "eng-1", "title": "别校英语", "subject": "英语", "outline": ["unit1"]},
     },
 }
+
+
+def _load_catalog() -> tuple[dict[str, list], dict[str, dict]]:
+    """Return (classes_by_school, courses_by_school). hybrid uses fixture file."""
+    if MODE == "mock":
+        return MOCK_CLASSES, MOCK_COURSES
+    if MODE == "hybrid":
+        if not FIXTURE_PATH.exists():
+            raise SystemExit(f"[aivia-bridge] FATAL: hybrid fixture missing: {FIXTURE_PATH}")
+        data = json.loads(FIXTURE_PATH.read_text(encoding="utf-8"))
+        classes = data.get("classes") or {}
+        courses = data.get("courses") or {}
+        if not classes or not courses:
+            raise SystemExit("[aivia-bridge] FATAL: hybrid fixture empty classes/courses")
+        return classes, courses
+    # real: live edu not wired yet — refuse silent full-real claim
+    raise SystemExit(
+        "[aivia-bridge] FATAL: MODE=real requires live edu-core only-read adapter "
+        "(not implemented). Use hybrid until edu API is ready."
+    )
+
+
+CLASSES_BY_SCHOOL, COURSES_BY_SCHOOL = ({}, {})  # filled in main after require
 
 _lock = threading.Lock()
 
@@ -302,24 +355,32 @@ class Handler(BaseHTTPRequestHandler):
         self._json(404, {"error": "not_found", "message": "接口不存在"})
 
     def _auth_exchange(self) -> None:
-        if MODE != "mock":
-            self._json(501, {"error": "not_implemented", "message": "real 模式换票后置"})
+        # mock + hybrid: gated exchange (pilot IdP stand-in). real: not open.
+        if MODE == "real":
+            self._json(
+                501,
+                {
+                    "error": "not_implemented",
+                    "message": "MODE=real 须接 edu IdP/JWT 校验；禁止开放 exchange 冒充 full real",
+                },
+            )
             return
         body = self._read_json()
-        # F1: optional exchange gate
-        if EXCHANGE_TOKEN:
+        # hybrid always requires token; mock requires when configured
+        need_gate = bool(EXCHANGE_TOKEN) or MODE == "hybrid"
+        if need_gate:
             provided = (
                 self.headers.get("X-Bridge-Exchange-Token")
                 or body.get("exchange_token")
                 or ""
             )
-            if str(provided) != EXCHANGE_TOKEN:
-                _audit({"op": "exchange_denied", "reason": "bad_exchange_token"})
+            if not EXCHANGE_TOKEN or str(provided) != EXCHANGE_TOKEN:
+                _audit({"op": "exchange_denied", "reason": "bad_exchange_token", "mode": MODE})
                 self._json(
                     401,
                     {
                         "error": "unauthorized",
-                        "message": "mock 换票需要有效 X-Bridge-Exchange-Token（或 body.exchange_token）",
+                        "message": f"{MODE} 换票需要有效 X-Bridge-Exchange-Token（或 body.exchange_token）",
                     },
                 )
                 return
@@ -331,13 +392,14 @@ class Handler(BaseHTTPRequestHandler):
             self._json(400, {"error": "bad_request", "message": "role 非法"})
             return
         token = issue_token(sub, school_id, role, name)
-        _audit({"op": "exchange", "sub": sub, "school_id": school_id, "role": role})
+        _audit({"op": "exchange", "sub": sub, "school_id": school_id, "role": role, "mode": MODE})
         self._json(
             200,
             {
                 "access_token": token,
                 "token_type": "Bearer",
                 "expires_in": JWT_TTL,
+                "mode": MODE,
                 "principal": {"sub": sub, "school_id": school_id, "role": role, "name": name},
             },
         )
@@ -365,19 +427,49 @@ class Handler(BaseHTTPRequestHandler):
     def _list_classes(self, principal: dict[str, Any], school_id: str) -> None:
         if not self._require_school(principal, school_id):
             return
-        classes = MOCK_CLASSES.get(school_id, [])
-        _audit({"op": "list_classes", "sub": principal["sub"], "school_id": school_id, "n": len(classes)})
-        self._json(200, {"school_id": school_id, "classes": classes})
+        classes = CLASSES_BY_SCHOOL.get(school_id, [])
+        _audit(
+            {
+                "op": "list_classes",
+                "sub": principal["sub"],
+                "school_id": school_id,
+                "n": len(classes),
+                "source": "fixture" if MODE == "hybrid" else MODE,
+            }
+        )
+        self._json(
+            200,
+            {
+                "school_id": school_id,
+                "classes": classes,
+                "source": "hybrid-fixture" if MODE == "hybrid" else MODE,
+            },
+        )
 
     def _get_course(self, principal: dict[str, Any], school_id: str, course_id: str) -> None:
         if not self._require_school(principal, school_id):
             return
-        course = (MOCK_COURSES.get(school_id) or {}).get(course_id)
+        course = (COURSES_BY_SCHOOL.get(school_id) or {}).get(course_id)
         if not course:
             self._json(404, {"error": "not_found", "message": "课程不存在或不在本校范围"})
             return
-        _audit({"op": "get_course", "sub": principal["sub"], "school_id": school_id, "course_id": course_id})
-        self._json(200, {"school_id": school_id, "course": course})
+        _audit(
+            {
+                "op": "get_course",
+                "sub": principal["sub"],
+                "school_id": school_id,
+                "course_id": course_id,
+                "source": "fixture" if MODE == "hybrid" else MODE,
+            }
+        )
+        self._json(
+            200,
+            {
+                "school_id": school_id,
+                "course": course,
+                "source": "hybrid-fixture" if MODE == "hybrid" else MODE,
+            },
+        )
 
     def _create_proposal(self, principal: dict[str, Any]) -> None:
         body = self._read_json()
@@ -510,15 +602,41 @@ class Handler(BaseHTTPRequestHandler):
 
 
 def main() -> None:
+    global CLASSES_BY_SCHOOL, COURSES_BY_SCHOOL
     require_strong_secret()
+    CLASSES_BY_SCHOOL, COURSES_BY_SCHOOL = _load_catalog()
     _ensure_db()
-    httpd = ThreadingHTTPServer((HOST, PORT), Handler)
-    print(
-        f"[aivia-bridge] v{VERSION} MODE={MODE} listen http://{HOST}:{PORT}/bridge/v1/health "
-        f"exchange_token={'on' if EXCHANGE_TOKEN else 'off'}",
-        flush=True,
-    )
-    httpd.serve_forever()
+    # re-read extra hosts at runtime (import-time may miss env race)
+    extra = [
+        h.strip()
+        for h in os.environ.get("BRIDGE_EXTRA_HOSTS", "").split(",")
+        if h.strip() and h.strip() != HOST
+    ]
+    binds = [HOST, *extra]
+    print(f"[aivia-bridge] binds={binds} MODE={MODE}", flush=True)
+    servers: list[ThreadingHTTPServer] = []
+    for h in binds:
+        try:
+            ThreadingHTTPServer.allow_reuse_address = True
+            httpd = ThreadingHTTPServer((h, PORT), Handler)
+        except OSError as e:
+            print(f"[aivia-bridge] FATAL bind {h}:{PORT}: {e}", flush=True)
+            raise
+        servers.append(httpd)
+        t = threading.Thread(target=httpd.serve_forever, name=f"bridge-{h}", daemon=True)
+        t.start()
+        print(
+            f"[aivia-bridge] v{VERSION} MODE={MODE} listen http://{h}:{PORT}/bridge/v1/health "
+            f"exchange_token={'on' if EXCHANGE_TOKEN else 'off'} iss={JWT_ISS}",
+            flush=True,
+        )
+    # keep main thread alive
+    try:
+        while True:
+            time.sleep(3600)
+    except KeyboardInterrupt:
+        for s in servers:
+            s.shutdown()
 
 
 if __name__ == "__main__":

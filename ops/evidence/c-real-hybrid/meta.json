@@ -1,0 +1,17 @@
+{
+  "phase": "PHASE-C-REAL",
+  "mode": "hybrid",
+  "date": "2026-08-06T07:54:22+08:00",
+  "bridge_version": "0.2.0",
+  "claim": "CLAIM-C-REAL(hybrid)",
+  "claim_b": "NO",
+  "e1": "BLOCKED",
+  "smoke_pass": 13,
+  "dify_tool": "aivia_edu_bridge.list_my_classes PASS",
+  "evidence": [
+    "tool-test-list-classes.json",
+    "ce-r1-g1-head.txt",
+    "hybrid-fixture via bridge/data/hybrid-fixture.json"
+  ],
+  "notes": "edu-core BFF /health only; full real deferred"
+}

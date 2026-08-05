@@ -14,17 +14,12 @@
 
 | 项 | 状态 |
 |----|------|
-| 阶段 A 功能 | **绿** |
-| 阶段 B 10 次空成功 | **0** |
-| B-HARDEN 应用侧（H1/H3/H7） | **绿** |
-| DEBT-CLEAR E2–E8 | **应用/回归可报**（E8 空成功 0） |
-| 阶段 C edu 桥 | **CLAIM-C 绿（MODE=mock）** |
-| C-FIX-DEPLOY | **CLAIM-C-FIX 绿**（systemd + smoke） |
-| **D-PILOT-LITE** | **CLAIM-D-LITE 绿**（4 会话 · 空成功 0） |
-| 正式 HTTPS 无警告（E1） | **后置** |
-| **CLAIM-B 教师正式可用** | **否**（E1 后置） |
-| **正式上线** | **否**（试点 ≠ 上线） |
-| **下一刀** | E1 DNS-01（优先）或 real edu 只读 |
+| D-PILOT-LITE | **CLAIM-D-LITE 绿** |
+| C-REAL | **CLAIM-C-REAL(hybrid) 绿** |
+| E1 正式证书 | **BLOCKED（自签）** |
+| **CLAIM-B** | **否** |
+| 正式上线 | **否** |
+| 下一刀 | E1 DNS-01 或 edu live 只读 |
 
 ## 文档
 

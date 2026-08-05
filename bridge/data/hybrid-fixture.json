@@ -1,0 +1,43 @@
+{
+  "mode": "hybrid",
+  "note": "脱敏结构样例 · 非 live edu-core 查询结果 · 用于 CLAIM-C-REAL(hybrid)",
+  "exported_at": "2026-08-06",
+  "classes": {
+    "school-demo": [
+      {"id": "cls-201", "name": "高二(1)班", "grade": "高二", "head_teacher": "张老师"},
+      {"id": "cls-202", "name": "高二(2)班", "grade": "高二", "head_teacher": "李老师"},
+      {"id": "cls-101", "name": "高一(1)班", "grade": "高一", "head_teacher": "王老师"}
+    ],
+    "school-other": [
+      {"id": "cls-x1", "name": "别校一班", "grade": "初二"}
+    ]
+  },
+  "courses": {
+    "school-demo": {
+      "bio-pea": {
+        "id": "bio-pea",
+        "title": "豌豆杂交与遗传规律",
+        "subject": "生物",
+        "grade": "高一",
+        "outline": ["性状分离比", "测交", "基因型推断", "自由组合"]
+      },
+      "math-linear": {
+        "id": "math-linear",
+        "title": "一次函数",
+        "subject": "数学",
+        "grade": "初二",
+        "outline": ["定义", "图像", "应用"]
+      },
+      "cell-struct": {
+        "id": "cell-struct",
+        "title": "细胞结构",
+        "subject": "生物",
+        "grade": "初中",
+        "outline": ["细胞膜", "细胞质", "细胞核"]
+      }
+    },
+    "school-other": {
+      "eng-1": {"id": "eng-1", "title": "别校英语", "subject": "英语", "outline": ["unit1"]}
+    }
+  }
+}

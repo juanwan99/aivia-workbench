@@ -111,7 +111,8 @@ if [[ -n "${BRIDGE_JWT_SECRET:-}" ]]; then
   code=$(python3 - <<'PY'
 import jwt, time, urllib.request, urllib.error, os
 secret=os.environ["BRIDGE_JWT_SECRET"]
-tok=jwt.encode({"sub":"x","school_id":"school-demo","role":"teacher","iss":"bridge-mock","exp":int(time.time())-30}, secret, algorithm="HS256")
+iss=os.environ.get("BRIDGE_JWT_ISS","bridge-hybrid")
+tok=jwt.encode({"sub":"x","school_id":"school-demo","role":"teacher","iss":iss,"exp":int(time.time())-30}, secret, algorithm="HS256")
 base=os.environ.get("BRIDGE_BASE","http://127.0.0.1:18090/bridge/v1")
 req=urllib.request.Request(base+"/me", headers={"Authorization":f"Bearer {tok}"})
 try:
@@ -122,6 +123,21 @@ except urllib.error.HTTPError as e:
 PY
 )
   if [[ "$code" == "401" ]]; then ok "expired token 401"; else bad "expired expected 401 got $code"; fi
+fi
+
+# 9 hybrid fixture classes (if mode hybrid)
+if [[ -n "${TOK:-}" ]]; then
+  code=$(curl -sS -o /tmp/br-cls.json -w '%{http_code}' \
+    "$BASE/schools/school-demo/classes" -H "Authorization: Bearer $TOK" || true)
+  n=$(python3 -c 'import json; print(len(json.load(open("/tmp/br-cls.json")).get("classes") or []))' 2>/dev/null || echo 0)
+  src=$(python3 -c 'import json; print(json.load(open("/tmp/br-cls.json")).get("source",""))' 2>/dev/null || true)
+  if [[ "$code" == "200" && "$n" -ge 1 ]]; then ok "list_classes n=$n src=$src"; else bad "list_classes $code n=$n"; fi
+fi
+
+# 10 optional docker host-gateway (same process dual-bind)
+if [[ -n "${BRIDGE_GATEWAY_BASE:-}" ]]; then
+  code=$(curl -sS -o /tmp/br-gw.json -w '%{http_code}' "${BRIDGE_GATEWAY_BASE}/health" || true)
+  if [[ "$code" == "200" ]]; then ok "gateway health 200"; else bad "gateway health $code"; fi
 fi
 
 note "pass=$pass fail=$fail"

@@ -1,0 +1,6 @@
+{
+  "http": 200,
+  "result": {
+    "result": "{\"school_id\": \"school-demo\", \"classes\": [{\"id\": \"cls-201\", \"name\": \"高二(1)班\", \"grade\": \"高二\", \"head_teacher\": \"张老师\"}, {\"id\": \"cls-202\", \"name\": \"高二(2)班\", \"grade\": \"高二\", \"head_teacher\": \"李老师\"}, {\"id\": \"cls-101\", \"name\": \"高一(1)班\", \"grade\": \"高一\", \"head_teacher\": \"王老师\"}], \"source\": \"hybrid-fixture\"}"
+  }
+}
