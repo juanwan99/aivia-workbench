@@ -22,15 +22,45 @@ from urllib.parse import parse_qs, urlparse
 
 import jwt
 
+VERSION = "0.1.1"
+WEAK_SECRETS = frozenset(
+    {
+        "",
+        "dev-only-change-me-bridge-c",
+        "change-me",
+        "secret",
+        "password",
+        "jwt-secret",
+    }
+)
+
 MODE = os.environ.get("BRIDGE_MODE", "mock")
 HOST = os.environ.get("BRIDGE_HOST", "127.0.0.1")
 PORT = int(os.environ.get("BRIDGE_PORT", "18090"))
-JWT_SECRET = os.environ.get("BRIDGE_JWT_SECRET", "dev-only-change-me-bridge-c")
+JWT_SECRET = os.environ.get("BRIDGE_JWT_SECRET", "")
 JWT_ISS = os.environ.get("BRIDGE_JWT_ISS", "bridge-mock")
 JWT_TTL = int(os.environ.get("BRIDGE_JWT_TTL", "3600"))
+# Optional gate for mock /auth/exchange (header X-Bridge-Exchange-Token or body exchange_token)
+EXCHANGE_TOKEN = os.environ.get("BRIDGE_EXCHANGE_TOKEN", "").strip()
 DATA_DIR = Path(os.environ.get("BRIDGE_DATA_DIR", str(Path(__file__).resolve().parent / "data")))
 DB_PATH = DATA_DIR / "bridge.sqlite3"
 AUDIT_PATH = DATA_DIR / "audit.jsonl"
+
+
+def require_strong_secret() -> None:
+    """F1: refuse to start with missing/weak JWT secret."""
+    if not JWT_SECRET or JWT_SECRET in WEAK_SECRETS or len(JWT_SECRET) < 24:
+        raise SystemExit(
+            "[aivia-bridge] FATAL: BRIDGE_JWT_SECRET missing or weak. "
+            "Set a long random value in ~/.secrets/bridge.env (never commit)."
+        )
+    if HOST not in ("127.0.0.1", "localhost", "::1") and not EXCHANGE_TOKEN and MODE == "mock":
+        # non-loopback bind with open mock exchange is a high-risk misconfig
+        print(
+            "[aivia-bridge] WARN: non-loopback bind without BRIDGE_EXCHANGE_TOKEN; "
+            "mock exchange is open to network peers.",
+            flush=True,
+        )
 
 # Mock catalog (MODE=mock)
 MOCK_CLASSES = {
@@ -123,7 +153,7 @@ def verify_token(token: str) -> dict[str, Any]:
 
 
 class Handler(BaseHTTPRequestHandler):
-    server_version = "aivia-bridge/0.1"
+    server_version = f"aivia-bridge/{VERSION}"
 
     def log_message(self, fmt: str, *args: Any) -> None:
         # quieter access; business audit is separate
@@ -190,7 +220,17 @@ class Handler(BaseHTTPRequestHandler):
             path = "/" + path
 
         if method == "GET" and path in ("/health", "/"):
-            self._json(200, {"ok": True, "service": "aivia-bridge", "mode": MODE, "version": "0.1.0"})
+            self._json(
+                200,
+                {
+                    "ok": True,
+                    "service": "aivia-bridge",
+                    "mode": MODE,
+                    "version": VERSION,
+                    "host": HOST,
+                    "exchange_token_required": bool(EXCHANGE_TOKEN),
+                },
+            )
             return
 
         if method == "POST" and path == "/auth/exchange":
@@ -266,6 +306,23 @@ class Handler(BaseHTTPRequestHandler):
             self._json(501, {"error": "not_implemented", "message": "real 模式换票后置"})
             return
         body = self._read_json()
+        # F1: optional exchange gate
+        if EXCHANGE_TOKEN:
+            provided = (
+                self.headers.get("X-Bridge-Exchange-Token")
+                or body.get("exchange_token")
+                or ""
+            )
+            if str(provided) != EXCHANGE_TOKEN:
+                _audit({"op": "exchange_denied", "reason": "bad_exchange_token"})
+                self._json(
+                    401,
+                    {
+                        "error": "unauthorized",
+                        "message": "mock 换票需要有效 X-Bridge-Exchange-Token（或 body.exchange_token）",
+                    },
+                )
+                return
         sub = str(body.get("sub") or "t-demo")
         school_id = str(body.get("school_id") or "school-demo")
         role = str(body.get("role") or "teacher")
@@ -431,21 +488,36 @@ class Handler(BaseHTTPRequestHandler):
             return
         lines: list[dict[str, Any]] = []
         if AUDIT_PATH.exists():
-            for line in AUDIT_PATH.read_text(encoding="utf-8").splitlines()[-100:]:
+            for line in AUDIT_PATH.read_text(encoding="utf-8").splitlines()[-200:]:
                 try:
                     lines.append(json.loads(line))
                 except Exception:
                     continue
-        # filter to same school when possible
+        # F4: default only same school_id (+ exchange/auth events tagged with school)
         sid = principal["school_id"]
-        filtered = [x for x in lines if x.get("school_id") in (None, sid) or x.get("token_school") == sid]
-        self._json(200, {"events": filtered[-50:]})
+        filtered = []
+        for x in lines:
+            ev_sid = x.get("school_id") or x.get("token_school") or x.get("path_school")
+            if ev_sid is None:
+                # keep global infra events only if op is exchange/auth for this school later
+                if x.get("op") in ("exchange", "exchange_denied", "auth_fail") and x.get("school_id") in (None, sid):
+                    if x.get("school_id") in (None, sid):
+                        filtered.append(x)
+                continue
+            if ev_sid == sid:
+                filtered.append(x)
+        self._json(200, {"school_id": sid, "events": filtered[-50:]})
 
 
 def main() -> None:
+    require_strong_secret()
     _ensure_db()
     httpd = ThreadingHTTPServer((HOST, PORT), Handler)
-    print(f"[aivia-bridge] MODE={MODE} listen http://{HOST}:{PORT}/bridge/v1/health", flush=True)
+    print(
+        f"[aivia-bridge] v{VERSION} MODE={MODE} listen http://{HOST}:{PORT}/bridge/v1/health "
+        f"exchange_token={'on' if EXCHANGE_TOKEN else 'off'}",
+        flush=True,
+    )
     httpd.serve_forever()
 
 

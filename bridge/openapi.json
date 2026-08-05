@@ -2,14 +2,23 @@
   "openapi": "3.0.0",
   "info": {
     "title": "Aivia Edu Bridge",
-    "version": "0.1.0"
+    "version": "0.1.1",
+    "description": "MODE=mock. Default server is loopback; change servers[0].url when deploying for Dify container reachability. Do not expose public anonymous exchange."
   },
   "servers": [
     {
-      "url": "http://172.17.0.1:18090/bridge/v1"
+      "url": "http://127.0.0.1:18090/bridge/v1",
+      "description": "Default host loopback (Dify in Docker cannot reach this; use host gateway only after exchange token + network plan)"
     }
   ],
   "paths": {
+    "/health": {
+      "get": {
+        "operationId": "bridge_health",
+        "summary": "Health",
+        "responses": { "200": { "description": "ok" } }
+      }
+    },
     "/me": {
       "get": {
         "operationId": "bridge_me",
@@ -19,16 +28,10 @@
             "name": "Authorization",
             "in": "header",
             "required": true,
-            "schema": {
-              "type": "string"
-            }
+            "schema": { "type": "string" }
           }
         ],
-        "responses": {
-          "200": {
-            "description": "ok"
-          }
-        }
+        "responses": { "200": { "description": "ok" }, "401": { "description": "unauthorized" } }
       }
     },
     "/schools/{school_id}/classes": {
@@ -36,30 +39,12 @@
         "operationId": "list_my_classes",
         "summary": "本校班级列表",
         "parameters": [
-          {
-            "name": "school_id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
+          { "name": "school_id", "in": "path", "required": true, "schema": { "type": "string" } },
+          { "name": "Authorization", "in": "header", "required": true, "schema": { "type": "string" } }
         ],
         "responses": {
-          "200": {
-            "description": "ok"
-          },
-          "403": {
-            "description": "cross"
-          }
+          "200": { "description": "ok" },
+          "403": { "description": "cross-tenant" }
         }
       }
     },
@@ -68,67 +53,25 @@
         "operationId": "get_course_meta",
         "summary": "课程元数据",
         "parameters": [
-          {
-            "name": "school_id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
+          { "name": "school_id", "in": "path", "required": true, "schema": { "type": "string" } },
+          { "name": "id", "in": "path", "required": true, "schema": { "type": "string" } },
+          { "name": "Authorization", "in": "header", "required": true, "schema": { "type": "string" } }
         ],
-        "responses": {
-          "200": {
-            "description": "ok"
-          }
-        }
+        "responses": { "200": { "description": "ok" } }
       }
     },
     "/proposals": {
       "post": {
         "operationId": "create_proposal",
-        "summary": "创建变更提案（不写edu库）",
+        "summary": "创建变更提案（不写 edu 库）",
         "parameters": [
-          {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
+          { "name": "Authorization", "in": "header", "required": true, "schema": { "type": "string" } }
         ],
         "requestBody": {
           "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object"
-              }
-            }
-          }
+          "content": { "application/json": { "schema": { "type": "object" } } }
         },
-        "responses": {
-          "201": {
-            "description": "pending"
-          }
-        }
+        "responses": { "201": { "description": "pending" } }
       }
     }
   }

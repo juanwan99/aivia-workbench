@@ -1,23 +1,35 @@
-# 正本 · CANON
+# 正本 · CANON（唯一现行口径）
 
 ```
 DOC: docs/CANON.md
-DATE: 2026-08-05
+DATE: 2026-08-06
 STATUS: BINDING
-UPDATED: CLAIM-C 绿(mock) · 下一刀 C-FIX-DEPLOY · E1 后置 · CLAIM-B 否
+UPDATED: CLAIM-C + CLAIM-C-FIX 绿(mock) · E1 后置 · CLAIM-B 否
 ```
 
-## 现行真相
+## 1. 现行真相
 
-1. Dify 1.16.1 + DeepSeek + 现网 Web。  
-2. 默认 Chat：`/chat/lOMVPbz7rZmbJSJl`。  
-3. A/B/Harden/DEBT 应用侧已收。  
-4. **CLAIM-C YES（MODE=mock）**：bridge 身份/只读/提案/审计；**AI 不直写 edu**。  
-5. **下一刀：** `ops/PHASE-C-FIX-DEPLOY-PACK.md`（密钥·烟测·守护部署·Dify挂载）。  
-6. E1 后置；**CLAIM-B NO**。  
-7. real edu / 真 SSO 另卡，未做。  
-8. 密钥/IP 不进仓；OpenWork 二期。  
+1. **Web** + **Dify 1.16.1** + **DeepSeek** + 现网。  
+2. 默认入口：`/chat/lOMVPbz7rZmbJSJl`（可内测）。  
+3. A/B/Harden/DEBT 应用侧 **已收**。  
+4. **E1 正式证书：后置**；CLAIM-B = **NO**。  
+5. **阶段 C：** CLAIM-C 绿（MODE=mock）；**CLAIM-C-FIX 绿**（密钥强制 / smoke / systemd 可复活）。  
+6. bridge：`127.0.0.1:18090` · **禁止公网裸奔**；AI 不直写 edu 库。  
+7. Dify 工具挂载：**书面后置**（容器够不到 loopback）。  
+8. OpenWork 二期；密钥不进仓。  
 
-## 优先级
+## 2. 作废记忆
 
-CANON → HANDOFF → PHASE-C-FIX-DEPLOY-PACK → C-PATH-RUNBOOK / PIN  
+| 错误 | 状态 |
+|------|------|
+| C 完成 = 可对外正式上线 | **作废**（绑 E1） |
+| 弱 JWT 默认可上线 | **作废**（F1 拒绝启动） |
+| Agent 写成绩 | **作废** |
+| OpenWork 主线 | 作废 |
+
+## 3. 优先级
+
+1. CANON  
+2. HANDOFF  
+3. PHASE-C-FIX-DEPLOY-PACK · C-FIX-DEPLOY-RUNBOOK · PIN  
+4. EDU-BRIDGE · PHASE-C-PACK  

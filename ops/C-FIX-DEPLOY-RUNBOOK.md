@@ -1,67 +1,73 @@
 # C 修复完善 + 部署 · 勾选清单
 
-日期：________    执行人：________  
+日期：2026-08-06    执行人：phase-c-fix-deploy（ECS）  
 bridge：`http://127.0.0.1:18090/bridge/v1`  
-版本：________  
+版本：**0.1.1**  
+守护：**systemd --user aivia-bridge**
 
 正文：`ops/PHASE-C-FIX-DEPLOY-PACK.md`
 
 ## F0 真源
 
-- [ ] DEBT-LEDGER / CANON / HANDOFF 指向 FIX-DEPLOY  
-- **结果：** PASS / FAIL  
+- [x] DEBT-LEDGER / CANON / HANDOFF 指向 FIX-DEPLOY  
+- **结果：** **PASS**  
 
 ## F1 密钥
 
-- [ ] 无 secret 启动失败  
-- [ ] 有 secret health 200  
-- [ ] （可选）EXCHANGE_TOKEN 已设  
-- **结果：** PASS / FAIL  
+- [x] 无 secret / 弱 secret 启动失败  
+- [x] 有 secret health 200  
+- [x] `BRIDGE_EXCHANGE_TOKEN` 已设；错误 token exchange **401**  
+- **结果：** **PASS**  
 
 ## F2 Dify
 
-- [ ] 路径甲：工具已挂 · 应用名：________  
-- [ ] 或路径乙：书面后置 Issue  
-- **结果：** PASS / DEFER  
+- [ ] 路径甲：工具已挂  
+- [x] **路径乙：书面后置** — C mock 以 API/Ce/smoke 为准；Dify 容器够不到 loopback:18090，挂载后置 real/专网（**勿** 0.0.0.0 公网）  
+- **结果：** **DEFER（书面）**  
 
 ## F3 烟测
 
-- [ ] `bash bridge/smoke.sh` 退出 0  
-- **结果：** PASS / FAIL  
+- [x] `bash bridge/smoke.sh` 退出 0（11/11）  
+- **结果：** **PASS**  
 
 ## F4 小清理
 
-- [ ] openapi servers  
-- [ ] audit 过滤（若做）  
-- **结果：** PASS / SKIP  
+- [x] openapi servers → `http://127.0.0.1:18090/bridge/v1`  
+- [x] audit 默认本校过滤  
+- [x] 版本 **0.1.1**  
+- **结果：** **PASS**  
 
 ## D1 守护
 
-- [ ] systemd / compose（圈一）：________  
-- [ ] 重启后 health 仍 200  
-- **结果：** PASS / FAIL  
+- [x] systemd user：`aivia-bridge.service`  
+- [x] kill 后 **Restart=always** → 新 PID + health 200  
+
+- **结果：** **PASS**  
 
 ## D2 暴露
 
-- [ ] 默认 127.0.0.1  
-- [ ] 无公网裸 18090  
-- **结果：** PASS / FAIL  
+- [x] 默认 `BRIDGE_HOST=127.0.0.1`  
+- [x] 无公网裸 18090（ss 仅 loopback）  
+- **结果：** **PASS**  
 
 ## D4 回归
 
 | ID | 结果 |
 |----|------|
-| R1 smoke | |
-| R2 G1 | |
-| R3 跨校 403 | |
-| R4 PIN | |
+| R1 smoke | **PASS** |
+| R2 G1 | **PASS** |
+| R3 跨校 403 | **PASS**（smoke） |
+| R4 PIN | **PASS** |
 
 ## CLAIM-C-FIX
 
-- [ ] 可报修复部署绿  
-- [ ] 未勾 CLAIM-B  
-- [ ] 未勾 real edu  
+- [x] 可报修复部署绿  
+- [x] 未勾 CLAIM-B  
+- [x] 未勾 real edu  
 
 ```text
-摘要：日期 / 守护方式 / Dify挂载是否 / smoke / 备注
+摘要：2026-08-06 / systemd-user aivia-bridge / Dify挂载=书面后置 / smoke 11ok / v0.1.1
+CLAIM-C-FIX: YES
+CLAIM-B: NO
+MODE: mock
 ```

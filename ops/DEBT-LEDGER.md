@@ -1,35 +1,20 @@
-# 债务总账
+# 债务总账 · DEBT-LEDGER
 
 ```
-UPDATED: 2026-08-05
+UPDATED: 2026-08-06
 ```
 
-## 已关闭
+| 债 | 状态 | 备注 |
+|----|------|------|
+| A 功能 | **关** | G0–G1+ |
+| B 空成功 | **关** | 10 次 0 |
+| Harden H1/H3/H7 | **关** | 应用硬化 |
+| DEBT E2–E8 | **关** | 应用侧 |
+| **E1 证书** | **后置 OPEN** | DNS-01；CLAIM-B 门 |
+| **C edu 桥 mock** | **关 · CLAIM-C** | Ce 绿 |
+| **C-FIX-DEPLOY** | **关 · CLAIM-C-FIX** | 密钥/烟测/systemd |
+| C real edu | **OPEN 另卡** | PHASE-C-REAL |
+| Dify 工具挂载 | **书面后置** | 容器够不到 loopback |
+| CLAIM-B 教师正式 | **NO** | 绑 E1 |
 
-| ID | 项 |
-|----|-----|
-| A/B/Harden/DEBT 应用 | 已收 |
-| **C mock 契约** | **CLAIM-C YES (MODE=mock)** · Ce 金路径 |
-
-## 进行中
-
-| ID | 项 | 包 |
-|----|-----|-----|
-| **C-FIX-DEPLOY** | 密钥硬化·烟测·守护部署·Dify挂载钉死 | `ops/PHASE-C-FIX-DEPLOY-PACK.md` |
-
-## 后置
-
-| ID | 项 |
-|----|-----|
-| E1 | 正式 HTTPS（业主后置） |
-| C-REAL | 真 edu-core 只读 + 真 IdP |
-| 日 token / storage / DOCX / embedding | 试点前 |
-
-## CLAIM
-
-| 项 | 状态 |
-|----|------|
-| 内测 | YES |
-| CLAIM-C (mock) | **YES** |
-| CLAIM-B 正式教师 | **NO**（E1） |
-| real edu | **NO** |
+**下一刀：** E1 DNS-01（业主）或 PHASE-C-REAL。  
