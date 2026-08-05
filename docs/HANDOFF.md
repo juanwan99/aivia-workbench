@@ -3,17 +3,17 @@
 ```
 DOC: docs/HANDOFF.md
 DATE: 2026-08-05
-STATUS: BINDING · 新窗唯一入口
-FROM: 前总管窗（Pico 收尾 → 曾选 OpenWork → 建仓）
+STATUS: BINDING · 新窗唯一入口（开场先读 docs/CANON.md）
+FROM: 前总管窗（Pico 收尾 → 曾误写 OpenWork 主线 → 已正本清源）
 TO: 新开执行总管窗
-UPDATED: 2026-08-05 · 业主新口径覆盖：主线 = Dify Web + DeepSeek + 现网；OpenWork = 二期可选
+UPDATED: 2026-08-05 · 主线 = Dify Web + DeepSeek + 现网；OpenWork = 二期；见 CANON 作废表
 ```
 
 ---
 
 ## 0. 你是谁 · 怎么接
 
-1. 新开对话，**先读本文全文** + `docs/PROJECT-PLAN.md` + `ops/INFRA.md` + `docs/SELECTION-WEB-v2.md`  
+1. 新开对话，**先读** [`docs/CANON.md`](./CANON.md) + **本文全文** + `docs/PROJECT-PLAN.md` + `ops/INFRA.md`  
 2. 报约 **15 行状态**（见 §5 模板）再干活  
 3. 真源只认：  
    - **主仓：** https://github.com/juanwan99/aivia-workbench  
@@ -21,6 +21,7 @@ UPDATED: 2026-08-05 · 业主新口径覆盖：主线 = Dify Web + DeepSeek + �
    - **旧仓 pico：** https://github.com/juanwan99/pico — **大功能冻结**，仅安全/停机级  
    - **基础设施：** 见 §3.1 / `ops/INFRA.md`（**沿用现有服务器与域名**）  
 4. 禁止：密钥进仓、自 PASS、空成功当绿、再开 Pico 大叙事包、拆 WorkBuddy 闭源、**Dify 与 OpenWork 双主线并列**  
+5. 若记忆/旧评论与 CANON 冲突 → **以 CANON 为准**  
 
 ---
 
@@ -35,14 +36,15 @@ UPDATED: 2026-08-05 · 业主新口径覆盖：主线 = Dify Web + DeepSeek + �
 
 ---
 
-## 2. 为什么离开 Pico · 以及为何不再以 OpenWork 为主线
+## 2. 为什么离开 Pico · 以及为何不以 OpenWork 为主线
 
 | 事实 | 结论 |
 |------|------|
 | Pico 长周期「出文档」不稳、空成功 | 换底座自救 |
-| 产品原定义 = **浏览器/公网工作台** | 与桌面-only 主线不对齐 |
+| 产品原定义 = **浏览器/公网工作台** | 桌面-only 主线不对齐 |
 | 业主要云端优先、挂现网服务器+域名 | 需要 Web 自托管平台 |
-| 选型调查 v2 | **Dify** 更适合作云端主台 |
+| 选型调查 v2 | **Dify** 作云端主台 |
+| 仓内曾短暂写「OpenWork 主线」 | **已正本清源作废**（见 CANON §2） |
 | OpenWork | **二期**本地文件增强，不是默认主入口 |
 
 ---
@@ -60,11 +62,11 @@ UPDATED: 2026-08-05 · 业主新口径覆盖：主线 = Dify Web + DeepSeek + �
 | D7 | WorkBuddy 只作响应逻辑对标 |
 | D8 | OnlyOffice 等云端 Office 精修 = **后置可选**；先模板生成 + 下载 |
 | **D9** | **基础设施：继续用现有服务器 / 公网 IP / 域名**，不强制换机 |
-| **D10** | **OpenWork / 桌面客户端 = 二期可选**，不占主 README/主入口；禁止与 Dify 双主线 |
+| **D10** | **OpenWork / 桌面客户端 = 二期可选**，不占主入口；禁止与 Dify 双主线 |
 
 ### 曾调研但当前不作主底座的
 
-- Open WebUI / LibreChat / FastGPT / n8n 等：可参考或对照 Spike，**主线不是它们**  
+- Open WebUI / LibreChat / FastGPT / n8n 等：可参考，**主线不是它们**  
 - OpenWork / AionUi / Eigent：**二期或备选本地**，不是现在默认入口  
 
 ---
@@ -77,7 +79,7 @@ UPDATED: 2026-08-05 · 业主新口径覆盖：主线 = Dify Web + DeepSeek + �
 |------|------|
 | **机器 / 公网 IP** | **沿用**现有服务器（或同集群） |
 | **域名** | **沿用** `aivia.asia` 体系 |
-| **Dify 跑哪** | **现网 Docker**；主入口建议 `workbench.aivia.asia`（或业主指定子域）→ 反代到 Dify |
+| **Dify 跑哪** | **现网 Docker**；主入口建议 `workbench.aivia.asia` → 反代到 Dify |
 | **pico.aivia.asia** | 过渡保留旧站；大功能冻结 |
 | **OpenWork** | 不占主入口；二期本机可选 |
 | **证书 HTTPS** | 旧域续期；新子域加证书 |
@@ -96,9 +98,10 @@ UPDATED: 2026-08-05 · 业主新口径覆盖：主线 = Dify Web + DeepSeek + �
 
 | 路径 | 用途 |
 |------|------|
+| [docs/CANON.md](./CANON.md) | **正本清源 · 作废表** |
 | [README.md](../README.md) | 总览（Web + Dify + DS） |
 | [docs/PROJECT-PLAN.md](./PROJECT-PLAN.md) | 阶段 A–D |
-| [docs/SELECTION-WEB-v2.md](./SELECTION-WEB-v2.md) | 选型结论（已确认云端优先） |
+| [docs/SELECTION-WEB-v2.md](./SELECTION-WEB-v2.md) | 选型结论 |
 | [docs/ARCHITECTURE.md](./ARCHITECTURE.md) | 分层 |
 | [docs/CHANGE-POLICY.md](./CHANGE-POLICY.md) | 改/不改 |
 | [docs/GOLD-PATHS.md](./GOLD-PATHS.md) | 浏览器金路径 |
@@ -117,8 +120,9 @@ UPDATED: 2026-08-05 · 业主新口径覆盖：主线 = Dify Web + DeepSeek + �
 ```text
 【状态】Aivia Workbench 交接后首报
 主仓: juanwan99/aivia-workbench @ <sha>
+正本: CANON = Dify Web + DeepSeek + 现网
 主底座: Dify pin=<未装则写未装> · 模型 DeepSeek
-基建: 沿用现网 IP/域名（HANDOFF §3.1）；入口 workbench 子域 → Dify
+基建: 沿用现网 IP/域名；入口 workbench 子域 → Dify
 阶段: A 跑通 | 下一刀: 现网 Docker 装 Dify + DS + 浏览器 G1
 已拍板: Web+Dify+DeepSeek；OpenWork=二期；空成功禁止；edu 后置
 阻塞: <无 / 列出>
@@ -133,8 +137,8 @@ UPDATED: 2026-08-05 · 业主新口径覆盖：主线 = Dify Web + DeepSeek + �
 | 项 | 状态 |
 |----|------|
 | 云端 Web 优先口径 | **已确认** |
-| 主底座 Dify | **已定**（选型 v2 + 业主拍板） |
-| 建仓 + 规划文档 | **已按新口径改写** |
+| 主底座 Dify | **已定** |
+| 正本清源（CANON） | **已落盘** |
 | 服务器/域名策略 | **已定：沿用** |
 | 现网安装 Dify | **未做** |
 | DeepSeek 配置 | **未做** |
@@ -161,7 +165,7 @@ UPDATED: 2026-08-05 · 业主新口径覆盖：主线 = Dify Web + DeepSeek + �
 
 ## 8. 任务卡纪律
 
-（格式不变，略；不自 PASS；密钥不进 Issue；工程绿 ≠ 产品绿。）
+不自 PASS；密钥不进 Issue；工程绿 ≠ 产品绿。
 
 ---
 
@@ -174,7 +178,7 @@ UPDATED: 2026-08-05 · 业主新口径覆盖：主线 = Dify Web + DeepSeek + �
 | DeepSeek + 真 Agent/工作流 | 纯闲聊壳 |
 | 中心化知识库/模板 | 只靠老师本机建库 |
 | **沿用现网 IP/域名** | 无必要换机、清空旧服无过渡 |
-| 成品少自焊 | 再堆 Pico 门禁大包 / 乱 fork Dify 核 |
+| 成品少自焊 | 再堆 Pico 大包 / 乱 fork Dify 核 |
 
 ---
 
@@ -186,13 +190,14 @@ UPDATED: 2026-08-05 · 业主新口径覆盖：主线 = Dify Web + DeepSeek + �
 4. 提交 API Key  
 5. 无金路径证据宣称交付完成  
 6. 未备份就下线 pico 域名或清空服务器  
+7. **用已作废记忆（本机 OpenWork 主线）指挥执行**  
 
 ---
 
 ## 11. 给新窗的第一封行动令
 
 ```text
-1) 读 HANDOFF + PROJECT-PLAN + CHANGE-POLICY + INFRA + SELECTION-WEB-v2
+1) 读 CANON + HANDOFF + PROJECT-PLAN + CHANGE-POLICY + INFRA
 2) 按 §5 打状态报告（主底座=Dify Web）
 3) 现网：Docker 装 Dify + DeepSeek + 浏览器 G1
 4) 结果写入 Issue #1 与 upstream/PIN.md
@@ -205,11 +210,11 @@ UPDATED: 2026-08-05 · 业主新口径覆盖：主线 = Dify Web + DeepSeek + �
 
 | 主题 | 位置 |
 |------|------|
+| **正本** | **docs/CANON.md** |
 | Pico 旧交接 | pico#273 |
-| 选型零件/一体调研 | pico#306–308 |
-| **Web 选型 v2** | **docs/SELECTION-WEB-v2.md** |
+| 选型 | docs/SELECTION-WEB-v2.md |
 | 服务器/域名 | §3.1 + ops/INFRA.md |
 
 ---
 
-**交接完成条件：** 新窗已用 §5 打出首报，且承认下一刀 = **现网 Dify + DeepSeek + 浏览器 G1**（不是装 OpenWork 桌面）。
+**交接完成条件：** 新窗已读 CANON，用 §5 打出首报，且承认下一刀 = **现网 Dify + DeepSeek + 浏览器 G1**。
