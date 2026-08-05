@@ -2,8 +2,8 @@
 
 ```
 STATUS: BINDING · 2026-08-05
-对齐: docs/HANDOFF.md §3.1 · D9
-UPDATED: 主入口 workbench 已挂 Dify；正式证书与 WAF 仍 OPEN
+对齐: docs/HANDOFF.md §3.1 · DEBT-CLEAR E1
+UPDATED: 主入口 workbench 已挂 Dify；正式证书 E1 BLOCKED（HTTP-01 外网失败 → DNS-01）
 ```
 
 ## 1. 业主口径
@@ -31,15 +31,17 @@ UPDATED: 主入口 workbench 已挂 Dify；正式证书与 WAF 仍 OPEN
 > **具体公网 IP、SSH、面板账号：不进 Git。** 运维私密持有。  
 > 曾误写入 PIN 的 IP 明文已在收口时清除。
 
-## 4. 证书与可达（残留）
+## 4. 证书与可达（E1）
 
 | 项 | 状态 |
 |----|------|
-| HTTPS | **临时自签** → 待正式证书（DNS-01 或平台证书） |
-| 外网探测 | 可能遇 WAF **403** → 须放行 Host 与健康检查 |
-| 验收 | 浏览器**无证书警告**且能登录、能打开课件应用 |
+| HTTPS | **临时自签**（`/etc/letsencrypt/live/workbench.aivia.asia/` 现为自签占位） |
+| HTTP-01 | **失败**：本机 ACME webroot 有 body；**外网 LE 校验 403/空 body**（路径级阻断） |
+| DNS-01 | **必选路径**：阿里云 DNS（NS=`dns1/2.hichina.com`）+ certbot manual/dns 插件 |
+| 站点可达 | 公网 HTTPS **200**（自签警告下可聊可下载） |
+| 验收 E1 | 浏览器**无证书警告** + 默认 Chat 可开 |
 
-详见 [`ops/PHASE-A-CLOSEOUT.md`](./PHASE-A-CLOSEOUT.md) R-A1 / R-A2。
+详见 [`ops/PHASE-DEBT-CLEAR-PACK.md`](./PHASE-DEBT-CLEAR-PACK.md) E1 · [`ops/DEBT-CLEAR-RUNBOOK.md`](./DEBT-CLEAR-RUNBOOK.md)。
 
 ## 5. 阶段依赖
 

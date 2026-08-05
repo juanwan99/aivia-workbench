@@ -1,172 +1,160 @@
-# 债务清零 + 优化完备包（H2 与后 Harden 全量）
+# 阶段 DEBT-CLEAR 执行包（债务清零 + 优化完备）
 
 ```
-STATUS: BINDING · 当前唯一执行包
+STATUS: BINDING · 债务清零唯一执行包
 DATE: 2026-08-05
-CODE: PHASE-DEBT-CLEAR / PROD-READY-LITE
-对齐: CANON · PHASE-B-CLOSEOUT · B-HARDEN 审查
-前提: A 功能绿 · B 电池空成功0 · 应用硬化 H1/H3/H7 绿
-出口: 债务表全关或书面永久后置 · 可「知悉风险的小范围试用」或「正式证书下教师可用」分层 CLAIM
+对齐: CANON · HANDOFF · PHASE-B-CLOSEOUT · B-HARDEN-RUNBOOK · INFRA
+目标: 清零 A/B/Harden 残留债务；E1 满后方可谈教师正式使用
+对标: 无警告打开 + 真下载 + 配额 + 诚实失败
 ```
 
-> **不要**重装 Dify、重刷完整 10 次 B、开未授权 C、OpenWork 主线。  
-> **要**把审查留下的债与优化项一次做完或显式关闭。
+> 先读 [`docs/CANON.md`](../docs/CANON.md)。**不重做 A/B**；应用硬化（H1/H3/H7）已绿。  
+> 勾选清单：[`ops/DEBT-CLEAR-RUNBOOK.md`](./DEBT-CLEAR-RUNBOOK.md)
 
 ---
 
-## 0. 债务总表（本包范围 = 全部未清项）
+## 0. 债务表 → 执行项
 
-| ID | 债务/优化 | 优先级 | 包 | 关闭标准 |
-|----|-----------|--------|-----|----------|
-| **D1** | 正式 HTTPS（去自签警告） | P0 | E1 | 浏览器无证书警告打开 workbench |
-| **D2** | 公网可达（清 Beaver/WAF 403） | P0 | E1 | 外网浏览器能开默认 Chat 并完成一轮短聊 |
-| **D3** | 日级配额（消息或 token 账单封顶） | P1 | E2 | 有数字 + 超限人话一次 |
-| **D4** | 平台 storage/附件出件（补强 data-URL） | P1 | E3 | 至少 HTML 走文件变量/附件下载一条路径 |
-| **D5** | 教案真 DOCX | P1 | E4 | T4 类话术出 `.docx` 可下载 **或** 永久 MD-only 钉死并改名 skills |
-| **D6** | 大课件 data-URL 体积风险 | P1 | E3 | 超限失败人话；大文件走附件路径 |
-| **D7** | 知识库 embedding/高质量检索 | P2 | E5 | 有 embedding 模型并挂库 **或** 书面 economy 永久 |
-| **D8** | 产物抽检可追溯（样例/清单） | P2 | E6 | Issue 或 `ops/fixtures` 脱敏记录 |
-| **D9** | skills 名实（docx 目录实际 MD） | P2 | E4 | 改名或 README 大字声明 |
-| **D10** | HARDEN-PACK 模板勾选残留误导 | P2 | E0 | 扫尾与 CLOSEOUT 一致 |
-| **D11** | Issue 历史 OpenWork/IP 污染 | P2 | E0 | 置顶真源评论；不删履历 |
-| **D12** | 备份/磁盘/Pico 共存 | P2 | E7 | 备份策略一句话 + 磁盘余量检查 |
-| **OUT** | 阶段 C edu | — | **不做** | 须另授权另卡 |
-| **OUT** | OpenWork 主线 | — | **不做** | 二期 |
+| 债 | 执行 | 优先级 | 可后置？ |
+|----|------|--------|----------|
+| D1/D2 自签 + 公网阻断 | **E1** 正式证书 + 公网非 403 | **P0** | **否**（CLAIM-B 门） |
+| D3 日配额虚 | **E2** 日消息/token 或等价 + 超限人话 | P1 | 仅账单级可后置并书面 |
+| D4/D6 附件/大文件 | **E3** storage 升档或 data-URL 正式 + 大文件策略 | P1 | storage 可后置；策略必写 |
+| D5/D9 教案 DOCX | **E4** DOCX 或 **永久 MD** + skills 名实 | P1 | DOCX 可永久后置 |
+| D7 知识库 | **E5** embedding 或 economy 永久 | P2 | 可书面 economy |
+| D8 证据 | **E6** 抽检证据 | P2 | 否（本阶段必记） |
+| D10/D11 治理 | **E0** 真源扫尾 | P0 文档 | 否 |
+| D12 运维 | **E7** 备份/磁盘/Pico | P2 | 否（本阶段必记） |
+| 回归 | **E8** V1–V8 空成功 0 | P0 出口 | 否 |
 
 ---
 
-## 1. 工作包（按序；可同日串行）
+## 1. CLAIM 分层
 
-### E0 · 治理扫尾（30–60 min）
+| CLAIM | 条件 |
+|-------|------|
+| **CLAIM-A 债务清零** | **E1 必满**；E2–E7 做完或**书面后置**（仅允许 P2/策略项） |
+| **CLAIM-B 教师正式可用** | **仅** E1 满 + 默认 Chat 可打开 + 下载可用 |
+| 阶段 C | **另授权** · 本包不做 |
 
-1. Issue #1 置顶/最新评论：现行下一刀 = 本包；旧 OpenWork 评论仅履历  
-2. `PHASE-B-HARDEN-PACK` 顶部加 STATUS：应用硬化已完成，剩余见本包  
-3. 确认 CANON/HANDOFF 指向 `PHASE-DEBT-CLEAR-PACK`  
-
-### E1 · 入口生产化（D1+D2 · P0 · 必须）
-
-**证书（D1）**
-
-- DNS-01（推荐，绕开 HTTP-01 403）或云厂商证书挂到 workbench 反代  
-- 验收：Chrome/Safari **无**「不安全/自签」警告  
-
-**公网（D2）**
-
-- 放行 WAF/Beaver：Host `workbench.aivia.asia`、必要 path、健康检查  
-- 验收：
-  1. 外网 `https://workbench.aivia.asia/` 非 403  
-  2. 打开 `.../chat/lOMVPbz7rZmbJSJl` 能对话  
-  3. 短聊 G0b 或一句话要课件仍可下载  
-
-**E1 绿** = D1+D2 全过 → 才允许「教师正式使用」话术。  
-**E1 失败** = 保持「内测/自签范围」，不得假绿。
-
-### E2 · 账单级配额（D3 · P1）
-
-在现有 `max_active_requests=8` + nginx 30r/m 之上增加至少一项：
-
-| 选项 | 示例起点（可调，记 Issue） |
-|------|---------------------------|
-| 工作空间/应用日消息上限 | 如 200～500 条/日 |
-| 用户级日限额（若 Dify 支持） | 试点数字 |
-| 超限文案 | 「今日额度已用完，请联系管理员」 |
-
-验收：配置落盘（无密钥）+ **触发或模拟一次**超限人话。  
-与 H3 关系：H3=防打爆；E2=防烧钱。
-
-### E3 · 交付路径升档（D4+D6 · P1）
-
-目标：减少对「巨型 data-URL」的依赖。
-
-1. 调研 Dify 1.16 Chatflow 文件变量 / 工具写文件 / 消息附件  
-2. 实现 **一条** HTML → 平台文件或可点附件下载主路径  
-3. data-URL 可保留为降级  
-4. 超大输出：明确失败或切附件，禁止静默截断装成功  
-
-回归：R1（新下载路径）+ R2 改稿 + 一次故意超大/失败。
-
-### E4 · 教案 DOCX 或永久 MD（D5+D9 · P1）
-
-**二选一（必须选，禁止含糊）：**
-
-- **路径甲：** 出可下载 `.docx`（转换节点或工具），T4 回归 PASS  
-- **路径乙：** 永久 v0.x=MD；更新 `skills/lesson-plan-docx` 为 lesson-plan（或 README 大字「非 DOCX」）；CANON 一句  
-
-### E5 · 知识库（D7 · P2）
-
-- 配 embedding（若有 DeepSeek/其它 embedding 可用）→ high_quality 库  
-- 或书面：**economy 永久**，模板靠系统提示  
-
-### E6 · 证据（D8 · P2）
-
-- Issue 表：样例文件名 + 可开 + 下载方式（data-URL/附件）  
-- 可选：`ops/fixtures/sample-courseware-shell.html` 无版权壳  
-
-### E7 · 运维稳态（D12 · P2）
-
-- 磁盘余量、Docker 日志轮转、Pico 域名仍在、备份是否存在（有/无/计划）  
-- 禁止无备份拆 pico  
-
-### E8 · 总回归（债务清零验收）
-
-| # | 项 | 过线 |
-|---|-----|------|
-| V1 | 无证书警告打开默认 Chat | E1 |
-| V2 | 外网非 403 | E1 |
-| V3 | 一句话课件真下载 | E3/H1 |
-| V4 | 改稿仍有文件 | |
-| V5 | 失败不假绿 | |
-| V6 | 超限/配额人话（若 E2 做了） | |
-| V7 | 教案路径与书面 scope 一致 | E4 |
-| V8 | 空成功（本回归）= 0 | |
+**禁止：** E1 未满宣称教师正式上线；重刷完整 B；OpenWork 主线；动 Dify 核。
 
 ---
 
-## 2. 完成定义（分层 CLAIM）
+## 2. 工作包
 
-### CLAIM-A · 债务清零（本包绿）
+### E0 · 真源扫尾
+
+- [ ] 本 PACK + DEBT-CLEAR-RUNBOOK 落盘  
+- [ ] CANON / HANDOFF / README / PIN / INFRA 指向 DEBT-CLEAR  
+- [ ] Issue #1 标题/评论与本包一致  
+
+### E1 · 正式证书 + 公网（P0）
 
 ```text
-[ ] E0 治理扫尾
-[ ] E1 D1+D2 PASS（正式证书 + 公网可聊）
-[ ] E2 日配额 PASS 或书面「试点前数字」+ 临时沿用 H3（须 Issue 钉死日期）
-[ ] E3 附件路径 PASS 或书面「data-URL 为正式主路径」+ 大文件失败策略
-[ ] E4 DOCX 或永久 MD 钉死
-[ ] E5/E6/E7 做完或书面后置
-[ ] E8 V1–V8 空成功 0
-[ ] PIN + DEBT-CLEAR-RUNBOOK + Issue 回写
-[ ] 未宣称 C；无密钥/IP 进仓
+[ ] 浏览器无证书警告打开 https://workbench.aivia.asia
+[ ] 公网可开默认 Chat（非 403）
+[ ] 优先：DNS-01（阿里云 DNS）或云厂商证书
+[ ] 备选：HTTP-01（历史：外网 LE 校验 403 / 空 body；需 WAF 放行）
+[ ] Issue 留「E1 PASS」或「E1 BLOCKED + 解锁步骤」
 ```
 
-### CLAIM-B · 教师正式可用（更严）
+**现网事实（2026-08-05 执行窗）：**
 
-- CLAIM-A 中 **E1 必须满**  
-- 默认 Chat 无警告、外网可进、下载可用  
-- 仍 **不含** edu 身份（C）  
+- 证书仍为**自签**（CN=workbench.aivia.asia）  
+- 本机/环回访问 ACME webroot **有 body**；**外网 LE 校验点返回 403/空 body**  
+- HTTP-01 在现网 **不可靠** → **必须 DNS-01 或平台证书**  
+- 无 ECS 上阿里云 DNS AK（策略禁止长驻 AK）；需业主 DNS API 或手工 TXT  
 
-### 允许的「书面永久后置」（须进 CLOSEOUT）
+### E2 · 日配额
 
-仅限 P2：embedding、fixtures、DOCX（若选乙）、storage 附件（若选 data-URL 正式）。  
-**D1/D2 不允许永久后置。**
+| 旋钮 | 试点起点（可调，须记 Issue） |
+|------|------------------------------|
+| 并发 | `max_active_requests=8`（已 Harden） |
+| 频控 | nginx `30r/m/IP` burst 20（已 Harden） |
+| 日 token/消息账单级 | **可后置**，须书面；超限人话已有 429 JSON |
+
+**验收：** 配置数字进 Issue；至少一次超限/失败人话可演示。
+
+### E3 · 附件 / 大文件
+
+| 选项 | 说明 |
+|------|------|
+| **正式 data-URL**（现行） | Code 节点 `DOWNLOAD_READY` + 点击下载；满足 CLAIM-B 下载门 |
+| storage 附件升档 | 后置；勿 fork 核 |
+| 大文件 | `client_max_body_size 100M`；课件建议 &lt;2MB；过大拆分/压缩 |
+
+禁止口头说「平台附件」而实际仅代码墙。
+
+### E4 · 教案
+
+- **永久 scope（v0.x）：Markdown only**  
+- DOCX 后置；`skills/lesson-plan-docx` 已写明  
+- 禁止终态写「已生成 Word」  
+
+### E5 · 知识库
+
+- 现行：`Aivia课件结构模板` · **economy**  
+- 无 embedding 前 **economy 为永久口径**；上 embedding 再升 high_quality  
+
+### E6 · 证据
+
+- 服务器产物目录抽检 ≥2 HTML + 1 教案 MD  
+- 元数据进 Issue；全文不进 Git  
+
+### E7 · 运维
+
+- 磁盘余量、Pico 仍可访问、备份策略一句  
+- 禁止无备份拆 Pico 域名  
+
+### E8 · 总回归 V1–V8
+
+| # | 话术意图 | 期望 |
+|---|----------|------|
+| V1 | 新主题 HTML 下载 | DOWNLOAD_READY |
+| V2 | 同会话改稿 | 仍有文件 |
+| V3 | 只要大纲 | 无假文件 |
+| V4 | 故意不可能任务 | 明确失败 |
+| V5 | 极短「课件」 | 出件或澄清 1 次后出件 |
+| V6 | 教案 MD | 可下载/完整 MD |
+| V7 | 教案改稿 | 仍有产物 |
+| V8 | 另一主题 HTML | DOWNLOAD_READY |
+
+**空成功 = 0。**
 
 ---
 
-## 3. 禁止
+## 3. 完成定义
 
-- 重装 Dify / 重刷 10 次 B 刷指标  
-- OpenWork 主线 / 双入口  
-- 未授权 C  
-- E1 未过宣称教师正式上线  
-- 密钥、公网 IP 进 Git  
+```text
+[ ] E0 真源同步
+[ ] E1 正式证书无警告 + 公网可开  —— CLAIM-B 门
+[ ] E2 配额口径书面 + 超限人话
+[ ] E3 出件形态书面（data-URL 正式 / storage 后置）+ 大文件策略
+[ ] E4 MD 永久或 DOCX 实做
+[ ] E5 economy 永久或 embedding
+[ ] E6 证据记录
+[ ] E7 运维记录
+[ ] E8 空成功 0
+[ ] RUNBOOK + PIN + Issue 回写（无 Key / 无公网 IP）
+```
 
 ---
 
-## 4. 关联
+## 4. 不做
+
+- 重装 Dify / 重刷完整 10 次 B  
+- OpenWork 主线  
+- 未授权 C / edu 写库  
+- E1 未满假上线  
+- 密钥进仓  
+
+## 5. 关联
 
 | 文件 | 用途 |
 |------|------|
 | `ops/DEBT-CLEAR-RUNBOOK.md` | 勾选 |
-| `ops/PHASE-B-CLOSEOUT.md` | 历史残留 |
-| `ops/PHASE-A-CLOSEOUT.md` | 证书同源 |
-| `ops/INFRA.md` | 域名/反代 |
-| `upstream/PIN.md` | 出口 |
+| `ops/PHASE-B-CLOSEOUT.md` | Harden 残留 |
+| `ops/B-HARDEN-RUNBOOK.md` | H1/H3/H7 已绿 |
+| `ops/INFRA.md` | 证书/域名 |
+| `upstream/PIN.md` | 版本钉 |
