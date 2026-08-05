@@ -3,7 +3,7 @@
 ```
 主线组件：Dify（Web）
 OpenWork：optional / 二期
-STATUS: 阶段 A 功能出口已记 · 入口硬化见 ops/PHASE-A-CLOSEOUT.md
+STATUS: 阶段 A 功能出口已记 · 阶段 B 纪律出口 2026-08-05 · 入口硬化见 ops/PHASE-A-CLOSEOUT.md
 ```
 
 | 组件 | 版本 / 镜像 tag | 日期 | 备注 |
@@ -23,8 +23,17 @@ STATUS: 阶段 A 功能出口已记 · 入口硬化见 ops/PHASE-A-CLOSEOUT.md
 | 默认入口 | **PASS** · 应用「Aivia 课件（阶段A）」agent-chat · site code `dV3HeqgfVt4Xmm7f` |
 | G1 | **PASS** · 产物 `g1-pea-hybrid.html` |
 | G1+ | **PASS** · 产物 `g1plus-pea-hybrid-with-quiz.html`（同会话改稿，含练习） |
-| G4 | **未测** · 记入残留风险 |
+| G4 | **PASS**（B0 补测） |
 | HTTPS | **临时自签** · LE HTTP-01 外网校验失败；正式证书待办 |
 | 公网可达 | **有隐患** · 外网探测曾见 WAF/反代 403；须运维确认浏览器真实可达 |
+
+## 阶段 B 出口（2026-08-05）
+
+| 项 | 结果 |
+|----|------|
+| 默认应用 | **Aivia 课件**（advanced-chat / Chatflow）· 公开 `https://workbench.aivia.asia/chat/lOMVPbz7rZmbJSJl` |
+| 10 次电池空成功 | **0** |
+| B0–B5 | **全 PASS**（B3 配额数字为起点，试点前可再调） |
+| 产物目录 | 服务器 `/home/ops/aivia-phase-b-artifacts/`（无 Key） |
 
 更新主线上游前：跑浏览器 G1/G2，失败则回退 PIN。
