@@ -1,26 +1,31 @@
-# Aivia Workbench · 项目总规划 v0.8
+# Aivia Workbench · 项目总规划 v0.9
 
 ```
 STATUS: BINDING · 2026-08-05
-UPDATED: E1 业主后置；应用侧已收；C 授权后；D 在 E1 后
+UPDATED: 阶段 C 已授权 · 执行 PHASE-C-PACK · E1 后置
 ```
 
 ## 阶段
 
 | 阶段 | 状态 |
 |------|------|
-| A / B / Harden / DEBT 应用 | **已收** |
-| E1 正式证书 | **后置**（包保留） |
-| C edu | 授权后 |
-| D 试点 | **建议 E1 之后** |
+| A/B/Harden/DEBT 应用 | 已收 |
+| E1 证书 | 后置 |
+| **C edu 桥** | **当前主战场** |
+| D 试点 | E1 建议先过 + C 基本绿 |
+
+## C 交付摘要
+
+身份 Principal → 只读工具 → 提案人审 → Ce 金路径。  
+详见 `ops/PHASE-C-PACK.md`。对标一线：租户隔离、角色、审计、AI 不直写核心库。
 
 ## 里程碑
 
-- [x] M0–M3 应用侧  
-- [ ] M2b/E1 正式 HTTPS（**后置**）  
-- [ ] M4 edu（授权）  
+- [x] M0–M3 应用  
+- [ ] M2b/E1（后置）  
+- [ ] **M4 edu 桥（C）**  
 - [ ] M5 试点  
 
-## 近期
+## 下一刀
 
-无强制刀。可选：E1 · 授权 C · 小优化。正式话术仍绑 E1。
+`ops/PHASE-C-PACK.md` · `ops/C-PATH-RUNBOOK.md` · `docs/EDU-BRIDGE.md`

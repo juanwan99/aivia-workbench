@@ -1,8 +1,8 @@
 # 架构 · Aivia Workbench
 
 ```
-STATUS: v0.2 · 对齐 Dify Web 主台 + 薄自建层
-UPDATED: 2026-08-05 · OpenWork 桌面不进主拓扑（脚注二期）
+STATUS: v0.3 · Dify Web 主台 + bridge L7
+UPDATED: 2026-08-05 · 阶段 C 授权 · edu 桥进拓扑
 ```
 
 ## 1. 总图（主线）
@@ -11,80 +11,62 @@ UPDATED: 2026-08-05 · OpenWork 桌面不进主拓扑（脚注二期）
 ┌──────────────────────────────────────────────────────────┐
 │  L1  壳 UI          Dify Web（浏览器；反代子域）           │
 ├──────────────────────────────────────────────────────────┤
-│  L2  控制/会话      Dify 应用 / 会话 / 工作空间           │
+│  L2  控制/会话      Dify 应用 / 会话 / Principal 注入     │
 ├──────────────────────────────────────────────────────────┤
-│  L3  Agent 核       Dify Agent + 工作流画布（不乱 fork）  │
+│  L3  Agent 核       Dify Agent + 工作流（不乱 fork）       │
 ├──────────────────────────────────────────────────────────┤
-│  L4  工具/知识      工具调用 · 知识库/模板（平台治理）    │
+│  L4  工具/知识      课件工具 · 知识库 · **bridge 只读/提案**│
 ├──────────────────────────────────────────────────────────┤
-│  L5  产物           生成文件 → 可下载 Artifact            │
+│  L5  产物           可下载 Artifact（交付纪律）            │
 ├──────────────────────────────────────────────────────────┤
 │  L6  模型           DeepSeek API                          │
 ├──────────────────────────────────────────────────────────┤
-│  L7  业务           edu-core ← bridge/（后置）            │
+│  L7  业务           edu-core ◄── bridge/（鉴权·隔离·提案） │
 └──────────────────────────────────────────────────────────┘
 
-部署：现有服务器 Docker Compose + HTTPS 反代
+AI 路径 ──X──► edu 写库
+人审路径 ────► proposal apply ──► edu 写（非模型）
 ```
 
-> **脚注（二期，非主拓扑）：** OpenWork / 其他桌面客户端可用于本地深文件处理；不替代 L1 主入口。
+> 脚注：OpenWork 桌面二期，不进主入口。
 
-## 2. 七层与 Dify 覆盖
+## 2. 七层
 
-| 层 | 职责 | 主实现 |
-|----|------|--------|
-| L1–L3 | UI、会话、Agent/工作流 | **Dify 大量覆盖** |
-| L4 | 工具、知识库、模板 | Dify 能力 + 本仓应用设计 |
-| L5 | 可下载产物 | 工作流强制出件 + 交付规则 |
-| L6 | 模型 | DeepSeek 供应商配置 |
-| L7 | 业务身份/数据 | 后置 `bridge/`；AI 不直写 |
+| 层 | 主实现 |
+|----|--------|
+| L1–L3 | Dify |
+| L4 | Dify 工具 + **bridge API** |
+| L5 | 工作流出件 + 下载纪律 |
+| L6 | DeepSeek |
+| L7 | edu-core 真源；**本仓仅 bridge** |
 
-强编码 Agent（如服务端 OpenCode / OpenHands）可 **侧挂**，后置评估，不当教师唯一门户。
+## 3. 对象
 
-## 3. 逻辑对象
+App / Session / ToolCall / Artifact / Knowledge / **Principal** / **Proposal**
 
-| 对象 | 含义 |
-|------|------|
-| App / Workflow | Dify 应用或画布流程 |
-| Session | 一次用户对话/任务 |
-| ToolCall | 检索/生成/导出等 |
-| Artifact | **可下载**文件（必须可定位） |
-| Knowledge | 中心知识库/模板 |
-| Principal | 后置：school + membership |
+## 4. 硬规则
 
-## 4. 响应逻辑硬规则（BINDING）
+RESPONSE-LOGIC + DELIVERY-RULES；另：**无 Principal 越权读；无 Agent 直写。**  
+详见 `docs/EDU-BRIDGE.md` · `ops/PHASE-C-PACK.md`。
 
-见 [RESPONSE-LOGIC.md](./RESPONSE-LOGIC.md) 与 [DELIVERY-RULES.md](./DELIVERY-RULES.md)。
+## 5. WorkBuddy 向映射（clean-room）
 
-- 交付类意图无 Artifact → 不得成功  
-- 工具/工作流出件优先于纯文本长贴  
-- 中心模板优于老师本机散落文件  
+| 思路 | 本方案 |
+|------|--------|
+| 工作区边界 | school_id 租户 |
+| 连接器 | bridge 白名单 |
+| 写盘/产物 | Artifact 下载 |
+| 权限 | role + 人审提案 |
 
-## 5. 与 WorkBuddy 映射（clean-room）
-
-| WB 思路 | 本方案 |
-|---------|--------|
-| 壳 + 会话 | Dify Web |
-| Agent serve | Dify Agent/工作流 |
-| 写盘 + 呈现文件 | 工具/节点 → 下载 |
-| 工作区边界 | 应用与权限边界 |
-| 模型 | DeepSeek |
-| 连接器 | 工具 + 后置 edu 桥 |
-
-## 6. 部署形态
+## 6. 部署
 
 | 阶段 | 形态 |
 |------|------|
-| A/B | **现网 Dify Web**（主） |
-| C+ | edu 身份桥挂同机或侧车 |
-| D+ | 可选本地桌面增强；OnlyOffice 可选 |
+| A/B | Dify Web |
+| **C** | + bridge 侧车同机或旁路 |
+| D | 试点；E1 证书建议先过 |
 
-## 7. 本仓代码边界
+## 7. 本仓边界
 
-| 目录 | 允许 |
-|------|------|
-| `ops/` | 安装、基建、环境样例 |
-| `skills/` / 应用导出 | 课件/教案类资产与提示 |
-| `bridge/` | edu 适配 |
-| `docs/` | 真源规划 |
-| 禁止 | 无说明大改 Dify 核；密钥进仓 |
+`ops/` · `skills/` · **`bridge/`** · `docs/`  
+禁止：无说明改 Dify 核；密钥进仓；Agent 直写 edu。

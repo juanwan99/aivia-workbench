@@ -1,32 +1,31 @@
-# 债务总账（唯一台账）
+# 债务总账
 
 ```
 UPDATED: 2026-08-05
-业主决定: E1 正式 HTTPS **后置**（非取消）
+E1: 后置 · C: 已授权进行中
 ```
 
 ## 已关闭
 
-| ID | 项 | 证据 |
+A/B/Harden/DEBT 应用侧（见历史 PIN/RUNBOOK）。
+
+## 进行中
+
+| ID | 项 | 状态 |
 |----|-----|------|
-| A / B / Harden / DEBT 应用侧 | 功能·纪律·下载·回归 | PIN / RUNBOOK |
-| E2–E8 应用与书面后置 | 限流/MD/economy 等 | DEBT-CLEAR |
+| **C** | edu 身份桥 | **AUTHORIZED · PHASE-C-PACK** |
 
-## 开放 · 业主后置
+## 后置
 
-| ID | 项 | 状态 | 说明 |
-|----|-----|------|------|
-| **E1** | 正式 HTTPS + 公网复验 | **DEFERRED** | 包仍在 `ops/PHASE-E1-PACK.md`；**随时可做** |
-| 日 token / storage / DOCX / embedding | 后置 | 试点前再开 |
-| **C edu** | 须**另授权** | 未开 |
+| ID | 项 |
+|----|-----|
+| E1 | 正式 HTTPS |
+| 日 token / storage / DOCX / embedding | 试点前 |
 
-## CLAIM（不因后置 E1 而放宽）
+## CLAIM
 
-| CLAIM | 状态 |
-|-------|------|
-| 内测 / 知悉自签可用 | **YES** |
-| CLAIM-A 债务清零 | **NO**（E1 未做） |
-| CLAIM-B 教师正式可用 | **NO**（E1 未做） |
-
-**禁止：** 因「E1 后置」对外说正式上线。  
-**允许：** 继续内测、改应用提示、等授权再开 C 或做 E1。
+| 项 | 状态 |
+|----|------|
+| 内测 | YES |
+| CLAIM-B 正式教师 | NO（E1） |
+| CLAIM-C | 待 Ce 金路径 |
