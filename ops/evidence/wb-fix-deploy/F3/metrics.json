@@ -1,0 +1,1 @@
+{"ok": true, "metrics": {"dl_put_ok": 12, "dl_put_denied": 0, "dl_put_quota_block": 0, "dl_get_ok": 10, "empty_success": 1, "fail": 0, "refuse_write": 1, "by_day": {"2026-08-06": {"empty_success": 1, "refuse_write": 1, "dl_put_ok": 12, "dl_get_ok": 10, "ok_outline": 2}}, "ok_outline": 2, "dl_put_today": 12, "dl_daily_max": 200, "policy": "write-deny-edu-db"}, "version": "0.2.2"}

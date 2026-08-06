@@ -1,0 +1,93 @@
+## 交付清单
+| # | 文件名 | 类型 | 下载 |
+|---|--------|------|------|
+| 1 | 课件-一次函数.html | text/html | [点击下载](https://workbench.aivia.asia/dl/6ae596d60d5b40888b92b44eef42e8b7/file.html) |
+
+DOWNLOAD_READY
+
+- **文件名**：课件-一次函数.html
+- **HTTPS**：https://workbench.aivia.asia/dl/6ae596d60d5b40888b92b44eef42e8b7/file.html
+- **主路径**：https 文件 URL（非 data-URL）
+
+[点击下载 课件-一次函数.html](https://workbench.aivia.asia/dl/6ae596d60d5b40888b92b44eef42e8b7/file.html)
+
+<details><summary>内容预览（备用）</summary>
+
+```html
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>初中数学 · 一次函数 | 交互课件</title>
+  <!-- 清爽风格，适合课堂演示 -->
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Roboto, 'Helvetica Neue', system-ui, sans-serif;
+      background: linear-gradient(145deg, #f5f9ff 0%, #e9f0fa 100%);
+      min-height: 100vh;
+      padding: 2rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .slide-container {
+      max-width: 1100px;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(6px);
+      border-radius: 42px;
+      box-shadow: 0 20px 40px -12px rgba(0, 20, 60, 0.25), 0 8px 20px rgba(0, 0, 0, 0.05);
+      padding: 2.2rem 2.5rem;
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      transition: all 0.2s;
+    }
+    h1 {
+      font-size: 2.4rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #1e3c72, #2a5298);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 0.4rem;
+      letter-spacing: -0.5px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border-bottom: 3px solid #b0c9e8;
+      padding-bottom: 0.5rem;
+    }
+    h1 small {
+      font-size: 1rem;
+      font-weight: 400;
+      background: #d9e6ff;
+      color: #1e3c72;
+      padding: 0.2rem 1rem;
+      border-radius: 40px;
+      -webkit-text-fill-color: #1e3c72;
+      letter-spacing: 0.3px;
+    }
+    .subhead {
+      color: #2c3e50;
+      font-size: 1.1rem;
+      margin-bottom: 1.8rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .badge {
+      background: #1e3c72;
+      color: white;
+      padding: 0.25rem 1.2rem;
+      border-radius: 30px;
+      font-size: 0.85rem;
+      font-weigh
+```
+
+</details>

@@ -1,12 +1,13 @@
 # 任务包 · WB-FIX-DEPLOY（ALIGN 后修复 + 现网部署）
 
 ```
-STATUS: BINDING · 单包单卡 · 无人值守分阶段自审
+STATUS: DONE · CLAIM-WB-FIX-DEPLOY=YES · 正式上线=否
 DATE: 2026-08-06
 CODE: PHASE-WB-FIX-DEPLOY
 前提: CLAIM-WB-ALIGN=YES（有条件）· 正式上线=否
 执行窗: 本机 Grok + SSH 云端 + 本机浏览器/Office
 目的: 消化深度审查残留 · 把「等价偏弱」做硬 · 部署到现网可演示 · 再回归
+产出: evidence/wb-fix-deploy · NOTES · REPORT · workflow=fix-deploy
 ```
 
 > **不是重开全量对标。** 范围 = 审查点名的修复 + 现网部署验收。  

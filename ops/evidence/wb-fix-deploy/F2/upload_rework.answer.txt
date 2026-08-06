@@ -1,0 +1,97 @@
+## 交付清单
+| # | 文件名 | 类型 | 下载 |
+|---|--------|------|------|
+| 1 | 课件.html | text/html | [点击下载](https://workbench.aivia.asia/dl/b635f6a37b624f0b8c8274d753d0f67e/file.html) |
+
+DOWNLOAD_READY
+
+- **文件名**：课件.html
+- **HTTPS**：https://workbench.aivia.asia/dl/b635f6a37b624f0b8c8274d753d0f67e/file.html
+- **主路径**：https 文件 URL（非 data-URL）
+
+[点击下载 课件.html](https://workbench.aivia.asia/dl/b635f6a37b624f0b8c8274d753d0f67e/file.html)
+
+<details><summary>内容预览（备用）</summary>
+
+```html
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>人工智能与未来教育 · 一页课件</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: linear-gradient(145deg, #f0f5ff 0%, #e9eff9 100%);
+      font-family: 'Segoe UI', 'PingFang SC', Roboto, system-ui, -apple-system, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .slide-card {
+      max-width: 1100px;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-radius: 48px;
+      box-shadow: 0 25px 50px -12px rgba(0, 20, 60, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.6) inset;
+      padding: 40px 44px;
+      transition: all 0.2s ease;
+      border: 1px solid rgba(255, 255, 255, 0.7);
+    }
+
+    /* 装饰性顶部渐变条 */
+    .slide-card::before {
+      content: '';
+      display: block;
+      width: 120px;
+      height: 6px;
+      background: linear-gradient(90deg, #3b82f6, #8b5cf6, #06b6d4);
+      border-radius: 999px;
+      margin-bottom: 28px;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 32px;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .title-section h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #0f172a, #1e3a8a);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      line-height: 1.2;
+      margin-bottom: 8px;
+    }
+
+    .subhead {
+      font-size: 1.2rem;
+      color: #334155;
+      font-weight: 400;
+      border-left: 4px solid #3b82f6;
+      padding-left: 16px;
+      background: rgba(59, 130, 246, 0.06);
+      border-radius: 0 12px 12px 0;
+      line-height: 1.5;
+
+```
+
+</details>

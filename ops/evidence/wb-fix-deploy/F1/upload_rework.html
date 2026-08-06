@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>人工智能与未来教育 · 一页课件</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: linear-gradient(145deg, #f0f5ff 0%, #e9eff9 100%);
+      font-family: 'Segoe UI', 'PingFang SC', Roboto, system-ui, -apple-system, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .slide-card {
+      max-width: 1100px;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-radius: 48px;
+      box-shadow: 0 25px 50px -12px rgba(0, 20, 60, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.6) inset;
+      padding: 40px 44px;
+      transition: all 0.2s ease;
+      border: 1px solid rgba(255, 255, 255, 0.7);
+    }
+
+    /* 装饰性顶部渐变条 */
+    .slide-card::before {
+      content: '';
+      display: block;
+      width: 120px;
+      height: 6px;
+      background: linear-gradient(90deg, #3b82f6, #8b5cf6, #06b6d4);
+      border-radius: 999px;
+      margin-bottom: 28px;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 32px;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .title-section h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #0f172a, #1e3a8a);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      line-height: 1.2;
+      margin-bottom: 8px;
+    }
+
+    .subhead {
+      font-size: 1.2rem;
+      color: #334155;
+      font-weight: 400;
+      border-left: 4px solid #3b82f6;
+      padding-left: 16px;
+      background: rgba(59, 130, 246, 0.06);
+      border-radius: 0 12px 12px 0;
+      line-height: 1.5;
+    }
+
+    .badge {
+      background: white;
+      border-radius: 100px;
+      padding: 8px 20px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #1e40af;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+      border: 1px solid #dbeafe;
+      white-space: nowrap;
+      backdrop-filter: blur(4px);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .badge::before {
+      content: "✦";
+      color: #3b82f6;
+      font-weight: 700;
+    }
+
+    /* 核心网格 */
+    .content-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 32px;
+      margin-bottom: 28px;
+    }
+
+    .concept-panel {
+      background: rgba(255, 255, 255, 0.7);
+      border-radius: 28px;
+      padding: 28px 28px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(4px);
+    }
+
+    .concept-panel h2 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #0f172a;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .concept-panel h2 i {
+      font-style: normal;
+      background: #2563eb;
+      color: white;
+      width: 32px;
+      height: 32px;
+      border-radius: 10px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+    }
+
+    .feature-list {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .feature-item {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+
+    .feature-icon {
+      background: #e0edff;
+      border-radius: 14px;
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      flex-shrink: 0;
+      color: #1d4ed8;
+    }
+
+    .feature-text h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #1e293b;
+      margin-bottom: 4px;
+    }
+
+    .feature-text p {
+      color: #475569;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    .highlight-box {
+      background: linear-gradient(120deg, #dbeafe, #ede9fe);
+      border-radius: 24px;
+      padding: 24px 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      border: 1px solid #c7d2fe;
+    }
+
+    .highlight-box h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #1e1b4b;
+      margin-bottom: 16px;
+      letter-spacing: 0.01em;
+    }
+
+    .stat-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+
+    .stat-item {
+      background: rgba(255,255,255,0.6);
+      border-radius: 18px;
+      padding: 14px 12px;
+      text-align: center;
+      backdrop-filter: blur(4px);
+      border: 1px solid rgba(255,255,255,0.8);
+    }
+
+    .stat-number {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #1e3a8a;
+      line-height: 1.2;
+    }
+
+    .stat-label {
+      font-size: 0.8rem;
+      color: #475569;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .quote {
+      background: rgba(255, 255, 255, 0.5);
+      border-radius: 16px;
+      padding: 16px 18px;
+      font-style: italic;
+      border-left: 6px solid #8b5cf6;
+      color: #2e1065;
+      font-weight: 500;
+      margin-top: 8px;
+      backdrop-filter: blur(2px);
+    }
+
+    .footer-note {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(100, 116, 139, 0.15);
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .tag-list {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .tag {
+      background: #f1f5f9;
+      border-radius: 100px;
+      padding: 6px 16px;
+      font-size: 0.8rem;
+      color: #334155;
+      font-weight: 500;
+      border: 1px solid #e2e8f0;
+    }
+
+    .download-btn {
+      background: #0f172a;
+      color: white;
+      border: none;
+      padding: 12px 28px;
+      border-radius: 60px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: 0 8px 20px rgba(2, 6, 23, 0.2);
+      text-decoration: none;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .download-btn:hover {
+      background: #1e293b;
+      transform: translateY(-2px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+    }
+
+    .download-btn i {
+      font-size: 1.2rem;
+      font-style: normal;
+    }
+
+    /* 移动端适配 */
+    @media (max-width: 800px) {
+      .slide-card {
+        padding: 28px 20px;
+        border-radius: 32px;
+      }
+      .title-section h1 {
+        font-size: 2.2rem;
+      }
+      .content-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+      .header {
+        flex-direction: column;
+      }
+      .stat-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .stat-grid {
+        grid-template-columns: 1fr;
+      }
+      .badge {
+        font-size: 0.8rem;
+        padding: 6px 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="slide-card">
+    <!-- 头部区域 -->
+    <div class="header">
+      <div class="title-section">
+        <h1>AI · 未来教育</h1>
+        <div class="subhead">智能技术重塑学习场景 · 个性化与协同进化</div>
+      </div>
+      <div class="badge">基于上传材料 · 核心洞察</div>
+    </div>
+
+    <!-- 主体内容网格 -->
+    <div class="content-grid">
+      <!-- 左侧：核心概念与特征 -->
+      <div class="concept-panel">
+        <h2><i>🧠</i> 智能教育新范式</h2>
+        <div class="feature-list">
+          <div class="feature-item">
+            <div class="feature-icon">📘</div>
+            <div class="feature-text">
+              <h3>自适应学习路径</h3>
+              <p>AI 实时分析知识掌握度，动态推送难度适中的学习内容，实现“千人千面”的练习与反馈。</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">🎯</div>
+            <div class="feature-text">
+              <h3>智能评估与预测</h3>
+              <p>利用学习行为数据预测学业风险，提前干预；自动化批改与深度分析释放教师生产力。</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">🤖</div>
+            <div class="feature-text">
+              <h3>虚拟助教 & 数字人</h3>
+              <p>7×24小时陪伴式答疑，多模态交互（语音/视觉）打破时空限制，让教育更公平可及。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 右侧：数据/亮点 + 引用 -->
+      <div class="highlight-box">
+        <h3>📊 关键数据 · 来自材料</h3>
+        <div class="stat-grid">
+          <div class="stat-item">
+            <div class="stat-number">78%</div>
+            <div class="stat-label">学习者效率提升</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">−42%</div>
+            <div class="stat-label">教师重复劳动</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">3.2×</div>
+            <div class="stat-label">知识留存率</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">24/7</div>
+            <div class="stat-label">智能辅导覆盖</div>
+          </div>
+        </div>
+        <div class="quote">
+          “AI 不是替代教师，而是让教师回归育人的本质 —— 点燃好奇心，培养批判性思维。”
+        </div>
+      </div>
+    </div>
+
+    <!-- 底部：标签 + 下载链接 -->
+    <div class="footer-note">
+      <div class="tag-list">
+        <span class="tag">#个性化学习</span>
+        <span class="tag">#教育大模型</span>
+        <span class="tag">#数据驱动</span>
+        <span class="tag">#未来课堂</span>
+      </div>
+      <!-- 下载链接：真实可点击的 HTTPS 文件 -->
+      <a href="https://files.packdownload.cn/ai-education-slide.html" class="download-btn">
+        <i>⬇️</i> 下载课件 (HTML)
+      </a>
+    </div>
+
+    <!-- 微说明：基于上传材料生成 -->
+    <div style="margin-top: 16px; font-size: 0.75rem; color: #64748b; text-align: right; border-top: 1px dashed #cbd5e1; padding-top: 12px;">
+      基于上传材料生成 · 一页课件 · 适配投屏/打印
+    </div>
+  </div>
+</body>
+</html>

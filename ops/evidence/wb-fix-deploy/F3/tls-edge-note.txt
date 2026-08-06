@@ -1,0 +1,1 @@
+Source station (ECS openssl/curl -k/-s): see tls.txt. Some Windows client schannel paths may fail handshake (proxy/edge); server-side HTTPS /dl verified 200 attachment. Do not claim zero client TLS issues.

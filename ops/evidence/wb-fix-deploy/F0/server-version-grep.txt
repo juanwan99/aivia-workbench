@@ -1,0 +1,3 @@
+33:VERSION = "0.2.2"
+311:    server_version = f"aivia-bridge/{VERSION}"
+422:                    "version": VERSION,

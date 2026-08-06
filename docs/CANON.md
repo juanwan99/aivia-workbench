@@ -3,13 +3,18 @@
 ```
 DATE: 2026-08-06
 STATUS: BINDING
-UPDATED: 下一刀 = WB-FIX-DEPLOY（ALIGN 后修复+部署 · 无人值守）
+UPDATED: CLAIM-WB-FIX-DEPLOY=YES · bridge=0.2.2 · workflow=fix-deploy · 正式上线=否
 ```
 
 ## 现行真相
 
-1. CLAIM-WB-ALIGN=YES（有条件：多「等价有」）。  
-2. 正式上线=否 · /dl 主路径 · bridge 0.2.2。  
-3. **下一刀（唯一）：** `ops/TASK-CARD-WB-FIX-DEPLOY.md`。  
-4. 消化审查残留：真上传、交付清单、DOCX 稳、大纲弱指令、ops 部署烟测、TLS 说明、真源。  
-5. 模式：F0→F4 自审自修；本机+SSH；高标准浏览器验收。  
+1. Web + Dify 1.16.1 + DeepSeek + bridge **0.2.2**。  
+2. 已收：CLAIM-B · DOC-SOLID · DL-FIX · SCENE-FULL · WB-SURVEY · WB-ALIGN · **WB-FIX-DEPLOY**。  
+3. 正式上线=否 · full real=否。  
+4. 下载主路径 = **https `/dl/...`**；交付清单模板已启用。  
+5. 真上传再加工：Dify `files/upload` + chat files → `/dl`。  
+6. DOCX 连续可出真 OOXML；弱大纲默认不假 DOWNLOAD。  
+7. 管理 ops：`/ops/metrics` · `/ops/policy`（token 不进仓）。  
+8. TLS：源站 LE YE2；客户端 schannel 边缘不装「全绿」。  
+9. clean-room；**≠** WorkBuddy 1:1。  
+10. **下一刀：** 业主择一（上线授权 / 专家壳 / full real / 客户端 TLS 专项）。  

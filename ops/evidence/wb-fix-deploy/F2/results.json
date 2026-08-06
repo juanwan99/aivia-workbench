@@ -1,0 +1,106 @@
+{
+  "empty_success_like": 0,
+  "results": {
+    "docx_1": {
+      "len": 1797,
+      "links": [
+        "https://workbench.aivia.asia/dl/dfadca28d6a94fca815664b77e67e2dd/file.docx",
+        "https://workbench.aivia.asia/dl/dfadca28d6a94fca815664b77e67e2dd/file.docx",
+        "https://workbench.aivia.asia/dl/dfadca28d6a94fca815664b77e67e2dd/file.docx"
+      ],
+      "has_dl": true,
+      "download_ready": true,
+      "has_list": true,
+      "has_data_url": false,
+      "has_blocked": false,
+      "elapsed": 9.3,
+      "fetch": {
+        "ok": true,
+        "size": 2595,
+        "ooxml": true
+      }
+    },
+    "docx_2": {
+      "len": 2858,
+      "links": [
+        "https://workbench.aivia.asia/dl/ee935d56ccab412c89e4c39633519433/file.docx",
+        "https://workbench.aivia.asia/dl/ee935d56ccab412c89e4c39633519433/file.docx",
+        "https://workbench.aivia.asia/dl/ee935d56ccab412c89e4c39633519433/file.docx"
+      ],
+      "has_dl": true,
+      "download_ready": true,
+      "has_list": true,
+      "has_data_url": false,
+      "has_blocked": false,
+      "elapsed": 15.8,
+      "fetch": {
+        "ok": true,
+        "size": 3814,
+        "ooxml": true
+      }
+    },
+    "outline_weak": {
+      "len": 708,
+      "links": [],
+      "has_dl": false,
+      "download_ready": false,
+      "has_list": false,
+      "has_data_url": false,
+      "has_blocked": false
+    },
+    "list_html": {
+      "len": 8557,
+      "links": [],
+      "has_dl": false,
+      "download_ready": false,
+      "has_list": false,
+      "has_data_url": false,
+      "has_blocked": false
+    },
+    "xlsx": {
+      "len": 1220,
+      "links": [
+        "https://workbench.aivia.asia/dl/bdc17a267e5745768dddf5e088e77a09/file.xlsx",
+        "https://workbench.aivia.asia/dl/bdc17a267e5745768dddf5e088e77a09/file.xlsx",
+        "https://workbench.aivia.asia/dl/bdc17a267e5745768dddf5e088e77a09/file.xlsx"
+      ],
+      "has_dl": true,
+      "download_ready": true,
+      "has_list": true,
+      "has_data_url": false,
+      "has_blocked": false,
+      "fetch": {
+        "ok": true,
+        "size": 2146
+      }
+    },
+    "upload_rework": {
+      "len": 2484,
+      "links": [
+        "https://workbench.aivia.asia/dl/b635f6a37b624f0b8c8274d753d0f67e/file.html",
+        "https://workbench.aivia.asia/dl/b635f6a37b624f0b8c8274d753d0f67e/file.html",
+        "https://workbench.aivia.asia/dl/b635f6a37b624f0b8c8274d753d0f67e/file.html"
+      ],
+      "has_dl": true,
+      "download_ready": true,
+      "has_list": true,
+      "has_data_url": false,
+      "has_blocked": false,
+      "fetch": {
+        "ok": true,
+        "size": 10722
+      },
+      "upload_id": "d6324d12-383f-4088-b64a-67c605d5b8ac"
+    },
+    "refuse": {
+      "len": 175,
+      "links": [],
+      "has_dl": false,
+      "download_ready": false,
+      "has_list": false,
+      "has_data_url": false,
+      "has_blocked": false,
+      "refused": true
+    }
+  }
+}
