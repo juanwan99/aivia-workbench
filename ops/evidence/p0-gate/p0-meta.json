@@ -1,0 +1,136 @@
+{
+  "phase": "PHASE-P0-GATE",
+  "date": "2026-08-06T10:40:35+08:00",
+  "public_url": "https://workbench.aivia.asia/chat/lOMVPbz7rZmbJSJl",
+  "results": {
+    "A1": {
+      "pass": true,
+      "trials": [
+        {
+          "i": 1,
+          "ok": true,
+          "version": "TLSv1.3",
+          "issuer": "CN=YE2,O=Let's Encrypt,C=US",
+          "subject": "CN=workbench.aivia.asia"
+        },
+        {
+          "i": 2,
+          "ok": true,
+          "version": "TLSv1.3",
+          "issuer": "CN=YE2,O=Let's Encrypt,C=US",
+          "subject": "CN=workbench.aivia.asia"
+        },
+        {
+          "i": 3,
+          "ok": true,
+          "version": "TLSv1.3",
+          "issuer": "CN=YE2,O=Let's Encrypt,C=US",
+          "subject": "CN=workbench.aivia.asia"
+        }
+      ]
+    },
+    "A2": {
+      "pass": true,
+      "http": 200,
+      "bytes": 467968,
+      "has_aivia": true
+    },
+    "A3": {
+      "pass": true,
+      "note": "server-side public TLS+Chat verified (same path as cellular via 47.121.197.52); physical 4G spot-check recommended for human CLAIM-B C2"
+    },
+    "A4": {
+      "pass": true,
+      "strategy": "manual_dns_txt_acme_sh",
+      "detail": "Current: acme.sh DNS-01 manual (Aliyun TXT). Preferred upgrade: Ali_Key/Ali_Secret dns_ali auto-renew. Certs under ~/.acme.sh/workbench.aivia.asia_ecc/; install to /etc/letsencrypt/live/workbench.aivia.asia/; reload nginx."
+    },
+    "A6": {
+      "pass": true,
+      "health": {
+        "ok": true,
+        "service": "aivia-bridge",
+        "mode": "hybrid",
+        "version": "0.2.0",
+        "host": "0.0.0.0",
+        "exchange_token_required": true
+      },
+      "exchange_no_token": 401
+    }
+  },
+  "battery": [
+    {
+      "id": "G1",
+      "pass": true,
+      "file": "g1-artifact.html",
+      "has_dl": true,
+      "quality": {
+        "pass": true,
+        "size": 12415,
+        "openable": true,
+        "has_title": true
+      },
+      "empty_success": false,
+      "conversation_id": "d7463c58-84ed-4030-962e-769a6dbaf4cc",
+      "elapsed_s": 24.9,
+      "answer_len": 27816
+    },
+    {
+      "id": "G1+",
+      "pass": true,
+      "file": "g1plus-artifact.html",
+      "has_dl": true,
+      "quality": {
+        "pass": true,
+        "size": 11904,
+        "openable": true,
+        "has_title": true
+      },
+      "empty_success": false,
+      "conversation_id": "d7463c58-84ed-4030-962e-769a6dbaf4cc",
+      "elapsed_s": 22.7,
+      "answer_len": 25577
+    },
+    {
+      "id": "G2",
+      "pass": true,
+      "file": "g2-artifact.md",
+      "has_dl": true,
+      "empty_success": false,
+      "conversation_id": "786fb6d0-5ae7-4437-8621-66a75c7df4d0",
+      "elapsed_s": 25.9,
+      "answer_len": 12631
+    },
+    {
+      "id": "G3",
+      "pass": true,
+      "file": null,
+      "has_dl": false,
+      "empty_success": false,
+      "conversation_id": "9ed2e441-9455-43d8-b187-d885cd56bd3a",
+      "elapsed_s": 4.3,
+      "answer_len": 733,
+      "note": "outline only — false DOWNLOAD_READY is fail"
+    },
+    {
+      "id": "G4",
+      "pass": true,
+      "file": null,
+      "has_dl": false,
+      "empty_success": false,
+      "conversation_id": "9916abf5-17bb-43bf-98c9-5899c75a2cc0",
+      "elapsed_s": 3.8,
+      "answer_len": 522,
+      "honest": true,
+      "false_success": false,
+      "note": "honest refuse; substring 上传成功 only inside 不会编造…已上传成功 quote"
+    }
+  ],
+  "empty_success": 0,
+  "battery_pass": true,
+  "claim_b_eligible": true,
+  "g4_rescore": "PASS after quote-aware check",
+  "claim_b": "YES",
+  "p0_gate": "PASS",
+  "formal_launch": "NO",
+  "full_real": "SKIP_HYBRID"
+}

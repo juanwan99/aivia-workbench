@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>科学探究方法入门 · 初中通用</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            background: linear-gradient(145deg, #eef5ff 0%, #f8f4ff 100%);
+            color: #1e2b3c;
+            line-height: 1.7;
+            padding: 2rem 1rem;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 24px;
+            box-shadow: 0 20px 40px rgba(0, 20, 60, 0.12);
+            padding: 2.5rem 2.8rem;
+            border: 1px solid #e0e8f5;
+        }
+        h1 {
+            font-size: 2.2rem;
+            color: #0b3b6f;
+            border-left: 8px solid #3b82f6;
+            padding-left: 1.2rem;
+            margin-bottom: 0.5rem;
+            letter-spacing: 1px;
+        }
+        .subtitle {
+            font-size: 1rem;
+            color: #5a6b85;
+            margin-bottom: 2rem;
+            padding-left: 2rem;
+            border-bottom: 1px dashed #cbd5e1;
+            padding-bottom: 0.8rem;
+        }
+        .tag {
+            display: inline-block;
+            background: #e0edff;
+            color: #0b3b6f;
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 0.2rem 0.8rem;
+            border-radius: 30px;
+            margin-right: 0.5rem;
+            letter-spacing: 0.5px;
+        }
+        h2 {
+            font-size: 1.5rem;
+            color: #0b3b6f;
+            margin: 2rem 0 1rem 0;
+            padding-bottom: 0.4rem;
+            border-bottom: 3px solid #dbe7ff;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+        h2::before {
+            content: "🔬";
+            font-size: 1.4rem;
+        }
+        .card {
+            background: #f7faff;
+            border-radius: 16px;
+            padding: 1.5rem 1.8rem;
+            margin: 1rem 0;
+            border-left: 6px solid #3b82f6;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.06);
+        }
+        .card p {
+            margin: 0.5rem 0;
+        }
+        .step-list {
+            list-style: none;
+            counter-reset: step;
+        }
+        .step-list li {
+            counter-increment: step;
+            margin: 0.8rem 0;
+            padding-left: 2.8rem;
+            position: relative;
+            font-size: 1.05rem;
+        }
+        .step-list li::before {
+            content: counter(step);
+            position: absolute;
+            left: 0;
+            top: 0.2rem;
+            width: 2rem;
+            height: 2rem;
+            background: #3b82f6;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 8px rgba(59, 130, 246, 0.3);
+        }
+        .highlight {
+            background: #fff8e6;
+            border-left: 6px solid #f59e0b;
+            padding: 1.2rem 1.5rem;
+            border-radius: 12px;
+            margin: 1.2rem 0;
+        }
+        .highlight strong {
+            color: #b45309;
+        }
+        .example-box {
+            background: #f0fdf4;
+            border-radius: 16px;
+            padding: 1.5rem 1.8rem;
+            margin: 1.2rem 0;
+            border: 1px solid #bbf7d0;
+        }
+        .example-box h3 {
+            color: #166534;
+            margin-bottom: 0.8rem;
+            font-size: 1.2rem;
+        }
+        .practice {
+            background: #fef9c3;
+            border-radius: 16px;
+            padding: 1.5rem 1.8rem;
+            margin: 1.2rem 0;
+            border: 1px solid #fde047;
+        }
+        .practice h3 {
+            color: #854d0e;
+            margin-bottom: 0.8rem;
+            font-size: 1.2rem;
+        }
+        .practice ol {
+            padding-left: 1.5rem;
+        }
+        .practice li {
+            margin: 0.6rem 0;
+        }
+        .answer-hint {
+            background: #f1f5f9;
+            border-radius: 8px;
+            padding: 0.8rem 1.2rem;
+            margin-top: 1rem;
+            font-size: 0.95rem;
+            color: #334155;
+            border-left: 4px solid #94a3b8;
+        }
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1.2rem 0;
+        }
+        .summary-item {
+            background: #eef2ff;
+            border-radius: 12px;
+            padding: 1rem 1.2rem;
+            text-align: center;
+            font-weight: 600;
+            color: #1e3a8a;
+            border: 1px solid #c7d2fe;
+        }
+        .footer {
+            margin-top: 2.5rem;
+            text-align: center;
+            color: #64748b;
+            font-size: 0.9rem;
+            border-top: 1px solid #e2e8f0;
+            padding-top: 1.5rem;
+        }
+        @media (max-width: 600px) {
+            .container {
+                padding: 1.5rem 1.2rem;
+            }
+            h1 {
+                font-size: 1.6rem;
+            }
+            h2 {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>科学探究方法入门</h1>
+        <div class="subtitle">
+            <span class="tag">初中通用</span>
+            <span class="tag">科学思维</span>
+            <span class="tag">探究实践</span>
+            <span style="margin-left: 0.8rem;">—— 像科学家一样思考</span>
+        </div>
+
+        <!-- 学习目标 -->
+        <h2>学习目标</h2>
+        <div class="card">
+            <p>✅ 理解科学探究的基本步骤与核心要素</p>
+            <p>✅ 能够针对日常现象提出可探究的科学问题</p>
+            <p>✅ 学会设计简单的实验方案，并区分变量</p>
+            <p>✅ 培养证据意识与严谨的科学态度</p>
+        </div>
+
+        <!-- 知识点 -->
+        <h2>科学探究六步法</h2>
+        <div class="card">
+            <ul class="step-list">
+                <li><strong>提出问题</strong> —— 从观察或现象中发现可探究的问题</li>
+                <li><strong>作出假设</strong> —— 基于已有经验或知识，给出可检验的猜想</li>
+                <li><strong>制定计划</strong> —— 设计实验方案，明确变量与对照</li>
+                <li><strong>收集证据</strong> —— 进行实验或观察，记录数据</li>
+                <li><strong>得出结论</strong> —— 分析证据，验证或推翻假设</li>
+                <li><strong>表达交流</strong> —— 分享结果，反思改进</li>
+            </ul>
+        </div>
+
+        <div class="highlight">
+            <strong>💡 核心思想：</strong> 科学探究不是“背答案”，而是用证据说话。每一个结论都要有实验或观察的支持。
+        </div>
+
+        <!-- 实例分析 -->
+        <h2>实例分析：种子萌发需要水分吗？</h2>
+        <div class="example-box">
+            <h3>🌱 探究过程演示</h3>
+            <p><strong>1. 提出问题：</strong> 水分是种子萌发的必要条件吗？</p>
+            <p><strong>2. 作出假设：</strong> 种子萌发需要水分，没有水分种子不能萌发。</p>
+            <p><strong>3. 制定计划：</strong> 取两组各10粒绿豆，一组提供适量水分（实验组），一组不加水（对照组），其他条件（温度、空气、光照）相同。</p>
+            <p><strong>4. 收集证据：</strong> 每天观察并记录种子萌发数量，持续7天。</p>
+            <p><strong>5. 得出结论：</strong> 实验组萌发9粒，对照组0粒，说明水分是种子萌发的必要条件。</p>
+            <p><strong>6. 表达交流：</strong> 撰写实验报告，与同学讨论。</p>
+        </div>
+
+        <!-- 练习区（含新增2道） -->
+        <h2>课堂练习</h2>
+        <div class="practice">
+            <h3>📝 练习一 · 基础巩固</h3>
+            <ol>
+                <li>科学探究的第一步是（　　）<br>
+                    A. 作出假设　　B. 提出问题　　C. 收集证据　　D. 得出结论</li>
+                <li>在“探究光对鼠妇分布的影响”实验中，实验组和对照组不同的条件是（　　）<br>
+                    A. 温度　　B. 湿度　　C. 光照　　D. 土壤</li>
+            </ol>
+            <div class="answer-hint">
+                <strong>参考答案：</strong> 1. B　2. C
+            </div>
+        </div>
+
+        <!-- 新增练习二 -->
+        <div class="practice">
+            <h3>📝 练习二 · 实验设计（新增）</h3>
+            <ol>
+                <li>小明想探究“温度对金鱼呼吸频率的影响”。请你帮他写出实验设计思路（包括变量、对照组设置、观察指标）。</li>
+                <li>某同学在实验后得出结论：“盐能加速冰块融化”。但同桌指出他的实验没有设置对照组。请问：对照组应如何设计？</li>
+            </ol>
+            <div class="answer-hint">
+                <strong>参考答案：</strong> 1. 变量为温度（如10℃、20℃、30℃），其他条件相同；对照组为常温组；观察指标为金鱼每分钟鳃盖开合次数。2. 对照组应使用等量冰块，不添加盐，其他条件相同，比较融化速度。
+            </div>
+        </div>
+
+        <!-- 新增练习三 -->
+        <div class="practice">
+            <h3>📝 练习三 · 综合应用（新增）</h3>
+            <ol>
+                <li>在“探究植物光合作用需要光”的实验中，将同种植物的叶片一半遮光、一半见光，经过处理后滴加碘液。请回答：<br>
+                    a) 该实验的变量是什么？<br>
+                    b) 见光部分和遮光部分分别起什么作用？<br>
+                    c) 预期实验结果是什么？</li>
+                <li>小红发现下雨后蚯蚓会爬到地面上来。她猜想：“蚯蚓不喜欢潮湿的环境”。请你评价她的假设是否合理，并设计一个简单实验来检验。</li>
+            </ol>
+            <div class="answer-hint">
+                <strong>参考答案：</strong> 1. a) 变量是光照；b) 见光部分为实验组，遮光部分为对照组；c) 见光部分变蓝，遮光部分不变蓝，说明光合作用需要光。2. 假设不合理（蚯蚓爬出地面可能是因土壤中缺氧），应设计土壤湿度梯度实验，观察蚯蚓选择情况。
+            </div>
+        </div>
+
+        <!-- 小结 -->
+        <h2>小结</h2>
+        <div class="summary-grid">
+            <div class="summary-item">观察 → 提问</div>
+            <div class="summary-item">假设 → 检验</div>
+            <div class="summary-item">证据 → 结论</div>
+            <div class="summary-item">交流 → 反思</div>
+        </div>
+        <div class="card" style="border-left-color: #10b981;">
+            <p>🎯 科学探究的核心素养：<strong>证据意识</strong>、<strong>逻辑推理</strong>、<strong>创新精神</strong>、<strong>合作交流</strong>。</p>
+            <p style="margin-top: 0.5rem;">记住：每一个伟大的科学发现，都始于一个好奇的问题。</p>
+        </div>
+
+        <div class="footer">
+            <p>📚 科学探究方法入门 · 初中通用 | 课件制作：Aivia 助手</p>
+            <p style="margin-top: 0.3rem;">✨ 保持好奇，勇于质疑，用证据说话 ✨</p>
+        </div>
+    </div>
+</body>
+</html>
