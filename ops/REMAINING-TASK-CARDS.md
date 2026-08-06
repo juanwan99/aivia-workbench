@@ -1,13 +1,7 @@
-# 任务卡（现行）
+# 任务卡（现行唯一）
 
-## 已收
+**卡：** [TASK-CARD-QUAD-FIX-DEPLOY.md](./TASK-CARD-QUAD-FIX-DEPLOY.md)  
+**包：** [PHASE-QUAD-FIX-DEPLOY-PACK.md](./PHASE-QUAD-FIX-DEPLOY-PACK.md)  
+**调查：** [QUAD-FIX-SURVEY.md](./QUAD-FIX-SURVEY.md)
 
-- **CLAIM-QUAD-LAUNCH=YES** · 正式上线=是（受限）· FULL-REAL=NO
-- CLAIM-WB-FIX-DEPLOY · CLAIM-WB-ALIGN · CLAIM-WB-SURVEY · CLAIM-SCENE-FULL · DOC-SOLID · DL-FIX · CLAIM-B
-
-## 下一刀（未派发）
-
-- 已备案域名迁回公网主入口（解除 asyncova 技术绕行）  
-- acme.sh `dns_ali` 自动续期  
-- edu live 只读 → full real  
-- 边缘隧道 systemd/健康检查加固  
+修 /experts:8443 + 隧道保活 + 文档部署。
