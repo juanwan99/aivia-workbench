@@ -4,13 +4,14 @@
 ════════════════════════════════════════════════════════
 现行刀序   Aivia Workbench · GENERAL-WB
 ════════════════════════════════════════════════════════
-真源: docs/CANON.md · docs/HANDOFF.md · MEMORY-RESET
+真源: docs/CANON.md · MEMORY-RESET
 
-  父卡   ops/TASK-CARD-GENERAL-WB.md
-  已过   S1 + S1.1 → 入口通用
-  已过   S2 → CLAIM-GENERAL-WB=YES（G4–G7 双轨）
-  当前   S3 体感对齐 或 S4 加厚（待业主点名）
+  已过   S1 + S1.1 → CLAIM-S1 FULL
+  已过   S2 → CLAIM-GENERAL-WB 条件 YES（G4–G7 双轨）
+  当前   S2.1→ ops/TASK-CARD-S2.1-HOTFIX.md
+         F1 文件名 · F3 G7 观察 · F5 G6 stdin · 部署 PackDownload+提示词
+  其后   S3 体感 · S4 加厚
 
-禁: 教育专家站主线 · 运维CLAIM=对标 · 备案主线 · 假绿
+禁: 假绿 · 教育主线 · 备案当对标 · 密钥进仓
 ════════════════════════════════════════════════════════
 ```

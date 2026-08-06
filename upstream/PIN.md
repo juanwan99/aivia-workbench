@@ -1,9 +1,9 @@
 # 上游版本钉扎
 
 ```
-STATUS: CLAIM-GENERAL-WB=YES · CLAIM-S1 FULL · CLAIM-S1.1 YES · 产品主线=GENERAL-WB · MEMORY-RESET 生效
+STATUS: CLAIM-GENERAL-WB=YES（条件·S2.1 热修中） · CLAIM-S1 FULL · CLAIM-S1.1 YES · 产品主线=GENERAL-WB · MEMORY-RESET 生效
 DATE: 2026-08-06
-ONE_LINE: CLAIM-GENERAL-WB=YES（G4–G7 双轨绿 · 跨领域真交付+改稿）；≠像素 · ≠S3/S4
+ONE_LINE: S2 跨领域绿；S2.1 清教案默认名+G7观察+G6 stdin； CLAIM-GENERAL-WB=YES（G4–G7 双轨绿 · 跨领域真交付+改稿）；≠像素 · ≠S3/S4
 ```
 
 | 组件 | 版本/值 | 备注 |
@@ -31,3 +31,5 @@ ONE_LINE: CLAIM-GENERAL-WB=YES（G4–G7 双轨绿 · 跨领域真交付+改稿�
 
 > **根域 ≠ 工作台。** CLAIM-GENERAL-WB = 行为对标（跨领域真交付），≠ 像素 / ≠ 备案完成。  
 > 密钥不进仓。
+
+| **CLAIM-S2.1-HOTFIX** | **进行中** | 见 ops/TASK-CARD-S2.1-HOTFIX.md · 包 ops/evidence/general-wb/s2.1/ |
