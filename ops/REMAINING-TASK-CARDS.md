@@ -1,13 +1,8 @@
-# 任务卡（现行）
+# 任务卡（现行唯一）
 
-## 已收
+**卡：** [TASK-CARD-QUAD-LAUNCH.md](./TASK-CARD-QUAD-LAUNCH.md)  
+**包：** [PHASE-QUAD-LAUNCH-PACK.md](./PHASE-QUAD-LAUNCH-PACK.md)  
+**调查：** [QUAD-LAUNCH-SURVEY.md](./QUAD-LAUNCH-SURVEY.md)  
+**勾选：** [QUAD-LAUNCH-RUNBOOK.md](./QUAD-LAUNCH-RUNBOOK.md)
 
-- **CLAIM-WB-FIX-DEPLOY=YES** · [TASK-CARD-WB-FIX-DEPLOY.md](./TASK-CARD-WB-FIX-DEPLOY.md)
-- CLAIM-WB-ALIGN · CLAIM-WB-SURVEY · CLAIM-SCENE-FULL · DOC-SOLID · DL-FIX · CLAIM-B
-
-## 下一刀（未派发）
-
-- 正式上线授权与运营  
-- 专家目录完整 UI  
-- edu full real  
-- 客户端 TLS 专项（Windows schannel）  
+四线：TLS · 专家壳 · full real · 上线授权。

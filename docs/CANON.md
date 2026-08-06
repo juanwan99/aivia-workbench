@@ -3,18 +3,14 @@
 ```
 DATE: 2026-08-06
 STATUS: BINDING
-UPDATED: CLAIM-WB-FIX-DEPLOY=YES · bridge=0.2.2 · workflow=fix-deploy · 正式上线=否
+UPDATED: 下一刀 = QUAD-LAUNCH（上线+专家壳+full real+客户端TLS · 大包）
 ```
 
 ## 现行真相
 
-1. Web + Dify 1.16.1 + DeepSeek + bridge **0.2.2**。  
-2. 已收：CLAIM-B · DOC-SOLID · DL-FIX · SCENE-FULL · WB-SURVEY · WB-ALIGN · **WB-FIX-DEPLOY**。  
-3. 正式上线=否 · full real=否。  
-4. 下载主路径 = **https `/dl/...`**；交付清单模板已启用。  
-5. 真上传再加工：Dify `files/upload` + chat files → `/dl`。  
-6. DOCX 连续可出真 OOXML；弱大纲默认不假 DOWNLOAD。  
-7. 管理 ops：`/ops/metrics` · `/ops/policy`（token 不进仓）。  
-8. TLS：源站 LE YE2；客户端 schannel 边缘不装「全绿」。  
-9. clean-room；**≠** WorkBuddy 1:1。  
-10. **下一刀：** 业主择一（上线授权 / 专家壳 / full real / 客户端 TLS 专项）。  
+1. FIX-DEPLOY 已收；正式上线 **仍否**（待 QUAD）。  
+2. hybrid · 专家壳未建 · 客户端 TLS 边缘有债。  
+3. **下一刀：** `ops/TASK-CARD-QUAD-LAUNCH.md`  
+4. 先读调查：`ops/QUAD-LAUNCH-SURVEY.md`  
+5. 无人值守 Q0→Q5 自审；本机+SSH。  
+6. full real 可 DEGRADED；禁止假绿。  
