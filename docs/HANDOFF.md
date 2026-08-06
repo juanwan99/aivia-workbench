@@ -1,20 +1,17 @@
 # HANDOFF
 
 ```
-UPDATED: 2026-08-06 · CLAIM-WB-SURVEY=YES（本机深查）
+UPDATED: 2026-08-06 · 下一刀 WB-ALIGN 完整无人值守卡
 ```
 
-## 状态
-
 ```text
-【状态】Aivia Workbench
-已收: CLAIM-B · DOC-SOLID · DL-FIX · CLAIM-SCENE-FULL · CLAIM-WB-SURVEY
-正式上线: 否
-主路径: https://workbench.aivia.asia/dl/{id}/file.{ext}
-深查: 本机 live 点查（非网搜）· WB-IA/逻辑/组织 · MATRIX 48/G17
-证据: ops/evidence/wb-survey/ui/live-*.png
-下一刀: 按 MATRIX 勾选子集另开实现卡
-  建议优先: 管理 P0（G-07 配额 · G-13 空成功监控 · G-03 审计 · G-05 写库门禁）
-  或用户 P1（A-07 组合输入精简 · B-09 产物面板 · C-01 上传再加工）
-禁止: 无表开发 · 网搜充数 · 宣称已对齐全功能 · 全能力塞 Chat
+【状态】调查已收 CLAIM-WB-SURVEY
+下一刀: PHASE-WB-ALIGN（全面对标实现）
+  卡: ops/TASK-CARD-WB-ALIGN.md
+  包: ops/PHASE-WB-ALIGN-PACK.md
+  勾: ops/WB-ALIGN-RUNBOOK.md
+执行窗: 本机 Grok + SSH 云端（非纯云端文档窗）
+模式: S0→S5 自动串行 · 每阶段 gate 自审 · FAIL 则修 · 禁止跳阶段
+验收: 高标准 · 浏览器+/dl/本机打开 · 管理四件套可证
+禁: 无人值守却不自审 · 空成功 · 假1:1 · 密钥 · 写库 · 未授权上线
 ```

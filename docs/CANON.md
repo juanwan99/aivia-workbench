@@ -3,17 +3,14 @@
 ```
 DATE: 2026-08-06
 STATUS: BINDING
-UPDATED: CLAIM-WB-SURVEY=YES（本机深查）· 下一刀=按 MATRIX 另卡实现 · 正式上线=否
+UPDATED: 下一刀 = WB-ALIGN 完整无人值守实现（分阶段自审）
 ```
 
 ## 现行真相
 
-1. Web + Dify 1.16.1 + DeepSeek。  
-2. 已收：CLAIM-B · DOC-SOLID · DL-FIX · CLAIM-SCENE-FULL · **CLAIM-WB-SURVEY**。  
-3. 正式上线=否 · full real=否 · Harness=否。  
-4. 个人全场景 P0 打通；下载主路径 **https `/dl/...`**。  
-5. 默认入口：`https://workbench.aivia.asia/chat/lOMVPbz7rZmbJSJl`。  
-6. 对标 WorkBuddy **本机 live 点查**（UI/响应逻辑/业务组织/矩阵）；**网搜-only=FAIL**；名字可不同；**大量能力=管理员后端**。  
-7. 调查交付：`WB-IA` · `WB-RESPONSE-LOGIC` · `WB-ORG-MODEL` · `WB-FEATURE-MATRIX`(48/G17) · live 截图 `evidence/wb-survey/ui/live-*.png`。  
-8. **CLAIM-WB-SURVEY = 本机深查齐** · **≠** 功能已对齐 · **≠** 上线 · **≠** 开发完成。  
-9. **下一刀：** 按矩阵勾选子集 **另开实现卡**（禁止无表开发、禁止网搜充深查）。  
+1. Web + Dify + DeepSeek；调查 CLAIM-WB-SURVEY 已收。  
+2. **下一刀（唯一完整卡）：** `ops/TASK-CARD-WB-ALIGN.md` + `ops/PHASE-WB-ALIGN-PACK.md`。  
+3. 模式：S0→S5 **无人参与**；每阶段 **自审→修复→过门**；禁止跳阶段假绿。  
+4. 范围真源：`WB-FEATURE-MATRIX.md`；名字可不同；管理归后台。  
+5. 执行窗：**本机 Grok + SSH 云端**；浏览器验收为准。  
+6. 正式上线默认否；空成功禁；/dl 主路径；不拆闭源。  

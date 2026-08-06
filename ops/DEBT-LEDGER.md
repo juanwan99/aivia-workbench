@@ -6,10 +6,9 @@ UPDATED: 2026-08-06
 
 | 项 | 状态 |
 |----|------|
-| SCENE-FULL / DOC-SOLID / DL-FIX / CLAIM-B | 底盘关 |
+| WB-SURVEY | **关** |
+| **WB-ALIGN 全面对标实现** | **OPEN · 完整无人值守卡** |
 | 正式上线 | 否 |
-| **WB-SURVEY 全面对标调查** | **OPEN · 现行单卡** |
-| 按矩阵实现 | 调查后另卡 |
-| full real / Harness | 后置 |
 
-卡：`ops/TASK-CARD-WB-SURVEY.md`
+卡：`ops/TASK-CARD-WB-ALIGN.md`  
+协议：分阶段自审自修，阶段 FAIL 不得进入下一阶段。
