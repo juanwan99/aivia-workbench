@@ -2,41 +2,43 @@
 
 ```
 STATUS: BINDING · 2026-08-06
-对齐: E1-RUNBOOK · C-REAL-RUNBOOK
-UPDATED: E1 PASS — Let's Encrypt YE2 via DNS-01 (acme.sh manual)
+对齐: E1-RUNBOOK · QUAD-LAUNCH
+UPDATED: 公网入口 asyncova.com 边缘；源站 workbench LE 保留（ICP 债）
 ```
 
 ## 1. 业主口径
 
-沿用现有服务器与 `aivia.asia` 域名体系。
+沿用现有服务器与域名体系；**公网主入口为海外边缘 `asyncova.com`**（规避 aivia.asia 未备案拦截）。
 
 ## 2. 域名
 
 | 主机名 | 用途 | 状态 |
 |--------|------|------|
-| **`workbench.aivia.asia`** | Dify Web 主台 | **正式 HTTPS（LE）** |
+| **`asyncova.com`** | **公网主入口**（Chat/experts/dl） | **LE YE2 · 海外** |
+| **`workbench.aivia.asia`** | 源站 Dify/bridge | **LE YE2 · 大陆 EIP ICP 拦** |
 | `pico.aivia.asia` | 旧站过渡 | 保留 |
 
 > 公网 IP / SSH / AK **不进 Git**。
 
-## 3. 证书与可达（E1）
+## 3. 证书与可达
 
 | 项 | 状态 |
 |----|------|
-| HTTPS | **Let's Encrypt YE2** |
-| 路径 | `/etc/letsencrypt/live/workbench.aivia.asia/` |
-| 签发 | acme.sh DNS-01 手工 + 业主阿里云 TXT |
-| 续期 | 建议改 `dns_ali` 自动；手工模式每次需新 TXT |
-| ACME 客户端 | `~/.acme.sh`（ops） |
-| 自签备份 | `/tmp/e1-cert-backup/*.bak-selfsign` |
+| 公网 HTTPS | **asyncova.com** Let's Encrypt YE2 |
+| 源站 HTTPS | workbench LE YE2 · 机房内 VERIFY_OK |
+| 源站路径 | `/etc/letsencrypt/live/workbench.aivia.asia/` |
+| 边缘反代 | dmit nginx → SSH 隧道 → ECS `:13080` |
+| 续期 | 源站 acme.sh DNS-01；边缘 certbot webroot |
+| ICP | `*.aivia.asia` 大陆拦截未解 |
 
 ## 4. bridge
 
 | 项 | 值 |
 |----|-----|
-| 版本/MODE | 0.2.0 / hybrid |
+| 版本/MODE | **0.2.2 / hybrid** |
 | 容器 | `aivia-bridge` · `dify_default` |
-| 禁止 | 公网匿名 exchange |
+| PUBLIC_DL | `https://asyncova.com/dl` |
+| 禁止 | 公网匿名 exchange · 假 full real |
 
 ## 5. 禁止
 

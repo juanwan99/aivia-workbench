@@ -1,0 +1,36 @@
+{
+  "base": "https://asyncova.com",
+  "api": "https://asyncova.com/v1/chat-messages",
+  "results": [
+    {
+      "id": "html-courseware",
+      "ready": true,
+      "urls": [
+        "https://workbench.aivia.asia/dl/c7d11569828344eb87566b89f25ffbb0/file.html",
+        "https://asyncova.com/dl/c7d11569828344eb87566b89f25ffbb0/file.html"
+      ],
+      "answer_len": 2484,
+      "pass": true,
+      "file": "/tmp/quad-launch-q2/html-courseware.html",
+      "bytes": 11067,
+      "ctype": "text/html; charset=utf-8",
+      "status": 200
+    },
+    {
+      "id": "lesson-docx",
+      "ready": true,
+      "urls": [
+        "https://workbench.aivia.asia/dl/892bc589b21044a7a1a521a7fe8e0205/file.docx",
+        "https://asyncova.com/dl/892bc589b21044a7a1a521a7fe8e0205/file.docx"
+      ],
+      "answer_len": 2125,
+      "pass": true,
+      "file": "/tmp/quad-launch-q2/lesson-docx.docx",
+      "bytes": 2950,
+      "ctype": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "status": 200
+    }
+  ],
+  "pass_count": 2,
+  "need": 2
+}

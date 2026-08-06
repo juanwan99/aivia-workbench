@@ -1,8 +1,13 @@
-# 任务卡（现行唯一）
+# 任务卡（现行）
 
-**卡：** [TASK-CARD-QUAD-LAUNCH.md](./TASK-CARD-QUAD-LAUNCH.md)  
-**包：** [PHASE-QUAD-LAUNCH-PACK.md](./PHASE-QUAD-LAUNCH-PACK.md)  
-**调查：** [QUAD-LAUNCH-SURVEY.md](./QUAD-LAUNCH-SURVEY.md)  
-**勾选：** [QUAD-LAUNCH-RUNBOOK.md](./QUAD-LAUNCH-RUNBOOK.md)
+## 已收
 
-四线：TLS · 专家壳 · full real · 上线授权。
+- **CLAIM-QUAD-LAUNCH=YES** · 正式上线=是（受限）· FULL-REAL=NO
+- CLAIM-WB-FIX-DEPLOY · CLAIM-WB-ALIGN · CLAIM-WB-SURVEY · CLAIM-SCENE-FULL · DOC-SOLID · DL-FIX · CLAIM-B
+
+## 下一刀（未派发）
+
+- 已备案域名迁回公网主入口（解除 asyncova 技术绕行）  
+- acme.sh `dns_ali` 自动续期  
+- edu live 只读 → full real  
+- 边缘隧道 systemd/健康检查加固  

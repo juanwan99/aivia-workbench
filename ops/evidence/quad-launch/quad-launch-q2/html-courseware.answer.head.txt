@@ -1,0 +1,96 @@
+## 交付清单
+| # | 文件名 | 类型 | 下载 |
+|---|--------|------|------|
+| 1 | 课件.html | text/html | [点击下载](https://workbench.aivia.asia/dl/c7d11569828344eb87566b89f25ffbb0/file.html) |
+
+DOWNLOAD_READY
+
+- **文件名**：课件.html
+- **HTTPS**：https://workbench.aivia.asia/dl/c7d11569828344eb87566b89f25ffbb0/file.html
+- **主路径**：https 文件 URL（非 data-URL）
+
+[点击下载 课件.html](https://workbench.aivia.asia/dl/c7d11569828344eb87566b89f25ffbb0/file.html)
+
+<details><summary>内容预览（备用）</summary>
+
+```html
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>初中生物 · 豌豆杂交实验 · 孟德尔遗传定律</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background: linear-gradient(145deg, #f8f5e9 0%, #eef5e1 100%);
+      font-family: 'Segoe UI', 'Roboto', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+      color: #2e3b2d;
+      padding: 30px 20px 60px;
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      background: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(4px);
+      border-radius: 48px 48px 32px 32px;
+      box-shadow: 0 25px 40px -10px rgba(60, 80, 30, 0.3);
+      padding: 30px 35px 45px;
+      border: 2px solid #cbdbb4;
+    }
+    h1 {
+      font-size: 2.6rem;
+      font-weight: 700;
+      color: #1f4f2b;
+      text-align: center;
+      letter-spacing: 2px;
+      margin-bottom: 8px;
+      text-shadow: 2px 2px 0 #dcedc4;
+      border-bottom: 4px dashed #7ba05b;
+      padding-bottom: 18px;
+    }
+    .subtitle {
+      text-align: center;
+      font-size: 1.2rem;
+      color: #3d6b3a;
+      background: #e2f0d6;
+      display: inline-block;
+      padding: 6px 28px;
+      border-radius: 40px;
+      margin: 0 auto 25px;
+      font-weight: 500;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      border: 1px solid #b6cf9a;
+    }
+    .subtitle-wrap {
+      text-align: center;
+    }
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 25px;
+      margin: 30px 0;
+    }
+    .card {
+      background: #ffffffd9;
+      border-radius: 28px;
+      padding: 20px 18px;
+      box-shadow: 0 10px 18px -8px rgba(40, 70, 20, 0.2);
+      border: 1px solid #c8dcb2;
+      transition: 0.2s;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      background: #ffffff;
+      border-color: #8fb573;
+    }
+    .card h3 {
+      font-s
+```
+
+</details>

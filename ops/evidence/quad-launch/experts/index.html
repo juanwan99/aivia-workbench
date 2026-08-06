@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Aivia 专家目录</title>
+  <style>
+    :root {
+      --bg: #0f1419;
+      --card: #1a2332;
+      --line: #2a3a4f;
+      --text: #e7eef8;
+      --muted: #9bb0c9;
+      --accent: #3d8bfd;
+      --ok: #3dd68c;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+      background: radial-gradient(1200px 600px at 10% -10%, #1b2a44 0%, var(--bg) 55%);
+      color: var(--text);
+      min-height: 100vh;
+    }
+    header {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 28px 20px 8px;
+    }
+    header h1 { margin: 0 0 8px; font-size: 1.6rem; letter-spacing: 0.02em; }
+    header p { margin: 0; color: var(--muted); line-height: 1.5; max-width: 48rem; }
+    .meta {
+      display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px;
+    }
+    .pill {
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.03);
+      border-radius: 999px;
+      padding: 4px 10px;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 18px 20px 48px;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 14px;
+    }
+    a.card {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      text-decoration: none;
+      color: inherit;
+      background: linear-gradient(180deg, #1d2940 0%, var(--card) 100%);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 16px;
+      min-height: 180px;
+      transition: transform .12s ease, border-color .12s ease, box-shadow .12s ease;
+    }
+    a.card:hover {
+      transform: translateY(-2px);
+      border-color: #3d5a80;
+      box-shadow: 0 10px 28px rgba(0,0,0,.28);
+    }
+    .badge {
+      align-self: flex-start;
+      font-size: 0.72rem;
+      padding: 2px 8px;
+      border-radius: 999px;
+      border: 1px solid #2f6f4e;
+      color: var(--ok);
+      background: rgba(61,214,140,.08);
+    }
+    .badge.soft {
+      border-color: #3d5a80;
+      color: #9ec1ff;
+      background: rgba(61,139,253,.08);
+    }
+    a.card h2 { margin: 0; font-size: 1.05rem; }
+    a.card p { margin: 0; color: var(--muted); font-size: 0.9rem; line-height: 1.45; flex: 1; }
+    .cta { font-size: 0.85rem; color: var(--accent); }
+    footer {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px 36px;
+      color: var(--muted);
+      font-size: 0.8rem;
+      line-height: 1.5;
+    }
+    footer code { color: #cfe0ff; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Aivia 专家目录</h1>
+    <p>面向教师备课出件的专家入口（clean-room）。点卡片进入默认 Chat；要文件会给 HTTPS 下载链接，大纲不强塞文件，不写学校业务库。</p>
+    <div class="meta">
+      <span class="pill">≥4 专家卡</span>
+      <span class="pill">真出件 · /dl</span>
+      <span class="pill">≠ WorkBuddy 像素复制</span>
+    </div>
+  </header>
+  <main>
+    <a class="card" data-expert="html-courseware" href="/chat/lOMVPbz7rZmbJSJl">
+      <span class="badge">真出件</span>
+      <h2>HTML 课件专家</h2>
+      <p>做可下载的交互 HTML 课件。开场可说：请做一份初中生物「豌豆杂交」HTML 课件，要能下载。</p>
+      <span class="cta">打开 →</span>
+    </a>
+    <a class="card" data-expert="lesson-docx" href="/chat/lOMVPbz7rZmbJSJl">
+      <span class="badge">真出件</span>
+      <h2>教案 Word 专家</h2>
+      <p>输出可下载 DOCX 教案。开场可说：写一份初中生物细胞结构第一课时教案（Word 可下载）。</p>
+      <span class="cta">打开 →</span>
+    </a>
+    <a class="card" data-expert="grade-xlsx" href="/chat/lOMVPbz7rZmbJSJl">
+      <span class="badge">真出件</span>
+      <h2>成绩表 Excel 专家</h2>
+      <p>输出可下载 XLSX 统计表。开场可说：请做高一1班本周作业提交统计表，要能下载 Excel。</p>
+      <span class="cta">打开 →</span>
+    </a>
+    <a class="card" data-expert="outline-only" href="/chat/lOMVPbz7rZmbJSJl">
+      <span class="badge soft">短答</span>
+      <h2>大纲梳理专家</h2>
+      <p>只要结构提纲、不要文件。开场可说：只要大纲，不要文件：光合作用。</p>
+      <span class="cta">打开 →</span>
+    </a>
+    <a class="card" data-expert="rework" href="/chat/lOMVPbz7rZmbJSJl">
+      <span class="badge soft">改稿</span>
+      <h2>改稿精修专家</h2>
+      <p>同会话改一版：加练习、改标题、换班级数据。先出件再改稿更稳。</p>
+      <span class="cta">打开 →</span>
+    </a>
+  </main>
+  <footer>
+    <div>入口 Chat：<code>/chat/lOMVPbz7rZmbJSJl</code> · 下载主路径 <code>/dl/…</code></div>
+    <div>正式上线限制见 <code>ops/QUAD-LAUNCH-REPORT.md</code> · 不宣称 1:1 WorkBuddy · 不写库</div>
+  </footer>
+</body>
+</html>
