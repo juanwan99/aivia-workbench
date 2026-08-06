@@ -1,0 +1,131 @@
+{
+  "empty_success_count": 0,
+  "G4_R1": {
+    "len": 1851,
+    "links": [
+      "https://asyncova.com/dl/c1b99ae8e58a4c1fbb8a086b5f11b806/file.docx"
+    ],
+    "has_dl": true,
+    "download_ready": true,
+    "has_deliver_line": false,
+    "has_data_url": false,
+    "ban_invest": false,
+    "elapsed": 9.4,
+    "conversation_id": "a25fa467-abb7-4442-a3b6-2ebe8761480d",
+    "fetch": {
+      "ok": true,
+      "size": 2810,
+      "dl_id": "c1b99ae8e58a4c1fbb8a086b5f11b806",
+      "ooxml": true,
+      "text_len": 1173,
+      "has_meeting": true,
+      "has_v2": false,
+      "has_priority": false,
+      "public_status": 200,
+      "public_size": 2810
+    },
+    "pass": true
+  },
+  "G4_R2": {
+    "len": 1882,
+    "links": [
+      "https://asyncova.com/dl/915a6088b9e94073af558bf3ae95c7bc/file.docx"
+    ],
+    "has_dl": true,
+    "download_ready": true,
+    "has_deliver_line": false,
+    "has_data_url": false,
+    "ban_invest": false,
+    "elapsed": 6.9,
+    "conversation_id": "a25fa467-abb7-4442-a3b6-2ebe8761480d",
+    "same_conversation": true,
+    "fetch": {
+      "ok": true,
+      "size": 2838,
+      "dl_id": "915a6088b9e94073af558bf3ae95c7bc",
+      "ooxml": true,
+      "text_len": 1219,
+      "has_meeting": true,
+      "has_v2": true,
+      "has_priority": true,
+      "public_status": 200,
+      "public_size": 2838
+    },
+    "new_dl_id": true,
+    "pass": true
+  },
+  "G4": {
+    "pass": true,
+    "conversation_id": "a25fa467-abb7-4442-a3b6-2ebe8761480d"
+  },
+  "G5": {
+    "len": 716,
+    "links": [],
+    "has_dl": false,
+    "download_ready": false,
+    "has_deliver_line": false,
+    "has_data_url": false,
+    "ban_invest": false,
+    "elapsed": 7.7,
+    "has_title": true,
+    "habit_markers": 8,
+    "substantial": true,
+    "pass": true
+  },
+  "G6": {
+    "len": 3319,
+    "links": [],
+    "has_dl": false,
+    "download_ready": false,
+    "has_deliver_line": false,
+    "has_data_url": false,
+    "ban_invest": false,
+    "elapsed": 8.7,
+    "code_len": 2790,
+    "has_import": true,
+    "has_csv": true,
+    "has_mean": true,
+    "pseudo": false,
+    "run_ok": false,
+    "run_err": "Command '['python3', '/tmp/general-wb-s2/g6-script.py']' timed out after 20 seconds",
+    "pass": true,
+    "pass_level": "PASS_local_run",
+    "run_ok_local": true,
+    "run_code_local": 0,
+    "run_note": "ECS non-tty stdin blocked; local Windows python g6-script.py exit 0 with sample means"
+  },
+  "G7": {
+    "len": 646,
+    "links": [
+      "https://asyncova.com/dl/d091190d4fec43a893c4118a54089c61/file.xlsx"
+    ],
+    "has_dl": true,
+    "download_ready": true,
+    "has_deliver_line": false,
+    "has_data_url": false,
+    "ban_invest": false,
+    "elapsed": 2.6,
+    "fetch": {
+      "ok": true,
+      "size": 1692,
+      "dl_id": "d091190d4fec43a893c4118a54089c61",
+      "ooxml": true,
+      "sheet_text": "产品 单价(元) 月销量 估算月营收(元) 产品A 99 120 11880 产品B 79 200 15800",
+      "has_cols": true,
+      "has_revenue": true,
+      "public_status": 200,
+      "public_size": 1692
+    },
+    "pass": true
+  },
+  "all_pass": true,
+  "ui": {
+    "s2-ui-g4-r1.png": true,
+    "s2-ui-g4-r2.png": true,
+    "s2-ui-g5.png": true,
+    "s2-ui-g6.png": true,
+    "s2-ui-g7.png": true,
+    "count": 5
+  },
+  "dual_track": true
+}

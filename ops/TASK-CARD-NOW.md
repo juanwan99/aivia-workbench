@@ -7,10 +7,9 @@
 真源: docs/CANON.md · docs/HANDOFF.md · MEMORY-RESET
 
   父卡   ops/TASK-CARD-GENERAL-WB.md
-  已过   S1 + S1.1 → CLAIM-S1 FULL YES
-  当前   S2 → ops/TASK-CARD-S2-GENERAL-WB.md
-         G4–G7 双轨 · 对标一线行为 · CLAIM-GENERAL-WB
-  其后   S3 体感 · S4 加厚
+  已过   S1 + S1.1 → 入口通用
+  已过   S2 → CLAIM-GENERAL-WB=YES（G4–G7 双轨）
+  当前   S3 体感对齐 或 S4 加厚（待业主点名）
 
 禁: 教育专家站主线 · 运维CLAIM=对标 · 备案主线 · 假绿
 ════════════════════════════════════════════════════════

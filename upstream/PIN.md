@@ -1,26 +1,26 @@
 # 上游版本钉扎
 
 ```
-STATUS: CLAIM-S1.1-HOTFIX=YES · CLAIM-S1-GENERAL-WB=FULL YES · 产品主线=GENERAL-WB · CLAIM-GENERAL-WB 待 S2 · MEMORY-RESET 生效
+STATUS: CLAIM-GENERAL-WB=YES · CLAIM-S1 FULL · CLAIM-S1.1 YES · 产品主线=GENERAL-WB · MEMORY-RESET 生效
 DATE: 2026-08-06
-ONE_LINE: S1 全绿+S1.1 experts 通用化；CLAIM-GENERAL-WB 待 S2 G4–G7；运维≠对标
+ONE_LINE: CLAIM-GENERAL-WB=YES（G4–G7 双轨绿 · 跨领域真交付+改稿）；≠像素 · ≠S3/S4
 ```
 
 | 组件 | 版本/值 | 备注 |
 |------|---------|------|
 | Dify | 1.16.1 | Chat `lOMVPbz7rZmbJSJl` |
 | DeepSeek | 默认 LLM | |
-| **App / site.title** | **Aivia 通用 Agent** | 原「Aivia 课件」 |
+| **App / site.title** | **Aivia 通用 Agent** | |
 | **workflow** | **general-wb-s1** | `a853ac87-ec6d-475b-bb25-db0b3026837a` |
 | bridge | 0.2.2 hybrid | PUBLIC_DL=`asyncova.com/dl` |
-| **experts 页** | GENERAL-WB 能力目录 | 源站+边缘 `/var/www/aivia-experts/` |
+| experts 页 | 通用能力目录 | `/var/www/aivia-experts/` |
 | **产品主线** | **GENERAL-WB** | |
-| **CLAIM-S1-GENERAL-WB** | **FULL YES** | W0+G1–G3 + S1.1 审查债关 |
-| **CLAIM-S1.1-HOTFIX** | **YES** | H1–H5 · `ops/evidence/general-wb/s1.1/` |
-| **CLAIM-GENERAL-WB** | **待 S2** | G4–G7 |
-| 已作废主叙事 | 教育专家站对标 · QUAD=对标完成 | 见 MEMORY-RESET |
+| **CLAIM-S1-GENERAL-WB** | **FULL YES** | |
+| **CLAIM-S1.1-HOTFIX** | **YES** | |
+| **CLAIM-GENERAL-WB** | **YES** | G4–G7 · `ops/evidence/general-wb/s2/` |
+| 已作废主叙事 | 教育专家站对标 · QUAD=对标完成 | MEMORY-RESET |
 
-### 入口说明（S1.1）
+### 入口说明
 
 | 用途 | URL |
 |------|-----|
@@ -29,5 +29,5 @@ ONE_LINE: S1 全绿+S1.1 experts 通用化；CLAIM-GENERAL-WB 待 S2 G4–G7；�
 | 能力目录 | https://asyncova.com/experts |
 | 下载 | https://asyncova.com/dl/{id}/file.{ext} |
 
-> **根域 ≠ 工作台。** 换域名 ≠ 对标进度。  
+> **根域 ≠ 工作台。** CLAIM-GENERAL-WB = 行为对标（跨领域真交付），≠ 像素 / ≠ 备案完成。  
 > 密钥不进仓。

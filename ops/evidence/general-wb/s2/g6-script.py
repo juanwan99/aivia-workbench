@@ -1,0 +1,116 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+CSV 数值列均值计算器
+用法:
+    python3 csv_mean.py < data.csv      # 从标准输入读取
+    python3 csv_mean.py data.csv        # 从文件读取
+    python3 csv_mean.py                 # 无参数时使用内置示例数据
+"""
+
+import sys
+import csv
+import io
+
+# 内置示例数据（3行）
+SAMPLE_DATA = """name,age,score,height
+Alice,25,88.5,165
+Bob,30,92.0,175
+Carol,28,79.5,160
+"""
+
+
+def read_csv_from_stdin():
+    """从标准输入读取 CSV 内容"""
+    data = sys.stdin.read()
+    return data
+
+
+def read_csv_from_file(filename):
+    """从文件读取 CSV 内容"""
+    try:
+        with open(filename, 'r', encoding='utf-8') as f:
+            return f.read()
+    except FileNotFoundError:
+        print(f"错误: 文件 '{filename}' 不存在", file=sys.stderr)
+        sys.exit(1)
+    except Exception as e:
+        print(f"读取文件出错: {e}", file=sys.stderr)
+        sys.exit(1)
+
+
+def compute_column_means(csv_text):
+    """
+    计算 CSV 中所有数值列的均值
+    返回: (列名列表, 均值列表)
+    """
+    try:
+        reader = csv.DictReader(io.StringIO(csv_text))
+        if not reader.fieldnames:
+            print("错误: CSV 没有表头", file=sys.stderr)
+            sys.exit(1)
+
+        # 收集每列的数据
+        columns = {name: [] for name in reader.fieldnames}
+
+        for row in reader:
+            for name in reader.fieldnames:
+                value = row.get(name, '').strip()
+                if value:
+                    try:
+                        # 尝试转为浮点数
+                        columns[name].append(float(value))
+                    except ValueError:
+                        # 非数值，跳过
+                        pass
+
+        # 计算均值
+        means = {}
+        for name, values in columns.items():
+            if values:
+                means[name] = sum(values) / len(values)
+            else:
+                means[name] = None  # 无数值数据
+
+        return reader.fieldnames, means
+
+    except Exception as e:
+        print(f"CSV 解析错误: {e}", file=sys.stderr)
+        sys.exit(1)
+
+
+def main():
+    # 确定数据来源
+    if len(sys.argv) > 1:
+        # 有命令行参数，尝试作为文件名
+        csv_text = read_csv_from_file(sys.argv[1])
+    elif not sys.stdin.isatty():
+        # 标准输入有数据（管道或重定向）
+        csv_text = read_csv_from_stdin()
+    else:
+        # 无输入，使用内置示例
+        print("未提供输入，使用内置示例数据:", file=sys.stderr)
+        csv_text = SAMPLE_DATA
+
+    # 计算均值
+    fieldnames, means = compute_column_means(csv_text)
+
+    # 输出结果
+    print("\n=== 数值列均值统计 ===")
+    print(f"{'列名':<15} {'均值':>10}")
+    print("-" * 28)
+    for name in fieldnames:
+        mean = means[name]
+        if mean is not None:
+            print(f"{name:<15} {mean:>10.4f}")
+        else:
+            print(f"{name:<15} {'(非数值)':>10}")
+
+    # 统计信息
+    numeric_cols = sum(1 for v in means.values() if v is not None)
+    print("-" * 28)
+    print(f"共 {len(fieldnames)} 列，其中 {numeric_cols} 列为数值列")
+
+
+if __name__ == "__main__":
+    main()

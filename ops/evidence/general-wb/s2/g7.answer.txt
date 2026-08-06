@@ -1,0 +1,23 @@
+## 交付清单
+| # | 文件名 | 类型 | 下载 |
+|---|--------|------|------|
+| 1 | 表格-竞品对比.xlsx | application/vnd.openxmlformats-officedocument.spreadsheetml.sheet | [点击下载](https://asyncova.com/dl/d091190d4fec43a893c4118a54089c61/file.xlsx) |
+
+DOWNLOAD_READY
+
+- **文件名**：表格-竞品对比.xlsx
+- **HTTPS**：https://asyncova.com/dl/d091190d4fec43a893c4118a54089c61/file.xlsx
+- **主路径**：https 文件 URL（非 data-URL）
+
+[点击下载 表格-竞品对比.xlsx](https://asyncova.com/dl/d091190d4fec43a893c4118a54089c61/file.xlsx)
+
+<details><summary>内容预览（备用）</summary>
+
+```markdown
+| 产品 | 单价(元) | 月销量 | 估算月营收(元) |
+| --- | --- | --- | --- |
+| 产品A | 99 | 120 | 11880 |
+| 产品B | 79 | 200 | 15800 |
+```
+
+</details>

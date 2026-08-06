@@ -4,13 +4,13 @@
 DATE: 2026-08-06
 STATUS: BINDING
 新窗: 先读 docs/HANDOFF.md 再读本文
-UPDATED: CLAIM-S1.1-HOTFIX=YES · CLAIM-S1-GENERAL-WB=FULL YES · CLAIM-GENERAL-WB 待 S2 · 默认入口=通用 Agent
+UPDATED: CLAIM-GENERAL-WB=YES · 默认入口=通用 Agent · 跨领域 G4–G7 绿
 ```
 
 ## 宏观目标
 
-**通用能力工作台：什么都能干。** 对标 WorkBuddy 行为（派活→执行→真交件）。  
-编程 · 炒股/分析 · 公众号 · 办公文档表 · 改稿 · … **同一台**。  
+**通用能力工作台：什么都能干。** 对标 WorkBuddy 行为（派活→执行→真交件→同会话可改）。  
+编程 · 分析 · 公众号 · 办公文档表 · 改稿 · … **同一台**。  
 **教育**：需要真数据时再接通 **edu-core（只读）**；非产品本体。  
 
 ## 正本清源
@@ -23,25 +23,24 @@ UPDATED: CLAIM-S1.1-HOTFIX=YES · CLAIM-S1-GENERAL-WB=FULL YES · CLAIM-GENERAL-
 2. **工作台 Chat 全路径 = https://asyncova.com/chat/lOMVPbz7rZmbJSJl**（根域 ≠ 工作台）。  
 3. 下载主路径 = **https://asyncova.com/dl/...**。  
 4. **App / site.title = Aivia 通用 Agent** · workflow **`general-wb-s1`**。  
-5. **默认入口 = 通用 Agent**；`/experts` = 通用能力目录（教育最多可选领域 1 张）。  
-6. 文案无「仅教研 / 面向教师备课出件」主叙事。  
+5. **默认入口 = 通用 Agent**；`/experts` = 通用能力目录。  
 
 ## 已收 / 未收（产品）
 
 | 项 | 状态 |
 |----|------|
-| **CLAIM-S1-GENERAL-WB** | **FULL YES**（W0+G1–G3 + S1.1 审查债关） |
-| **CLAIM-S1.1-HOTFIX** | **YES**（H1–H5 · `ops/evidence/general-wb/s1.1/`） |
-| **CLAIM-GENERAL-WB** | **未收** · 待 S2（G4–G7） |
-| 运维 CLAIM（QUAD 等） | **≠ 产品对标完成**（见 MEMORY-RESET） |
+| **CLAIM-S1-GENERAL-WB** | **FULL YES** |
+| **CLAIM-S1.1-HOTFIX** | **YES** |
+| **CLAIM-GENERAL-WB** | **YES**（G4–G7 双轨 · `ops/evidence/general-wb/s2/`） |
+| S3 体感满分 / S4 加厚 | **未收** |
+| 运维 CLAIM（QUAD 等） | **≠ 产品对标完成** |
 
 ## 下一刀
 
-**S2-GENERAL-WB（G4–G7）** → 冲击 **CLAIM-GENERAL-WB**。  
-仅 `ops/TASK-CARD-GENERAL-WB.md` 为产品主卡；S1 / S1.1 已关。  
+**S3 体感对齐**（完成态/摘要投影）或 **S4 能力加厚** · 或业主点名。  
 
 ## 铁律
 
-空成功禁 · Agent 写库禁 · 密钥禁 · 拆闭源禁 · 无通用体感禁称对标完成。  
+空成功禁 · Agent 写库禁 · 密钥禁 · 拆闭源禁 · 无跨领域真交付禁称对标完成。  
 
 冲突：`CANON` + `HANDOFF` 最新 UPDATED 为准。  

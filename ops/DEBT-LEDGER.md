@@ -1,19 +1,16 @@
 # 债务总账（复原后）
 
 ```
-UPDATED: 2026-08-06 · CLAIM-S1.1-HOTFIX=YES
+UPDATED: 2026-08-06 · CLAIM-GENERAL-WB=YES
 ```
 
 | 项 | 状态 |
 |----|------|
-| **错误主线（教育站/运维当对标）** | **已作废** · 见 CANON/MEMORY-RESET |
-| **通用任务对标 WorkBuddy** | **OPEN · 现行唯一产品债** |
-| **S1（入口+Word/Excel/短答）** | **已关 · FULL YES** |
-| **S1.1（experts 通用化+UI）** | **已关 · CLAIM-S1.1-HOTFIX=YES** |
-| **S2（G4–G7）/ CLAIM-GENERAL-WB** | **OPEN · 下一刀** |
-| /dl 真文件底盘 | 保留可用 |
-| /experts 教育主句 | **关**（现通用能力目录） |
+| **错误主线（教育站/运维当对标）** | **已作废** |
+| **通用任务对标 WorkBuddy 行为** | **已收 · CLAIM-GENERAL-WB=YES** |
+| S3 完成态/摘要体感 | **OPEN · 可选下一刀** |
+| S4 工具/知识/edu 插头 | **OPEN · 可选** |
+| PackDownload 默认文件名偶发教育词 | **cosmetic 债 · 内容 OOXML 为准** |
 | 备案/dns_ali/full real | **非核心 · 后置** |
-| 教育专家五卡 | **非对标主体** |
 
-报告：`ops/S1.1-HOTFIX-REPORT.md` · `ops/S1-GENERAL-WB-REPORT.md`
+报告：`ops/S2-GENERAL-WB-REPORT.md`
