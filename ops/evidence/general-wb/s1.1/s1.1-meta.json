@@ -1,0 +1,24 @@
+{
+  "phase": "S1.1-HOTFIX",
+  "date": "2026-08-06",
+  "claim": "CLAIM-S1.1-HOTFIX",
+  "result": "PASS",
+  "gates": {
+    "H1": "PASS",
+    "H2": "PASS",
+    "H3": "PASS",
+    "H4": "PASS",
+    "H5": "PASS"
+  },
+  "deploy": {
+    "origin": "/var/www/aivia-experts/index.html",
+    "edge": "dmit:/var/www/aivia-experts/index.html",
+    "source": "deploy/aivia-experts/index.html"
+  },
+  "site_title": "Aivia 通用 Agent",
+  "public_experts": "https://asyncova.com/experts",
+  "chat": "https://asyncova.com/chat/lOMVPbz7rZmbJSJl",
+  "claim_s1_full": true,
+  "claim_general_wb": false,
+  "next": "TASK-CARD-S2-GENERAL-WB"
+}

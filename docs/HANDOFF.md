@@ -3,7 +3,7 @@
 ```
 STATUS: BINDING · 新窗总管开场真源之一
 DATE: 2026-08-06
-UPDATED: CLAIM-S1-GENERAL-WB=YES · 下一刀=S2-GENERAL-WB
+UPDATED: CLAIM-S1.1-HOTFIX=YES · CLAIM-S1=FULL YES · 下一刀=S2-GENERAL-WB
 仓: https://github.com/juanwan99/aivia-workbench
 冲突裁决: docs/CANON.md > 本文 > 任何旧任务卡/旧 CLAIM 叙事
 ```
@@ -117,7 +117,7 @@ UPDATED: CLAIM-S1-GENERAL-WB=YES · 下一刀=S2-GENERAL-WB
 | 项 | 内容 |
 |----|------|
 | **主卡** | `ops/TASK-CARD-GENERAL-WB.md` |
-| **已收子段** | **CLAIM-S1-GENERAL-WB=YES**（W0 + G1–G3） |
+| **已收子段** | **CLAIM-S1=FULL YES** · **CLAIM-S1.1-HOTFIX=YES** |
 | **下一刀** | **S2-GENERAL-WB（G4–G7）** → 冲击 CLAIM-GENERAL-WB |
 | **包** | `ops/PHASE-GENERAL-WB-PACK.md`（W2+） |
 | **目标** | 跨领域验收 G4–G7（改稿/公号/代码/分析…） |
@@ -152,9 +152,11 @@ UPDATED: CLAIM-S1-GENERAL-WB=YES · 下一刀=S2-GENERAL-WB
 【教育】后接 edu-core（只读）；非主线
 【底盘】Dify + DeepSeek + /dl · 可用水管
 【清源】MEMORY-RESET 已生效 · 教育/QUAD 主叙事作废
-【S1】CLAIM-S1-GENERAL-WB=YES · 默认入口=通用 Agent · G1 Word/G2 Excel/G3 短答绿
-【证据】ops/evidence/general-wb/s1/
-【入口】https://asyncova.com/chat/lOMVPbz7rZmbJSJl
+【S1】CLAIM-S1-GENERAL-WB=FULL YES · 默认入口=通用 Agent · G1–G3 绿
+【S1.1】CLAIM-S1.1-HOTFIX=YES · /experts 通用化 · UI 截图齐 · 探针 PASS
+【证据】ops/evidence/general-wb/s1/ · s1.1/
+【Chat 全路径】https://asyncova.com/chat/lOMVPbz7rZmbJSJl
+【能力目录】https://asyncova.com/experts
 【App】Aivia 通用 Agent · workflow=general-wb-s1
 【主卡】GENERAL-WB · CLAIM-GENERAL-WB 待 S2（G4–G7）
 【正式上线话术】运维/公网事实；不得解释为「通用对标已完成」
@@ -173,10 +175,11 @@ UPDATED: CLAIM-S1-GENERAL-WB=YES · 下一刀=S2-GENERAL-WB
 教育: 仅需真数时 edu-core 只读 · 非主线
 作废: 教育专家站主线 · 运维CLAIM=对标 · 备案主线
 底盘: Dify+DS+/dl 保留
-已收: CLAIM-S1-GENERAL-WB（W0+G1–G3）
+已收: CLAIM-S1 FULL + CLAIM-S1.1-HOTFIX（experts 通用化）
 下一刀: S2-GENERAL-WB（G4–G7）→ CLAIM-GENERAL-WB
 禁: 空成功 · 写库 · 拆闭源 · 无体感假完成
-现网入口: https://asyncova.com/chat/lOMVPbz7rZmbJSJl
+Chat: https://asyncova.com/chat/lOMVPbz7rZmbJSJl
+experts: https://asyncova.com/experts
 ```
 
 ---

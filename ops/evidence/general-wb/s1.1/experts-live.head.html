@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Aivia 能力目录 · 通用任务台</title>
+  <meta name="description" content="Aivia 通用 AI 任务工作台能力入口：办公、表格、文案、代码、分析、改稿。教育仅为领域之一。" />
+  <style>
+    :root {
+      --bg: #0f1419;
+      --card: #1a2332;
+      --line: #2a3a4f;
+      --text: #e7eef8;
+      --muted: #9bb0c9;
+      --accent: #3d8bfd;
+      --ok: #3dd68c;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+      background: radial-gradient(1200px 600px at 10% -10%, #1b2a44 0%, var(--bg) 55%);
+      color: var(--text);
+      min-height: 100vh;
+    }
+    header {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 28px 20px 8px;
+    }
+    header h1 { margin: 0 0 8px; font-size: 1.6rem; letter-spacing: 0.02em; }
+    header p { margin: 0; color: var(--muted); line-height: 1.5; max-width: 48rem; }
+    .meta {
+      display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px;
+    }
+    .pill {
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.03);
+      border-radius: 999px;
+      padding: 4px 10px;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .pill.ok {
+      border-color: #2f6f4e;
+      color: var(--ok);
+    }
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 18px 20px 48px;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 14px;
+    }
+    a.card {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      text-decoration: none;
+      color: inherit;
+      background: linear-gradient(180deg, #1d2940 0%, var(--card) 100%);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 16px;
+      min-height: 180px;
+      transition: transform .12s ease, border-color .12s ease, box-shadow .12s ease;
+    }
+    a.card:hover {
+      transform: translateY(-2px);
+      border-color: #3d5a80;
+      box-shadow: 0 10px 28px rgba(0,0,0,.28);
+    }
+    .badge {
+      align-self: flex-start;
+      font-size: 0.72rem;
+      padding: 2px 8px;
+      border-radius: 999px;
+      border: 1px solid #2f6f4e;
+      color: var(--ok);
+      background: rgba(61,214,140,.08);
+    }
+    .badge.soft {
+      border-color: #3d5a80;
+      color: #9ec1ff;
+      background: rgba(61,

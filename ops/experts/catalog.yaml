@@ -38,7 +38,7 @@ cards:
     open: /chat/lOMVPbz7rZmbJSJl
     sample_prompt: 把『大家好我今天想说一下项目进度其实还行』润色成正式周会发言。
   - id: edu-optional
-    title: 教育场景（可选示例）
+    title: 教育场景（可选领域）
     kind: domain_example
     open: /chat/lOMVPbz7rZmbJSJl
     sample_prompt: 请做一份初中生物「豌豆杂交」HTML 课件，要能下载。
