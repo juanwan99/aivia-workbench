@@ -4,17 +4,20 @@
 DATE: 2026-08-06
 PHASE-WB-SURVEY: DONE
 CLAIM-WB-SURVEY: YES
-深查: 本机 UI + 响应逻辑 + 业务组织 + 矩阵
+深查: 本机 live 点查 UI + 响应逻辑 + 业务组织 + 矩阵（非网搜）
 矩阵: 48 条 · G=17
-证据: ops/evidence/wb-survey/
+证据: ops/evidence/wb-survey/ui/live-*.png
 开发: 否 · 正式上线: 否 · 1:1 对齐: 否
 ```
 
 ## 1. 结论
 
-以本机 WorkBuddy **5.3.5** 为准：产品是 **Electron 任务工作台**（侧栏六入口 + 组合 Composer + 工具循环写盘 + 结果栏产物），不是单页聊天壳。  
-Aivia 现行 Web 在 **个人交付 P0**（课件/教案/表/大纲/改稿/拒写库/`/dl`）已可用；差距集中在 **组合输入与结果栏对象、项目/专家/自动化壳、厚管理员后台**。  
-**CLAIM-WB-SURVEY = 深查四件套齐** · **≠** 功能对齐 · **≠** 上线。
+**真源 = 本机 WorkBuddy 5.3.5 点查**（live 截图 `live-02`…`live-08`），网搜仅补充企业 Admin 文案。  
+
+产品形态：侧栏六入口 + 场景 chip 结构化标签 + Composer 组合输入 + 任务完成态（耗时/消耗/实际模型）+ 右栏产物/浏览器；写文件任务有文件卡，短答可不带文件。  
+
+Aivia Web 个人交付 P0 已绿；差距在 **完成态投影、产物面板、项目/专家/自动化壳、厚管理员后台**。  
+**CLAIM-WB-SURVEY = 本机深查齐** · **≠** 功能对齐 · **≠** 上线。
 
 ## 2. UI / 逻辑 / 组织 差异摘要
 
@@ -71,20 +74,23 @@ Aivia 现行 Web 在 **个人交付 P0**（课件/教案/表/大纲/改稿/拒�
 - 本卡开发冒充调查完 / 宣称已对齐全功能 / 正式上线  
 - 全能力塞 Chat / Agent 直写成绩库 / 像素抄 UI  
 
-## 7. CLAIM 核对
+## 7. CLAIM 核对（新口径 · 本机深查）
 
 | 门禁 | 状态 |
 |------|------|
-| D1 UI ≥8 类 + WB-IA | YES · ui/ + WB-IA.md |
-| D2 ≥5 剧本 + RESPONSE-LOGIC | YES · R1–R6 |
-| D3 ORG-MODEL | YES |
-| D4 矩阵≥40 G≥12 含入口路径 | YES · 48/G17 |
+| 网搜-only | **否**（live 点查为主） |
+| D1 UI ≥8 类 + WB-IA | YES · `live-01`…`08` + WB-IA.md |
+| D2 ≥5 剧本 + RESPONSE-LOGIC | YES · R1–R7（含 live 打开历史任务） |
+| D3 ORG-MODEL 前台/后台 | YES |
+| D4 矩阵≥40 G≥12 含本机路径 | YES · 48/G17 |
 | D5 REPORT | YES |
-| sources local vs web | YES |
+| sources 区分 local-UI / web | YES · live 优先 |
+| 企业 Admin | 本机无权限 · 不冒充实测 |
 | 无开发充数 · 无密钥 | YES |
 
 ```text
 CLAIM-WB-SURVEY: YES
+深查: 本机 live UI/逻辑/组织
 开发实现: 否
 正式上线: 否
 ```

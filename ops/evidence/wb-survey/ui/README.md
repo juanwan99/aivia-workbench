@@ -1,59 +1,61 @@
-# 本机 WorkBuddy UI 证据索引
+# 本机 WorkBuddy UI 证据索引（live 深查）
 
 ```
-DATE: 2026-08-06
-App: WorkBuddy 5.3.5 (build 8044e898…) · Windows
-角色: 个人账号 pom · 本机无企业 Admin 控制台权限
-方法: 真机可访问性树/截图（2026-07-30 对齐调查）+ 本机会话 transcript/artifact（2026-07-30）
-禁止: 逆向 asar 利用 · 密钥进仓
+DATE: 2026-08-06（live 点查）
+App: WorkBuddy 5.3.5 · Windows · 窗 1452×877
+角色: 个人账号 · 企业 Admin 后台本机未进入
+方法: 本机启动主窗 → 侧栏点查 → 截图落盘（无逆向）
+脚本: ../capture_live.py（仅自动化点击/截屏，非拆包）
 ```
 
-## 环境（D0）
+## D0 环境
 
 | 项 | 值 |
 |----|-----|
-| OS | Windows 10/11 |
-| 安装 | `%LOCALAPPDATA%\Programs\WorkBuddy\` · winget `Tencent.WorkBuddy` |
-| 版本 | **5.3.5**（`last-launch.json`） |
+| 安装 | `%LOCALAPPDATA%\Programs\WorkBuddy\WorkBuddy.exe` |
+| 版本 | 5.3.5（侧栏 Logo 可见） |
 | 用户数据 | `%USERPROFILE%\.workbuddy\` |
-| 任务 cwd | `%USERPROFILE%\WorkBuddy\<时间戳>\` |
-| 窗口 | 1452×877（`window-state.json`） |
-| 冷启动 | 主进程常驻；调查日进程在跑、主窗可能托盘化 → 以已落盘 UI 截图+会话为准 |
-| 角色 | **个人**；企业 Admin 后台 **本机未进入**（G 域部分依赖 web 企业版说明交叉，已在 sources 降权标注） |
+| 任务 cwd | `%USERPROFILE%\WorkBuddy\<ts>\` |
+| 冷启动 | 进程可托盘；本次 `Start`/`SetForeground` 拉出主窗后点查 |
+| 管理权限 | **无企业 Admin 屏**（G 细项不冒充本机实测） |
 
-## 截图 / 可访问性（≥8 类覆盖）
+## live 截图清单（2026-08-06 本机点）
 
-| # | 界面类 | 文件 | 可见要点 |
-|---|--------|------|----------|
-| 1 | 主壳总览 · 新建任务首页 | `wb-home-office.png` + `.txt` | 顶栏菜单 · 左栏六入口 · 中区标题/场景/Composer · 底栏账号 |
-| 2 | 场景：日常办公 | 同上 | chip：文档处理/金融/数据可视化/深度研究/视频/幻灯片 |
-| 3 | 场景：代码开发 | `wb-home-code.png` + `.txt` | 不同建议集合（开发向） |
-| 4 | 场景：设计创意 | `wb-home-design.png` + `.txt` | 设计向建议 |
-| 5 | 场景 chip 选中态 | `wb-home-design-chip-selected.png` + `.txt` | 结构化标签 + 相关灵感区 |
-| 6 | Composer「+」菜单 | `wb-composer-add-menu.png` + `.txt` | 添加文件 / 模式 / 专家 / 技能 / 连接器 |
-| 7 | 历史任务列表 | home 截图左栏 | 任务(4)：hello.txt、1+1 测试等 |
-| 8 | 空间/项目入口 | home 截图 | 空间(1) · 项目新手指引 |
-| 9 | 底栏账号/消息/小程序 | home 截图 | pom · 铃铛 · 扫码小程序 |
-| 10 | 产物（非截图·落盘） | 本机 `WorkBuddy\2026-07-30-06-45-08\hello.txt` + `artifact-index\…json` | file-changes + PresentFiles media |
+| 文件 | 点到的界面 | 可见结构要点 |
+|------|------------|--------------|
+| `live-01-main.png` | 启动后当前页（项目） | 侧栏六入口 + 项目四 Tab + 右轨「项目配置」 |
+| `live-02-newtask.png` | 侧栏 **新建任务** | 场景三 Tab、chip 行、Composer、可移除能力标签「网站设计」、工作空间/默认权限/Auto |
+| `live-03-assistant.png` | 侧栏 **助理** | 标题「本地助理」· 已连接「微信小程序」· 底部 Composer |
+| `live-04-project.png` | 侧栏 **项目** | 动态文案说明资产/计划/任务/自动化；右轨指令/连接器/专家/技能/自动化 |
+| `live-05-experts.png` | **专家·技能·连接器** | 顶 Tab 专家/技能/连接器；精选场景；专家团分类（含「教育学习」） |
+| `live-06-automation.png` | **自动化** | 定时任务 / 运行记录；空态 + 添加；下方模版网格 |
+| `live-07-more.png` | **更多** 弹出 | 我的文件 / 我的邮箱 / 腾讯文档 / ima / 乐享 / 灵感 |
+| `live-08-history-task1.png` | 历史任务 hello.txt | **已完成 13s** · 路径 · 文件卡 2B · 产物/变更入口 · **共消耗 6.45** · **Auto (GLM-5.2)** · 右栏「浏览器/产物」 |
+| `live-08b-history-task2.png` | 历史任务 1+1 | **已完成 14s** · 纯文本答 **无强制文件** · 共消耗 3.8 · Auto(GLM-5.2) |
+| `live-09`…`12` | +/权限/账号/搜索 坐标点 | 部分与邻屏相近（坐标误差）；以 02/05/06/08 为主证 |
 
-## 一级导航（可访问性树 · local-UI）
+## 历史对齐截图（补充 · 同机 2026-07-30）
 
-```
-侧栏 Agents tabs:
-  新建任务
-  助理
-  项目
-  专家·技能·连接器
-  自动化
-  更多（资料库·灵感）
-任务 (N)  ← 历史会话按钮列表
-空间 (N)  ← 项目入口
-底栏: 账号 · 消息中心 · 扫码小程序
-顶栏: 收起侧栏 · 搜索 · 筛选 · 版本 v5.3.5
-```
+| 文件 | 用途 |
+|------|------|
+| `wb-home-office/code/design*.png` | 三场景 chip 差异与选中态 |
+| `wb-composer-add-menu.png` | Composer「+」：文件/模式/专家/技能/连接器 |
+| `*.txt` | 可访问性树 OCR 旁证 |
 
-## 诚实边界
+## 覆盖核对（PACK D1 八类）
 
-- 本包 **未** 在调查日逐一点开「自动化表单全部字段 / 企业 Admin」实时截图；自动化表结构与日志旁证见 `WB-ORG-MODEL` / cleanroom 笔记。  
-- 企业级管理后台（用量归集、组织 RBAC 细项）以 **web 企业版公开文** 补，且在矩阵标 `web` 源，**不冒充本机 Admin 实测**。  
-- 未拆包、未贴 Cookie/Token。
+| # | 要求 | live 证据 |
+|---|------|-----------|
+| 1 | 主窗总览 | live-01/02 |
+| 2 | 新任务/输入区 | live-02 |
+| 3 | 任务进行中/完成后 | live-08（完成态含耗时消耗模型） |
+| 4 | 产物/文件交付 | live-08 文件卡 + 右栏产物 |
+| 5 | 历史/会话列表 | 侧栏任务(4) · live-08 选中 |
+| 6 | 技能/专家入口 | live-05 |
+| 7 | 设置 | Composer「默认权限」· 账号底栏；**完整设置页未点进**（诚实） |
+| 8 | 管理/团队 | 项目「邀请」按钮可见；**企业 Admin 无权限** |
+
+## 隐私
+
+- 截图含本机路径 `C:\Users\liang\...`（工作区测试路径，非密钥）  
+- 未截登录密码、Token、支付页  

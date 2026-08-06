@@ -1,132 +1,103 @@
-# WorkBuddy 响应逻辑（本机行为剧本）
+# WorkBuddy 响应逻辑（本机 live + 落盘会话）
 
 ```
 DATE: 2026-08-06
-来源: local-UI + 本机 transcript/artifact（非广告语）
+来源: live-08/08b 截图 + 本机 transcript/artifact
 App: 5.3.5
 ```
 
-## 状态机（文字）
+## 状态机（UI 可见）
 
 ```text
-空闲(Idle)
-  │ 用户: 新建任务 / 选场景 chip / 填 Composer / 发送
-  ▼
-受理(Accepted) —— 分配 conversationId + workDir(WorkBuddy\<ts>)
-  │ 注入: user_info / workspace / identity 文件 / connector-status / 权限模式
-  ▼
-推理(Reasoning) —— model=auto→实际模型；可有短 reasoning
-  │
-  ├─► 工具循环(ToolLoop) —— function_call → function_call_result → …
-  │     例: Write → present_files
-  │
-  ▼
-交付(Delivered) —— 助手文本 + artifact-index(file-changes|media)
-  │
-  ├─► 完成(Completed) —— 可投影耗时/消耗/模型
-  └─► 失败(Failed) —— 人话错误（本机样本未强制失败用例）
-
-可选分支:
-  停止 → Cancelled（UI 应保留已停止语义）
-  只要短答 → 可无工具、无文件产物
+空闲 → 用户发任务/选 chip
+  → 受理（新会话进「任务」列表；绑定 workDir）
+  → 执行（可工具循环；UI 等待态）
+  → 完成「已完成 Ns」
+        ├─ 有产物: 文件卡 + 右栏产物 + 查看所有产物/变更
+        └─ 无产物: 纯文本（短答）
+  → 摘要条: 共消耗 X · Auto (实际模型)
+可选: 停止（本 live 未新跑停止用例）· 同会话续聊
 ```
 
-## 剧本 R1 · 工作区写文件（真会话）
+## 剧本 R1 · 工作区写文件（真任务 · live 打开）
 
-| 步 | 时序 | 观察 |
+| 序 | 用户操作 | 界面/系统变化 | 终态 |
+|----|----------|---------------|------|
+| 1 | 新建任务 / 发指令 | 任务进入侧栏列表 | session + workDir |
+| 2 | 「在工作空间写一个 hello.txt，内容为 hi」 | 助手执行工具写盘 | |
+| 3 | （历史打开）点侧栏该任务 | 标题=指令摘要 | live-08 |
+| 4 | 查看中区 | **已完成 13s**；路径；内容 hi | |
+| 5 | 查看文件卡 | **hello.txt · 2 B** · 可打开 | |
+| 6 | 查看底条 | **共消耗 6.45** · **Auto (GLM-5.2)** | |
+| 7 | 查看右栏 | **浏览器 / 产物** → hello.txt | |
+
+**落盘交叉：** Write → present_files；`artifact-index` file-changes+media。  
+**结论：** 交付 = 工具写盘 + 完成态投影 + 产物栏，不是纯聊天。
+
+## 剧本 R2 · 纯短答不硬塞文件（live-08b）
+
+| 序 | 操作/观察 | 结果 |
+|----|-----------|------|
+| 1 | 任务「写一句测试: 1+1等于几」 | |
+| 2 | 完成态 | **已完成 14s** |
+| 3 | 正文 | `1+1=2` + 说明；**无文件卡** |
+| 4 | 底条 | 共消耗 3.8 · Auto(GLM-5.2) |
+
+**结论：** 短答路径 **可以没有产物文件**（对标 Aivia 大纲无假绿）。
+
+## 剧本 R3 · 场景 chip → 结构化能力标签（live-02）
+
+| 序 | 操作 | 界面 |
 |----|------|------|
-| 1 | 用户侧栏「新建任务」或发指令 | Menu/入口 → 新 session |
-| 2 | 指令 | 「在工作区写一个 hello.txt，内容为 hi」 |
-| 3 | 系统 | `workDir=…\WorkBuddy\2026-07-30-06-45-08` · `sessionId=70e9bab6-…` |
-| 4 | 注入 | identity（SOUL/IDENTITY/USER/BOOTSTRAP）· connector-status 大列表 · permission 模式 |
-| 5 | 模型 | `requestModelId=auto` → **实际 `glm-5.2`** · agent=`cli` |
-| 6 | 工具1 | `Write(hello.txt, hi)` → Successfully created… |
-| 7 | 工具2 | `present_files([hello.txt])` → present_files_result |
-| 8 | 交付 | 助手说明路径与内容；**artifact-index** 写入 file-changes + media(PresentFiles) |
-| 9 | 终态 | 文件 2B 在 cwd；任务列表可见标题 |
-
-**证据：**  
-- transcript: `~\.workbuddy\projects\…\70e9bab6-….jsonl`  
-- artifact: `~\.workbuddy\artifact-index\70e9bab6-….json`  
-- 文件: `~\WorkBuddy\2026-07-30-06-45-08\hello.txt`  
-
-**结论：** 非「纯聊天一次返回」；是 **工具循环 + 工作区写盘 + 产物索引**。
-
-## 剧本 R2 · 纯问答（1+1）
-
-| 步 | 观察 |
-|----|------|
-| 用户 | 「测试1+1等于几」类（多条历史） |
-| 系统 | 仍建 workDir + session；mode 历史为 craft / permission bypass 见账本 |
-| 模型 | auto→glm-5.2 |
-| 工具 | **本样本未见 Write**；直接 assistant 文本（约「1+1=2」） |
-| 产物 | 无强制文件 |
-
-**证据：** 任务列表 UI 可见多条「测试1+1…」；transcript `7d1ce05e-…` / `b2bbe2bf-…` 有 output_text 无文件工具。  
-
-**结论：** 短答路径 **可以不硬塞文件**（对照 Aivia G3/S4）。
-
-## 剧本 R3 · 场景 chip 改变能力上下文
-
-| 步 | 观察 |
-|----|------|
-| 首页 | 三场景 Tab：日常办公 / 代码开发 / 设计创意 |
-| 点「设计创意」下某 chip | Composer 出现**可移除能力标签**；建议文案切换；出现「相关灵感」卡片区 |
-| 非行为 | 不仅是把模板句塞进 textarea |
-
-**证据：** `wb-home-design-chip-selected.png` + 可访问性树。  
-
-**结论：** 场景 = **结构化能力选择**，不是推荐文案玩具。
+| 1 | 新建任务 | 三场景 Tab |
+| 2 | 选能力相关 chip（设计向遗留标签可见） | Composer 内 **「网站设计 ×」可移除标签** |
+| 3 | 非行为 | 不是只把一句模板塞进纯文本框 |
 
 ## 剧本 R4 · Composer「+」组合绑定
 
-| 步 | 观察 |
-|----|------|
-| 点 Composer 左下 `+` | 弹出：添加文件 / 模式 / 专家 / 技能 / 连接器（均有子级箭头） |
-| 语义 | 每一项对应不同输入对象，进入后续任务绑定 |
+| 序 | 操作 | 界面 |
+|----|------|------|
+| 1 | 点 Composer「+」 | 菜单：添加文件 / 模式 / 专家 / 技能 / 连接器 |
+| 证据 | 本机历史 `wb-composer-add-menu.png`（同版本） | |
 
-**证据：** `wb-composer-add-menu.png` / `.txt`。  
+## 剧本 R5 · 专家目录进入任务能力生态（live-05）
 
-**结论：** 任务输入是 **多对象草稿**，不是单文本框。
+| 序 | 操作 | 界面 |
+|----|------|------|
+| 1 | 侧栏 → 专家·技能·连接器 | 三 Tab |
+| 2 | 专家页 | 精选场景 + 专家团 + 分类（含教育学习） |
+| 3 | 语义 | 能力是**可浏览/可绑定对象**，不是 Chat 内隐式提示一句 |
 
-## 剧本 R5 · 产物呈现路径
+## 剧本 R6 · 自动化前台（live-06）
 
-| 步 | 观察 |
-|----|------|
-| 写盘成功后 | `present_files` 工具 |
-| 索引 | artifact `type=media` + `file-changes`（含 diff） |
-| UI 结果栏 | 对齐调查：工作空间文件树可非空；概览/浏览器分栏 |
+| 序 | 操作 | 界面 |
+|----|------|------|
+| 1 | 侧栏 → 自动化 | 定时任务 / 运行记录 |
+| 2 | 本机状态 | **0 条自定义**；有「+ 添加」与模版网格 |
+| 3 | 语义 | 前台可创建；治理/配额仍偏后台 |
 
-**结论：** 交付闭环 = **工具写盘 → Present → 结果栏可打开**，不是仅 Markdown 代码块。
+## 剧本 R7 · 助理通道（live-03）
 
-## 剧本 R6 · 权限与沙箱（旁证）
+| 序 | 操作 | 界面 |
+|----|------|------|
+| 1 | 侧栏 → 助理 | 「本地助理」· **已连接微信小程序** |
+| 2 | 语义 | 与「新建任务」并列的通道入口；IM 触达前台可见 |
 
-| 观察 | 来源 |
-|------|------|
-| 会话 `permission_mode` 可为 bypassPermissions | 历史 session 日志 |
-| UI「默认权限」下拉 | home Composer 底栏 |
-| sandbox-core：cwd allowlist、sessions GC | `~\.workbuddy\logs\sandbox\*` |
-| file-service 读目录限当前 workDir | cleanroom 笔记 |
+## 与 Aivia 对照
 
-**结论：** 默认有边界；高权限模式可放宽——Aivia 应对齐 **默认紧、显式升权**。
+| 点 | WB live | Aivia |
+|----|---------|-------|
+| 完成态 | 已完成 Ns + 消耗 + 实际模型 | 弱/无统一 Run 卡 |
+| 有文件 | 文件卡 + 右栏产物 | `/dl` 链接 |
+| 无文件短答 | 允许 | S4/G3 已绿 |
+| 工具循环 | 本机有（写盘会话） | Chatflow/Code 节点 |
+| 停止/失败 | 未 live 新测停止 | Dify 停止；拒写库 S6 |
 
-## 与 Aivia 响应逻辑对照
+## 未 live 新测（诚实）
 
-| 点 | WorkBuddy | Aivia 现行 |
-|----|-----------|------------|
-| 任务化 | session+cwd+工具循环 | Dify 会话 + Chatflow |
-| 出件 | Write+Present+本地路径 | PackDownload → https `/dl` |
-| 无文件短答 | 可 | S4/G3 已绿 |
-| 改稿 | 同 cwd 多轮工具 | 同会话新 `/dl`（S5） |
-| 过程可见 | reasoning+tool+结果栏 | 流式文本为主 |
-| 停止 | UI 停止控件 | Dify 停止，cancelled 语义弱 |
-| 失败人话 | 产品化 | R8 / S6 拒写库 |
+- 复杂任务独立 Plan 面板  
+- 自动化从模版跑通一次  
+- 企业 Admin 审批  
+- 故意失败任务的错误话术  
 
-## 未在本机用实时新任务证实（诚实）
-
-- 复杂多步 Plan 面板是否稳定出现  
-- 自动化定时触发一条完整 run  
-- 企业 Admin 审批流  
-- 失败自动重试策略  
-
-（不阻塞 CLAIM；已在组织/矩阵标【未实时】）
+不阻塞「本机深查」；矩阵对应条目标【未 live】或 web 补充。

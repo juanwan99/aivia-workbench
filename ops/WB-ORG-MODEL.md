@@ -1,106 +1,82 @@
-# WorkBuddy 业务组织关系（本机）
+# WorkBuddy 业务组织关系（本机 live）
 
 ```
 DATE: 2026-08-06
-来源: local-UI + sessions.json + artifact-index + SQLite 字段旁证 + 企业版公开文（Admin）
+来源: live-01..08 + 本机会话账本
 ```
 
-## 1. 核心对象树（用户侧）
+## 1. 对象树（用户侧 · 本机可指）
 
 ```text
-User (账号 pom / userId UUID)
+User（个人账号 · 底栏可见）
 │
-├── Desktop Shell (Electron 主窗)
-│   ├── Nav: 新建任务 | 助理 | 项目 | 专家·技能·连接器 | 自动化 | 更多
-│   └── Preferences / 权限默认 / 模型 Auto
+├── 新建任务 ──► Task/Session
+│                 ├── workDir (WorkBuddy\<ts>)
+│                 ├── messages / tool loop
+│                 ├── 完成摘要: 耗时 · 消耗 · 实际模型
+│                 └── Artifacts[] ──► 右栏「产物」
 │
-├── Workspace / 空间
-│   └── path 绑定（任务级 workDir 常为 WorkBuddy\<timestamp>）
+├── 助理 ──► 本地助理通道（可连 微信小程序）
 │
-├── Project（项目）
-│   ├── 动态
-│   ├── 计划（待开始/进行中/已暂停）
-│   ├── 任务（聚合会话）
-│   ├── 资产（文件/文件夹）
-│   └── 右轨绑定: 指令 · 连接器 · 专家 · 技能 · 自动化
+├── 项目 ──► Project
+│     ├── Tab: 动态 | 计划 | 任务 | 资产
+│     ├── 右轨绑定: 指令 · 连接器 · 专家 · 技能 · 自动化
+│     └── 邀请（团队）
 │
-├── Task / Session (conversationId)
-│   ├── status: completed / …
-│   ├── mode: craft | ask | …（模板侧）
-│   ├── model: auto → 实际模型
-│   ├── permission_mode
-│   ├── use_sandbox_cli
-│   ├── workDir (cwd)
-│   ├── Transcript (jsonl: user|reasoning|function_call|tool_result|assistant)
-│   ├── ToolCalls (Write, present_files, …)
-│   └── Artifacts[]
-│         ├── file-changes (diff)
-│         └── media (PresentFiles)
+├── 专家·技能·连接器 ──► Capability Catalog
+│     ├── 专家 / 专家团（可分类，含教育学习）
+│     ├── 技能
+│     └── 连接器
 │
-├── Capability
-│   ├── Expert（专家/专家团）
-│   ├── Skill（内置 + 可安装）
-│   └── Connector（实例态 connected/disconnected）
+├── 自动化 ──► Automation
+│     ├── 定时任务定义
+│     ├── 运行记录
+│     └── 模版
 │
-└── Automation
-      ├── 定义: prompt, rrule/间隔/单次, model, skills, connectors, 推送
-      ├── Runs
-      └── Delivery outbox（如微信通道）
+└── 更多 ──► 生态入口
+      我的文件 | 我的邮箱 | 腾讯文档 | ima知识库 | 乐享知识库 | 灵感
 ```
 
 ## 2. 从属关系（一句话）
 
-| 关系 | 说明 |
-|------|------|
-| User 1—N Session | 侧栏任务列表 |
-| Session 1—1 workDir | 每任务时间戳目录（本机样本） |
-| Session 1—N ToolCall | 工具循环 |
-| Session 1—N Artifact | 索引落盘，可在结果栏打开 |
-| Project 1—N Session | 项目任务 Tab 聚合 |
-| Project N—N Capability | 右轨绑定专家/技能/连接器/自动化 |
-| ComposerDraft → Session | 发送时固化绑定 |
-| Automation → 定时产生 Run/Session | 后台；本机 automations 曾 0 行 |
+| 关系 | 本机依据 |
+|------|----------|
+| User 1—N Task | 侧栏任务(4) live |
+| Task 1—0..N Artifact | live-08 有 / live-08b 无 |
+| Task 完成投影耗时消耗模型 | live-08/08b 底条 |
+| Project 聚合任务与资产 | 项目四 Tab + 说明文案 live-01 |
+| Project N—N Capability | 右轨「+」绑定 live-01 |
+| ComposerDraft 可绑 mode/expert/skill/connector/file | + 菜单历史截图 |
+| Automation 独立于即时 Task | live-06 空列表+模版 |
+| 助理通道 ≠ 普通任务列表 | live-03 独立页 |
 
-## 3. 前台 vs 后台配置落点
+## 3. 前台 vs 后台
 
-| 配置项 | 用户前台 | 管理/企业后台 | 本机观察 |
-|--------|----------|---------------|----------|
-| 发任务、选场景、+菜单绑定 | ✅ | | UI 截图 |
-| 模型 Auto/列表 | ✅ Composer | 企业可管模型资源 | Auto 可见 |
-| 默认权限/完全访问 | ✅ Composer 底栏 | 策略可企业下发 | 底栏可见 |
-| 技能安装/连接器认证 | 能力中心部分 | 治理上下架 | 插件 enabled 在 settings |
-| 自动化调度 | 自动化页 | 审计/禁用 | 入口在侧栏；本机 0 条定义 |
-| 组织成员/角色/停用 | | ✅ Admin | **本机无企业 Admin 屏** |
-| 用量/配额/成本归集 | 个人 Credits 可见性 | ✅ 部门归集 | 公开企业文 |
-| 审计日志 | | ✅ | 公开企业文 |
-| 数字员工 7×24 发布 | 使用侧 | ✅ 创建发布治理 | 公开企业文 |
+| 配置 | 前台（本机点到） | 后台/企业（本机未进 Admin） |
+|------|------------------|----------------------------|
+| 发任务、chip、+绑定 | ✅ | |
+| 默认权限开关 | ✅ Composer | 策略可企业下发（推断） |
+| 模型 Auto | ✅ | 模型资源治理 |
+| 专家浏览/我的专家 | ✅ live-05 | 上下架治理 |
+| 自动化创建 | ✅ live-06 | 审计/禁用/配额 |
+| 项目邀请 | ✅ 按钮 | 组织 RBAC |
+| 组织成员/部门成本 | | ✅ 公开企业文 · **非本机** |
+| 审计/订阅归集 | | ✅ 公开企业文 · **非本机** |
 
-## 4. 权限边界（本机）
-
-```text
-默认: 工作区 cwd allowlist（file-service）
-可选: sandbox-cli + sandbox-core 规则
-升权: permission_mode / UI「完全访问」
-MCP: 本地 proxy 需鉴权（曾 401）
-禁: 调查未做逃逸对抗；Aivia 不得复制 bypass 当默认
-```
-
-## 5. 与 Aivia 对象映射（clean-room）
+## 4. Aivia 映射原则
 
 | WB | Aivia 拟对象 | 落点 |
 |----|--------------|------|
-| Session/Task | Dify Conversation + 未来 Task 账本 | Chat |
-| workDir + Artifact | bridge `/dl` Artifact | bridge |
-| Project | （无）校级项目二期 | Admin |
-| Expert/Skill | 多应用 / skills/ 文档 | Console + Admin |
-| Connector | edu 只读 + 白名单工具 | bridge + Admin |
-| Automation | 定时任务（后置） | Admin |
-| Enterprise Admin | Dify 成员 + 自建 ops 看板 | Admin |
-| Credits | 用量/配额 | Admin 优先 |
+| Task + 完成摘要 | Conversation + 未来 Run 卡 | Chat |
+| Artifact 产物栏 | `/dl` Artifact + 未来面板 | bridge + Chat |
+| Project / 绑定 | 校级项目（二期） | Admin |
+| 专家目录 | 多应用/专家包 | Admin + Chat 入口精简 |
+| 自动化 | 定时任务 | Admin |
+| 企业 Admin | Dify 成员 + ops 看板 | **Admin 不塞 Chat** |
+| 微信小程序助理 | IM 通道 | 二期 |
 
-## 6. 组织原则（给 Aivia 实现卡）
+## 5. 给实现卡的组织纪律
 
-1. **老师 Chat 只碰：** 任务对话、推荐、出件、改稿、拒越权。  
-2. **能力绑定对象** 与 **治理对象** 分离；禁止把 RBAC/配额按钮堆进 Chat。  
-3. **Artifact 必须可定位**（URL 或路径），禁止空成功。  
-4. **Workspace 边界** Web 用租户/会话隔离替代本地盘。
+1. Chat 只承载任务对话与交付；**治理对象不进老师前台按钮墙**。  
+2. 有文件必须可定位（路径或 https）；无文件不得假绿。  
+3. 完成态建议投影：耗时或状态 + 模型/成本（管理侧可先做）。  

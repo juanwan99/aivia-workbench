@@ -3,7 +3,7 @@
 ```
 STATUS: P0-GATE=PASS · CLAIM-B=YES · CLAIM-DOC-SOLID=YES · DL-FIX=PASS · CLAIM-SCENE-FULL=YES · WB-SURVEY=DONE · CLAIM-WB-SURVEY=YES · E1=PASS(LE) · hybrid · 正式上线=否
 DATE: 2026-08-06
-ONE_LINE: CLAIM-WB-SURVEY=YES（本机深查 UI/逻辑/组织 · 矩阵48/G17）；≠功能对齐 · ≠上线
+ONE_LINE: CLAIM-WB-SURVEY=YES（本机 live 点查 · 非网搜 · 矩阵48/G17）；≠功能对齐 · ≠上线
 ```
 
 | 组件 | 版本 | 日期 | 备注 |
@@ -15,7 +15,7 @@ ONE_LINE: CLAIM-WB-SURVEY=YES（本机深查 UI/逻辑/组织 · 矩阵48/G17）
 | **DOC-SOLID** | **PASS** | 2026-08-06 | 真 xlsx + 真 docx |
 | **DL-FIX** | **PASS** | 2026-08-06 | **主路径=https 文件 URL** |
 | **SCENE-FULL** | **PASS** | 2026-08-06 | **CLAIM-SCENE-FULL=YES** |
-| **WB-SURVEY** | **DONE** | 2026-08-06 | **本机深查** · MATRIX 48/G17 |
+| **WB-SURVEY** | **DONE** | 2026-08-06 | **本机 live 点查** · live-*.png · MATRIX 48/G17 |
 | WorkBuddy 对照本机 | **5.3.5** | 2026-08-06 | 仅调查参照 · 非依赖 |
 | OpenWork | 二期 | | 非主线 |
 

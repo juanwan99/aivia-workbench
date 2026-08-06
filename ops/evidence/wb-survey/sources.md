@@ -1,53 +1,54 @@
-# WB-SURVEY 引用源（local-UI 优先 · web 补充）
+# WB-SURVEY 引用源（local-UI live 优先）
 
 ```
 DATE: 2026-08-06
-PHASE: PHASE-WB-SURVEY
-权重: local-UI / 本机会话 > web 公开文
+权重: 本机 live 截图/点查 > 本机会话落盘 > web 补充
 ```
 
-## A. local-UI / 本机（主）
-
-| # | 源 | 类型 | 用途 |
-|---|-----|------|------|
-| L-UI-01 | `ops/evidence/wb-survey/ui/wb-home-office.png` + `.txt` | 截图+可访问性树 | 主壳、导航、办公场景、任务列表 |
-| L-UI-02 | `ui/wb-home-code.png` + `.txt` | 同上 | 代码开发场景建议 |
-| L-UI-03 | `ui/wb-home-design.png` + `.txt` | 同上 | 设计创意场景 |
-| L-UI-04 | `ui/wb-home-design-chip-selected.png` + `.txt` | 同上 | chip 结构化标签+灵感 |
-| L-UI-05 | `ui/wb-composer-add-menu.png` + `.txt` | 同上 | + 菜单五类绑定 |
-| L-UI-06 | `ui/README.md` | 索引 | D0 环境与覆盖表 |
-| L-SESS-01 | `~\.workbuddy\projects\…\70e9bab6-….jsonl` + artifact-index + `WorkBuddy\…\hello.txt` | 本机会话 | 写文件工具循环剧本 |
-| L-SESS-02 | 同目录其它 1+1 会话 jsonl | 本机会话 | 纯问答无强制文件 |
-| L-CFG-01 | `~\.workbuddy\app\sessions.json` · `window-state.json` · `last-launch.json` | 配置结构 | 版本/会话绑定/窗尺寸 |
-| L-CFG-02 | `~\.workbuddy\settings.json`（仅结构：sandbox/claw/enabledPlugins 键名） | 配置结构 | 插件与通道开关形态；**无密钥值进仓** |
-| L-FS-01 | 安装目录 `builtin-skills` / `templates` **目录名列表** | 可见资源名 | 技能与模式模板名 |
-| L-LOG-01 | `~\.workbuddy\logs\sandbox\*` · CliDispatcher 行 | 日志摘要 | 沙箱路径、permissionMode |
-| L-NOTE-01 | `~/WorkBuddy-cleanroom-architecture.md`（2026-08-05） | 架构笔记 | 进程/端口/对象边界旁证 |
-
-## B. web 公开（补充 · 不得替代本机）
+## A. local-UI live（主 · 2026-08-06 本机点）
 
 | # | 源 | 用途 |
 |---|-----|------|
-| W-01 | https://www.workbuddy.cn/ | 定位与生态名 |
-| W-02 | https://www.codebuddy.cn/work/ | 多专家/场景文案 |
-| W-03 | https://www.pingwest.com/a/314412 | **企业 Admin**：组织、审计、用量、数字员工、Connector、Skills |
-| W-04 | https://developer.cloud.tencent.com/article/2658096 | 桌面能力教程交叉 |
-| W-05 | https://www.eigent.ai/zh-HK/blog/workbuddy-ai-review | 多代理/MCP 交叉 |
-| W-06 | https://www.53ai.com/news/shuziyuangong/2026020601269.html | 模式/技能/连接器操作描述 |
+| L-LIVE-01 | `ui/live-02-newtask.png` | 新建任务壳 / chip / Composer / 权限 / Auto |
+| L-LIVE-02 | `ui/live-03-assistant.png` | 本地助理 + 微信小程序连接 |
+| L-LIVE-03 | `ui/live-01-main.png` · `live-04-project.png` | 项目四 Tab + 右轨配置 |
+| L-LIVE-04 | `ui/live-05-experts.png` | 专家·技能·连接器目录 |
+| L-LIVE-05 | `ui/live-06-automation.png` | 自动化定时 / 模版 |
+| L-LIVE-06 | `ui/live-07-more.png` | 更多：文件/邮箱/文档/ima/乐享/灵感 |
+| L-LIVE-07 | `ui/live-08-history-task1.png` | 完成态 + 产物栏 + 消耗 + 模型 |
+| L-LIVE-08 | `ui/live-08b-history-task2.png` | 短答无文件 |
+| L-LIVE-09 | `ui/README.md` | 索引与覆盖表 |
+| L-LIVE-10 | `capture_live.py` | 点击截屏脚本（非逆向） |
 
-## C. Aivia 现状锚点
+## B. local 落盘会话（交叉）
 
 | # | 源 | 用途 |
 |---|-----|------|
-| A-01 | `docs/CANON.md` · `upstream/PIN.md` | 主线 CLAIM |
-| A-02 | `ops/SCENE-FULL-REPORT.md` · evidence/scene-full | 个人全场景 P0 |
-| A-03 | `ops/DOC-SOLID-REPORT.md` · `ops/DL-FIX-REPORT.md` | 真文件 · https /dl |
-| A-04 | `bridge/README.md` | hybrid · 拒写库 |
-| A-05 | `docs/RESPONSE-LOGIC.md` · DELIVERY-RULES | R1–R8 |
-| A-06 | Dify 1.16.1 控制台（应用/成员/知识库） | 管理员「部分」锚点 |
+| L-SESS-01 | `~/.workbuddy/projects/.../70e9bab6-....jsonl` + artifact-index + hello.txt | 写文件工具循环 |
+| L-CFG-01 | sessions.json / last-launch / window-state | 版本与会话绑定 |
+
+## C. 历史同机 UI（补充 · 同版本）
+
+| # | 源 | 用途 |
+|---|-----|------|
+| L-HIST-01 | `ui/wb-home-*.png` · `wb-composer-add-menu.png` | 场景 chip 选中态 · + 菜单五类 |
+
+## D. web（仅补充 · 不得为主）
+
+| # | 源 | 用途 |
+|---|-----|------|
+| W-03 | https://www.pingwest.com/a/314412 | 企业 Admin 组织/审计/用量（**非本机 Admin 实测**） |
+| W-01 | https://www.workbuddy.cn/ | 定位旁证 |
+| W-02 | https://www.codebuddy.cn/work/ | 场景旁证 |
+
+## E. Aivia 锚点
+
+| # | 源 |
+|---|-----|
+| A-01..06 | CANON · SCENE-FULL · DOC-SOLID · DL-FIX · bridge · RESPONSE-LOGIC |
 
 ## 纪律
 
-- 矩阵「来源」列优先 `L-*`；企业 Admin 细项可标 `W-03` 并备注 **非本机 Admin 实测**。  
-- **网搜-only 条目不得构成矩阵主体。**  
-- 不贴 Cookie、Token、账号密码、个人文件正文（hello 内容 `hi` 为例外已公开测试）。
+- 矩阵观察来源优先 `L-LIVE-*` / `L-SESS-*`  
+- **网搜-only = FAIL**  
+- 无密钥 / Token 进仓  
