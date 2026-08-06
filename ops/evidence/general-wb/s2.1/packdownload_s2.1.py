@@ -242,11 +242,26 @@ def _upload(filename: str, mime: str, blob: bytes) -> dict:
     return {"ok": True, "url": url, "filename": body.get("filename") or filename}
 
 
-def _pack(filename: str, mime: str, blob: bytes, preview: str) -> dict:
+def _extract_prose(text: str) -> str:
+    """Keep LLM observations/conclusions outside code fences (S2.1 G7)."""
+    t = text or ""
+    t = re.sub(r"```.*?```", "\n", t, flags=re.S)
+    t = re.sub(r"交付文件[：:].*", "", t)
+    t = re.sub(r"DOWNLOAD_READY\s*", "", t)
+    t = re.sub(r"https?://\S+/dl/\S+", "", t)
+    # drop pure markdown tables
+    t = re.sub(r"(?m)^\s*\|.*\|\s*$", "", t)
+    t = re.sub(r"\n{3,}", "\n\n", t).strip()
+    return t[:4000] if t else ""
+
+
+def _pack(filename: str, mime: str, blob: bytes, preview: str, prose: str = "") -> dict:
     up = _upload(filename, mime, blob)
     if not up.get("ok"):
         # Honest failure — do NOT fall back to data-URL for green CLAIM
+        prefix = (prose.strip() + "\n\n") if (prose or "").strip() else ""
         answer = (
+            f"{prefix}"
             f"失败：未能生成可点击的 HTTPS 下载链接。\n"
             f"原因：{up.get('error')}\n"
             f"请稍后重试或联系管理员（下载落盘服务）。\n\n"
@@ -259,7 +274,9 @@ def _pack(filename: str, mime: str, blob: bytes, preview: str) -> dict:
             "download_marker": "NO_FILE",
         }
     url = up["url"]
+    prefix = (prose.strip() + "\n\n") if (prose or "").strip() else ""
     answer = (
+        f"{prefix}"
         f"## 交付清单\n"
         f"| # | 文件名 | 类型 | 下载 |\n"
         f"|---|--------|------|------|\n"
@@ -366,6 +383,7 @@ def main(llm_text: str) -> dict:
                 "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
                 blob,
                 f"```markdown\n{prev}\n```",
+                prose=_extract_prose(text),
             )
 
     # ---- DOCX (R3 harden) ----
@@ -382,6 +400,7 @@ def main(llm_text: str) -> dict:
             "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
             blob,
             f"```markdown\n{md[:4000]}\n```",
+            prose="",  # body already in docx preview
         )
 
     # ---- HTML ----
@@ -399,6 +418,7 @@ def main(llm_text: str) -> dict:
             "text/html; charset=utf-8",
             html.encode("utf-8"),
             f"```html\n{html[:2000]}\n```",
+            prose=_extract_prose(text),
         )
 
     # ---- Markdown fallback (skip if docx intent) ----
@@ -412,6 +432,7 @@ def main(llm_text: str) -> dict:
             "text/markdown; charset=utf-8",
             md.encode("utf-8"),
             f"```markdown\n{md[:4000]}\n```",
+            prose=_extract_prose(text),
         )
 
     return {

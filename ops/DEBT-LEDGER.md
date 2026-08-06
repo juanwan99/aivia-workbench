@@ -1,16 +1,17 @@
 # 债务总账（复原后）
 
 ```
-UPDATED: 2026-08-06 · CLAIM-GENERAL-WB=YES
+UPDATED: 2026-08-06 · CLAIM-S2.1-HOTFIX=YES · CLAIM-GENERAL-WB=FULL YES
 ```
 
 | 项 | 状态 |
 |----|------|
-| **错误主线（教育站/运维当对标）** | **已作废** |
-| **通用任务对标 WorkBuddy 行为** | **已收 · CLAIM-GENERAL-WB=YES** |
-| S3 完成态/摘要体感 | **OPEN · 可选下一刀** |
-| S4 工具/知识/edu 插头 | **OPEN · 可选** |
-| PackDownload 默认文件名偶发教育词 | **cosmetic 债 · 内容 OOXML 为准** |
-| 备案/dns_ali/full real | **非核心 · 后置** |
+| 通用任务对标 WorkBuddy 行为 | **已收 FULL** |
+| S2 审查 P1-1 G7 观察 | **关** |
+| S2 审查 P1-2 教案默认名 | **关** |
+| S2 审查 P2 G6 stdin | **关** |
+| S3 完成态/摘要体感 | **OPEN** |
+| S4 工具/知识加厚 | **OPEN** |
+| 备案/dns/full real | **后置** |
 
-报告：`ops/S2-GENERAL-WB-REPORT.md`
+报告：`ops/S2.1-HOTFIX-REPORT.md` · `ops/S2-GENERAL-WB-REPORT.md`

@@ -4,7 +4,7 @@
 DATE: 2026-08-06
 STATUS: BINDING
 新窗: 先读 docs/HANDOFF.md 再读本文
-UPDATED: CLAIM-GENERAL-WB=YES · 默认入口=通用 Agent · 跨领域 G4–G7 绿
+UPDATED: CLAIM-GENERAL-WB=FULL YES · CLAIM-S2.1-HOTFIX=YES · workflow=general-wb-s2.1
 ```
 
 ## 宏观目标

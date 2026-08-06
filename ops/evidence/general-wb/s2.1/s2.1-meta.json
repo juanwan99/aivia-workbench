@@ -1,0 +1,19 @@
+{
+  "phase": "S2.1-HOTFIX",
+  "date": "2026-08-06",
+  "claim": "CLAIM-S2.1-HOTFIX",
+  "result": "PASS",
+  "gates": {
+    "F1": "PASS",
+    "F2": "PASS",
+    "F3": "PASS",
+    "F4": "PASS",
+    "F5": "PASS",
+    "F6": "PASS"
+  },
+  "workflow_id": "08ca8656-8d34-4ffd-b6e2-26a8a3066957",
+  "workflow_marked": "general-wb-s2.1",
+  "app": "Aivia 通用 Agent",
+  "claim_general_wb": "FULL YES",
+  "debts_closed": ["P1-1_g7_obs", "P1-2_edu_default_filename", "P2_g6_stdin"]
+}

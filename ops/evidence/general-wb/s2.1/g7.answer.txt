@@ -1,0 +1,28 @@
+中性观察：
+1. 产品B单价低于产品A约20元，但月销量高出80件，估算月营收比产品A高约33%。
+2. 产品A单价较高，若销量提升或价格调整，营收弹性可能更大；产品B走量模式，对供应链和成本控制要求更高。
+3. 当前数据仅反映单一月份静态对比，未包含成本、渠道、复购率等维度，不能直接推断长期盈利能力。
+
+## 交付清单
+| # | 文件名 | 类型 | 下载 |
+|---|--------|------|------|
+| 1 | 表格-竞品对比.xlsx | application/vnd.openxmlformats-officedocument.spreadsheetml.sheet | [点击下载](https://asyncova.com/dl/54b315f14afc4428bfc69246c1281606/file.xlsx) |
+
+DOWNLOAD_READY
+
+- **文件名**：表格-竞品对比.xlsx
+- **HTTPS**：https://asyncova.com/dl/54b315f14afc4428bfc69246c1281606/file.xlsx
+- **主路径**：https 文件 URL（非 data-URL）
+
+[点击下载 表格-竞品对比.xlsx](https://asyncova.com/dl/54b315f14afc4428bfc69246c1281606/file.xlsx)
+
+<details><summary>内容预览（备用）</summary>
+
+```markdown
+| 产品 | 单价（元） | 月销量（件） | 估算月营收（元） |
+| --- | --- | --- | --- |
+| 产品A | 99 | 120 | 11880 |
+| 产品B | 79 | 200 | 15800 |
+```
+
+</details>

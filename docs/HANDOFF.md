@@ -3,7 +3,7 @@
 ```
 STATUS: BINDING · 新窗总管开场真源之一
 DATE: 2026-08-06
-UPDATED: CLAIM-GENERAL-WB=YES · 下一刀=S3/S4
+UPDATED: CLAIM-GENERAL-WB=FULL YES · CLAIM-S2.1=YES · 下一刀=S3
 仓: https://github.com/juanwan99/aivia-workbench
 冲突裁决: docs/CANON.md > 本文 > 任何旧任务卡/旧 CLAIM 叙事
 ```
@@ -154,11 +154,11 @@ UPDATED: CLAIM-GENERAL-WB=YES · 下一刀=S3/S4
 【清源】MEMORY-RESET 已生效 · 教育/QUAD 主叙事作废
 【S1】FULL YES · 通用入口 G1–G3
 【S1.1】YES · /experts 通用化
-【S2】CLAIM-GENERAL-WB=YES · G4–G7 双轨绿
-【证据】ops/evidence/general-wb/s1/ · s1.1/ · s2/
+【S2】CLAIM-GENERAL-WB=FULL YES · S2.1 审查债关
+【证据】ops/evidence/general-wb/s1/ · s1.1/ · s2/ · s2.1/
 【Chat】https://asyncova.com/chat/lOMVPbz7rZmbJSJl
 【experts】https://asyncova.com/experts
-【App】Aivia 通用 Agent · workflow=general-wb-s1
+【App】Aivia 通用 Agent · workflow=general-wb-s2.1
 【对标】行为级 CLAIM-GENERAL-WB=YES · ≠像素 · ≠S3满分
 【正式上线话术】运维/公网事实；产品对标=行为交付已收，非上线扩权
 ```

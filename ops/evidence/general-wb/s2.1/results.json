@@ -1,0 +1,50 @@
+{
+  "F3_G7": {
+    "len": 803,
+    "links": [
+      "https://asyncova.com/dl/54b315f14afc4428bfc69246c1281606/file.xlsx",
+      "https://asyncova.com/dl/54b315f14afc4428bfc69246c1281606/file.xlsx",
+      "https://asyncova.com/dl/54b315f14afc4428bfc69246c1281606/file.xlsx"
+    ],
+    "has_dl": true,
+    "download_ready": true,
+    "elapsed": 2.9,
+    "ban_invest": false,
+    "fetch": {
+      "ok": true,
+      "size": 1703,
+      "url_name": "file.xlsx",
+      "public_status": 200,
+      "cd": "attachment; filename=\"file.xlsx\"; filename*=UTF-8''%E8%A1%A8%E6%A0%BC-%E7%AB%9E%E5%93%81%E5%AF%B9%E6%AF%94.xlsx",
+      "public_size": 1703,
+      "ooxml": true
+    },
+    "display_name": "表格-竞品对比.xlsx",
+    "assert_exit": 0,
+    "assert_out": "{'ban_invest': False, 'obs_markers': 6, 'pass': True}",
+    "pass": true
+  },
+  "F4_G4": {
+    "len": 2147,
+    "links": [
+      "https://asyncova.com/dl/8af3e05151af47238b2779c8952562d3/file.docx",
+      "https://asyncova.com/dl/8af3e05151af47238b2779c8952562d3/file.docx",
+      "https://asyncova.com/dl/8af3e05151af47238b2779c8952562d3/file.docx"
+    ],
+    "elapsed": 11.5,
+    "fetch": {
+      "ok": true,
+      "size": 3229,
+      "url_name": "file.docx",
+      "public_status": 200,
+      "cd": "attachment; filename=\"file.docx\"; filename*=UTF-8''%E6%96%87%E6%A1%A3-%E9%A1%B9%E7%9B%AE%E5%90%AF%E5%8A%A8%E4%BC%9A%E7%BA%AA%E8%A6%81.docx",
+      "public_size": 3229,
+      "ooxml": true
+    },
+    "display_name": "文档-项目启动会纪要.docx",
+    "is_jiaoan": false,
+    "has_doc_hint": true,
+    "pass": true
+  },
+  "all_pass": true
+}
