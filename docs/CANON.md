@@ -3,13 +3,17 @@
 ```
 DATE: 2026-08-06
 STATUS: BINDING
-UPDATED: 下一刀 WB-SURVEY = 本机深查（UI/响应逻辑/业务组织）· 非网搜
+UPDATED: CLAIM-WB-SURVEY=YES（本机深查）· 下一刀=按 MATRIX 另卡实现 · 正式上线=否
 ```
 
 ## 现行真相
 
-1. Web + Dify + DeepSeek；已收 SCENE-FULL / DOC-SOLID / DL-FIX / CLAIM-B。  
-2. 正式上线=否。  
-3. 业主：全面对标 WorkBuddy；名字可不同；多能力=管理员后端。  
-4. **调查必须有深度：以本机已装 WorkBuddy 的 UI、响应逻辑、业务组织为准；网搜不能替代。**  
-5. 下一刀：`ops/TASK-CARD-WB-SURVEY.md` · 仅调查不开发 · clean-room。  
+1. Web + Dify 1.16.1 + DeepSeek。  
+2. 已收：CLAIM-B · DOC-SOLID · DL-FIX · CLAIM-SCENE-FULL · **CLAIM-WB-SURVEY**。  
+3. 正式上线=否 · full real=否 · Harness=否。  
+4. 个人全场景 P0 打通；下载主路径 **https `/dl/...`**。  
+5. 默认入口：`https://workbench.aivia.asia/chat/lOMVPbz7rZmbJSJl`。  
+6. 对标 WorkBuddy **本机深查**（UI/响应逻辑/业务组织/矩阵）；名字可不同；**大量能力=管理员后端**。  
+7. 调查交付：`WB-IA` · `WB-RESPONSE-LOGIC` · `WB-ORG-MODEL` · `WB-FEATURE-MATRIX`(48/G17) · `WB-SURVEY-REPORT` · `evidence/wb-survey/`。  
+8. **CLAIM-WB-SURVEY = 深查齐** · **≠** 功能已对齐 · **≠** 上线 · **≠** 开发完成。  
+9. **下一刀：** 按矩阵勾选子集 **另开实现卡**（禁止无表开发、禁止网搜充深查）。  
