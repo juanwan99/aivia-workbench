@@ -1,0 +1,26 @@
+交付文件：报表.xlsx
+
+DOWNLOAD_READY
+
+[点击下载 报表.xlsx](https://workbench.aivia.asia/dl/0da670339c534d1fbd51bc2c217679ad/file.xlsx)
+
+下载链接（HTTPS）：https://workbench.aivia.asia/dl/0da670339c534d1fbd51bc2c217679ad/file.xlsx
+
+（浏览器将直接下载文件；主路径为 https 文件 URL，非 data-URL）
+
+<details><summary>内容预览（备用）</summary>
+
+```markdown
+| 列 | 说明 |
+| --- | --- |
+| 学号 | 班级学号（如20240301） |
+| 姓名 | 学生姓名 |
+| 性别 | 男/女 |
+| 选择题(40) | 满分40分 |
+| 填空题(20) | 满分20分 |
+| 解答题(40) | 满分40分 |
+| 总分 | 三部分自动求和 |
+| 班级排名 | 按总分降序排列 |
+```
+
+</details>

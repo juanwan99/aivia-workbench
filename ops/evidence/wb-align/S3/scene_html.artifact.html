@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>一次函数 · 数学课件</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Roboto, 'Helvetica Neue', system-ui, sans-serif;
+      background: #f5f7fb;
+      color: #1e293b;
+      line-height: 1.6;
+      padding: 2rem 1rem;
+    }
+    .slide-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 28px;
+      box-shadow: 0 20px 40px -12px rgba(0, 20, 40, 0.25);
+      overflow: hidden;
+      padding: 2.5rem 2.8rem;
+      border: 1px solid #e9edf4;
+    }
+    h1 {
+      font-size: 2.4rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      background: linear-gradient(135deg, #0f3b5e, #2b6a9e);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 0.25rem;
+      border-left: 6px solid #2b6a9e;
+      padding-left: 1.2rem;
+    }
+    .subhead {
+      font-size: 1.1rem;
+      color: #475569;
+      margin-bottom: 2rem;
+      padding-left: 1.2rem;
+      border-left: 6px solid #94a3b8;
+      font-weight: 400;
+    }
+    .section {
+      margin-bottom: 2.2rem;
+    }
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #0f3b5e;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .section-title span {
+      background: #e2e8f0;
+      padding: 0.2rem 0.8rem;
+      border-radius: 40px;
+      font-size: 0.9rem;
+      color: #1e3a5f;
+    }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.8rem;
+    }
+    .card {
+      background: #f8fafc;
+      border-radius: 18px;
+      padding: 1.4rem 1.6rem;
+      border: 1px solid #dee5ed;
+      transition: 0.2s;
+    }
+    .card:hover {
+      border-color: #a0c1d9;
+      background: #f0f6fc;
+    }
+    .card h3 {
+      font-weight: 600;
+      color: #1e3a5f;
+      margin-bottom: 0.8rem;
+      font-size: 1.2rem;
+    }
+    .kpi {
+      font-size: 1rem;
+      color: #334155;
+    }
+    .formula {
+      background: #0f172a;
+      color: #e2e8f0;
+      padding: 0.8rem 1.2rem;
+      border-radius: 14px;
+      font-family: 'JetBrains Mono', 'Courier New', monospace;
+      font-size: 1.2rem;
+      letter-spacing: 0.3px;
+      display: inline-block;
+      margin: 0.6rem 0;
+    }
+    .highlight {
+      background: #fff3cd;
+      padding: 0.1rem 0.4rem;
+      border-radius: 6px;
+      font-weight: 500;
+      color: #7a5b00;
+    }
+    ul, ol {
+      padding-left: 1.6rem;
+      margin: 0.8rem 0;
+    }
+    li {
+      margin-bottom: 0.4rem;
+    }
+    .example-box {
+      background: #eef6ff;
+      border-left: 5px solid #2b6a9e;
+      padding: 1rem 1.4rem;
+      border-radius: 12px;
+      margin: 1.2rem 0;
+    }
+    .btn-download {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: #0f3b5e;
+      color: white;
+      border: none;
+      padding: 0.8rem 2rem;
+      border-radius: 60px;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: 0.2s;
+      box-shadow: 0 4px 12px rgba(15, 59, 94, 0.3);
+      margin-top: 1rem;
+      text-decoration: none;
+    }
+    .btn-download:hover {
+      background: #1f5780;
+      transform: translateY(-2px);
+    }
+    .footer-note {
+      margin-top: 2.5rem;
+      text-align: center;
+      color: #64748b;
+      font-size: 0.9rem;
+      border-top: 1px dashed #cbd5e1;
+      padding-top: 1.5rem;
+    }
+    .badge {
+      background: #dbeafe;
+      color: #1e3a5f;
+      border-radius: 30px;
+      padding: 0.2rem 1rem;
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+    @media (max-width: 700px) {
+      .slide-container {
+        padding: 1.5rem;
+      }
+      .grid-2 {
+        grid-template-columns: 1fr;
+      }
+      h1 {
+        font-size: 1.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="slide-container" id="courseware-root">
+  <!-- 标题区 -->
+  <h1>📈 一次函数 · 从入门到应用</h1>
+  <div class="subhead">初中数学 · 八年级 | 理解 · 图像 · 应用</div>
+
+  <!-- 学习目标 -->
+  <div class="section">
+    <div class="section-title">🎯 学习目标 <span>3 个核心</span></div>
+    <div class="grid-2">
+      <div class="card">
+        <h3>📌 概念理解</h3>
+        <p class="kpi">掌握一次函数 <strong>y = kx + b (k≠0)</strong> 的结构，理解常量与变量的关系。</p>
+      </div>
+      <div class="card">
+        <h3>📌 图像与性质</h3>
+        <p class="kpi">能画出一次函数图像，理解 <strong>k（斜率）</strong> 与 <strong>b（截距）</strong> 对直线的影响。</p>
+      </div>
+      <div class="card">
+        <h3>📌 实际应用</h3>
+        <p class="kpi">用一次函数解决行程、费用、方案选择等简单实际问题。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 知识点核心 -->
+  <div class="section">
+    <div class="section-title">🧠 核心知识点 <span>重点</span></div>
+    <div style="display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: flex-start;">
+      <div style="flex: 1.2; min-width: 240px;">
+        <div class="formula">y = kx + b &nbsp;(k ≠ 0)</div>
+        <p style="margin-top: 0.8rem;"><span class="highlight">k</span> — 斜率（倾斜程度）<br>
+        <span class="highlight">b</span> — 截距（与y轴交点）</p>
+        <ul style="margin-top: 0.6rem;">
+          <li><strong>k &gt; 0</strong> 直线上升（↗）</li>
+          <li><strong>k &lt; 0</strong> 直线下降（↘）</li>
+          <li><strong>b &gt; 0</strong> 交于y轴正半轴</li>
+          <li><strong>b &lt; 0</strong> 交于y轴负半轴</li>
+        </ul>
+      </div>
+      <div style="flex: 1; background: #f1f5f9; border-radius: 16px; padding: 1rem 1.2rem;">
+        <h3 style="font-size: 1.1rem; margin-bottom: 0.5rem;">📐 图像特征</h3>
+        <p>一次函数图像是一条<b>直线</b>。<br>
+        两点确定一条直线：通常取 <strong>(0, b)</strong> 和 <strong>(-b/k, 0)</strong>。</p>
+        <p style="margin-top: 0.6rem;">⭐ 当 b=0 时，成为正比例函数 <strong>y=kx</strong>，图像过原点。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 典型例题 -->
+  <div class="section">
+    <div class="section-title">✏️ 典型例题 <span>2 个经典</span></div>
+    <div class="example-box">
+      <p><strong>例1 · 求解析式</strong>：已知一次函数图像经过点 A(1, 3) 和 B(-1, -1)，求该函数表达式。</p>
+      <p style="margin-top: 0.6rem; background: #ffffff; padding: 0.6rem 1rem; border-radius: 10px;">
+        ✅ 解：设 y = kx + b，代入两点：<br>
+        k + b = 3 ① ； -k + b = -1 ②<br>
+        ① - ② 得 2k = 4 → <strong>k = 2</strong>，代入①得 b = 1。<br>
+        ∴ 解析式为 <span class="highlight">y = 2x + 1</span>
+      </p>
+    </div>
+    <div class="example-box" style="border-left-color: #e07c3c;">
+      <p><strong>例2 · 图像应用</strong>：一次函数 y = -2x + 4，求与x轴、y轴交点坐标，并判断经过哪几个象限。</p>
+      <p style="margin-top: 0.6rem; background: #ffffff; padding: 0.6rem 1rem; border-radius: 10px;">
+        ✅ 解：令 x=0 → y=4 → (0, 4)；令 y=0 → -2x+4=0 → x=2 → (2, 0)。<br>
+        k=-2 &lt; 0, b=4 &gt; 0 → 直线经过 <strong>一、二、四象限</strong>。
+      </p>
+    </div>
+  </div>
+
+  <!-- 易错提醒 & 小结 -->
+  <div class="section">
+    <div class="section-title">⚠️ 易错提醒 & 小结</div>
+    <div style="display: flex; gap: 1.5rem; flex-wrap: wrap;">
+      <div style="flex: 1; min-width: 200px; background: #fef9e7; border-radius: 14px; padding: 1rem 1.4rem;">
+        <h3 style="color: #8a6d1a;">🔍 常见错误</h3>
+        <ul>
+          <li>忽略 <strong>k ≠ 0</strong> 的条件</li>
+          <li>画图时误将直线画成线段</li>
+          <li>混淆斜率k与截距b的几何意义</li>
+        </ul>
+      </div>
+      <div style="flex: 1.2; min-width: 220px; background: #e8f0fe; border-radius: 14px; padding: 1rem 1.4rem;">
+        <h3 style="color: #1e3a5f;">📘 课堂小结</h3>
+        <p>一次函数 <strong>y=kx+b (k≠0)</strong> 是刻画变量关系的基础模型。<br>
+        <strong>k</strong> 决定增减性，<strong>b</strong> 决定与y轴交点。利用两点法快速作图，结合实际问题建立函数关系。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 随堂练习（可交互思考） -->
+  <div class="section">
+    <div class="section-title">📝 随堂练习 <span>想一想</span></div>
+    <ol style="background: #f2f6fc; padding: 1.2rem 2rem; border-radius: 16px;">
+      <li>一次函数 y = 3x - 6 与x轴交点坐标是？</li>
+      <li>若一次函数 y = (m-2)x + 1 中 y 随 x 增大而减小，则 m 的取值范围？</li>
+      <li>某汽车油箱剩油量 Q(L) 与行驶路程 s(km) 的关系为 Q = 50 - 0.08s，求最多行驶多少千米？</li>
+    </ol>
+    <p style="margin-top: 0.5rem; color: #64748b; font-size: 0.95rem;">💡 提示：练习1令y=0；练习2利用k&lt;0；练习3令Q=0。</p>
+  </div>
+
+  <!-- 下载按钮区 -->
+  <div style="display: flex; justify-content: flex-end; align-items: center; gap: 1rem; margin-top: 1.5rem;">
+    <span class="badge">📄 完整课件 · 单文件</span>
+    <button class="btn-download" id="downloadBtn">⬇️ 下载课件 (HTML)</button>
+  </div>
+  <div class="footer-note">
+    一次函数 · 八年级数学 | 课件由 Aivia 生成 · 可离线使用
+  </div>
+</div>
+
+<script>
+  (function() {
+    // 获取整个课件容器的HTML结构（包含样式和内容）
+    const root = document.getElementById('courseware-root');
+    // 获取完整文档样式（内联style已包含在head中，但为了独立下载，我们需要构建完整html）
+    // 获取所有style标签内容（包括本页样式）
+    const styles = [];
+    document.querySelectorAll('style').forEach(styleEl => {
+      styles.push(styleEl.innerHTML);
+    });
+    // 构建完整HTML文件内容
+    const fullHTML = `<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>一次函数 · 数学课件</title>
+  <style>
+    ${styles.join('\n')}
+  </style>
+</head>
+<body>
+  ${root.outerHTML}
+  <script>
+    // 下载按钮在独立页面中同样绑定事件（可选，但保留交互）
+    document.getElementById('downloadBtn')?.addEventListener('click', function() {
+      // 提示已下载（但不会重复触发）
+      alert('课件已就绪，您可以直接保存本页面。');
+    });
+  <\/script>
+</body>
+</html>`;
+
+    // 下载功能
+    document.getElementById('downloadBtn').addEventListener('click', function() {
+      const blob = new Blob([fullHTML], { type: 'text/html;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = '课件-一次函数.html';  // 交付文件名
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    });
+  })();
+</script>
+</body>
+</html>

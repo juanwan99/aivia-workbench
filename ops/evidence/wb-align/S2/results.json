@@ -1,0 +1,97 @@
+{
+  "s2_docx": {
+    "answer_len": 1887,
+    "dl_links": [],
+    "has_dl": false,
+    "has_data_url": false,
+    "download_ready": false,
+    "has_product_section": true,
+    "elapsed_s": 9.9
+  },
+  "s2_panel": {
+    "answer_len": 2333,
+    "dl_links": [
+      "https://workbench.aivia.asia/dl/b677db09c290478da75976d475c4ca42/file.html",
+      "https://workbench.aivia.asia/dl/b677db09c290478da75976d475c4ca42/file.html"
+    ],
+    "has_dl": true,
+    "has_data_url": false,
+    "download_ready": true,
+    "has_product_section": true,
+    "elapsed_s": 11.2
+  },
+  "scene_html": {
+    "answer_len": 2315,
+    "dl_links": [
+      "https://workbench.aivia.asia/dl/cc50f8db28064579a87c1685989403ef/file.html",
+      "https://workbench.aivia.asia/dl/cc50f8db28064579a87c1685989403ef/file.html"
+    ],
+    "has_dl": true,
+    "has_data_url": false,
+    "download_ready": true,
+    "has_product_section": true,
+    "elapsed_s": 26.0,
+    "dl_fetch": {
+      "ok": true,
+      "size": 11382
+    }
+  },
+  "scene_docx": {
+    "answer_len": 1642,
+    "dl_links": [
+      "https://workbench.aivia.asia/dl/ef0916ff23894fa481c47429c885be41/file.docx",
+      "https://workbench.aivia.asia/dl/ef0916ff23894fa481c47429c885be41/file.docx"
+    ],
+    "has_dl": true,
+    "has_data_url": false,
+    "download_ready": true,
+    "has_product_section": true,
+    "elapsed_s": 8.9,
+    "dl_fetch": {
+      "ok": true,
+      "size": 2748
+    }
+  },
+  "scene_xlsx": {
+    "answer_len": 996,
+    "dl_links": [
+      "https://workbench.aivia.asia/dl/57202c3f851e4f5582b8968ef1bd89b9/file.xlsx",
+      "https://workbench.aivia.asia/dl/57202c3f851e4f5582b8968ef1bd89b9/file.xlsx"
+    ],
+    "has_dl": true,
+    "has_data_url": false,
+    "download_ready": true,
+    "has_product_section": true,
+    "elapsed_s": 4.0,
+    "dl_fetch": {
+      "ok": true,
+      "size": 2209
+    }
+  },
+  "scene_outline": {
+    "answer_len": 917,
+    "dl_links": [],
+    "has_dl": false,
+    "has_data_url": false,
+    "download_ready": false,
+    "has_product_section": false,
+    "elapsed_s": 6.3
+  },
+  "s7b": {
+    "html_dl": true,
+    "xlsx_dl": true,
+    "outline_no_dl": true,
+    "a3_sample": "# 本节课教学大纲（生物细胞结构）\n\n## 一、课题信息\n- 课题名称：生物细胞结构（第一课时）\n- 适用年级：初中七年级\n- 课时安排：1 课时（45 分钟）\n\n## 二、教学目标\n1. **知识目标**：说出细胞是生物体结构和功能的基本单位；描述动物细胞和植物细胞的基本结构。\n2. **能力目标**：通过观察细胞结构示意图，培养识图、对比和归纳能力。\n3. **情感目标**：形成结构与功能相适"
+  },
+  "c01_rework": {
+    "answer_len": 2315,
+    "dl_links": [
+      "https://workbench.aivia.asia/dl/532b6f17d92f405e948941c206d5db19/file.html",
+      "https://workbench.aivia.asia/dl/532b6f17d92f405e948941c206d5db19/file.html"
+    ],
+    "has_dl": true,
+    "has_data_url": false,
+    "download_ready": true,
+    "has_product_section": true
+  }
+}

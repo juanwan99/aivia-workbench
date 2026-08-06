@@ -30,7 +30,7 @@ from urllib.parse import parse_qs, quote, unquote, urlparse
 
 import jwt
 
-VERSION = "0.2.1"
+VERSION = "0.2.2"
 WEAK_SECRETS = frozenset(
     {
         "",
@@ -63,14 +63,24 @@ JWT_TTL = int(os.environ.get("BRIDGE_JWT_TTL", "3600"))
 EXCHANGE_TOKEN = os.environ.get("BRIDGE_EXCHANGE_TOKEN", "").strip()
 # Gate for public Chat file put (sandbox → bridge). Never commit real value.
 DL_PUT_TOKEN = os.environ.get("BRIDGE_DL_PUT_TOKEN", "").strip()
+# Ops gate for metrics/audit tail / quality events (reuse put token if unset)
+OPS_TOKEN = (
+    os.environ.get("BRIDGE_OPS_TOKEN", "").strip()
+    or os.environ.get("BRIDGE_DL_PUT_TOKEN", "").strip()
+)
 # Public base for download links shown in Chat (HTTPS on workbench)
 PUBLIC_DL_BASE = os.environ.get(
     "BRIDGE_PUBLIC_DL_BASE", "https://workbench.aivia.asia/dl"
 ).rstrip("/")
 DL_MAX_BYTES = int(os.environ.get("BRIDGE_DL_MAX_BYTES", str(3 * 1024 * 1024)))
+# G-07: daily /dl/put quota (0 = unlimited)
+DL_DAILY_MAX = int(os.environ.get("BRIDGE_DL_DAILY_MAX", "200"))
 DATA_DIR = Path(os.environ.get("BRIDGE_DATA_DIR", str(Path(__file__).resolve().parent / "data")))
 DB_PATH = DATA_DIR / "bridge.sqlite3"
 AUDIT_PATH = DATA_DIR / "audit.jsonl"
+METRICS_PATH = DATA_DIR / "metrics.json"
+QUALITY_PATH = DATA_DIR / "quality.jsonl"
+POLICY_PATH = DATA_DIR / "write-deny-policy.json"
 DL_DIR = Path(os.environ.get("BRIDGE_DL_DIR", str(DATA_DIR / "public-dl")))
 FIXTURE_PATH = Path(
     os.environ.get(
@@ -78,6 +88,21 @@ FIXTURE_PATH = Path(
         str(Path(__file__).resolve().parent / "data" / "hybrid-fixture.json"),
     )
 )
+DEFAULT_WRITE_DENY_POLICY = {
+    "version": 1,
+    "name": "write-deny-edu-db",
+    "deny": [
+        "直接写入/覆盖学校教务成绩库",
+        "Agent 直写 edu 业务库",
+        "无人工提案 apply 业务数据",
+    ],
+    "enforcement": [
+        "bridge: no /apply for agents",
+        "chat: system prompt refuse grade-db write",
+        "ops: quality event empty_success monitoring",
+    ],
+    "updated": "2026-08-06",
+}
 
 
 def require_strong_secret() -> None:
@@ -195,6 +220,73 @@ def _audit(event: dict[str, Any]) -> None:
     with _lock:
         with AUDIT_PATH.open("a", encoding="utf-8") as f:
             f.write(json.dumps(row, ensure_ascii=False) + "\n")
+
+
+def _metrics_load() -> dict[str, Any]:
+    DATA_DIR.mkdir(parents=True, exist_ok=True)
+    if METRICS_PATH.is_file():
+        try:
+            return json.loads(METRICS_PATH.read_text(encoding="utf-8"))
+        except Exception:
+            pass
+    return {
+        "dl_put_ok": 0,
+        "dl_put_denied": 0,
+        "dl_put_quota_block": 0,
+        "dl_get_ok": 0,
+        "empty_success": 0,
+        "fail": 0,
+        "refuse_write": 0,
+        "by_day": {},
+    }
+
+
+def _metrics_save(m: dict[str, Any]) -> None:
+    DATA_DIR.mkdir(parents=True, exist_ok=True)
+    with _lock:
+        METRICS_PATH.write_text(json.dumps(m, ensure_ascii=False, indent=2), encoding="utf-8")
+
+
+def _metrics_inc(key: str, n: int = 1) -> dict[str, Any]:
+    day = time.strftime("%Y-%m-%d", time.gmtime())
+    with _lock:
+        m = _metrics_load()
+        m[key] = int(m.get(key) or 0) + n
+        by = m.setdefault("by_day", {})
+        day_row = by.setdefault(day, {})
+        day_row[key] = int(day_row.get(key) or 0) + n
+        METRICS_PATH.write_text(json.dumps(m, ensure_ascii=False, indent=2), encoding="utf-8")
+        return m
+
+
+def _dl_put_count_today() -> int:
+    day = time.strftime("%Y-%m-%d", time.gmtime())
+    m = _metrics_load()
+    return int((m.get("by_day") or {}).get(day, {}).get("dl_put_ok") or 0)
+
+
+def _ensure_policy() -> dict[str, Any]:
+    DATA_DIR.mkdir(parents=True, exist_ok=True)
+    if not POLICY_PATH.is_file():
+        POLICY_PATH.write_text(
+            json.dumps(DEFAULT_WRITE_DENY_POLICY, ensure_ascii=False, indent=2),
+            encoding="utf-8",
+        )
+    try:
+        return json.loads(POLICY_PATH.read_text(encoding="utf-8"))
+    except Exception:
+        return DEFAULT_WRITE_DENY_POLICY
+
+
+def _ops_authorized(handler: "Handler") -> bool:
+    if not OPS_TOKEN or len(OPS_TOKEN) < 16:
+        return False
+    got = (
+        handler.headers.get("X-Aivia-Ops")
+        or handler.headers.get("X-Aivia-Dl-Put")
+        or ""
+    ).strip()
+    return got == OPS_TOKEN
 
 
 def issue_token(sub: str, school_id: str, role: str, name: str = "") -> str:
@@ -332,12 +424,28 @@ class Handler(BaseHTTPRequestHandler):
                     "exchange_token_required": bool(EXCHANGE_TOKEN),
                     "dl_put_enabled": bool(DL_PUT_TOKEN) and len(DL_PUT_TOKEN) >= 16,
                     "public_dl_base": PUBLIC_DL_BASE,
+                    "dl_daily_max": DL_DAILY_MAX,
+                    "ops_enabled": bool(OPS_TOKEN) and len(OPS_TOKEN) >= 16,
                 },
             )
             return
 
         if method == "POST" and path == "/auth/exchange":
             self._auth_exchange()
+            return
+
+        # ---- ops (PHASE-WB-ALIGN S1): gated by OPS/PUT token ----
+        if method == "GET" and path == "/ops/metrics":
+            self._ops_metrics()
+            return
+        if method == "GET" and path == "/ops/audit/tail":
+            self._ops_audit_tail()
+            return
+        if method == "GET" and path == "/ops/policy":
+            self._ops_policy()
+            return
+        if method == "POST" and path == "/ops/quality-event":
+            self._ops_quality_event()
             return
 
         # ---- public download store (PHASE-DL-FIX): no JWT ----
@@ -422,6 +530,85 @@ class Handler(BaseHTTPRequestHandler):
         base = re.sub(r"[^\w\u4e00-\u9fff.\-]+", "_", base).strip("._") or "file.bin"
         return base[:120]
 
+    def _ops_metrics(self) -> None:
+        if not _ops_authorized(self):
+            self._json(401, {"error": "unauthorized", "message": "需要 X-Aivia-Ops 令牌"})
+            return
+        m = _metrics_load()
+        m["dl_put_today"] = _dl_put_count_today()
+        m["dl_daily_max"] = DL_DAILY_MAX
+        m["policy"] = _ensure_policy().get("name")
+        _audit({"op": "ops_metrics"})
+        self._json(200, {"ok": True, "metrics": m, "version": VERSION})
+
+    def _ops_audit_tail(self) -> None:
+        if not _ops_authorized(self):
+            self._json(401, {"error": "unauthorized", "message": "需要 X-Aivia-Ops 令牌"})
+            return
+        n = 50
+        try:
+            qs = parse_qs(urlparse(self.path).query)
+            n = min(200, max(1, int((qs.get("n") or ["50"])[0])))
+        except Exception:
+            n = 50
+        lines: list[dict[str, Any]] = []
+        if AUDIT_PATH.exists():
+            for line in AUDIT_PATH.read_text(encoding="utf-8").splitlines()[-n:]:
+                try:
+                    lines.append(json.loads(line))
+                except Exception:
+                    continue
+        _audit({"op": "ops_audit_tail", "n": len(lines)})
+        self._json(200, {"ok": True, "events": lines})
+
+    def _ops_policy(self) -> None:
+        # policy is non-secret; still require ops token to avoid probing
+        if not _ops_authorized(self):
+            self._json(401, {"error": "unauthorized", "message": "需要 X-Aivia-Ops 令牌"})
+            return
+        pol = _ensure_policy()
+        self._json(200, {"ok": True, "policy": pol, "path": str(POLICY_PATH.name)})
+
+    def _ops_quality_event(self) -> None:
+        """Record empty_success / fail / refuse_write for G-13 observability."""
+        if not _ops_authorized(self):
+            self._json(401, {"error": "unauthorized", "message": "需要 X-Aivia-Ops 令牌"})
+            return
+        body = self._read_json()
+        kind = str(body.get("kind") or "").strip()
+        allowed = {"empty_success", "fail", "refuse_write", "ok_file", "ok_outline"}
+        if kind not in allowed:
+            self._json(
+                400,
+                {
+                    "error": "bad_request",
+                    "message": f"kind 须为 {sorted(allowed)}",
+                },
+            )
+            return
+        note = str(body.get("note") or "")[:200]
+        case_id = str(body.get("case_id") or "")[:80]
+        DATA_DIR.mkdir(parents=True, exist_ok=True)
+        row = {
+            "ts": time.time(),
+            "kind": kind,
+            "case_id": case_id,
+            "note": note,
+        }
+        with _lock:
+            with QUALITY_PATH.open("a", encoding="utf-8") as f:
+                f.write(json.dumps(row, ensure_ascii=False) + "\n")
+        metric_key = {
+            "empty_success": "empty_success",
+            "fail": "fail",
+            "refuse_write": "refuse_write",
+            "ok_file": "ok_file",
+            "ok_outline": "ok_outline",
+        }[kind]
+        m = _metrics_inc(metric_key)
+        _audit({"op": "quality_event", "kind": kind, "case_id": case_id})
+        self._json(200, {"ok": True, "kind": kind, "metrics": {metric_key: m.get(metric_key)}})
+
     def _dl_put(self) -> None:
         """Store a file for public HTTPS download (Chat PackDownload path)."""
         if not DL_PUT_TOKEN or len(DL_PUT_TOKEN) < 16:
@@ -430,8 +617,31 @@ class Handler(BaseHTTPRequestHandler):
         got = (self.headers.get("X-Aivia-Dl-Put") or self.headers.get("X-Dl-Put-Token") or "").strip()
         if got != DL_PUT_TOKEN:
             _audit({"op": "dl_put_denied", "reason": "bad_token"})
+            try:
+                _metrics_inc("dl_put_denied")
+            except Exception:
+                pass
             self._json(401, {"error": "unauthorized", "message": "无效的上传令牌"})
             return
+        # G-07 daily quota
+        if DL_DAILY_MAX > 0:
+            used = _dl_put_count_today()
+            if used >= DL_DAILY_MAX:
+                _audit({"op": "dl_put_quota_block", "used": used, "max": DL_DAILY_MAX})
+                try:
+                    _metrics_inc("dl_put_quota_block")
+                except Exception:
+                    pass
+                self._json(
+                    429,
+                    {
+                        "error": "quota_exceeded",
+                        "message": f"今日上传配额已用尽（{used}/{DL_DAILY_MAX}）",
+                        "used": used,
+                        "max": DL_DAILY_MAX,
+                    },
+                )
+                return
         body = self._read_json()
         filename = self._safe_filename(str(body.get("filename") or "file.bin"))
         mime = str(body.get("mime") or "application/octet-stream")[:120]
@@ -491,6 +701,7 @@ class Handler(BaseHTTPRequestHandler):
                     "mime": mime,
                 }
             )
+            _metrics_inc("dl_put_ok")
         except Exception:
             pass
         self._json(
@@ -562,6 +773,7 @@ class Handler(BaseHTTPRequestHandler):
             return
         try:
             _audit({"op": "dl_get", "file_id": file_id, "filename": filename, "size": len(data)})
+            _metrics_inc("dl_get_ok")
         except Exception:
             pass
 
@@ -817,6 +1029,8 @@ def main() -> None:
     require_strong_secret()
     CLASSES_BY_SCHOOL, COURSES_BY_SCHOOL = _load_catalog()
     _ensure_db()
+    _ensure_policy()
+    _metrics_load()  # touch metrics file
     # re-read extra hosts at runtime (import-time may miss env race)
     extra = [
         h.strip()

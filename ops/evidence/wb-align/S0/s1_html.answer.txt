@@ -1,0 +1,81 @@
+交付文件：课件.html
+
+DOWNLOAD_READY
+
+[点击下载 课件.html](https://workbench.aivia.asia/dl/da96b6a76c124c2fbbf18a8e6409c38d/file.html)
+
+下载链接（HTTPS）：https://workbench.aivia.asia/dl/da96b6a76c124c2fbbf18a8e6409c38d/file.html
+
+（浏览器将直接下载文件；主路径为 https 文件 URL，非 data-URL）
+
+<details><summary>内容预览（备用）</summary>
+
+```html
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>初中生物 · 细胞结构（第一课时）</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', system-ui, sans-serif;
+            background: linear-gradient(145deg, #f5f9fc 0%, #e6f0f5 100%);
+            min-height: 100vh;
+            padding: 2rem 1.5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .slide-deck {
+            max-width: 1100px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(8px);
+            border-radius: 48px;
+            box-shadow: 0 25px 50px -12px rgba(0, 40, 60, 0.35);
+            padding: 2.5rem 2.8rem;
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            transition: all 0.2s ease;
+        }
+        h1 {
+            font-size: 2.6rem;
+            font-weight: 700;
+            color: #0b3b4f;
+            letter-spacing: -0.02em;
+            border-left: 8px solid #2a9d8f;
+            padding-left: 1.2rem;
+            margin-bottom: 0.5rem;
+            line-height: 1.2;
+        }
+        .subhead {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px dashed #b6d7d9;
+            padding-bottom: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+        .subhead span {
+            background: #e9f5f4;
+            padding: 0.4rem 1.2rem;
+            border-radius: 40px;
+            font-weight: 600;
+            color: #1e6b5e;
+            font-size: 0.95rem;
+            letter-spacing: 0.3px;
+        }
+        .badge {
+            background: #2a9d8f;
+            color: white;
+            padding: 0.3rem 1.2rem;
+    
+```
+
+</details>

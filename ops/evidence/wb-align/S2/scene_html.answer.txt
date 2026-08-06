@@ -1,0 +1,99 @@
+交付文件：课件.html
+
+DOWNLOAD_READY
+
+[点击下载 课件.html](https://workbench.aivia.asia/dl/cc50f8db28064579a87c1685989403ef/file.html)
+
+下载链接（HTTPS）：https://workbench.aivia.asia/dl/cc50f8db28064579a87c1685989403ef/file.html
+
+（浏览器将直接下载文件；主路径为 https 文件 URL，非 data-URL）
+
+<details><summary>内容预览（备用）</summary>
+
+```html
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>一次函数 · 数学课件</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Roboto, 'Helvetica Neue', system-ui, sans-serif;
+      background: #f5f7fb;
+      color: #1e293b;
+      line-height: 1.6;
+      padding: 2rem 1rem;
+    }
+    .slide-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 28px;
+      box-shadow: 0 20px 40px -12px rgba(0, 20, 40, 0.25);
+      overflow: hidden;
+      padding: 2.5rem 2.8rem;
+      border: 1px solid #e9edf4;
+    }
+    h1 {
+      font-size: 2.4rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      background: linear-gradient(135deg, #0f3b5e, #2b6a9e);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 0.25rem;
+      border-left: 6px solid #2b6a9e;
+      padding-left: 1.2rem;
+    }
+    .subhead {
+      font-size: 1.1rem;
+      color: #475569;
+      margin-bottom: 2rem;
+      padding-left: 1.2rem;
+      border-left: 6px solid #94a3b8;
+      font-weight: 400;
+    }
+    .section {
+      margin-bottom: 2.2rem;
+    }
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #0f3b5e;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .section-title span {
+      background: #e2e8f0;
+      padding: 0.2rem 0.8rem;
+      border-radius: 40px;
+      font-size: 0.9rem;
+      color: #1e3a5f;
+    }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.8rem;
+    }
+    .card {
+      background: #f8fafc;
+      border-radius: 18px;
+      padding: 1.4rem 1.6rem;
+      border: 1px solid #dee5ed;
+      transition: 0.2s;
+    }
+    .card:hover {
+      border-color: #a0c1d9;
+      background
+```
+
+</details>

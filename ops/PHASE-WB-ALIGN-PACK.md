@@ -1,12 +1,13 @@
 # 任务包 · WB-ALIGN（全面对标实现 · 完整无人值守）
 
 ```
-STATUS: BINDING · 单包单卡 · 分阶段自审自修
+STATUS: DONE · CLAIM-WB-ALIGN=YES · 正式上线=否
 DATE: 2026-08-06
 CODE: PHASE-WB-ALIGN
 前提: CLAIM-WB-SURVEY=YES · MATRIX 为范围真源
 执行窗: 本机 Grok（可 SSH 云端）· 可本机浏览器/Office 验收
 模式: 全程无人参与——每阶段结束必须自审；不达标则本阶段修复循环，禁止跳阶段假绿
+产出: evidence/wb-align gates · MATRIX-STATUS · WB-ALIGN-REPORT · bridge 0.2.2
 ```
 
 > **一张完整任务卡覆盖「按 WorkBuddy 对标矩阵把该有的能力做齐」。**  

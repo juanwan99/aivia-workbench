@@ -1,0 +1,12 @@
+{
+  "ok": true,
+  "service": "aivia-bridge",
+  "mode": "hybrid",
+  "version": "0.2.2",
+  "host": "0.0.0.0",
+  "exchange_token_required": true,
+  "dl_put_enabled": true,
+  "public_dl_base": "https://workbench.aivia.asia/dl",
+  "dl_daily_max": 200,
+  "ops_enabled": true
+}

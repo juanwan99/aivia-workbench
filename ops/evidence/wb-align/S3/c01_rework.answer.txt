@@ -1,0 +1,93 @@
+交付文件：课件.html
+
+DOWNLOAD_READY
+
+[点击下载 课件.html](https://workbench.aivia.asia/dl/532b6f17d92f405e948941c206d5db19/file.html)
+
+下载链接（HTTPS）：https://workbench.aivia.asia/dl/532b6f17d92f405e948941c206d5db19/file.html
+
+（浏览器将直接下载文件；主路径为 https 文件 URL，非 data-URL）
+
+<details><summary>内容预览（备用）</summary>
+
+```html
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>细胞膜 · 控制物质进出</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background: linear-gradient(145deg, #f5f9ff 0%, #e6f0fa 100%);
+      font-family: 'Segoe UI', 'PingFang SC', Roboto, system-ui, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    .slide-card {
+      max-width: 1000px;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(4px);
+      border-radius: 48px;
+      box-shadow: 0 25px 40px -12px rgba(0, 40, 80, 0.35), 0 8px 18px rgba(0, 20, 40, 0.08);
+      padding: 40px 44px;
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      transition: all 0.2s ease;
+    }
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 28px;
+      border-bottom: 3px solid #2c7da0;
+      padding-bottom: 18px;
+    }
+    .header-icon {
+      background: #2c7da0;
+      width: 48px;
+      height: 48px;
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 28px;
+      font-weight: 500;
+      box-shadow: 0 6px 12px rgba(44, 125, 160, 0.3);
+    }
+    .header h1 {
+      font-size: 2.2rem;
+      font-weight: 600;
+      color: #0b3b4f;
+      letter-spacing: 1px;
+      line-height: 1.2;
+    }
+    .header .sub {
+      font-size: 1rem;
+      color: #2a6f8a;
+      background: rgba(44, 125, 160, 0.12);
+      padding: 4px 14px;
+      border-radius: 40px;
+      font-weight: 500;
+      margin-left: 8px;
+      white-space: nowrap;
+    }
+    .core-quote {
+      background: #e1f0f7;
+      border-left: 8px solid #2c7da0;
+      padding: 20px 28px;
+      border-radius: 20px;
+      margin-bottom: 32px;
+      box-shadow: 0 6px 12px 
+```
+
+</details>

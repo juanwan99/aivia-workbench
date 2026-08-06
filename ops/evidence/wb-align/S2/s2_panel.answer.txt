@@ -1,0 +1,49 @@
+交付文件：课件-科学探究方法入门.html
+
+DOWNLOAD_READY
+
+[点击下载 课件-科学探究方法入门.html](https://workbench.aivia.asia/dl/b677db09c290478da75976d475c4ca42/file.html)
+
+下载链接（HTTPS）：https://workbench.aivia.asia/dl/b677db09c290478da75976d475c4ca42/file.html
+
+（浏览器将直接下载文件；主路径为 https 文件 URL，非 data-URL）
+
+<details><summary>内容预览（备用）</summary>
+
+```html
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>科学探究方法入门 · 初中通用</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif; background: #f0f4f8; color: #1e293b; line-height: 1.7; padding: 2rem 1rem; }
+        .slide { max-width: 900px; margin: 0 auto 2rem auto; background: #ffffff; border-radius: 16px; box-shadow: 0 8px 24px rgba(0,0,0,0.08); padding: 2.5rem 3rem; }
+        h1 { font-size: 2.2rem; color: #0f3d5c; border-bottom: 4px solid #2b8cbe; padding-bottom: 0.6rem; margin-bottom: 1.8rem; }
+        h2 { font-size: 1.4rem; color: #155e8a; margin: 1.8rem 0 0.8rem 0; }
+        .badge { display: inline-block; background: #e3f2fd; color: #0b5e8a; padding: 0.2rem 0.9rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600; margin-right: 0.5rem; }
+        ul, ol { padding-left: 1.6rem; margin: 0.8rem 0; }
+        li { margin-bottom: 0.5rem; }
+        .highlight { background: #fff8e1; border-left: 5px solid #f9a825; padding: 0.8rem 1.2rem; border-radius: 0 8px 8px 0; margin: 1.2rem 0; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 1rem 0; }
+        .card { background: #f8fafc; border-radius: 10px; padding: 1rem 1.2rem; border: 1px solid #e2e8f0; }
+        .card strong { color: #0f3d5c; }
+        .footer { text-align: center; color: #64748b; font-size: 0.85rem; margin-top: 2rem; }
+        @media (max-width: 600px) { .slide { padding: 1.5rem; } h1 { font-size: 1.6rem; } }
+    </style>
+</head>
+<body>
+
+    <div class="slide">
+        <h1>🔬 科学探究方法入门</h1>
+        <p><span class="badge">初中通用</span><span class="badge">科学素养</span><span class="badge">约1课时</span></p>
+        <p style="margin-top: 0.8rem; color: #475569;">掌握科学探究的基本流程，培养观察、提问、假设与验证的思维方式。</p>
+    </div>
+
+    <div class="slide">
+       
+```
+
+</details>

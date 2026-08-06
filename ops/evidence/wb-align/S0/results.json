@@ -1,0 +1,121 @@
+{
+  "empty_success": 0,
+  "results": {
+    "g0b": {
+      "ok": true,
+      "answer_len": 1,
+      "dl_links": [],
+      "has_dl": false,
+      "has_data_url": false,
+      "has_blocked": false,
+      "download_ready": false,
+      "seconds": 1.6,
+      "conversation_id": "418d3350-251f-4032-a40d-13702442b97e"
+    },
+    "s1_html": {
+      "ok": true,
+      "answer_len": 2315,
+      "dl_links": [
+        "https://workbench.aivia.asia/dl/da96b6a76c124c2fbbf18a8e6409c38d/file.html",
+        "https://workbench.aivia.asia/dl/da96b6a76c124c2fbbf18a8e6409c38d/file.html"
+      ],
+      "has_dl": true,
+      "has_data_url": false,
+      "has_blocked": false,
+      "download_ready": true,
+      "seconds": 29.6,
+      "conversation_id": "04025f9a-a1b1-4ce2-b7a0-18835aa67edc",
+      "dl_verify": {
+        "status": 200,
+        "disposition": "attachment; filename=\"file.html\"; filename*=UTF-8''%E8%AF%BE%E4%BB%B6.html",
+        "ctype": "text/html; charset=utf-8",
+        "len": 14516,
+        "ok": true
+      }
+    },
+    "s3_xlsx": {
+      "ok": true,
+      "answer_len": 774,
+      "dl_links": [
+        "https://workbench.aivia.asia/dl/f6b0799d77c446278af350e2fa14a5ce/file.xlsx",
+        "https://workbench.aivia.asia/dl/f6b0799d77c446278af350e2fa14a5ce/file.xlsx"
+      ],
+      "has_dl": true,
+      "has_data_url": false,
+      "has_blocked": false,
+      "download_ready": true,
+      "seconds": 3.7,
+      "conversation_id": "e6a12886-9d6c-49ec-a282-014c1be0c04c",
+      "dl_verify": {
+        "status": 200,
+        "disposition": "attachment; filename=\"file.xlsx\"; filename*=UTF-8''%E6%8A%A5%E8%A1%A8-%E9%AB%98%E4%B8%801%E7%8F%AD%E6%9C%AC%E5%91%A8%E4%BD%9C%E4%B8%9A%E6%8F%90%E4%BA%A4%E7%BB%9F%E8%AE%A1.xlsx",
+        "ctype": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+        "len": 2074,
+        "ok": true
+      }
+    },
+    "s4_outline": {
+      "ok": true,
+      "answer_len": 596,
+      "dl_links": [],
+      "has_dl": false,
+      "has_data_url": false,
+      "has_blocked": false,
+      "download_ready": false,
+      "seconds": 4.6,
+      "conversation_id": "b70531d9-3113-427a-a91f-5035273ce615"
+    },
+    "s6_refuse": {
+      "ok": true,
+      "answer_len": 268,
+      "dl_links": [],
+      "has_dl": false,
+      "has_data_url": false,
+      "has_blocked": false,
+      "download_ready": false,
+      "seconds": 2.7,
+      "conversation_id": "04a952cf-7260-44cf-813d-156f065c8dcb",
+      "refused": true
+    },
+    "s7_chain": {
+      "ok": true,
+      "html_dl": true,
+      "xlsx_dl": true,
+      "outline_no_dl": false,
+      "a1": {
+        "answer_len": 2315,
+        "dl_links": [
+          "https://workbench.aivia.asia/dl/df237944a5c14218ad9b9cca706c01fd/file.html",
+          "https://workbench.aivia.asia/dl/df237944a5c14218ad9b9cca706c01fd/file.html"
+        ],
+        "has_dl": true,
+        "has_data_url": false,
+        "has_blocked": false,
+        "download_ready": true
+      },
+      "a2": {
+        "answer_len": 1380,
+        "dl_links": [
+          "https://workbench.aivia.asia/dl/20d6450f31ba42279d81c389c7e56371/file.xlsx",
+          "https://workbench.aivia.asia/dl/20d6450f31ba42279d81c389c7e56371/file.xlsx"
+        ],
+        "has_dl": true,
+        "has_data_url": false,
+        "has_blocked": false,
+        "download_ready": true
+      },
+      "a3": {
+        "answer_len": 491,
+        "dl_links": [
+          "https://workbench.aivia.asia/dl/0da670339c534d1fbd51bc2c217679ad/file.xlsx",
+          "https://workbench.aivia.asia/dl/0da670339c534d1fbd51bc2c217679ad/file.xlsx"
+        ],
+        "has_dl": true,
+        "has_data_url": false,
+        "has_blocked": false,
+        "download_ready": true
+      }
+    }
+  },
+  "base": "http://172.22.0.13:5001/v1"
+}

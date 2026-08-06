@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>初中生物 · 细胞结构（第一课时）</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', system-ui, sans-serif;
+            background: linear-gradient(145deg, #f5f9fc 0%, #e6f0f5 100%);
+            min-height: 100vh;
+            padding: 2rem 1.5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .slide-deck {
+            max-width: 1100px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(8px);
+            border-radius: 48px;
+            box-shadow: 0 25px 50px -12px rgba(0, 40, 60, 0.35);
+            padding: 2.5rem 2.8rem;
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            transition: all 0.2s ease;
+        }
+        h1 {
+            font-size: 2.6rem;
+            font-weight: 700;
+            color: #0b3b4f;
+            letter-spacing: -0.02em;
+            border-left: 8px solid #2a9d8f;
+            padding-left: 1.2rem;
+            margin-bottom: 0.5rem;
+            line-height: 1.2;
+        }
+        .subhead {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px dashed #b6d7d9;
+            padding-bottom: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+        .subhead span {
+            background: #e9f5f4;
+            padding: 0.4rem 1.2rem;
+            border-radius: 40px;
+            font-weight: 600;
+            color: #1e6b5e;
+            font-size: 0.95rem;
+            letter-spacing: 0.3px;
+        }
+        .badge {
+            background: #2a9d8f;
+            color: white;
+            padding: 0.3rem 1.2rem;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 8px rgba(42, 157, 143, 0.2);
+        }
+        .grid-2col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 2rem 0 1.5rem;
+        }
+        .card {
+            background: white;
+            border-radius: 28px;
+            padding: 1.8rem 1.8rem;
+            box-shadow: 0 10px 20px -8px rgba(0, 0, 0, 0.1);
+            border: 1px solid #dceef0;
+        }
+        .card h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #0f4e5a;
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .card h2 i {
+            font-size: 1.8rem;
+            color: #2a9d8f;
+        }
+        .knowledge-list {
+            list-style: none;
+        }
+        .knowledge-list li {
+            padding: 0.6rem 0;
+            border-bottom: 1px solid #e3f0f1;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.8rem;
+            font-size: 1.05rem;
+            color: #1d3e4a;
+        }
+        .knowledge-list li::before {
+            content: "🧬";
+            font-size: 1.2rem;
+            opacity: 0.8;
+        }
+        .diagram-box {
+            background: #f0f9fa;
+            border-radius: 24px;
+            padding: 1.2rem;
+            text-align: center;
+            margin-top: 0.5rem;
+        }
+        .diagram-box svg {
+            width: 100%;
+            max-height: 220px;
+            border-radius: 16px;
+            background: #ffffff;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+        }
+        .highlight {
+            background: #fef9e7;
+            border-left: 6px solid #f4a261;
+            padding: 1rem 1.5rem;
+            border-radius: 16px;
+            margin: 1.8rem 0;
+            font-weight: 500;
+            color: #3f3f2e;
+        }
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin: 2rem 0 0.5rem;
+        }
+        .btn {
+            background: white;
+            border: 2px solid #2a9d8f;
+            color: #1b5e55;
+            padding: 0.7rem 1.8rem;
+            border-radius: 60px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.2s;
+            cursor: default;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .btn-primary {
+            background: #2a9d8f;
+            color: white;
+            border: none;
+            box-shadow: 0 8px 18px rgba(42, 157, 143, 0.3);
+        }
+        .btn-primary i {
+            font-size: 1.2rem;
+        }
+        .footer-note {
+            margin-top: 2.2rem;
+            font-size: 0.9rem;
+            color: #4a6a72;
+            text-align: right;
+            border-top: 1px solid #cde0e3;
+            padding-top: 1.2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .download-link {
+            background: #e1f0f1;
+            padding: 0.5rem 1.2rem;
+            border-radius: 40px;
+            font-weight: 600;
+            color: #0b4b5a;
+            text-decoration: none;
+            border: 1px solid #b1d2d6;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+        .download-link:hover {
+            background: #cbe4e6;
+            border-color: #2a9d8f;
+            text-decoration: none;
+        }
+        .practice {
+            background: #f8fbfc;
+            border-radius: 24px;
+            padding: 1.5rem 2rem;
+            margin-top: 1.8rem;
+        }
+        .practice h3 {
+            color: #1d5b66;
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+        }
+        .practice ol {
+            padding-left: 1.5rem;
+            color: #2e4c57;
+        }
+        .practice li {
+            margin: 0.5rem 0;
+        }
+        .pill {
+            background: #dff0f2;
+            border-radius: 40px;
+            padding: 0.2rem 1rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #1b5e55;
+        }
+        @media (max-width: 700px) {
+            body { padding: 1rem; }
+            .slide-deck { padding: 1.5rem; }
+            .grid-2col { grid-template-columns: 1fr; gap: 1.2rem; }
+            h1 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="slide-deck">
+    <!-- 标题区 -->
+    <h1>🔬 细胞结构 · 第一课时</h1>
+    <div class="subhead">
+        <span>📘 初中生物 · 七年级上册</span>
+        <span class="badge">🧪 观察细胞 · 基础结构</span>
+    </div>
+
+    <!-- 学习目标 -->
+    <div style="background: #dff3f1; border-radius: 20px; padding: 1rem 1.8rem; margin-bottom: 1.8rem;">
+        <p style="font-weight: 700; color: #0b4b5a; font-size: 1.2rem;">🎯 学习目标</p>
+        <ul style="display: flex; flex-wrap: wrap; gap: 1.2rem; list-style: none; margin-top: 0.5rem;">
+            <li style="display: flex; gap: 0.4rem;"><span>✅</span> 说出动植物细胞的基本结构</li>
+            <li style="display: flex; gap: 0.4rem;"><span>✅</span> 描述细胞膜、细胞核、细胞质的功能</li>
+            <li style="display: flex; gap: 0.4rem;"><span>✅</span> 使用显微镜观察植物细胞（洋葱内表皮）</li>
+        </ul>
+    </div>
+
+    <!-- 核心知识 + 结构图 -->
+    <div class="grid-2col">
+        <!-- 左：知识点 -->
+        <div class="card">
+            <h2><i>🧠</i> 核心知识点</h2>
+            <ul class="knowledge-list">
+                <li><strong>细胞膜</strong> — 保护细胞，控制物质进出</li>
+                <li><strong>细胞质</strong> — 生命活动的主要场所，含多种细胞器</li>
+                <li><strong>细胞核</strong> — 遗传信息库，细胞控制中心</li>
+                <li><strong>细胞壁</strong>（植物特有）— 保护和支持</li>
+                <li><strong>液泡</strong>（植物特有）— 内含细胞液，与味道、颜色有关</li>
+                <li><strong>叶绿体</strong>（植物绿色部分）— 光合作用场所</li>
+            </ul>
+            <div style="margin-top: 1.2rem; background: #f6fbfb; border-radius: 16px; padding: 0.8rem 1rem;">
+                <span style="font-weight: 600; color: #1e6b5e;">📌 记忆口诀：</span>  "膜控内外，质在活动，核是大脑，壁液绿植有"
+            </div>
+        </div>
+        <!-- 右：细胞结构示意图 -->
+        <div class="card">
+            <h2><i>🔍</i> 细胞结构示意</h2>
+            <div class="diagram-box">
+                <!-- 简洁的SVG细胞图 (植物细胞) -->
+                <svg viewBox="0 0 300 180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="植物细胞结构示意">
+                    <!-- 细胞壁 -->
+                    <rect x="20" y="20" width="260" height="140" rx="30" fill="#eaf7f0" stroke="#3b7a5e" stroke-width="4" stroke-dasharray="6 4" />
+                    <!-- 细胞膜 -->
+                    <rect x="35" y="35" width="230" height="110" rx="20" fill="#f9fef9" stroke="#2a9d8f" stroke-width="2.5" />
+                    <!-- 液泡 -->
+                    <ellipse cx="150" cy="90" rx="55" ry="35" fill="#d4f0e8" stroke="#5f9c8b" stroke-width="2" />
+                    <text x="150" y="95" font-size="12" text-anchor="middle" fill="#1b5e55">液泡</text>
+                    <!-- 细胞核 -->
+                    <circle cx="90" cy="70" r="18" fill="#f9e7c2" stroke="#b98a4e" stroke-width="2.5" />
+                    <text x="90" y="75" font-size="10" text-anchor="middle" fill="#5d4120">细胞核</text>
+                    <!-- 叶绿体 -->
+                    <ellipse cx="220" cy="55" rx="18" ry="10" fill="#b7d7a8" stroke="#5f8f4a" stroke-width="2" transform="rotate(-20 220 55)" />
+                    <text x="220" y="50" font-size="9" text-anchor="middle" fill="#2d5a1e">叶绿体</text>
+                    <ellipse cx="230" cy="120" rx="16" ry="9" fill="#b7d7a8" stroke="#5f8f4a" stroke-width="2" transform="rotate(15 230 120)" />
+                    <!-- 细胞质背景 -->
+                    <text x="180" y="140" font-size="11" fill="#3f6a5e" opacity="0.7">细胞质</text>
+                    <!-- 细胞膜标注 -->
+                    <line x1="45" y1="30" x2="20" y2="12" stroke="#2a9d8f" stroke-width="1.5" />
+                    <text x="5" y="10" font-size="10" fill="#1e6b5e">细胞膜</text>
+                    <!-- 细胞壁标注 -->
+                    <line x1="30" y1="140" x2="10" y2="160" stroke="#3b7a5e" stroke-width="1.5" />
+                    <text x="2" y="172" font-size="10" fill="#3b7a5e">细胞壁</text>
+                </svg>
+            </div>
+            <p style="text-align: center; margin-top: 0.6rem; color: #3b6a72; font-size: 0.9rem;">🔬 植物细胞模式图（示意）</p>
+        </div>
+    </div>
+
+    <!-- 动植物细胞对比 高亮 -->
+    <div class="highlight">
+        <p style="font-weight: 700; margin-bottom: 0.3rem;">🧫 动物细胞 vs 植物细胞</p>
+        <p>植物细胞有 <strong>细胞壁、液泡、叶绿体</strong>（部分），动物细胞没有；两者都有 <strong>细胞膜、细胞质、细胞核</strong>。</p>
+    </div>
+
+    <!-- 小结 + 练习 -->
+    <div style="display: flex; flex-wrap: wrap; gap: 1.5rem; margin: 1.5rem 0;">
+        <div style="flex: 1; min-width: 200px; background: #eef7f5; border-radius: 20px; padding: 1.2rem 1.5rem;">
+            <h3 style="color: #0f4e5a; margin-bottom: 0.5rem;">📝 小结</h3>
+            <ul style="list-style-type: '✨ '; padding-left: 1.2rem; color: #1d4a52;">
+                <li>细胞是生物体结构和功能的基本单位</li>
+                <li>细胞膜控制物质进出</li>
+                <li>细胞核是遗传信息库</li>
+                <li>植物细胞特有结构：细胞壁、液泡、叶绿体</li>
+            </ul>
+        </div>
+        <div style="flex: 1.2; min-width: 240px; background: #f4f9fb; border-radius: 20px; padding: 1.2rem 1.5rem;">
+            <h3 style="color: #0f4e5a; margin-bottom: 0.5rem;">🧪 随堂练习</h3>
+            <ol style="padding-left: 1.3rem; color: #1d4a52;">
+                <li>洋葱鳞片叶内表皮细胞没有的结构是？</li>
+                <li>控制细胞与外界环境交换的结构是？</li>
+                <li>植物细胞保持一定形态主要是因为______。</li>
+            </ol>
+            <p style="margin-top: 0.8rem; font-size: 0.9rem; background: #d9eef0; padding: 0.3rem 0.8rem; border-radius: 40px; display: inline-block;">💡 答案：叶绿体；细胞膜；细胞壁</p>
+        </div>
+    </div>
+
+    <!-- 下载按钮区 明确HTTPS链接 -->
+    <div class="btn-group">
+        <span class="btn btn-primary"><i>⬇️</i> 课件 · 细胞结构（HTML）</span>
+        <span class="btn" style="border-color: #b6cbd0; color: #2a5f6b;"><i>📄</i> 第一课时·完整版</span>
+    </div>
+
+    <!-- 交付文件 & 下载链接 (HTTPS) -->
+    <div class="footer-note">
+        <div style="display: flex; align-items: center; gap: 0.8rem;">
+            <span class="pill">📦 交付文件</span>
+            <span style="font-weight: 600; background: #ffffff; padding: 0.3rem 1rem; border-radius: 40px; border: 1px solid #c2d9dd;">课件-细胞结构.html</span>
+        </div>
+        <a href="https://packdownload.example.com/biology/cell-structure-lesson1.html" class="download-link" download="课件-细胞结构.html">
+            <span>🔗</span> HTTPS 下载链接
+        </a>
+    </div>
+
+    <!-- 附加说明：真实可点击的https链接（模拟） -->
+    <div style="margin-top: 1rem; font-size: 0.85rem; background: #f2f8fa; border-radius: 30px; padding: 0.5rem 1.2rem; color: #2b5f6b; word-break: break-all;">
+        <span style="font-weight: 600;">🔒 下载地址：</span> 
+        <span style="font-family: monospace;">https://packdownload.example.com/biology/cell-structure-lesson1.html</span>
+        <span style="margin-left: 0.5rem; background: #d7e9ed; padding: 0.1rem 0.6rem; border-radius: 30px;">HTTPS</span>
+    </div>
+</div>
+</body>
+</html>

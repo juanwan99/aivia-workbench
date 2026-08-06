@@ -12,3 +12,8 @@ UPDATED: 2026-08-06
 
 卡：`ops/TASK-CARD-WB-ALIGN.md`  
 协议：分阶段自审自修，阶段 FAIL 不得进入下一阶段。
+
+## WB-ALIGN (2026-08-06)
+- S7 weak-outline may still emit files without hard forbid wording (s7b fixed with strong prompt)
+- Expert catalog UI / native PPT / full real / desktop skipped (see MATRIX-STATUS)
+

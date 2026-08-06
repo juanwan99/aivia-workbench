@@ -1,0 +1,104 @@
+交付文件：课件-生物细胞结构.html
+
+DOWNLOAD_READY
+
+[点击下载 课件-生物细胞结构.html](https://workbench.aivia.asia/dl/b7c7273a960b4e8d8296abf02193cae1/file.html)
+
+下载链接（HTTPS）：https://workbench.aivia.asia/dl/b7c7273a960b4e8d8296abf02193cae1/file.html
+
+（浏览器将直接下载文件；主路径为 https 文件 URL，非 data-URL）
+
+<details><summary>内容预览（备用）</summary>
+
+```html
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>生物细胞结构 · 课件</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background: #f0f7f0;
+      color: #1e3a2f;
+      line-height: 1.6;
+      padding: 2rem 1rem;
+    }
+    .slide {
+      max-width: 1000px;
+      margin: 0 auto 2rem auto;
+      background: white;
+      border-radius: 28px;
+      box-shadow: 0 12px 30px rgba(30, 60, 40, 0.12);
+      padding: 2rem 2.5rem;
+      transition: 0.2s;
+      border: 1px solid #d9e8d9;
+    }
+    h1 {
+      font-size: 2.4rem;
+      font-weight: 600;
+      letter-spacing: -0.5px;
+      color: #1b4d3b;
+      border-left: 8px solid #4caf7d;
+      padding-left: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+    .subhead {
+      font-size: 1.1rem;
+      color: #3a6b54;
+      margin-bottom: 1.8rem;
+      font-weight: 400;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .badge {
+      background: #e3f3e9;
+      padding: 0.2rem 1rem;
+      border-radius: 40px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #1f5a3d;
+    }
+    h2 {
+      font-size: 1.7rem;
+      margin: 2rem 0 1rem 0;
+      color: #1b4d3b;
+      font-weight: 500;
+      border-bottom: 2px dashed #bcd9c6;
+      padding-bottom: 0.4rem;
+    }
+    h3 {
+      font-size: 1.3rem;
+      margin: 1.5rem 0 0.8rem 0;
+      color: #2a5e46;
+    }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.8rem;
+      margin: 1.2rem 0;
+    }
+    .card {
+      background: #f9fdfb;
+      border-radius: 20px;
+      padding: 1.5rem;
+      border: 1px solid #d4e8dc;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.02);
+    }
+    .card h4 {
+      font-size: 1.2rem;
+      color: #1b4d3b;
+      margin-bottom: 0.8rem;
+      display: flex;
+      alig
+```
+
+</details>

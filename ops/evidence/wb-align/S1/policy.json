@@ -1,0 +1,19 @@
+{
+  "ok": true,
+  "policy": {
+    "version": 1,
+    "name": "write-deny-edu-db",
+    "deny": [
+      "直接写入/覆盖学校教务成绩库",
+      "Agent 直写 edu 业务库",
+      "无人工提案 apply 业务数据"
+    ],
+    "enforcement": [
+      "bridge: no /apply for agents",
+      "chat: system prompt refuse grade-db write",
+      "ops: quality event empty_success monitoring"
+    ],
+    "updated": "2026-08-06"
+  },
+  "path": "write-deny-policy.json"
+}
