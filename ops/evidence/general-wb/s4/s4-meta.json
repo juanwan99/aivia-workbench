@@ -1,0 +1,22 @@
+{
+  "phase": "S4-CAP",
+  "date": "2026-08-06",
+  "claim": "CLAIM-S4-CAP",
+  "result": "PASS",
+  "gates": {
+    "C1": "PASS",
+    "C2": "PASS",
+    "C3": "PASS",
+    "C4": "PASS",
+    "C5": "PASS",
+    "C6": "PASS"
+  },
+  "empty_success": 0,
+  "workflow": "general-wb-s4",
+  "workflow_id_file": "general-wb-s4-wf-id.txt",
+  "packdownload": "s4",
+  "chat": "https://asyncova.com/chat/lOMVPbz7rZmbJSJl",
+  "experts": "https://asyncova.com/experts",
+  "out_of_scope": ["pixel-1:1", "ICP", "edu-vertical", "s2/s3-reuse"],
+  "report": "ops/S4-CAP-REPORT.md"
+}

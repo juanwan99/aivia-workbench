@@ -9,3 +9,7 @@ node_modules/
 .vscode/
 secrets/
 *.pem
+
+__pycache__/
+*.pyc
+

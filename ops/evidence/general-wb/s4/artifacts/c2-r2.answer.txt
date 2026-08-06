@@ -1,0 +1,34 @@
+## 交付清单
+
+- **文件名**：表格-竞品销量-v2.xlsx
+- **HTTPS**：
+- **主路径**：https 文件 URL（非 data-URL）
+
+[点击下载 表格-竞品销量-v2.xlsx](
+
+<details><summary>内容预览（备用）</summary>
+
+</details>
+
+## 交付清单
+| # | 文件名 | 类型 | 下载 |
+|---|--------|------|------|
+| 1 | 报表.xlsx | application/vnd.openxmlformats-officedocument.spreadsheetml.sheet | [点击下载](https://asyncova.com/dl/8c663b2908684040a5b87b7c32441ab2/file.xlsx) |
+
+DOWNLOAD_READY
+
+- **文件名**：报表.xlsx
+- **HTTPS**：https://asyncova.com/dl/8c663b2908684040a5b87b7c32441ab2/file.xlsx
+- **主路径**：https 文件 URL（非 data-URL）
+
+[点击下载 报表.xlsx](https://asyncova.com/dl/8c663b2908684040a5b87b7c32441ab2/file.xlsx)
+
+<details><summary>内容预览（备用）</summary>
+
+```markdown
+| # | 文件名 | 类型 | 下载 |
+| --- | --- | --- | --- |
+| 1 | 表格-竞品销量-v2.xlsx | application/vnd.openxmlformats-officedocument.spreadsheetml.sheet | [点击下载](https://asyncova.com/dl/2f9d3c8e7b1a4f5d9c6e8a2b7d1f3e5c/file.xlsx) |
+```
+
+</details>

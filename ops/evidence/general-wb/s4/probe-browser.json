@@ -1,0 +1,29 @@
+{
+  "experts": {
+    "general": true,
+    "behavior": true,
+    "pixel": true,
+    "edu_only": false
+  },
+  "opening": {
+    "brand": true,
+    "edu_skin": false
+  },
+  "c1": {
+    "dl_ids": [
+      "77728f4fb061468fa27754e2d17376ee",
+      "35b3e788ec8c4e4c89c1cdedff9e98c1"
+    ],
+    "two": true,
+    "ready": true,
+    "jiaoyan": false
+  },
+  "c5": {
+    "fake": false,
+    "honest": true
+  },
+  "c3": {
+    "no_dl": true,
+    "len": 505
+  }
+}

@@ -1,9 +1,9 @@
 # 上游版本钉扎
 
 ```
-STATUS: CLAIM-S3-UX=YES · CLAIM-GENERAL-WB=FULL YES · CLAIM-S2.1-HOTFIX=YES · CLAIM-S1 FULL · 产品主线=GENERAL-WB
+STATUS: CLAIM-S4-CAP=YES · CLAIM-S3-UX=YES · CLAIM-GENERAL-WB=FULL YES · CLAIM-S2.1-HOTFIX=YES · CLAIM-S1 FULL · 产品主线=GENERAL-WB
 DATE: 2026-08-06
-ONE_LINE: CLAIM-S3-UX YES（U1–U7 体感门全绿）；能力底座 CLAIM-GENERAL-WB FULL；下一刀 S4 或业主点名
+ONE_LINE: CLAIM-S4-CAP YES（C1–C6 能力纵深：双产物·再加工·公号转表·长方案·边界诚实）；下一刀 维护态/业主新主线
 ```
 
 | 组件 | 版本/值 | 备注 |
@@ -11,9 +11,10 @@ ONE_LINE: CLAIM-S3-UX YES（U1–U7 体感门全绿）；能力底座 CLAIM-GENE
 | Dify | 1.16.1 | Chat `lOMVPbz7rZmbJSJl` |
 | DeepSeek | 默认 LLM | |
 | **App / site.title** | **Aivia 通用 Agent** | |
-| **workflow** | **general-wb-s2.1** | `08ca8656-8d34-4ffd-b6e2-26a8a3066957` |
-| PackDownload | s2.1 | 默认 文档/页面；保留 prose 观察 · **S3 未改** |
+| **workflow** | **general-wb-s4** | 见 `ops/evidence/general-wb/s4/general-wb-s4-wf-id.txt` |
+| PackDownload | **s4** multi | 双产物 docx+xlsx；默认 文档/页面 |
 | bridge | 0.2.2 hybrid | PUBLIC_DL=`asyncova.com/dl` |
+| **CLAIM-S4-CAP** | **YES** | C1–C6 · `ops/evidence/general-wb/s4/` |
 | **CLAIM-S3-UX** | **YES** | U1–U7 · `ops/evidence/general-wb/s3/` |
 | **CLAIM-GENERAL-WB** | **FULL YES** | S2 + S2.1 审查债关 |
 | **CLAIM-S2.1-HOTFIX** | **YES** | `ops/evidence/general-wb/s2.1/` |

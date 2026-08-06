@@ -1,0 +1,127 @@
+{
+  "empty_success": 0,
+  "gates": {
+    "C1": {
+      "elapsed": 9.2,
+      "dl_links": [
+        "https://asyncova.com/dl/bcde36aeef5b494e9b3e3b4d0ddbc6fa/file.docx",
+        "https://asyncova.com/dl/0b88a02b84794960a64901ca51b2c475/file.xlsx",
+        "https://asyncova.com/dl/bcde36aeef5b494e9b3e3b4d0ddbc6fa/file.docx",
+        "https://asyncova.com/dl/0b88a02b84794960a64901ca51b2c475/file.xlsx",
+        "https://asyncova.com/dl/bcde36aeef5b494e9b3e3b4d0ddbc6fa/file.docx",
+        "https://asyncova.com/dl/0b88a02b84794960a64901ca51b2c475/file.xlsx"
+      ],
+      "dl_ids": [
+        "bcde36aeef5b494e9b3e3b4d0ddbc6fa",
+        "0b88a02b84794960a64901ca51b2c475"
+      ],
+      "download_ready": true,
+      "jiaoyan": false,
+      "two_files": true,
+      "artifacts": [
+        {
+          "url": "https://asyncova.com/dl/bcde36aeef5b494e9b3e3b4d0ddbc6fa/file.docx",
+          "ok": true,
+          "size": 2334,
+          "name": "file.docx",
+          "ooxml": true,
+          "text_snip": "S4 项目周小结汇报周期：2025年X月X日 — X月X日汇报人：项目组项目名称：S4 项目一、本周进展1. 核心模块开发：完成 S4 数据看板的前端框架搭建，实现核心指标卡片的静态展示与数据绑定。2. 后端接口联调：完成用户权限模块与订单查询接口的联调，接口响应时间平均在 200ms 以内，符合预期。3. 测试与修复：修复了在 Chrome 和 Safari 浏览器下的 3 个样式兼容性问题，以及 1 个数据刷新异常的 Bug。4. 文档沉淀：更新了《S4 项目接口文档》V1.2，补充了新增的筛选条件参数说明。二、当前风险1. 第三方支付回调延迟：在模拟环境中发现支付成功回调偶发延迟（约 5",
+          "public_status": 200,
+          "cd": "attachment; filename=\"file.docx\"; filename*=UTF-8''%E6%96%87%E6%A1%A3-S4%E9%A1%B9%E7%9B%AE%E5%91%A8%E5%B0%8F%E7%BB%93.docx",
+          "public_size": 2334
+        },
+        {
+          "url": "https://asyncova.com/dl/0b88a02b84794960a64901ca51b2c475/file.xlsx",
+          "ok": true,
+          "size": 2149,
+          "name": "file.xlsx",
+          "ooxml": true,
+          "public_status": 200,
+          "cd": "attachment; filename=\"file.xlsx\"; filename*=UTF-8''%E8%A1%A8%E6%A0%BC-S4%E4%BB%BB%E5%8A%A1%E8%BF%9B%E5%BA%A6.xlsx",
+          "public_size": 2149
+        }
+      ],
+      "pass": true
+    },
+    "C2": {
+      "cid": "b5c9f0fb-a467-40ea-bf15-29c7a592c647",
+      "r1_ids": [
+        "3828ba02cada41d6b7b05c2165d3c678"
+      ],
+      "r2_ids": [
+        "8c663b2908684040a5b87b7c32441ab2",
+        "2f9d3c8e7b1a4f5d9c6e8a2b7d1f3e5c"
+      ],
+      "new_ids": [
+        "8c663b2908684040a5b87b7c32441ab2",
+        "2f9d3c8e7b1a4f5d9c6e8a2b7d1f3e5c"
+      ],
+      "v2_name": true,
+      "jiaoyan": false,
+      "art": {
+        "ok": true,
+        "size": 1762,
+        "name": "file.xlsx",
+        "ooxml": true,
+        "public_status": 200,
+        "cd": "attachment; filename=\"file.xlsx\"; filename*=UTF-8''%E6%8A%A5%E8%A1%A8.xlsx",
+        "public_size": 1762
+      },
+      "pass": true
+    },
+    "C3": {
+      "r1_clean": true,
+      "r1_len": 1125,
+      "r2_ids": [
+        "d59488ba23a64a6eaf811428152d8274"
+      ],
+      "art": {
+        "ok": true,
+        "size": 2133,
+        "name": "file.xlsx",
+        "ooxml": true,
+        "public_status": 200,
+        "cd": "attachment; filename=\"file.xlsx\"; filename*=UTF-8''%E8%A1%A8%E6%A0%BC-%E6%95%88%E7%8E%87%E4%B9%A0%E6%83%AF%E6%B8%85%E5%8D%95.xlsx",
+        "public_size": 2133
+      },
+      "pass": true
+    },
+    "C4": {
+      "ids": [
+        "df4d6bf9a9c64fae8217115529e1cc27",
+        "df4d6bf9a9c64fae8217115529e1cc27",
+        "df4d6bf9a9c64fae8217115529e1cc27"
+      ],
+      "art": {
+        "ok": true,
+        "size": 3085,
+        "ooxml": true,
+        "hits": {
+          "背景": true,
+          "受众": true,
+          "关键信息": true,
+          "节奏": true,
+          "风险": true
+        },
+        "cd_public": null,
+        "public_status": 200,
+        "cd": "attachment; filename=\"file.docx\"; filename*=UTF-8''%E6%96%87%E6%A1%A3-%E4%B8%8A%E7%BA%BF%E6%B2%9F%E9%80%9A%E6%96%B9%E6%A1%88.docx"
+      },
+      "pass": true,
+      "jiaoyan": false
+    },
+    "C5": {
+      "fake_success": false,
+      "honest": true,
+      "len": 236,
+      "pass": true
+    },
+    "C6": {
+      "general": true,
+      "edu_only": false,
+      "no_dl": true,
+      "pass": true
+    }
+  },
+  "all_pass": true
+}

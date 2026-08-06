@@ -1,0 +1,26 @@
+## 交付清单
+| # | 文件名 | 类型 | 下载 |
+|---|--------|------|------|
+| 1 | 表格-效率习惯清单.xlsx | application/vnd.openxmlformats-officedocument.spreadsheetml.sheet | [点击下载](https://asyncova.com/dl/d59488ba23a64a6eaf811428152d8274/file.xlsx) |
+
+DOWNLOAD_READY
+
+- **文件名**：表格-效率习惯清单.xlsx
+- **HTTPS**：https://asyncova.com/dl/d59488ba23a64a6eaf811428152d8274/file.xlsx
+- **主路径**：https 文件 URL（非 data-URL）
+
+[点击下载 表格-效率习惯清单.xlsx](https://asyncova.com/dl/d59488ba23a64a6eaf811428152d8274/file.xlsx)
+
+<details><summary>内容预览（备用）</summary>
+
+```markdown
+| 习惯标题 | 一句话要点 | 优先级 |
+| --- | --- | --- |
+| 用任务清单代替待办清单 | 每天只挑3件最重要的事写在便利贴上，做完一件划掉一件 | 高 |
+| 固定上下班仪式感 | 用泡茶/戴耳机等小动作给大脑发送“开工”和“收工”的信号 | 高 |
+| 主动同步而不是等别人问 | 每天早会花2分钟说清今日计划、协作需求和风险点，卡点第一时间同步 | 中 |
+| 物理隔离工作区 | 让工作区和休息区有明确边界，下班后把电脑收进抽屉 | 中 |
+| 留出深度工作时间 | 每天安排1~2小时免打扰时间，关通知、戴耳机，只做最需要专注的事 | 高 |
+```
+
+</details>

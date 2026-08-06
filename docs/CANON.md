@@ -4,7 +4,7 @@
 DATE: 2026-08-06
 STATUS: BINDING
 新窗: 先读 docs/HANDOFF.md 再读本文
-UPDATED: CLAIM-S3-UX=YES · CLAIM-GENERAL-WB=FULL YES · CLAIM-S2.1-HOTFIX=YES · workflow=general-wb-s2.1
+UPDATED: CLAIM-S4-CAP=YES · CLAIM-S3-UX=YES · CLAIM-GENERAL-WB=FULL YES · workflow=general-wb-s4
 ```
 
 ## 宏观目标
@@ -33,12 +33,12 @@ UPDATED: CLAIM-S3-UX=YES · CLAIM-GENERAL-WB=FULL YES · CLAIM-S2.1-HOTFIX=YES �
 | **CLAIM-S1.1-HOTFIX** | **YES** |
 | **CLAIM-GENERAL-WB** | **YES**（G4–G7 双轨 · `ops/evidence/general-wb/s2/`） |
 | **CLAIM-S3-UX** | **YES**（U1–U7 · `ops/evidence/general-wb/s3/`） |
-| S4 能力加厚 | **未收** |
+| **CLAIM-S4-CAP** | **YES**（C1–C6 · `ops/evidence/general-wb/s4/`） |
 | 运维 CLAIM（QUAD 等） | **≠ 产品对标完成** |
 
 ## 下一刀
 
-**S4 能力加厚** · 或业主点名。  
+**维护态** · 或业主新主线。  
 
 ## 铁律
 
