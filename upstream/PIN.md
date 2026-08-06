@@ -1,9 +1,9 @@
 # 上游版本钉扎
 
 ```
-STATUS: CLAIM-S1-GENERAL-WB=YES · 产品主线=GENERAL-WB · CLAIM-GENERAL-WB 待 S2 · MEMORY-RESET 生效
+STATUS: CLAIM-S1-GENERAL-WB=YES · 产品主线=GENERAL-WB · CLAIM-GENERAL-WB 待 S2 · S1.1-HOTFIX 进行中（experts/UI） · MEMORY-RESET 生效
 DATE: 2026-08-06
-ONE_LINE: S1 通用入口+W0/G1–G3 绿；CLAIM-GENERAL-WB 待 G4–G7；运维 CLAIM≠产品对标完成
+ONE_LINE: S1 G1–G3 绿；S1.1 清 experts 教育主句+UI 截图；CLAIM-GENERAL-WB 待 S2 G4–G7；运维≠对标
 ```
 
 | 组件 | 版本/值 | 备注 |
@@ -24,3 +24,15 @@ ONE_LINE: S1 通用入口+W0/G1–G3 绿；CLAIM-GENERAL-WB 待 G4–G7；运维
 > 下载：`https://asyncova.com/dl/{id}/file.{ext}`
 
 密钥不进仓。
+
+
+### 入口说明（S1.1）
+
+| 用途 | URL |
+|------|-----|
+| 公司站根域 | https://asyncova.com/ |
+| **工作台 Chat** | https://asyncova.com/chat/lOMVPbz7rZmbJSJl |
+| 能力目录 | https://asyncova.com/experts |
+| 下载 | https://asyncova.com/dl/{id}/file.{ext} |
+
+> 根域 ≠ 工作台。换域名 ≠ 对标进度。
