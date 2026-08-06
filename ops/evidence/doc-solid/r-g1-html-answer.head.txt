@@ -1,0 +1,51 @@
+交付文件：课件.html
+
+DOWNLOAD_READY
+
+[点击下载 课件.html](data:[REDACTED_IN_REPO])
+
+（一键下载；不必全选复制）
+
+<details><summary>完整 HTML 源码（备用）</summary>
+
+```html
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>一元二次方程 · 初中数学课件</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Roboto, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+      background: linear-gradient(145deg, #f5f7fa 0%, #e9edf5 100%);
+      color: #1e2b3c;
+      padding: 2rem 1rem;
+      line-height: 1.6;
+    }
+    .slide {
+      max-width: 1100px;
+      margin: 0 auto 2rem auto;
+      background: #ffffff;
+      border-radius: 32px;
+      box-shadow: 0 20px 40px -12px rgba(0, 20, 40, 0.25);
+      padding: 2.5rem 2.8rem;
+      transition: all 0.2s;
+      border: 1px solid rgba(255, 255, 255, 0.6);
+    }
+    .slide-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 2px solid #d0ddee;
+      padding-bottom: 0.75rem;
+      margin-bottom: 1.8rem;
+    }
+    .slide-title {
+      font-size: 2.2rem;
+   

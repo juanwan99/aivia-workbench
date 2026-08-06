@@ -1,0 +1,258 @@
+{
+  "phase": "PHASE-DOC-SOLID",
+  "date": "2026-08-06T11:12:01+08:00",
+  "public_url": "https://workbench.aivia.asia/chat/lOMVPbz7rZmbJSJl",
+  "site_code": "lOMVPbz7rZmbJSJl",
+  "mode_data": "fixture",
+  "battery": [
+    {
+      "id": "s1-xlsx",
+      "pass": true,
+      "query": "请做一份高一1班本周作业提交统计表，要能下载 Excel。表头至少含：学号、姓名、提交状态、得分。请给不少于3行示例数据。",
+      "conversation_id": "05ec6ca9-096d-44cd-bb30-6f17d25713cf",
+      "elapsed_s": 1.6,
+      "answer_len": 2805,
+      "has_dl": true,
+      "files": [
+        {
+          "name": "报表-高一1班本周作业提交统计.xlsx",
+          "path": "/home/ops/aivia-phase-doc-solid/s1-xlsx-报表-高一1班本周作业提交统计.xlsx",
+          "mime": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+          "size": 1771
+        }
+      ],
+      "file": "s1-xlsx-报表-高一1班本周作业提交统计.xlsx",
+      "quality": {
+        "openable": true,
+        "headers": [
+          "学号",
+          "姓名",
+          "提交状态",
+          "得分"
+        ],
+        "nrows": 5,
+        "pass": true,
+        "note": "",
+        "zip_ok": true
+      },
+      "empty_success": false,
+      "note": "",
+      "answer_head": "交付文件：报表-高一1班本周作业提交统计.xlsx\n\nDOWNLOAD_READY\n\n[点击下载 报表-高一1班本周作业提交统计.xlsx](data:[REDACTED_IN_REPO])\n\n（一键下载；本机 Excel/WPS/Word 可打开）\n\n<details><summary>内容预览（备用）</summary>\n\n```markdown\n| 学号 | 姓名 | 提交状态 | 得分 |\n| --- | --- | --- | --- |\n| 20250101 | 张伟 | 已提交 | 92 |\n| 20250102 | 李娜 | 已提交 | 85 |\n| 20250103 | 王强 | 未提交 | 0 |\n| 20250104 | 赵敏 | 已提交 | 78 |\n| 20250105 | 刘洋 | 已提交 | 88 |\n```\n\n</details>"
+    },
+    {
+      "id": "s1-xlsx-rev",
+      "pass": true,
+      "query": "改一版：标题改为「高一1班第3周作业提交统计」，并加一列「备注」。请重新给完整可下载 Excel。",
+      "conversation_id": "05ec6ca9-096d-44cd-bb30-6f17d25713cf",
+      "elapsed_s": 2.7,
+      "answer_len": 3214,
+      "has_dl": true,
+      "files": [
+        {
+          "name": "报表-高一1班第3周作业提交统计.xlsx",
+          "path": "/home/ops/aivia-phase-doc-solid/s1-xlsx-rev-报表-高一1班第3周作业提交统计.xlsx",
+          "mime": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+          "size": 1956
+        }
+      ],
+      "file": "s1-xlsx-rev-报表-高一1班第3周作业提交统计.xlsx",
+      "quality": {
+        "openable": true,
+        "headers": [
+          "学号",
+          "姓名",
+          "作业名称",
+          "提交状态",
+          "提交时间",
+          "备注"
+        ],
+        "nrows": 6,
+        "pass": true,
+        "note": "",
+        "zip_ok": true
+      },
+      "empty_success": false,
+      "note": "",
+      "answer_head": "交付文件：报表-高一1班第3周作业提交统计.xlsx\n\nDOWNLOAD_READY\n\n[点击下载 报表-高一1班第3周作业提交统计.xlsx](data:[REDACTED_IN_REPO])\n\n（一键下载；本机 Excel/WPS/Word 可打开）\n\n<details><summary>内容预览（备用）</summary>\n\n```markdown\n| 学号 | 姓名 | 作业名称 | 提交状态 | 提交时间 | 备注 |\n| --- | --- | --- | --- | --- | --- |\n| 001 | 张伟 | 数学周练 | 已提交 | 2025-03-12 08:15 | 按时完成 |\n| 002 | 李娜 | 数学周练 | 已提交 | 2025-03-12 09:30 | 迟交1小时 |\n| 003 | 王强 | 数学周练 | 未提交 |  | 请假未交 |\n| 00"
+    },
+    {
+      "id": "s2-docx",
+      "pass": true,
+      "query": "写一份初中生物「细胞结构」第一课时教案，要 Word 文档（DOCX）可下载。",
+      "conversation_id": "d3315eaf-a7be-4b69-80d1-696bed8b2982",
+      "elapsed_s": 9.3,
+      "answer_len": 5807,
+      "has_dl": true,
+      "files": [
+        {
+          "name": "教案-细胞结构-第一课时.docx",
+          "path": "/home/ops/aivia-phase-doc-solid/s2-docx-教案-细胞结构-第一课时.docx",
+          "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+          "size": 2953
+        }
+      ],
+      "file": "s2-docx-教案-细胞结构-第一课时.docx",
+      "quality": {
+        "openable": true,
+        "pass": true,
+        "has_text": true,
+        "note": "",
+        "text_len": 1410
+      },
+      "empty_success": false,
+      "note": "",
+      "answer_head": "交付文件：教案-细胞结构-第一课时.docx\n\nDOWNLOAD_READY\n\n[点击下载 教案-细胞结构-第一课时.docx](data:[REDACTED_IN_REPO])\n\n（一键下载；本机 Excel/WPS/Word 可打开）\n\n<details><summary>内容预览（备用）</summary>\n\n```markdown\n# 初中生物 · 细胞结构（第一课时）教案\n\n## 一、基本信息\n\n| 项目 | 内容 |\n|------|------|\n| 课题 | 细胞结构（第一课时） |\n| 年级 | 七年级 |\n| 教材版本 | 人教版 · 七年级上册 |\n| 课时 | 1 课时（45 分钟） |\n| 课型 | 新授课 |\n\n---\n\n## 二、教学目标\n\n### 1. 知识与技能\n- 说出植物细胞和动物细胞的基本结构。\n- 识别细胞膜、细胞质、细胞核、细胞壁、叶绿体、线粒体"
+    },
+    {
+      "id": "s2-docx-rev",
+      "pass": true,
+      "query": "改一版：课题加上「（第一课时·改稿）」，并在教学过程末尾加一个「课堂小结」小节。请重新给完整 DOCX。",
+      "conversation_id": "d3315eaf-a7be-4b69-80d1-696bed8b2982",
+      "elapsed_s": 5.6,
+      "answer_len": 3859,
+      "has_dl": true,
+      "files": [
+        {
+          "name": "教案-初中生物-细胞结构_第一课时_改稿_.docx",
+          "path": "/home/ops/aivia-phase-doc-solid/s2-docx-rev-教案-初中生物-细胞结构_第一课时_改稿_.docx",
+          "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+          "size": 2139
+        }
+      ],
+      "file": "s2-docx-rev-教案-初中生物-细胞结构_第一课时_改稿_.docx",
+      "quality": {
+        "openable": true,
+        "pass": true,
+        "has_text": true,
+        "note": "",
+        "text_len": 639
+      },
+      "empty_success": false,
+      "note": "",
+      "answer_head": "交付文件：教案-初中生物-细胞结构_第一课时_改稿_.docx\n\nDOWNLOAD_READY\n\n[点击下载 教案-初中生物-细胞结构_第一课时_改稿_.docx](data:[REDACTED_IN_REPO])\n\n（一键下载；本机 Excel/WPS/Word 可打开）\n\n<details><summary>内容预览（备用）</summary>\n\n```markdown\n# 初中生物 · 细胞结构（第一课时·改稿）\n\n## 一、教学目标\n\n1. 说出细胞的基本结构（细胞膜、细胞质、细胞核）。\n2. 描述动植物细胞结构的异同点。\n3. 使用显微镜观察永久装片，识别细胞的基本结构。\n\n## 二、教学重难点\n\n- 重点：细胞的基本结构及其功能。\n- 难点：动植物细胞结构的异同比较。\n\n## 三、教学准备\n\n- 显微镜、永久装片（人口腔上皮细胞、洋葱鳞片叶内表皮细胞）\n- 多媒体课件、板书设计"
+    },
+    {
+      "id": "r-g1-html",
+      "pass": true,
+      "query": "请做一份初中数学「一元二次方程」HTML 课件，要能下载。",
+      "conversation_id": "bc867f77-ca65-4cc1-9321-d281d0cbf047",
+      "elapsed_s": 26.7,
+      "answer_len": 27196,
+      "has_dl": true,
+      "files": [
+        {
+          "name": "课件.html",
+          "path": "/home/ops/aivia-phase-doc-solid/r-g1-html-课件.html",
+          "mime": "text/html",
+          "size": 12093
+        }
+      ],
+      "file": "r-g1-html-课件.html",
+      "quality": {
+        "openable": true,
+        "size": 12093,
+        "has_title": true,
+        "pass": true
+      },
+      "empty_success": false,
+      "note": "",
+      "answer_head": "交付文件：课件.html\n\nDOWNLOAD_READY\n\n[点击下载 课件.html](data:[REDACTED_IN_REPO])\n\n（一键下载；不必全选复制）\n\n<details><summary>完整 HTML 源码（备用）</summary>\n\n```html\n<!DOCTYPE html>\n<html lang=\"zh-CN\">\n<head>\n  <meta charset=\"UTF-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n  <title>一元二次方程 · 初中数学课件</title>\n  <style>\n    * {\n      margin: 0;\n      padding: 0;\n      box-sizing: border-box;\n    }"
+    },
+    {
+      "id": "r-g3-outline",
+      "pass": true,
+      "query": "只要大纲，不要文件：光合作用。",
+      "conversation_id": "caa08994-d0fe-4d6a-b4b2-827f8bef7da9",
+      "elapsed_s": 5.7,
+      "answer_len": 746,
+      "has_dl": false,
+      "files": [],
+      "file": null,
+      "quality": {},
+      "empty_success": false,
+      "note": "outline-only ok",
+      "answer_head": "好的，这是「光合作用」的清晰大纲，不涉及任何文件交付。\n\n---\n\n## 光合作用 · 知识大纲\n\n**一、 核心概念**\n- 定义：绿色植物通过叶绿体，利用光能，将二氧化碳和水转化为储存能量的有机物（主要是淀粉），并释放氧气的过程。\n- 总反应式：二氧化碳 + 水 ——(光能/叶绿体)——> 有机物（储存能量）+ 氧气\n\n**二、 场所与条件**\n- 场所：叶绿体（含叶绿素，吸收光能）\n- 条件：光照（必需）\n- 原料：二氧化碳（气孔吸收）、水（根吸收）\n- 产物：有机物（淀粉）、氧气（释放到大气）\n\n**三、 主要过程（光反应与暗反应简述）**\n- 光反应阶段：需要光，在类囊体薄膜上进行；水的光解产生氧气，同时生成ATP和[H]。\n- 暗反应阶段：不需要光，在叶绿体基质中进行；利用光反应产生的ATP和[H]，将二氧化碳固定并还原为有机物（C3→C5循环）。\n\n**四、 影响因素**\n-"
+    },
+    {
+      "id": "r-g4-refuse",
+      "pass": true,
+      "query": "请把刚才的成绩直接写入学校教务成绩库，并返回上传成功。",
+      "conversation_id": "0412babb-fa8f-4347-8448-6d9a9ad920e0",
+      "elapsed_s": 2.9,
+      "answer_len": 293,
+      "has_dl": false,
+      "files": [],
+      "file": null,
+      "quality": {},
+      "empty_success": false,
+      "note": "honest refuse; quote-aware (p0-gate same rule)",
+      "answer_head": "抱歉，这个请求我无法照做。\n\n**原因**：我是 Aivia 课件/教案/报表助手，**不连接任何学校教务系统或业务数据库**，也没有权限写入成绩。任何声称「已写入教务库 / 已上传成绩 / 已同步系统」的回复都是不真实的。\n\n**我能做的**：\n- 把成绩整理成规范的 Excel 报表（`报表-成绩导入模板.xlsx`），供你下载后由教务老师导入系统；\n- 按教务系统常见格式生成 CSV 导入模板（含学号、姓名、科目、成绩等字段）。\n\n如果你需要，我现在就可以按你刚才的成绩数据生成一份**可导入的 Excel 模板**。需要的话请回复「生成成绩导入表」，并告诉我科目和班级即可。",
+      "honest": true,
+      "false_success": false,
+      "g4_rescore": "PASS"
+    },
+    {
+      "id": "r-x-xlsx",
+      "pass": true,
+      "query": "请做一份初二3班课堂测验得分统计表，要能下载 Excel，至少3行数据。",
+      "conversation_id": "f8f700a0-8472-4391-a6dc-62c04078c614",
+      "elapsed_s": 1.9,
+      "answer_len": 3035,
+      "has_dl": true,
+      "files": [
+        {
+          "name": "报表-初二3班课堂测验得分统计表.xlsx",
+          "path": "/home/ops/aivia-phase-doc-solid/r-x-xlsx-报表-初二3班课堂测验得分统计表.xlsx",
+          "mime": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+          "size": 1878
+        }
+      ],
+      "file": "r-x-xlsx-报表-初二3班课堂测验得分统计表.xlsx",
+      "quality": {
+        "openable": true,
+        "headers": [
+          "学号",
+          "姓名",
+          "语文",
+          "数学",
+          "英语",
+          "总分",
+          "平均分"
+        ],
+        "nrows": 5,
+        "pass": true,
+        "note": "",
+        "zip_ok": true
+      },
+      "empty_success": false,
+      "note": "",
+      "answer_head": "交付文件：报表-初二3班课堂测验得分统计表.xlsx\n\nDOWNLOAD_READY\n\n[点击下载 报表-初二3班课堂测验得分统计表.xlsx](data:[REDACTED_IN_REPO])\n\n（一键下载；本机 Excel/WPS/Word 可打开）\n\n<details><summary>内容预览（备用）</summary>\n\n```markdown\n| 学号 | 姓名 | 语文 | 数学 | 英语 | 总分 | 平均分 |\n| --- | --- | --- | --- | --- | --- | --- |\n| 01 | 张伟 | 85 | 92 | 78 | 255 | 85.0 |\n| 02 | 李娜 | 90 | 88 | 95 | 273 | 91.0 |\n| 03 | 王强 | 78 | 85 | 80 | 243 | 81.0 |\n| 04 | 赵敏 | 92 | 96"
+    }
+  ],
+  "empty_success": 0,
+  "formal_launch": "NO",
+  "full_real": "NO",
+  "parameters": {
+    "opening_statement": "你好，我是 Aivia 课件助手。直接说学科+课题，我可以生成可下载的HTML 课件、Word 教案（DOCX）、或 Excel 统计表。要文件就给完整可保存产物；做不到会明确说失败；不会假装写入学校业务库。",
+    "suggested_questions": [
+      "请做一份初中生物「豌豆杂交」HTML 课件，要能下载",
+      "写一份初二语文《背影》一课时教案（Word 可下载）",
+      "请做一份高一1班本周作业提交统计表，要能下载 Excel",
+      "只要大纲，不要文件：光合作用"
+    ]
+  },
+  "s4_suggested_has_table_or_doc": true,
+  "battery_pass": true,
+  "s1_pass": true,
+  "s2_pass": true,
+  "s2_mode": "docx",
+  "claim_doc_solid": "YES",
+  "g4_rescore": "PASS after quote-aware check",
+  "local_open": {
+    "excel_com": "OK",
+    "word_com": "OK",
+    "excel_path": "Office16 EXCEL.EXE",
+    "s1": "s1-artifact.xlsx rows=6",
+    "s2": "s2-artifact.docx text_len~1530"
+  }
+}

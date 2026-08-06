@@ -1,12 +1,13 @@
 # 任务包 · DOC-SOLID（文档/报表做扎实）
 
 ```
-STATUS: BINDING · 单包单卡派发
+STATUS: PASS · CLAIM-DOC-SOLID=YES · 正式上线=否
 DATE: 2026-08-06
 CODE: PHASE-DOC-SOLID
 前提: P0-GATE PASS · CLAIM-B=YES · 正式上线=否 · hybrid
 形态: Dify Web + DeepSeek · clean-room 对标 WorkBuddy 行为（不拆闭源）
 方式: 云端改工作流/节点/模板 → 本地浏览器真点真下真开文件 → 证据进仓
+出口: ops/DOC-SOLID-REPORT.md · ops/evidence/doc-solid/
 ```
 
 > **一个任务包 · 一张任务卡 · 一次回写收口。**  

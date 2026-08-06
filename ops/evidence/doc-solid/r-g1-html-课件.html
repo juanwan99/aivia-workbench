@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>一元二次方程 · 初中数学课件</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Roboto, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+      background: linear-gradient(145deg, #f5f7fa 0%, #e9edf5 100%);
+      color: #1e2b3c;
+      padding: 2rem 1rem;
+      line-height: 1.6;
+    }
+    .slide {
+      max-width: 1100px;
+      margin: 0 auto 2rem auto;
+      background: #ffffff;
+      border-radius: 32px;
+      box-shadow: 0 20px 40px -12px rgba(0, 20, 40, 0.25);
+      padding: 2.5rem 2.8rem;
+      transition: all 0.2s;
+      border: 1px solid rgba(255, 255, 255, 0.6);
+    }
+    .slide-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 2px solid #d0ddee;
+      padding-bottom: 0.75rem;
+      margin-bottom: 1.8rem;
+    }
+    .slide-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      background: linear-gradient(135deg, #1e3c72, #2a5298);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .slide-badge {
+      background: #2a5298;
+      color: white;
+      padding: 0.3rem 1rem;
+      border-radius: 40px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+    }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+    .card {
+      background: #f8faff;
+      border-radius: 20px;
+      padding: 1.5rem 1.8rem;
+      box-shadow: inset 0 1px 4px rgba(0,0,0,0.02), 0 8px 16px -8px rgba(0, 40, 80, 0.08);
+      border: 1px solid #e3eaf5;
+    }
+    .card h3 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #1e3c72;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .card h3 i {
+      font-style: normal;
+      background: #1e3c72;
+      color: white;
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+    }
+    .formula-box {
+      background: #eef3fc;
+      border-radius: 16px;
+      padding: 1.2rem 1.5rem;
+      font-family: 'Cambria Math', 'Times New Roman', serif;
+      font-size: 1.3rem;
+      text-align: center;
+      margin: 1rem 0;
+      border-left: 6px solid #2a5298;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+    }
+    .formula-box span {
+      font-weight: 600;
+      color: #0b2a4a;
+    }
+    .example {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 1.2rem 1.5rem;
+      border: 1px dashed #2a5298;
+      margin-top: 1rem;
+    }
+    .example p {
+      margin-bottom: 0.5rem;
+    }
+    .btn-download {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: #1e3c72;
+      color: white;
+      border: none;
+      padding: 0.9rem 2rem;
+      border-radius: 60px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 8px 18px -6px #1e3c7266;
+      transition: 0.2s;
+      margin-top: 1rem;
+      border: 1px solid #ffffff30;
+      text-decoration: none;
+    }
+    .btn-download:hover {
+      background: #2a5298;
+      transform: translateY(-2px);
+      box-shadow: 0 12px 24px -8px #1e3c72aa;
+    }
+    .btn-download i {
+      font-size: 1.4rem;
+      font-style: normal;
+    }
+    .objective-list {
+      list-style: none;
+      margin: 0.8rem 0;
+    }
+    .objective-list li {
+      padding: 0.4rem 0 0.4rem 2rem;
+      position: relative;
+    }
+    .objective-list li::before {
+      content: "✔";
+      position: absolute;
+      left: 0;
+      color: #1e7e34;
+      font-weight: 700;
+    }
+    .knowledge-points {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin: 1.2rem 0;
+    }
+    .knowledge-tag {
+      background: #e2eafc;
+      color: #1e3c72;
+      padding: 0.4rem 1.2rem;
+      border-radius: 40px;
+      font-weight: 500;
+      font-size: 0.95rem;
+      border: 1px solid #b8cbe8;
+    }
+    .summary-box {
+      background: #eef6ee;
+      border-radius: 20px;
+      padding: 1.5rem 2rem;
+      border-left: 8px solid #2a7a3b;
+    }
+    .footer-note {
+      text-align: center;
+      margin-top: 1.5rem;
+      color: #4a5b6f;
+      font-size: 0.9rem;
+      letter-spacing: 0.3px;
+    }
+    .highlight {
+      background: #fff1d6;
+      padding: 0.1rem 0.4rem;
+      border-radius: 6px;
+      font-weight: 600;
+    }
+    @media (max-width: 700px) {
+      .slide { padding: 1.8rem 1.2rem; }
+      .grid-2 { grid-template-columns: 1fr; }
+      .slide-title { font-size: 1.8rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 课件主体：封面 + 目标 + 知识点 + 例题 + 小结 + 练习 -->
+  <div class="slide">
+    <div class="slide-header">
+      <div class="slide-title">📐 一元二次方程</div>
+      <div class="slide-badge">初中数学 · 九年级</div>
+    </div>
+    <p style="font-size: 1.2rem; color: #2a3f5e; margin-bottom: 0.5rem;">掌握本质 · 灵活求解 · 实际应用</p>
+    <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin: 1.2rem 0 0.5rem;">
+      <span style="background: #1e3c72; color: white; padding: 0.3rem 1.2rem; border-radius: 30px;">标准形式 ax²+bx+c=0</span>
+      <span style="background: #e9eef7; color: #1e3c72; padding: 0.3rem 1.2rem; border-radius: 30px;">求根公式</span>
+      <span style="background: #e9eef7; color: #1e3c72; padding: 0.3rem 1.2rem; border-radius: 30px;">配方法</span>
+    </div>
+  </div>
+
+  <!-- 学习目标 -->
+  <div class="slide">
+    <div class="slide-header">
+      <div class="slide-title">🎯 学习目标</div>
+    </div>
+    <div class="grid-2">
+      <div class="card">
+        <h3><i>1</i> 知识理解</h3>
+        <ul class="objective-list">
+          <li>理解一元二次方程的概念及一般形式</li>
+          <li>掌握判别式 Δ = b² - 4ac 的意义</li>
+          <li>熟悉三种解法：因式分解、配方法、公式法</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3><i>2</i> 技能应用</h3>
+        <ul class="objective-list">
+          <li>能准确将方程化为标准形式</li>
+          <li>灵活选择合适的方法求解</li>
+          <li>利用一元二次方程解决几何/实际问题</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- 核心知识点 -->
+  <div class="slide">
+    <div class="slide-header">
+      <div class="slide-title">📘 核心知识点</div>
+    </div>
+    <div class="knowledge-points">
+      <span class="knowledge-tag">一般式 ax²+bx+c=0 (a≠0)</span>
+      <span class="knowledge-tag">求根公式 x = [-b±√(b²-4ac)] / 2a</span>
+      <span class="knowledge-tag">因式分解法</span>
+      <span class="knowledge-tag">配方法</span>
+      <span class="knowledge-tag">判别式 Δ</span>
+    </div>
+    <div class="formula-box">
+      <span>标准形式：</span> ax² + bx + c = 0 &nbsp;&nbsp; (a ≠ 0)
+    </div>
+    <div class="formula-box">
+      <span>求根公式：</span> x = <span style="font-size: 1.1rem;">[-b ± √(b² - 4ac)] / 2a</span>
+    </div>
+    <div style="background: #f0f4fe; border-radius: 16px; padding: 1rem 1.5rem; margin-top: 1.2rem;">
+      <p><strong>🔍 判别式 Δ = b² - 4ac</strong></p>
+      <p>Δ > 0 → 两个不相等的实数根；Δ = 0 → 两个相等实数根；Δ < 0 → 无实数根（初中阶段）。</p>
+    </div>
+  </div>
+
+  <!-- 典型例题 + 解法展示 -->
+  <div class="slide">
+    <div class="slide-header">
+      <div class="slide-title">✏️ 典型例题</div>
+    </div>
+    <div class="grid-2">
+      <div class="card">
+        <h3><i>①</i> 因式分解法</h3>
+        <div class="example">
+          <p><strong>例：</strong> x² - 5x + 6 = 0</p>
+          <p style="color: #1e3c72;">→ (x-2)(x-3) = 0</p>
+          <p>∴ x₁ = 2, x₂ = 3</p>
+        </div>
+      </div>
+      <div class="card">
+        <h3><i>②</i> 公式法</h3>
+        <div class="example">
+          <p><strong>例：</strong> 2x² + 3x - 2 = 0</p>
+          <p>a=2, b=3, c=-2</p>
+          <p>Δ = 9 + 16 = 25</p>
+          <p>x = [-3 ± 5] / 4 → x₁=0.5, x₂=-2</p>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top: 1.5rem; background: #f8fafd; border-radius: 16px; padding: 1rem 1.5rem;">
+      <p><strong>🧠 配方法示例：</strong> x² + 6x - 7 = 0 → (x+3)² = 16 → x+3 = ±4 → x₁=1, x₂=-7</p>
+    </div>
+  </div>
+
+  <!-- 课堂练习 (互动式) -->
+  <div class="slide">
+    <div class="slide-header">
+      <div class="slide-title">📝 随堂练习</div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 1.2rem;">
+      <div style="background: #f2f6ff; border-radius: 16px; padding: 1rem 1.5rem;">
+        <p><strong>1. 解方程：</strong> x² - 9 = 0</p>
+        <p style="color: #2a5298; margin-top: 0.3rem;">提示：因式分解 (x+3)(x-3)=0 → x=±3</p>
+      </div>
+      <div style="background: #f2f6ff; border-radius: 16px; padding: 1rem 1.5rem;">
+        <p><strong>2. 用公式法解：</strong> x² - 4x + 1 = 0</p>
+        <p style="color: #2a5298; margin-top: 0.3rem;">Δ=16-4=12 → x = 2 ± √3</p>
+      </div>
+      <div style="background: #f2f6ff; border-radius: 16px; padding: 1rem 1.5rem;">
+        <p><strong>3. 判断根的情况：</strong> 3x² + 2x + 1 = 0</p>
+        <p style="color: #2a5298; margin-top: 0.3rem;">Δ=4-12=-8 < 0 → 无实数根</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 小结与结构 -->
+  <div class="slide">
+    <div class="slide-header">
+      <div class="slide-title">📌 课堂小结</div>
+    </div>
+    <div class="summary-box">
+      <p style="font-size: 1.2rem; font-weight: 600; margin-bottom: 0.8rem;">✅ 一元二次方程核心框架</p>
+      <ul style="list-style-type: none; padding-left: 0.5rem;">
+        <li>• 形式：ax² + bx + c = 0 (a≠0)</li>
+        <li>• 解法：因式分解 / 配方法 / 公式法</li>
+        <li>• 判别式 Δ = b² - 4ac 决定根的情况</li>
+        <li>• 应用：面积、增长率、动点等问题</li>
+      </ul>
+    </div>
+    <div style="margin-top: 1.5rem; display: flex; justify-content: flex-end;">
+      <button class="btn-download" id="downloadBtn">
+        <i>⬇️</i> 下载课件 (HTML)
+      </button>
+    </div>
+  </div>
+
+  <div class="footer-note">
+    ⚡ 初中数学 · 一元二次方程 · 可下载课件
+  </div>
+
+  <!-- 下载功能：生成完整 HTML 文件 -->
+  <script>
+    (function() {
+      // 获取当前文档的完整HTML内容（包括样式和结构）
+      function getFullHTML() {
+        // 克隆整个文档结构，保留样式
+        const doctype = '<!DOCTYPE html>\n';
+        const html = document.documentElement.outerHTML;
+        return doctype + html;
+      }
+
+      // 下载为 .html 文件
+      function downloadHTML() {
+        const fullHTML = getFullHTML();
+        // 创建 Blob (类型为 text/html)
+        const blob = new Blob([fullHTML], { type: 'text/html;charset=utf-8' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = '课件-一元二次方程.html';   // 文件名
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+      }
+
+      // 绑定按钮事件
+      const btn = document.getElementById('downloadBtn');
+      if (btn) {
+        btn.addEventListener('click', downloadHTML);
+      }
+
+      // 额外：如果用户想通过其他方式，也可以暴露函数
+      window.downloadCourseware = downloadHTML;
+    })();
+  </script>
+
+  <!-- 确保下载内容包含完整样式 (因为outerHTML会包含当前style) -->
+  <!-- 注意：script 也会被包含，但下载后打开仍可运行，不影响课件展示 -->
+</body>
+</html>
