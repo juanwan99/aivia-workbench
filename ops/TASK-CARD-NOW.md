@@ -1,17 +1,17 @@
-# 现行刀序（标准卡索引）
+# 现行刀序
 
 ```
 ════════════════════════════════════════════════════════
-现行刀序   Aivia Workbench
+现行刀序
 ════════════════════════════════════════════════════════
-真源: docs/CANON.md · docs/HANDOFF.md · MEMORY-RESET
+产品主仓: juanwan99/pico
+主交接:   docs/HANDOFF-WB-PI.md
 
-  纠偏   S1–S4 固定卷 = 交付水管 · ≠ WorkBuddy 对标完成
-  当前   WB-SHELL → ops/TASK-CARD-WB-SHELL.md
-         照 WorkBuddy 工作台骨架 + 开放域派活
-  真源   ops/WB-RESPONSE-LOGIC.md · WB-FEATURE-MATRIX.md
+  目标  Web WorkBuddy 程度（六条）
+  方案  Pico 整车 + Pi + DeepSeek
+  禁    Dify 门脸终局 · 场景考卷对标 · 双核并列真源
 
-  禁: 场景白名单冒充通用 · 拆闭源 · 像素盗版 · 密钥进仓
-  禁: 教育专家站主线 · 备案当对标
+  本仓  降级 · 不派 GENERAL-WB / S4 新主刀
+  下一刀 在 pico：P0 门脸+Pi 接入（见 HANDOFF-WB-PI §5）
 ════════════════════════════════════════════════════════
 ```
