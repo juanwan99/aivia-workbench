@@ -1,7 +1,7 @@
 # 任务卡（现行唯一）
 
-**一张卡：** [TASK-CARD-P0-GATE.md](./TASK-CARD-P0-GATE.md)  
-**包：** [PHASE-P0-GATE-PACK.md](./PHASE-P0-GATE-PACK.md)  
-**勾选：** [P0-GATE-RUNBOOK.md](./P0-GATE-RUNBOOK.md)
+**卡：** [TASK-CARD-DOC-SOLID.md](./TASK-CARD-DOC-SOLID.md)  
+**包：** [PHASE-DOC-SOLID-PACK.md](./PHASE-DOC-SOLID-PACK.md)  
+**勾选：** [DOC-SOLID-RUNBOOK.md](./DOC-SOLID-RUNBOOK.md)
 
-旧多卡拆分作废；以本页为准。
+P0-GATE 已收；本卡做文档/报表扎实。
