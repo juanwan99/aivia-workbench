@@ -2,15 +2,16 @@
 
 ```
 ════════════════════════════════════════════════════════
-现行刀序   Aivia Workbench · GENERAL-WB
+现行刀序   Aivia Workbench
 ════════════════════════════════════════════════════════
-真源: docs/CANON.md · MEMORY-RESET
+真源: docs/CANON.md · docs/HANDOFF.md · MEMORY-RESET
 
-  已过   S1 + S1.1 · S2 + S2.1 · S3-UX
-  已过   S4-CAP + S4.1-HOTFIX → CLAIM-S4-CAP=FULL YES
-         报告 ops/S4.1-HOTFIX-REPORT.md · 证据 s4.1/
-  当前   维护态 / 业主点名
+  纠偏   S1–S4 固定卷 = 交付水管 · ≠ WorkBuddy 对标完成
+  当前   WB-SHELL → ops/TASK-CARD-WB-SHELL.md
+         照 WorkBuddy 工作台骨架 + 开放域派活
+  真源   ops/WB-RESPONSE-LOGIC.md · WB-FEATURE-MATRIX.md
 
-禁: 套娃表假绿 · 404 /dl · 无 push 假 FULL · 密钥进仓 · 像素=完成
+  禁: 场景白名单冒充通用 · 拆闭源 · 像素盗版 · 密钥进仓
+  禁: 教育专家站主线 · 备案当对标
 ════════════════════════════════════════════════════════
 ```

@@ -22,7 +22,7 @@ UPDATED: CLAIM-S4-CAP=FULL YES · CLAIM-S4.1-HOTFIX=YES · CLAIM-S3-UX=YES · wo
 1. Web + Dify 1.16.1 + DeepSeek + bridge **0.2.2 hybrid**。  
 2. **工作台 Chat 全路径 = https://asyncova.com/chat/lOMVPbz7rZmbJSJl**（根域 ≠ 工作台）。  
 3. 下载主路径 = **https://asyncova.com/dl/...**。  
-4. **App / site.title = Aivia 通用 Agent** · workflow **`general-wb-s1`**。  
+4. **App / site.title = Aivia 通用 Agent** · workflow **`general-wb-s4.1`**（水管）· 产品主刀 **WB-SHELL**。  
 5. **默认入口 = 通用 Agent**；`/experts` = 通用能力目录。  
 
 ## 已收 / 未收（产品）
@@ -39,7 +39,9 @@ UPDATED: CLAIM-S4-CAP=FULL YES · CLAIM-S4.1-HOTFIX=YES · CLAIM-S3-UX=YES · wo
 
 ## 下一刀
 
-**维护态** · 或业主新主线。  
+**WB-SHELL**（`ops/TASK-CARD-WB-SHELL.md`）：照 WorkBuddy 工作台本体做。  
+S1–S4 固定场景电池 = **交付水管回归**，**≠** WorkBuddy 产品对标完成。  
+通用能力 = 开放域派活工作台，不是「举例场景清单」。  
 
 ## 铁律
 

@@ -3,7 +3,7 @@
 ```
 STATUS: BINDING · 新窗总管开场真源之一
 DATE: 2026-08-06
-UPDATED: CLAIM-S4-CAP=FULL YES · CLAIM-S4.1-HOTFIX=YES · CLAIM-S3-UX=YES · 下一刀=维护态
+UPDATED: 纠偏 · 现行主刀=WB-SHELL · S1–S4≠WB对标完成
 仓: https://github.com/juanwan99/aivia-workbench
 冲突裁决: docs/CANON.md > 本文 > 任何旧任务卡/旧 CLAIM 叙事
 ```
@@ -116,22 +116,11 @@ UPDATED: CLAIM-S4-CAP=FULL YES · CLAIM-S4.1-HOTFIX=YES · CLAIM-S3-UX=YES · �
 
 | 项 | 内容 |
 |----|------|
-| **主卡** | `ops/TASK-CARD-GENERAL-WB.md` |
-| **已收** | **CLAIM-GENERAL-WB** · **S3-UX** · **S4-CAP FULL**（S4.1） |
-| **下一刀** | **维护态** · 或业主点名 |
-| **包** | `ops/PHASE-GENERAL-WB-PACK.md` |
-| **S3/S4 报告** | `ops/S3-UX-REPORT.md` · `ops/S4-CAP-REPORT.md` · `ops/S4.1-HOTFIX-REPORT.md` |
-| **执行窗** | 本机浏览器真测 + 轻量探针；**体感变化** 为准 |
-| **出口纪律** | 行为对标 · **≠** 像素 · **≠** 备案/运维绿 · **≠** 教育站 |
+| **主卡** | `ops/TASK-CARD-WB-SHELL.md` |
+| **真源** | `ops/WB-RESPONSE-LOGIC.md` · `ops/WB-FEATURE-MATRIX.md` |
+| **已收（水管）** | S1–S4.1 `/dl` 纪律 · **不得**写「已对标 WorkBuddy 完成」 |
+| **纠偏** | 通用≠场景白名单；照 WB 壳+开放派活重做产品主线 |
 
-### 验收纪律（写进执行习惯）
-
-- 推荐问题 / 系统提示必须是 **通用 Agent**，不是「仅教研」  
-- 证据：`ops/evidence/general-wb/` 浏览器/API 真跑（S1 已在 `s1/`）  
-- 教育课件 **最多加分项**，不得替代跨领域电池  
-- edu-core full real：**非本卡默认范围**  
-
----
 
 ## 5. 硬禁令（新窗）
 
