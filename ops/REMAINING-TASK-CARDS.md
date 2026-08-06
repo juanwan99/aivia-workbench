@@ -1,7 +1,7 @@
 # 任务卡（现行唯一）
 
-**卡：** [TASK-CARD-DOC-SOLID.md](./TASK-CARD-DOC-SOLID.md)  
-**包：** [PHASE-DOC-SOLID-PACK.md](./PHASE-DOC-SOLID-PACK.md)  
-**勾选：** [DOC-SOLID-RUNBOOK.md](./DOC-SOLID-RUNBOOK.md)
+**卡：** [TASK-CARD-SCENE-FULL.md](./TASK-CARD-SCENE-FULL.md)  
+**包：** [PHASE-SCENE-FULL-PACK.md](./PHASE-SCENE-FULL-PACK.md)  
+**勾选：** [SCENE-FULL-RUNBOOK.md](./SCENE-FULL-RUNBOOK.md)
 
-P0-GATE 已收；本卡做文档/报表扎实。
+口径：模型出内容 · 产品打通个人全场景（对标 WorkBuddy 行为）。
