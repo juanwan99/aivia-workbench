@@ -1,0 +1,10 @@
+{
+  "title": "Aivia 能力目录 · 通用任务台",
+  "outdated_s2": false,
+  "behavior": true,
+  "claim_full": true,
+  "pixel_disclaim": true,
+  "not_beian_done": true,
+  "general": true,
+  "footer": "可说：写一篇公众号推文：远程办公的 5 个效率习惯（不要文件）。\n\n打开 →\n代码\n代码说明\n\n小脚本、思路与可复制代码。开场可说：用字典计数统计词频，给 Python 示例。\n\n打开 →\n短答\n短答 / 大纲\n\n只要文字、不要文件。开场可说：只要短答：1+1 等于几？（不要文件）\n\n打开 →\n改稿\n同会话改稿\n\n在上一轮结果上改一版。开场可说：把『大家好我今天想说一下项目进度其实还行』润色成正式周会发言。\n\n打开 →\n可选领域\n教育场景（可选领域）\n\n教育只是能力之一，非产品定义。例：做一份初中生物「豌豆杂交」HTML 课件，要能下载。不写业务库。\n\n打开 →\n工作台 Chat：https://asyncova.com/chat/lOMVPbz7rZmbJSJl · 下载 /dl/…\n根域 asyncova.com 为公司站；产品主线 GENERAL-WB · 行为对标 WorkBuddy（非像素 · 非备案完成）· CLAIM-GENERAL-WB=FULL\n不宣称 1:1 WorkBuddy 像素 · 禁止空成功 · 禁止 Agent 写业务库 · 见 docs/CANON.md"
+}

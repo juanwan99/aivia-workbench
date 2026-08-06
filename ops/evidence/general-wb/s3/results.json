@@ -1,0 +1,54 @@
+{
+  "phase": "S3-UX + S3-DELIVER",
+  "date": "2026-08-06",
+  "claim": "CLAIM-S3-UX",
+  "result": "YES",
+  "gates": {
+    "U1": "PASS",
+    "U2": "PASS",
+    "U3": "PASS",
+    "U4": "PASS",
+    "U5": "PASS",
+    "U6": "PASS",
+    "U7": "PASS",
+    "D1": "PASS",
+    "D2": "PASS",
+    "D3": "PASS",
+    "D4": "PASS",
+    "D5": "PASS",
+    "D6": "PASS"
+  },
+  "entry": "https://asyncova.com/chat/lOMVPbz7rZmbJSJl",
+  "experts": "https://asyncova.com/experts",
+  "packdownload": "s2.1 (unchanged)",
+  "workflow": "general-wb-s2.1",
+  "screenshots": [
+    "ui/u1-opening.png",
+    "ui/u2-file-dl.png",
+    "ui/u3-short.png",
+    "ui/u4-r1.png",
+    "ui/u4-r2.png",
+    "ui/u4-r2-file.png",
+    "ui/u5-refuse-db.png",
+    "ui/u6-experts.png"
+  ],
+  "u2": {
+    "dl": "https://asyncova.com/dl/fa4eaa08bf4d4942afeb4502f4c75e80/file.docx",
+    "display_name": "文档-S3体感验收周报.docx",
+    "public_status": 200,
+    "public_size": 2438,
+    "ooxml": true,
+    "not_jiaoyan": true
+  },
+  "fixes": [
+    "deploy/aivia-experts/index.html footer: 行为对标 · 非像素 · 非备案完成 · CLAIM-GENERAL-WB=FULL"
+  ],
+  "not_in_scope": [
+    "G1-G7 re-battery",
+    "pixel 1:1 WorkBuddy UI",
+    "beian/dns/full-real",
+    "S4 capability thicken",
+    "PackDownload rewrite"
+  ],
+  "checklist": "checklist.json"
+}

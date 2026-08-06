@@ -3,7 +3,7 @@
 ```
 STATUS: BINDING · 新窗总管开场真源之一
 DATE: 2026-08-06
-UPDATED: CLAIM-GENERAL-WB=FULL YES · CLAIM-S2.1=YES · 下一刀=S3
+UPDATED: CLAIM-S3-UX=YES · CLAIM-GENERAL-WB=FULL YES · CLAIM-S2.1=YES · 下一刀=S4
 仓: https://github.com/juanwan99/aivia-workbench
 冲突裁决: docs/CANON.md > 本文 > 任何旧任务卡/旧 CLAIM 叙事
 ```
@@ -117,12 +117,12 @@ UPDATED: CLAIM-GENERAL-WB=FULL YES · CLAIM-S2.1=YES · 下一刀=S3
 | 项 | 内容 |
 |----|------|
 | **主卡** | `ops/TASK-CARD-GENERAL-WB.md` |
-| **已收** | **CLAIM-GENERAL-WB=YES**（S1+S1.1+S2 G4–G7） |
-| **下一刀** | **S3 体感** 或 **S4 加厚** |
-| **包** | `ops/PHASE-GENERAL-WB-PACK.md`（W2+） |
-| **目标** | 跨领域验收 G4–G7（改稿/公号/代码/分析…） |
-| **执行窗** | 本机浏览器真测 + SSH 改 Dify/工作流；**体感变化** 为准 |
-| **出口** | `CLAIM-GENERAL-WB`：跨领域电池全绿 + 回写；**≠** 教育完成 **≠** 运维上线完成 |
+| **已收** | **CLAIM-GENERAL-WB=YES**（S1+S1.1+S2）· **CLAIM-S3-UX=YES**（U1–U7） |
+| **下一刀** | **S4 能力加厚** · 或业主点名 |
+| **包** | `ops/PHASE-GENERAL-WB-PACK.md` |
+| **S3 报告** | `ops/S3-UX-REPORT.md` · 证据 `ops/evidence/general-wb/s3/` |
+| **执行窗** | 本机浏览器真测 + 轻量探针；**体感变化** 为准 |
+| **出口纪律** | 行为对标 · **≠** 像素 · **≠** 备案/运维绿 · **≠** 教育站 |
 
 ### 验收纪律（写进执行习惯）
 
@@ -155,11 +155,12 @@ UPDATED: CLAIM-GENERAL-WB=FULL YES · CLAIM-S2.1=YES · 下一刀=S3
 【S1】FULL YES · 通用入口 G1–G3
 【S1.1】YES · /experts 通用化
 【S2】CLAIM-GENERAL-WB=FULL YES · S2.1 审查债关
-【证据】ops/evidence/general-wb/s1/ · s1.1/ · s2/ · s2.1/
+【S3】CLAIM-S3-UX=YES · U1–U7 体感门
+【证据】ops/evidence/general-wb/s1/ · s1.1/ · s2/ · s2.1/ · s3/
 【Chat】https://asyncova.com/chat/lOMVPbz7rZmbJSJl
 【experts】https://asyncova.com/experts
 【App】Aivia 通用 Agent · workflow=general-wb-s2.1
-【对标】行为级 CLAIM-GENERAL-WB=YES · ≠像素 · ≠S3满分
+【对标】行为级 CLAIM-GENERAL-WB + S3 体感 · ≠像素 · ≠备案完成
 【正式上线话术】运维/公网事实；产品对标=行为交付已收，非上线扩权
 ```
 
@@ -176,8 +177,8 @@ UPDATED: CLAIM-GENERAL-WB=FULL YES · CLAIM-S2.1=YES · 下一刀=S3
 教育: 仅需真数时 edu-core 只读 · 非主线
 作废: 教育专家站主线 · 运维CLAIM=对标 · 备案主线
 底盘: Dify+DS+/dl 保留
-已收: CLAIM-GENERAL-WB=YES（S1+S1.1+S2）
-下一刀: S3 体感 或 S4 加厚
+已收: CLAIM-GENERAL-WB=YES · CLAIM-S3-UX=YES
+下一刀: S4 能力加厚 或 业主点名
 禁: 空成功 · 写库 · 拆闭源 · 无体感假完成
 Chat: https://asyncova.com/chat/lOMVPbz7rZmbJSJl
 experts: https://asyncova.com/experts
@@ -206,4 +207,4 @@ experts: https://asyncova.com/experts
 > 业主要的是 **通用能力的 WorkBuddy 级干活台**；  
 > 教育是插头（edu-core），不是整栋楼；  
 > 前面偏航已清源；S1 已把默认入口改成通用 Agent 并绿了 Word/Excel/短答；  
-> 新窗沿 **S2-GENERAL-WB** 把 G4–G7 与 **CLAIM-GENERAL-WB** 做完。
+> S1–S3 已收（能力 + 体感）；新窗沿 **S4 加厚** 或业主点名。

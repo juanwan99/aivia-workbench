@@ -5,7 +5,7 @@ STATUS: BINDING · 现行唯一产品包
 DATE: 2026-08-06
 CODE: PHASE-GENERAL-WB
 前置: docs/CANON.md MEMORY-RESET
-PROGRESS: CLAIM-GENERAL-WB=YES · W0–W2+W4 产品硬门已收 · S3 体感另刀
+PROGRESS: CLAIM-GENERAL-WB=YES · CLAIM-S3-UX=YES · W0–W4+S3 已收 · 下一刀 S4
 ```
 
 ## 目标
@@ -22,10 +22,11 @@ PROGRESS: CLAIM-GENERAL-WB=YES · W0–W2+W4 产品硬门已收 · S3 体感另�
 | W2 | G4–G7 改稿/公号/代码/分析 | 全绿双轨 | **PASS · S2** |
 | W3 | 专家页通用化 | 非教研五卡主推 | **PASS · S1.1** |
 | W4 | 证据 + CLAIM-GENERAL-WB + 回写 | | **PASS · S2** |
+| S3 | 体感门 U1–U7 | 完成态/短答/改稿/口径 | **PASS · S3-UX** |
 
-S2 报告：`ops/S2-GENERAL-WB-REPORT.md` · 证据：`ops/evidence/general-wb/s2/`
+S2 报告：`ops/S2-GENERAL-WB-REPORT.md` · S3：`ops/S3-UX-REPORT.md`
 
 ## 证据
 
-`ops/evidence/general-wb/s1/` · `s1.1/` · `s2/` · 报告 `ops/S2-GENERAL-WB-REPORT.md`
+`ops/evidence/general-wb/s1/` · `s1.1/` · `s2/` · `s2.1/` · `s3/`
 

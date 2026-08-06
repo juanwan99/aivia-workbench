@@ -1,9 +1,9 @@
 # 上游版本钉扎
 
 ```
-STATUS: CLAIM-GENERAL-WB=FULL YES · CLAIM-S2.1-HOTFIX=YES · CLAIM-S1 FULL · 产品主线=GENERAL-WB
+STATUS: CLAIM-S3-UX=YES · CLAIM-GENERAL-WB=FULL YES · CLAIM-S2.1-HOTFIX=YES · CLAIM-S1 FULL · 产品主线=GENERAL-WB
 DATE: 2026-08-06
-ONE_LINE: CLAIM-GENERAL-WB FULL（S2+S2.1：去教育默认名·G7观察·G6 stdin）；下一刀 S3 体感
+ONE_LINE: CLAIM-S3-UX YES（U1–U7 体感门全绿）；能力底座 CLAIM-GENERAL-WB FULL；下一刀 S4 或业主点名
 ```
 
 | 组件 | 版本/值 | 备注 |
@@ -12,11 +12,13 @@ ONE_LINE: CLAIM-GENERAL-WB FULL（S2+S2.1：去教育默认名·G7观察·G6 std
 | DeepSeek | 默认 LLM | |
 | **App / site.title** | **Aivia 通用 Agent** | |
 | **workflow** | **general-wb-s2.1** | `08ca8656-8d34-4ffd-b6e2-26a8a3066957` |
-| PackDownload | s2.1 | 默认 文档/页面；保留 prose 观察 |
+| PackDownload | s2.1 | 默认 文档/页面；保留 prose 观察 · **S3 未改** |
 | bridge | 0.2.2 hybrid | PUBLIC_DL=`asyncova.com/dl` |
+| **CLAIM-S3-UX** | **YES** | U1–U7 · `ops/evidence/general-wb/s3/` |
 | **CLAIM-GENERAL-WB** | **FULL YES** | S2 + S2.1 审查债关 |
 | **CLAIM-S2.1-HOTFIX** | **YES** | `ops/evidence/general-wb/s2.1/` |
 | **CLAIM-S1 / S1.1** | YES | |
+| **/experts 口径** | 行为对标 · ≠像素 · ≠备案完成 | `deploy/aivia-experts/index.html` |
 
 ### 入口说明
 

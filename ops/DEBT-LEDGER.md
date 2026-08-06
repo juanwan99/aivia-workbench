@@ -1,7 +1,7 @@
 # 债务总账（复原后）
 
 ```
-UPDATED: 2026-08-06 · CLAIM-S2.1-HOTFIX=YES · CLAIM-GENERAL-WB=FULL YES
+UPDATED: 2026-08-06 · CLAIM-S3-UX=YES · CLAIM-S2.1-HOTFIX=YES · CLAIM-GENERAL-WB=FULL YES
 ```
 
 | 项 | 状态 |
@@ -10,8 +10,8 @@ UPDATED: 2026-08-06 · CLAIM-S2.1-HOTFIX=YES · CLAIM-GENERAL-WB=FULL YES
 | S2 审查 P1-1 G7 观察 | **关** |
 | S2 审查 P1-2 教案默认名 | **关** |
 | S2 审查 P2 G6 stdin | **关** |
-| S3 完成态/摘要体感 | **OPEN** |
+| S3 完成态/摘要体感 | **关 · CLAIM-S3-UX=YES** |
 | S4 工具/知识加厚 | **OPEN** |
 | 备案/dns/full real | **后置** |
 
-报告：`ops/S2.1-HOTFIX-REPORT.md` · `ops/S2-GENERAL-WB-REPORT.md`
+报告：`ops/S3-UX-REPORT.md` · `ops/S2.1-HOTFIX-REPORT.md` · `ops/S2-GENERAL-WB-REPORT.md`

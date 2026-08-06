@@ -1,0 +1,29 @@
+{
+  "phase": "S3-UX",
+  "card": "S3-DELIVER",
+  "date": "2026-08-06",
+  "claim": "CLAIM-S3-UX",
+  "result": "PASS",
+  "gates": {
+    "U1": "PASS",
+    "U2": "PASS",
+    "U3": "PASS",
+    "U4": "PASS",
+    "U5": "PASS",
+    "U6": "PASS",
+    "U7": "PASS"
+  },
+  "deliver": {
+    "D1": true,
+    "D2": true,
+    "D3": true,
+    "D4": true,
+    "D5": true,
+    "D6": true
+  },
+  "chat": "https://asyncova.com/chat/lOMVPbz7rZmbJSJl",
+  "experts": "https://asyncova.com/experts",
+  "out_of_scope": ["S4", "ICP", "pixel-1:1", "full real"],
+  "evidence_root": "ops/evidence/general-wb/s3/",
+  "report": "ops/S3-UX-REPORT.md"
+}

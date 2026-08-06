@@ -1,0 +1,11 @@
+# probe-experts S3-DELIVER
+date: 2026-08-06
+url: https://asyncova.com/experts
+title: Aivia 能力目录 · 通用任务台
+has_general: true
+has_jiaoshi_beike: false
+has_behavior_parity: true
+has_pixel_disclaim: true
+has_not_beian_done: true
+outdated_s2_pending: false
+claim_general_wb: true
