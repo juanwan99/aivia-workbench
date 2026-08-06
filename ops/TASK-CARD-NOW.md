@@ -6,13 +6,12 @@
 ════════════════════════════════════════════════════════
 真源: docs/CANON.md · MEMORY-RESET
 
-  父卡   ops/TASK-CARD-GENERAL-WB.md
-  已过   S1 + S1.1 → CLAIM-S1 FULL
-  已过   S2 + S2.1 → CLAIM-GENERAL-WB FULL YES
-  已过   S3-UX + S3-DELIVER → CLAIM-S3-UX=YES
-  已过   S4-CAP → CLAIM-S4-CAP=YES（ops/S4-CAP-REPORT.md）
-  当前   维护态 / 业主新主线
+  已过   S1 + S1.1 · S2 + S2.1 · S3-UX
+  否决   S4 FULL（审查：C2 再加工套娃假绿）
+  当前   S4.1 → ops/TASK-CARD-S4.1-HOTFIX.md
+         C2 真数据 v2 + 电池加固 + 部署 + 截图 push
+  其后   CLAIM-S4-CAP FULL → 维护态
 
-禁: 无截图假绿 · 教育主线 · 备案当对标 · 像素 1:1 · 密钥进仓 · 无 push 假 CLAIM
+禁: 套娃表假绿 · 404 /dl · 无 push 假 FULL · 密钥进仓
 ════════════════════════════════════════════════════════
 ```
