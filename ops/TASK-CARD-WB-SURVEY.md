@@ -1,47 +1,43 @@
-# 标准任务卡 · WB-SURVEY（唯一 · 仅调查）
+# 标准任务卡 · WB-SURVEY（本机深查 · 仅调查）
 
 ```
 ════════════════════════════════════════════════════════
-标准任务卡 · PHASE-WB-SURVEY（单包单卡 · 仅调查）
+标准任务卡 · PHASE-WB-SURVEY（单包单卡）
 ════════════════════════════════════════════════════════
-执行窗：调研 + 写文档（可浏览器看公开页/合法试用笔记）
-上下文：CLEAR
-  已收 SCENE-FULL / DOC-SOLID / DL-FIX / CLAIM-B
-  业主：全面对标 WorkBuddy；名字可不同；大量能力=管理员后端
-角色：clean-room 能力总表 + 用户/管理员分层 + 差距分期
-RISK: 低（禁逆向/拆闭源/密钥进仓；禁顺手开发冒充调查完成）
-FAST: 否 · 表要全 · G 管理员域要厚
+执行窗：本机已安装 WorkBuddy · 可点 UI（有管理权限更佳）
+上下文：业主要求「全面对标」；调查必须有深度
+角色：深查 UI布局 + 响应逻辑 + 业务组织关系 + 能力矩阵
+RISK: 中（禁逆向拆包；禁密钥/隐私进仓；禁网搜充数；禁开发冒充）
+FAST: 否
 仓：juanwan99/aivia-workbench
 
-【真源】
-  ops/PHASE-WB-SURVEY-PACK.md
-  ops/WB-SURVEY-RUNBOOK.md
-  本卡
-  docs/CANON.md
+【真源】PHASE-WB-SURVEY-PACK → WB-SURVEY-RUNBOOK → 本卡
 
-【硬门禁·回写】缺一禁止报完毕
-  1) WB-FEATURE-MATRIX.md（≥40 能力 · G≥12 · 分层+现状+落点+优先级）
-  2) ops/evidence/wb-survey/sources.md
-  3) WB-SURVEY-REPORT.md（缺口用户/管理员 + 三期建议 + 红线）
-  4) RUNBOOK 勾满 + push main
-  5) PIN：WB-SURVEY=DONE · CLAIM-WB-SURVEY
-  6) CANON/HANDOFF：下一刀=按矩阵另卡实现（未实现）
-  7) Issue #1 回写
+【硬门禁·回写】缺一 = 未完成
+  1) 本机 UI 证据 ops/evidence/wb-survey/ui/ + WB-IA.md
+  2) WB-RESPONSE-LOGIC.md（≥5 条真实任务时序）
+  3) WB-ORG-MODEL.md（会话/任务/产物/专家/团队/权限树）
+  4) WB-FEATURE-MATRIX.md ≥40（G管理员≥12，含本机菜单路径）
+  5) WB-SURVEY-REPORT.md（用户缺口+管理员缺口+分期）
+  6) sources.md 标注 local-UI vs web
+  7) RUNBOOK + PIN CLAIM-WB-SURVEY + CANON + Issue + push
 
-【做】
-  公开源收割 WorkBuddy 能力（官网/文档/企业后台说明/评测）
-  原子能力入表；标注 用户前台 vs 管理员后台 vs 企业治理
-  Aivia 拟名（可不同于 WB）+ 落点（Chat/Console/Admin/bridge/二期）
-  对照现状有/部分/无；产出分期建议（不开发）
+【做·深度】
+  · 点遍主壳：导航/任务/进行中/产物/历史/技能专家/设置/管理端
+  · 记录布局结构（不是功能名清单）
+  · 记录响应逻辑：计划可见？阶段态？停止重试？下载打开？失败话术？
+  · 记录业务组织：谁隶属谁；前台 vs 后台配置落点
+  · 矩阵每条能回答「在 WorkBuddy 哪点开」
+  · 网搜仅补充，不能替代本机
 
 【不做】
-  实现功能 · 改工作流当本包完成
-  逆向/拆包/抄闭源 · 密钥进仓
-  宣称已对齐 WorkBuddy 全功能 · 正式上线
-  把所有能力塞进老师 Chat（违背「多归后台」）
+  · 网上搜几个数据交差
+  · 反编译/抓包当主交付
+  · 实现 Aivia 功能冒充调查完
+  · 假「已对齐 WorkBuddy」
 
 【出口】
-  CLAIM-WB-SURVEY ⇔ 矩阵+报告+回写齐
-  ≠ 功能开发完成 · ≠ 1:1 复制
+  CLAIM-WB-SURVEY ⇔ 深查四件套（UI/逻辑/组织/矩阵）+ 报告 + 回写
+  ≠ 开发完成 ≠ 正式上线
 ════════════════════════════════════════════════════════
 ```
