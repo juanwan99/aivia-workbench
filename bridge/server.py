@@ -14,8 +14,10 @@ Hard rules:
 """
 from __future__ import annotations
 
+import base64
 import json
 import os
+import re
 import sqlite3
 import threading
 import time
@@ -24,11 +26,11 @@ import uuid
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from typing import Any
-from urllib.parse import parse_qs, urlparse
+from urllib.parse import parse_qs, quote, unquote, urlparse
 
 import jwt
 
-VERSION = "0.2.0"
+VERSION = "0.2.1"
 WEAK_SECRETS = frozenset(
     {
         "",
@@ -59,9 +61,17 @@ JWT_ISS = os.environ.get("BRIDGE_JWT_ISS", _DEFAULT_ISS)
 JWT_TTL = int(os.environ.get("BRIDGE_JWT_TTL", "3600"))
 # Gate for /auth/exchange (header X-Bridge-Exchange-Token or body exchange_token)
 EXCHANGE_TOKEN = os.environ.get("BRIDGE_EXCHANGE_TOKEN", "").strip()
+# Gate for public Chat file put (sandbox → bridge). Never commit real value.
+DL_PUT_TOKEN = os.environ.get("BRIDGE_DL_PUT_TOKEN", "").strip()
+# Public base for download links shown in Chat (HTTPS on workbench)
+PUBLIC_DL_BASE = os.environ.get(
+    "BRIDGE_PUBLIC_DL_BASE", "https://workbench.aivia.asia/dl"
+).rstrip("/")
+DL_MAX_BYTES = int(os.environ.get("BRIDGE_DL_MAX_BYTES", str(3 * 1024 * 1024)))
 DATA_DIR = Path(os.environ.get("BRIDGE_DATA_DIR", str(Path(__file__).resolve().parent / "data")))
 DB_PATH = DATA_DIR / "bridge.sqlite3"
 AUDIT_PATH = DATA_DIR / "audit.jsonl"
+DL_DIR = Path(os.environ.get("BRIDGE_DL_DIR", str(DATA_DIR / "public-dl")))
 FIXTURE_PATH = Path(
     os.environ.get(
         "BRIDGE_HYBRID_FIXTURE",
@@ -213,11 +223,15 @@ class Handler(BaseHTTPRequestHandler):
         pass
 
     def _json(self, code: int, obj: Any) -> None:
+        if getattr(self, "_aivia_body_started", False):
+            return
         body = json.dumps(obj, ensure_ascii=False).encode("utf-8")
+        self._aivia_body_started = True
         self.send_response(code)
         self.send_header("Content-Type", "application/json; charset=utf-8")
         self.send_header("Content-Length", str(len(body)))
         self.send_header("X-Bridge-Mode", MODE)
+        self.send_header("Connection", "close")
         self.end_headers()
         self.wfile.write(body)
 
@@ -253,15 +267,49 @@ class Handler(BaseHTTPRequestHandler):
         try:
             self._dispatch("GET")
         except Exception as e:
-            _audit({"level": "error", "err": str(e), "path": self.path})
-            self._json(500, {"error": "internal", "message": "服务内部错误"})
+            try:
+                _audit({"level": "error", "err": str(e), "path": self.path})
+            except Exception:
+                pass
+            # Never append JSON after a partial file response (causes nginx 502)
+            if not getattr(self, "_headers_buffer", None) and not getattr(
+                self, "wfile", None
+            ):
+                return
+            try:
+                if not self.headers_sent if hasattr(self, "headers_sent") else False:
+                    pass
+            except Exception:
+                pass
+            # BaseHTTPRequestHandler has no headers_sent flag on all versions; use guard
+            if getattr(self, "_aivia_body_started", False):
+                return
+            try:
+                self._json(500, {"error": "internal", "message": "服务内部错误"})
+            except Exception:
+                return
 
     def do_POST(self) -> None:  # noqa: N802
         try:
             self._dispatch("POST")
         except Exception as e:
-            _audit({"level": "error", "err": str(e), "path": self.path, "tb": traceback.format_exc()[-500:]})
-            self._json(500, {"error": "internal", "message": "服务内部错误"})
+            try:
+                _audit(
+                    {
+                        "level": "error",
+                        "err": str(e),
+                        "path": self.path,
+                        "tb": traceback.format_exc()[-500:],
+                    }
+                )
+            except Exception:
+                pass
+            if getattr(self, "_aivia_body_started", False):
+                return
+            try:
+                self._json(500, {"error": "internal", "message": "服务内部错误"})
+            except Exception:
+                return
 
     def _dispatch(self, method: str) -> None:
         parsed = urlparse(self.path)
@@ -282,12 +330,27 @@ class Handler(BaseHTTPRequestHandler):
                     "version": VERSION,
                     "host": HOST,
                     "exchange_token_required": bool(EXCHANGE_TOKEN),
+                    "dl_put_enabled": bool(DL_PUT_TOKEN) and len(DL_PUT_TOKEN) >= 16,
+                    "public_dl_base": PUBLIC_DL_BASE,
                 },
             )
             return
 
         if method == "POST" and path == "/auth/exchange":
             self._auth_exchange()
+            return
+
+        # ---- public download store (PHASE-DL-FIX): no JWT ----
+        # PUT is gated by BRIDGE_DL_PUT_TOKEN (sandbox code node).
+        # GET is public unguessable /dl/{id}/{filename}.
+        if method == "POST" and path == "/dl/put":
+            self._dl_put()
+            return
+        if method == "GET" and path.startswith("/dl/"):
+            self._dl_get(path)
+            return
+        if method == "GET" and path == "/dl":
+            self._json(400, {"error": "bad_request", "message": "需要 /dl/{id}/{filename}"})
             return
 
         principal, err = self._principal()
@@ -353,6 +416,154 @@ class Handler(BaseHTTPRequestHandler):
             return
 
         self._json(404, {"error": "not_found", "message": "接口不存在"})
+
+    def _safe_filename(self, name: str) -> str:
+        base = Path(name or "file.bin").name
+        base = re.sub(r"[^\w\u4e00-\u9fff.\-]+", "_", base).strip("._") or "file.bin"
+        return base[:120]
+
+    def _dl_put(self) -> None:
+        """Store a file for public HTTPS download (Chat PackDownload path)."""
+        if not DL_PUT_TOKEN or len(DL_PUT_TOKEN) < 16:
+            self._json(503, {"error": "dl_disabled", "message": "下载落盘未配置 BRIDGE_DL_PUT_TOKEN"})
+            return
+        got = (self.headers.get("X-Aivia-Dl-Put") or self.headers.get("X-Dl-Put-Token") or "").strip()
+        if got != DL_PUT_TOKEN:
+            _audit({"op": "dl_put_denied", "reason": "bad_token"})
+            self._json(401, {"error": "unauthorized", "message": "无效的上传令牌"})
+            return
+        body = self._read_json()
+        filename = self._safe_filename(str(body.get("filename") or "file.bin"))
+        mime = str(body.get("mime") or "application/octet-stream")[:120]
+        b64 = body.get("content_b64") or body.get("b64") or ""
+        if not isinstance(b64, str) or not b64.strip():
+            self._json(400, {"error": "bad_request", "message": "缺少 content_b64"})
+            return
+        try:
+            raw = base64.b64decode(b64, validate=False)
+        except Exception:
+            self._json(400, {"error": "bad_request", "message": "content_b64 无效"})
+            return
+        if len(raw) <= 0:
+            self._json(400, {"error": "bad_request", "message": "空文件"})
+            return
+        if len(raw) > DL_MAX_BYTES:
+            self._json(
+                413,
+                {
+                    "error": "too_large",
+                    "message": f"文件超过上限 {DL_MAX_BYTES} 字节",
+                    "size": len(raw),
+                },
+            )
+            return
+        file_id = uuid.uuid4().hex
+        dest_dir = DL_DIR / file_id
+        dest_dir.mkdir(parents=True, exist_ok=True)
+        # ASCII-only store name + URL (Chinese/real name only in Content-Disposition)
+        ext = Path(filename).suffix.lower()
+        if not re.fullmatch(r"\.[a-z0-9]{1,10}", ext or ""):
+            ext = ".bin"
+        store_name = f"file{ext}"
+        dest = dest_dir / store_name
+        dest.write_bytes(raw)
+        (dest_dir / ".meta.json").write_text(
+            json.dumps(
+                {
+                    "filename": filename,
+                    "store_name": store_name,
+                    "mime": mime,
+                    "size": len(raw),
+                    "created_at": time.time(),
+                },
+                ensure_ascii=False,
+            ),
+            encoding="utf-8",
+        )
+        url = f"{PUBLIC_DL_BASE}/{file_id}/{store_name}"
+        try:
+            _audit(
+                {
+                    "op": "dl_put",
+                    "file_id": file_id,
+                    "filename": filename,
+                    "size": len(raw),
+                    "mime": mime,
+                }
+            )
+        except Exception:
+            pass
+        self._json(
+            200,
+            {
+                "ok": True,
+                "id": file_id,
+                "filename": filename,
+                "mime": mime,
+                "size": len(raw),
+                "url": url,
+            },
+        )
+
+    def _dl_get(self, path: str) -> None:
+        """Public GET /dl/{id}/file.ext — ASCII path; real name via Content-Disposition."""
+        parts = [p for p in path.split("/") if p]
+        # ["dl", id] or ["dl", id, store_name]
+        if len(parts) < 2 or parts[0] != "dl":
+            self._json(404, {"error": "not_found", "message": "文件不存在"})
+            return
+        file_id = parts[1]
+        if not re.fullmatch(r"[0-9a-f]{32}", file_id):
+            self._json(404, {"error": "not_found", "message": "文件不存在"})
+            return
+        dest_dir = DL_DIR / file_id
+        meta_path = dest_dir / ".meta.json"
+        meta: dict[str, Any] = {}
+        if meta_path.is_file():
+            try:
+                meta = json.loads(meta_path.read_text(encoding="utf-8"))
+            except Exception:
+                meta = {}
+        store_name = str(meta.get("store_name") or "")
+        if len(parts) >= 3:
+            cand = Path(parts[2]).name
+            if re.fullmatch(r"file\.[a-z0-9]{1,10}", cand):
+                store_name = cand
+        if not store_name:
+            cands = [p for p in dest_dir.iterdir() if p.is_file() and p.name != ".meta.json"] if dest_dir.is_dir() else []
+            if len(cands) == 1:
+                store_name = cands[0].name
+            else:
+                self._json(404, {"error": "not_found", "message": "文件不存在"})
+                return
+        dest = dest_dir / store_name
+        if not dest.is_file():
+            self._json(404, {"error": "not_found", "message": "文件不存在"})
+            return
+        filename = self._safe_filename(str(meta.get("filename") or store_name))
+        mime = str(meta.get("mime") or "application/octet-stream")
+        data = dest.read_bytes()
+        # ASCII fallback filename for old clients + RFC 5987
+        ascii_fb = store_name if re.fullmatch(r"[\w.\-]+", store_name) else "download.bin"
+        cd = f"attachment; filename=\"{ascii_fb}\"; filename*=UTF-8''{quote(filename)}"
+        try:
+            self._aivia_body_started = True
+            self.send_response(200)
+            self.send_header("Content-Type", mime)
+            self.send_header("Content-Length", str(len(data)))
+            self.send_header("Content-Disposition", cd)
+            self.send_header("Cache-Control", "private, max-age=3600")
+            self.send_header("X-Content-Type-Options", "nosniff")
+            self.send_header("X-Bridge-Mode", MODE)
+            self.send_header("Connection", "close")
+            self.end_headers()
+            self.wfile.write(data)
+        except BrokenPipeError:
+            return
+        try:
+            _audit({"op": "dl_get", "file_id": file_id, "filename": filename, "size": len(data)})
+        except Exception:
+            pass
 
     def _auth_exchange(self) -> None:
         # mock + hybrid: gated exchange (pilot IdP stand-in). real: not open.

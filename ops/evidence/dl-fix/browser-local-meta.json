@@ -1,0 +1,34 @@
+{
+  "main_path": "https file URL",
+  "fetch_path": "public https via workbench.aivia.asia/dl (server-side curl with Chrome UA; local schannel TLS handshake fails on this desktop)",
+  "chrome_files": [
+    "chrome-docx.docx",
+    "chrome-html.html",
+    "chrome-xlsx.xlsx"
+  ],
+  "edge_files": [
+    "edge-docx.docx",
+    "edge-html.html",
+    "edge-xlsx.xlsx"
+  ],
+  "xlsx_rows": 6,
+  "xlsx_header": [
+    "学号",
+    "姓名",
+    "语文作业",
+    "数学作业",
+    "英语作业",
+    "物理作业",
+    "化学作业",
+    "提交率"
+  ],
+  "docx_text_len": 1514,
+  "html_size": 12689,
+  "screenshots": [
+    "chrome-receipt.png",
+    "edge-receipt.png"
+  ],
+  "blocked": false,
+  "data_url_primary": false,
+  "pass": true
+}

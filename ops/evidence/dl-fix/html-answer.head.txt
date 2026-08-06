@@ -1,0 +1,68 @@
+交付文件：课件.html
+
+DOWNLOAD_READY
+
+[点击下载 课件.html](https://workbench.aivia.asia/dl/168e68201c7e4ad49af82ce193ec6fd4/file.html)
+
+下载链接（HTTPS）：https://workbench.aivia.asia/dl/168e68201c7e4ad49af82ce193ec6fd4/file.html
+
+（浏览器将直接下载文件；主路径为 https 文件 URL，非 data-URL）
+
+<details><summary>内容预览（备用）</summary>
+
+```html
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>初中生物 · 细胞结构（可下载课件）</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: linear-gradient(145deg, #e7f5e9 0%, #d0e8d8 100%);
+            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            padding: 30px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .slide {
+            max-width: 1000px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(4px);
+            border-radius: 48px 48px 32px 32px;
+            box-shadow: 0 25px 40px -12px rgba(20, 60, 30, 0.35);
+            padding: 30px 40px 40px;
+            border: 2px solid #bcd9c2;
+            transition: all 0.2s;
+        }
+        h1 {
+            font-size: 2.8rem;
+            color: #1d4d2b;
+            border-left: 12px solid #3f8f5b;
+            padding-left: 22px;
+            margin-bottom: 12px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-shadow: 2px 2px 0 rgba(255,255,255,0.6);
+        }
+        .subhead {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 3px dashed #6da37b;
+            padding-bottom: 12px;
+            margin-bottom: 28px;
+            color: #1f4d2c;
+        }
+        .subhead span {
+            background: #2f6b3e;
+            color: white;
+            padding: 6px 18px;
+ 

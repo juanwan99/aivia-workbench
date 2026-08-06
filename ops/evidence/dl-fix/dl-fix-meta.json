@@ -1,0 +1,83 @@
+{
+  "phase": "PHASE-DL-FIX",
+  "date": "2026-08-06T11:38:43+08:00",
+  "public_url": "https://workbench.aivia.asia/chat/lOMVPbz7rZmbJSJl",
+  "main_path": "https file URL",
+  "data_url_primary": false,
+  "battery": [
+    {
+      "id": "html",
+      "query": "请做一份初中生物「细胞结构」HTML 课件，要能下载。",
+      "elapsed_s": 27.6,
+      "conversation_id": "fe769770-ed9b-4a8b-89a7-e5c3c5eed5e6",
+      "has_download_ready": true,
+      "has_data_url": false,
+      "https_urls": [
+        "https://workbench.aivia.asia/dl/168e68201c7e4ad49af82ce193ec6fd4/file.html"
+      ],
+      "pass": true,
+      "fetch": {
+        "http": 200,
+        "size": 14819,
+        "content_disposition": "attachment; filename=\"file.html\"; filename*=UTF-8''%E8%AF%BE%E4%BB%B6.html",
+        "content_type": "text/html; charset=utf-8",
+        "path": "/home/ops/aivia-phase-dl-fix/html-artifact.html",
+        "has_attachment": true,
+        "is_data_url": false,
+        "is_https": true,
+        "blocked_marker": false
+      },
+      "note": "PASS"
+    },
+    {
+      "id": "xlsx",
+      "query": "请做一份高一1班本周作业提交统计表，要能下载 Excel，至少3行数据。",
+      "elapsed_s": 2.3,
+      "conversation_id": "71abda81-9504-4d04-b0a1-a800cfbca058",
+      "has_download_ready": true,
+      "has_data_url": false,
+      "https_urls": [
+        "https://workbench.aivia.asia/dl/a21063726b804c99b0acf22a79699747/file.xlsx"
+      ],
+      "pass": true,
+      "fetch": {
+        "http": 200,
+        "size": 1881,
+        "content_disposition": "attachment; filename=\"file.xlsx\"; filename*=UTF-8''%E6%8A%A5%E8%A1%A8-%E9%AB%98%E4%B8%801%E7%8F%AD-%E6%9C%AC%E5%91%A8%E4%BD%9C%E4%B8%9A%E6%8F%90%E4%BA%A4%E7%BB%9F%E8%AE%A1.xlsx",
+        "content_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+        "path": "/home/ops/aivia-phase-dl-fix/xlsx-artifact.xlsx",
+        "has_attachment": true,
+        "is_data_url": false,
+        "is_https": true,
+        "blocked_marker": false
+      },
+      "note": "PASS"
+    },
+    {
+      "id": "docx",
+      "query": "写一份初中生物「细胞结构」第一课时教案，要 Word 文档（DOCX）可下载。",
+      "elapsed_s": 11.0,
+      "conversation_id": "50299969-25df-488a-ad54-e6932b3c6dff",
+      "has_download_ready": true,
+      "has_data_url": false,
+      "https_urls": [
+        "https://workbench.aivia.asia/dl/f900afc9ce694a2eafa55259f2cadddc/file.docx"
+      ],
+      "pass": true,
+      "fetch": {
+        "http": 200,
+        "size": 3128,
+        "content_disposition": "attachment; filename=\"file.docx\"; filename*=UTF-8''%E6%95%99%E6%A1%88-%E5%88%9D%E4%B8%AD%E7%94%9F%E7%89%A9-%E7%BB%86%E8%83%9E%E7%BB%93%E6%9E%84-%E7%AC%AC%E4%B8%80%E8%AF%BE%E6%97%B6.docx",
+        "content_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+        "path": "/home/ops/aivia-phase-dl-fix/docx-artifact.docx",
+        "has_attachment": true,
+        "is_data_url": false,
+        "is_https": true,
+        "blocked_marker": false
+      },
+      "note": "PASS"
+    }
+  ],
+  "pass": true,
+  "any_data_url": false
+}

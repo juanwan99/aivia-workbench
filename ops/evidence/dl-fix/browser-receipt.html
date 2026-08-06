@@ -1,0 +1,15 @@
+<!doctype html><html><head><meta charset=utf-8><title>PHASE-DL-FIX browser receipt</title>
+<style>body{font-family:sans-serif;padding:24px} code{background:#f4f4f4;padding:2px 6px} .ok{color:green;font-weight:bold}</style>
+</head><body>
+<h1>PHASE-DL-FIX · 本机下载验收</h1>
+<p class=ok>主路径 = HTTPS 文件 URL（非 data-URL · 无 [blocked]）</p>
+<ul>
+<li>Chrome UA · XLSX/HTML 下载成功 · Excel 可开</li>
+<li>Edge UA · DOCX 下载成功 · Word 结构可开</li>
+<li>公开 Chat 链接仍为 workbench.aivia.asia/chat/…</li>
+</ul>
+<pre id=m></pre>
+<script>
+fetch('browser-local-meta.json').then(r=>r.json()).then(j=>{document.getElementById('m').textContent=JSON.stringify(j,null,2)}).catch(()=>{})
+</script>
+</body></html>
