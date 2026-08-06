@@ -1,68 +1,64 @@
-# P0-GATE 总勾选
+# P0-GATE 勾选（单包单卡）
 
 日期：________    执行人：________  
 入口：`https://workbench.aivia.asia/chat/lOMVPbz7rZmbJSJl`  
 正文：`ops/PHASE-P0-GATE-PACK.md`
 
-## 硬门禁（每波）
+## 硬门禁
 
-- [ ] 本波 RUNBOOK 段填满  
-- [ ] 证据/报告进仓（如有）  
-- [ ] PIN 或 CANON 一句  
-- [ ] Issue 回写  
-- [ ] push main  
-→ 缺一不得报该波完毕
-
----
-
-## 波 0 · STAB
-
-- [ ] 公网 TLS 连续探测（记次数/结果）________  
-- [ ] 4G/外网 Chat 有壳  
-- [ ] 续期策略：自动 / 手工（圈）________  
-- [ ] README/CANON 去旧「自签/E1 BLOCKED」  
-- [ ] bridge health + 非公网裸  
-- **波 0 结果：** PASS / BLOCKED（原因：________）
+- [ ] 本文件填满  
+- [ ] `ops/evidence/p0-gate/` 证据  
+- [ ] `ops/P0-GATE-REPORT.md`  
+- [ ] `ops/CLAIM-B-SCRIPT.md`  
+- [ ] PIN + CANON/HANDOFF/README  
+- [ ] Issue #1 + push main  
+→ 缺一不得报 P0-GATE PASS
 
 ---
 
-## 波 1 · GOLD
+## 段 A 稳定
 
-| ID | 结果 | 产物路径 |
-|----|------|----------|
+- [ ] A1 公网 TLS ×3 ________  
+- [ ] A2 桌面壳  
+- [ ] A3 4G 壳  
+- [ ] A4 续期：自动 / 手工 ________  
+- [ ] A5 真源无自签/E1 BLOCKED 旧句  
+- [ ] A6 bridge health · 非裸奔  
+- **A 结果：** PASS / BLOCKED：________
+
+## 段 B 金路径（空成功必须 0）
+
+| ID | 结果 | 产物 |
+|----|------|------|
 | G1 | | |
 | G1+ | | |
 | G2 | | |
 | G3 | | |
 | G4 | | |
 
-- [ ] 空成功 = 0  
-- [ ] `ops/evidence/p0-gold/`  
-- [ ] `ops/P0-GOLD-REPORT.md`  
-- **波 1 结果：** ________
+空成功次数：________（须 0）
 
----
+## 段 C CLAIM-B
 
-## 波 2a · CLAIM-B（另表可细）
+- [ ] C1 桌面 + G1  
+- [ ] C2 4G  
+- [ ] C3 G1+  
+- [ ] C4 G3  
+- [ ] C5 SCRIPT  
+- [ ] C6 PIN CLAIM-B=YES · 正式上线否  
+- **CLAIM-B：** YES / NO
 
-- [ ] 见 `ops/CLAIM-B-RUNBOOK.md` 全过  
-- [ ] PIN CLAIM-B=YES  
-- **2a 结果：** ________ / 未开
+## 段 D full real
 
-## 波 2b · FULL-REAL
+- [ ] 跳过（hybrid 保持） / PASS full ________  
+- **说明：** ________
 
-- [ ] 见 `ops/FULL-REAL-RUNBOOK.md` 全过  
-- [ ] PIN MODE=real  
-- **2b 结果：** ________ / 未开
-
----
-
-## 摘要
+## 整包
 
 ```text
-波0: 
-波1: 
+P0-GATE: 
 CLAIM-B: 
-full real: 
-正式上线: 否（默认）
+full real: 跳过/YES
+正式上线: 否
+空成功: 0
 ```
