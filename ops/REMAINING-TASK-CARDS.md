@@ -1,13 +1,8 @@
-# 任务卡（现行）
+# 任务卡（现行唯一）
 
-## 已收
+**主卡：** [TASK-CARD-GENERAL-WB.md](./TASK-CARD-GENERAL-WB.md)  
+**包：** [PHASE-GENERAL-WB-PACK.md](./PHASE-GENERAL-WB-PACK.md)  
+**真源：** [docs/CANON.md](../docs/CANON.md) · [MEMORY-RESET](../docs/MEMORY-RESET.md)  
+**作废列表：** [SUPERSEDED.md](./SUPERSEDED.md)
 
-- **CLAIM-QUAD-FIX-DEPLOY=YES**
-- CLAIM-QUAD-LAUNCH=YES · 正式上线=是（受限）· FULL-REAL=NO
-- CLAIM-WB-FIX-DEPLOY · ALIGN · SURVEY · SCENE-FULL · DOC-SOLID · DL-FIX · CLAIM-B
-
-## 下一刀（未派发）
-
-- 已备案域名迁回公网主入口  
-- acme.sh dns_ali 自动续期  
-- edu live → full real  
+对标 WorkBuddy **通用任务**。教育/备案/full real **不是** 本卡。

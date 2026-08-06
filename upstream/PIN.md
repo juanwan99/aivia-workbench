@@ -1,31 +1,18 @@
 # 上游版本钉扎
 
 ```
-STATUS: CLAIM-QUAD-FIX-DEPLOY=YES · CLAIM-QUAD-LAUNCH=YES · FULL-REAL=NO · 正式上线=是（受限） · bridge=0.2.2
+STATUS: MEMORY-RESET · 产品主线=通用WorkBuddy行为 · 教育/QUAD运维叙事不作主线
 DATE: 2026-08-06
-ONE_LINE: CLAIM-QUAD-FIX-DEPLOY=YES（/experts 双路径无:8443 · 隧道 systemd 可 restart）；FULL-REAL=NO
+ONE_LINE: 底盘 /dl+Dify+DS 保留；CLAIM 产品完成度以 GENERAL-WB 为准，不以教育专家/备案为准
 ```
 
-| 组件 | 版本 | 日期 | 备注 |
-|------|------|------|------|
-| **Dify** | `1.16.1` | 2026-08-05 | Chat `lOMVPbz7rZmbJSJl` |
-| **workflow** | fix-deploy | 2026-08-06 | |
-| **TLS 公网** | asyncova.com LE | 2026-08-06 | 边缘 |
-| **bridge** | 0.2.2 hybrid | 2026-08-06 | PUBLIC_DL=asyncova.com/dl |
-| **隧道** | user systemd | 2026-08-06 | aivia-edge-tunnel · 无 User= |
-| **专家** | /experts 双路径 | 2026-08-06 | 无 :8443 跳转 |
-| **QUAD-FIX-DEPLOY** | **PASS** | 2026-08-06 | **CLAIM-QUAD-FIX-DEPLOY=YES** |
+| 组件 | 备注 |
+|------|------|
+| Dify | 1.16.1 |
+| DeepSeek | 默认 LLM |
+| bridge | /dl + hybrid · 服务通用出件 |
+| 公网 | 见 README 现网入口 |
+| **产品主线** | **GENERAL-WB** |
+| 已作废主叙事 | 教育专家站对标 · QUAD=对标完成 |
 
-> 公网主入口：`https://asyncova.com`  
-> 专家：`https://asyncova.com/experts`（有无斜杠均可）  
-> 下载：`https://asyncova.com/dl/{id}/file.{ext}`
-
-## 出口
-
-| 项 | 结果 |
-|----|------|
-| **CLAIM-QUAD-FIX-DEPLOY** | **YES** |
-| F1+F2 | **硬绿** |
-| FULL-REAL | **NO** |
-| 正式上线 | **是（受限）** · 未扩大 |
-| 证据 | `ops/evidence/quad-fix-deploy/` |
+密钥不进仓。

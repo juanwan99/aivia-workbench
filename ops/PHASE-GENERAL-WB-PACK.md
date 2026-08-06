@@ -1,0 +1,27 @@
+# 任务包 · GENERAL-WB（通用 WorkBuddy 行为）
+
+```
+STATUS: BINDING · 现行唯一产品包
+DATE: 2026-08-06
+CODE: PHASE-GENERAL-WB
+前置: docs/CANON.md MEMORY-RESET
+```
+
+## 目标
+
+默认入口成为 **通用任务 Agent 工作台**，对标 WorkBuddy **任务通用性 + 真交付**，  
+**删除**「教育专家站=产品」的主叙事。
+
+## 阶段（无人值守可）
+
+| 阶段 | 做 | 过线 |
+|------|-----|------|
+| W0 | 改系统提示/推荐问题为通用办公 | 文案无「仅教研」绑定 |
+| W1 | G1–G3 文档/表/短答 | 真文件 + 短答无假绿 |
+| W2 | G4–G6 改稿 + 非教育任务 + 第六类 | 全绿 |
+| W3 | 专家页降级或改为通用入口文案 | 主 README 不再主推教研五卡为对标 |
+| W4 | 证据 + CLAIM-GENERAL-WB + 回写 | |
+
+## 证据
+
+`ops/evidence/general-wb/` · `ops/GENERAL-WB-REPORT.md`

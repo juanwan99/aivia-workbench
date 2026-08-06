@@ -1,18 +1,15 @@
-# 债务总账
+# 债务总账（复原后）
 
 ```
-UPDATED: 2026-08-06 · CLAIM-QUAD-FIX-DEPLOY=YES
+UPDATED: 2026-08-06 · MEMORY-RESET
 ```
 
 | 项 | 状态 |
 |----|------|
-| **QUAD-FIX-DEPLOY** | **PASS · CLAIM-QUAD-FIX-DEPLOY=YES** |
-| QUAD-LAUNCH | PASS |
-| /experts :8443 跳转 | **关** |
-| 隧道 216/GROUP | **关**（user unit 去 User=） |
-| full real | **债 · FULL-REAL=NO** |
-| 正式上线 | **是（受限）** · 非全校 |
-| aivia.asia ICP | **债**（公网仍走 asyncova） |
-| dns_ali 续期 | **后置** |
+| **错误主线（教育站/运维当对标）** | **已作废** · 见 CANON/MEMORY-RESET |
+| **通用任务对标 WorkBuddy** | **OPEN · 现行唯一产品债** |
+| /dl 真文件底盘 | 保留可用 |
+| 备案/dns_ali/full real | **非核心 · 后置**（业主未点名不做） |
+| 教育专家五卡 | **非对标主体** · 可删可降 |
 
-报告：`ops/QUAD-FIX-DEPLOY-REPORT.md`
+卡：`ops/TASK-CARD-GENERAL-WB.md`
