@@ -1,0 +1,21 @@
+[Unit]
+Description=Aivia workbench reverse tunnel ECS:13080 -> dmit:13080
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+# user unit: do NOT set User= (causes status=216/GROUP)
+ExecStart=/usr/bin/ssh -N \
+  -o ServerAliveInterval=30 \
+  -o ServerAliveCountMax=4 \
+  -o ExitOnForwardFailure=yes \
+  -o StrictHostKeyChecking=accept-new \
+  -o BatchMode=yes \
+  -R 127.0.0.1:13080:127.0.0.1:13080 \
+  dmit
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=default.target

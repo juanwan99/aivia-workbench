@@ -1,28 +1,35 @@
 # QUAD-FIX-DEPLOY 勾选
 
-日期：________    执行窗：本机+SSH  
-正文：`ops/PHASE-QUAD-FIX-DEPLOY-PACK.md`
-
-## 硬门禁
-
-- [ ] X0–X4 gate PASS  
-- [ ] F1：experts 无 8443  
-- [ ] F2：systemd 保活 + 探活  
-- [ ] catalog.yaml + NOTES  
-- [ ] 回归 Chat + 专家  
-- [ ] REPORT + PIN + Issue + push  
-- [ ] 正式上线=是（受限）· FULL-REAL=NO  
-
-## 阶段
-
-| 阶段 | RESULT |
-|------|--------|
-| X0 | |
-| X1 F1 | |
-| X2 F2 | |
-| X3 文档 | |
-| X4 回归 | |
-
-```text
-CLAIM-QUAD-FIX-DEPLOY: 
 ```
+DATE: 2026-08-06
+CLAIM-QUAD-FIX-DEPLOY: YES
+```
+
+## X0
+
+- [x] 复现 `/experts` → Location `:8443`
+- [x] 复现 user unit status=216/GROUP
+
+## X1 F1
+
+- [x] 边缘 locations 直出 exact+slash
+- [x] 源站 conf 同步
+- [x] 公网无 `:8443` · 双 200
+
+## X2 F2
+
+- [x] unit 去掉 User=
+- [x] systemctl --user enable --now active
+- [x] restart → tunnel=200
+
+## X3
+
+- [x] catalog.yaml
+- [x] QUAD-FIX-DEPLOY-NOTES 回滚
+
+## X4
+
+- [x] Chat 200
+- [x] /dl attachment
+- [x] 无斜杠 /experts 200
+- [x] PIN/CANON/Issue/push

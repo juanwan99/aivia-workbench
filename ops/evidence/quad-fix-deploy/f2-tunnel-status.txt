@@ -1,0 +1,13 @@
+● aivia-edge-tunnel.service - Aivia workbench reverse tunnel ECS:13080 -> dmit:13080
+     Loaded: loaded (/home/ops/.config/systemd/user/aivia-edge-tunnel.service; enabled; vendor preset: enabled)
+     Active: active (running) since Thu 2026-08-06 17:12:24 CST; 58s ago
+   Main PID: 1268452 (ssh)
+      Tasks: 1 (limit: 37303)
+     Memory: 1.9M
+        CPU: 23ms
+     CGroup: /user.slice/user-1000.slice/user@1000.service/app.slice/aivia-edge-tunnel.service
+             └─1268452 /usr/bin/ssh -N -o ServerAliveInterval=30 -o ServerAliveCountMax=4 -o ExitOnForwardFailure=yes -o StrictHostKeyChecking=accept-new -o BatchMode=yes -R 127.0.0.1:13080:127.0.0.1:13080 dmit
+
+Aug 06 17:12:24 iZf8z2piigunrk8ixto7hnZ systemd[1377]: Started Aivia workbench reverse tunnel ECS:13080 -> dmit:13080.
+---
+tunnel=200

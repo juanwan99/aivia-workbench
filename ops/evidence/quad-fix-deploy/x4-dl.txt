@@ -1,0 +1,18 @@
+HTTP/1.1 200 OK
+Server: nginx
+Date: Thu, 06 Aug 2026 09:13:26 GMT
+Content-Type: text/html; charset=utf-8
+Content-Length: 11067
+Connection: keep-alive
+Vary: Accept-Encoding
+Content-Disposition: attachment; filename="file.html"; filename*=UTF-8''%E8%AF%BE%E4%BB%B6.html
+Cache-Control: private, max-age=3600
+X-Content-Type-Options: nosniff
+X-Bridge-Mode: hybrid
+X-Content-Type-Options: nosniff
+X-Frame-Options: SAMEORIGIN
+Referrer-Policy: strict-origin-when-cross-origin
+Strict-Transport-Security: max-age=31536000; includeSubDomains
+
+-rw-rw-r-- 1 ubuntu ubuntu 11067 Aug  6 17:13 /tmp/fix-dl.html
+/tmp/fix-dl.html: HTML document, Unicode text, UTF-8 text

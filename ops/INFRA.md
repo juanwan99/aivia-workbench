@@ -28,6 +28,8 @@ UPDATED: 公网入口 asyncova.com 边缘；源站 workbench LE 保留（ICP 债
 | 源站 HTTPS | workbench LE YE2 · 机房内 VERIFY_OK |
 | 源站路径 | `/etc/letsencrypt/live/workbench.aivia.asia/` |
 | 边缘反代 | dmit nginx → SSH 隧道 → ECS `:13080` |
+| 隧道 unit | ECS user `aivia-edge-tunnel.service`（**勿写 User=**） |
+| 专家入口 | `/experts` 与 `/experts/` 均 200 · **禁止** 302 到 `:8443` |
 | 续期 | 源站 acme.sh DNS-01；边缘 certbot webroot |
 | ICP | `*.aivia.asia` 大陆拦截未解 |
 

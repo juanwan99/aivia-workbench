@@ -1,0 +1,37 @@
+# Aivia experts catalog (clean-room · not WorkBuddy pixels)
+version: 1
+updated: 2026-08-06
+public_base: https://asyncova.com
+entry: /experts
+chat: /chat/lOMVPbz7rZmbJSJl
+cards:
+  - id: html-courseware
+    title: HTML 课件专家
+    kind: deliverable
+    open: /chat/lOMVPbz7rZmbJSJl
+    sample_prompt: 请做一份初中生物「豌豆杂交」HTML 课件，要能下载。
+  - id: lesson-docx
+    title: 教案 Word 专家
+    kind: deliverable
+    open: /chat/lOMVPbz7rZmbJSJl
+    sample_prompt: 写一份初中生物细胞结构第一课时教案，Word 可下载。
+  - id: grade-xlsx
+    title: 成绩表 Excel 专家
+    kind: deliverable
+    open: /chat/lOMVPbz7rZmbJSJl
+    sample_prompt: 请做高一1班本周作业提交统计表，要能下载 Excel。
+  - id: outline-only
+    title: 大纲梳理专家
+    kind: short_answer
+    open: /chat/lOMVPbz7rZmbJSJl
+    sample_prompt: 只要大纲，不要文件：光合作用。
+  - id: rework
+    title: 改稿精修专家
+    kind: rework
+    open: /chat/lOMVPbz7rZmbJSJl
+    sample_prompt: 同会话改一版：加练习、改标题。
+rules:
+  - HTTPS /dl only for files
+  - no fake DOWNLOAD_READY for outline-only
+  - no agent write to edu DB
+  - not 1:1 WorkBuddy
