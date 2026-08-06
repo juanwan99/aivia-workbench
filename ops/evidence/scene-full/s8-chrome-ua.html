@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>初中生物 · 光合作用</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', 'PingFang SC', Roboto, 'Helvetica Neue', sans-serif;
+            background: linear-gradient(145deg, #f0f7e8 0%, #e2f0d9 100%);
+            color: #1e3a2f;
+            line-height: 1.6;
+            padding: 30px 20px;
+        }
+        .slide {
+            max-width: 1100px;
+            margin: 0 auto 30px;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(4px);
+            border-radius: 40px;
+            box-shadow: 0 20px 40px rgba(40, 80, 30, 0.15);
+            padding: 30px 40px;
+            border: 1px solid #cde4c0;
+            transition: all 0.2s;
+        }
+        h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: #1f4d2e;
+            letter-spacing: 2px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            border-bottom: 4px solid #7bb86f;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+        h1::before {
+            content: "🌿";
+            font-size: 2.5rem;
+            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
+        }
+        h2 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #2a5e3a;
+            margin: 25px 0 15px;
+            padding-left: 12px;
+            border-left: 8px solid #8bc34a;
+        }
+        h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #2e6b3c;
+            margin: 20px 0 10px;
+        }
+        .badge {
+            background: #d9e8d0;
+            padding: 6px 16px;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #1f4d2e;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin: 20px 0;
+        }
+        .card {
+            background: #fafff7;
+            border-radius: 24px;
+            padding: 20px 22px;
+            box-shadow: 0 6px 14px rgba(60, 100, 40, 0.08);
+            border: 1px solid #cbe5bc;
+        }
+        .card p {
+            margin: 8px 0;
+        }
+        .equation {
+            background: #1e3a2f;
+            color: #f2fbe8;
+            padding: 18px 20px;
+            border-radius: 50px;
+            font-size: 1.4rem;
+            text-align: center;
+            letter-spacing: 1px;
+            font-weight: 500;
+            margin: 20px 0;
+            box-shadow: inset 0 -3px 0 #5f9e4e;
+        }
+        .equation span {
+            background: #3b5e4b;
+            padding: 4px 12px;
+            border-radius: 40px;
+            margin: 0 6px;
+            font-size: 1.2rem;
+        }
+        .highlight {
+            background: #e5f3d8;
+            padding: 4px 12px;
+            border-radius: 30px;
+            font-weight: 600;
+            color: #1b4a2a;
+        }
+        ul, ol {
+            padding-left: 25px;
+            margin: 12px 0;
+        }
+        li {
+            margin: 8px 0;
+        }
+        .diagram-box {
+            background: #e9f3e2;
+            border-radius: 30px;
+            padding: 20px;
+            text-align: center;
+            font-family: 'Courier New', monospace;
+            font-size: 1.1rem;
+            border: 2px dashed #7bb86f;
+        }
+        .diagram-box pre {
+            white-space: pre-wrap;
+            word-break: break-word;
+            font-size: 1rem;
+            line-height: 1.5;
+            color: #1f3d2b;
+        }
+        .btn-download {
+            display: inline-block;
+            background: #2f6b3a;
+            color: white;
+            padding: 14px 32px;
+            border-radius: 60px;
+            font-weight: 600;
+            font-size: 1.2rem;
+            border: none;
+            cursor: pointer;
+            margin: 20px 0 10px;
+            box-shadow: 0 8px 18px rgba(30, 80, 30, 0.3);
+            transition: all 0.2s;
+            text-decoration: none;
+            border: 1px solid #4c8c4f;
+        }
+        .btn-download:hover {
+            background: #1f5229;
+            transform: translateY(-3px);
+            box-shadow: 0 12px 24px rgba(20, 70, 20, 0.3);
+        }
+        .btn-download:active {
+            transform: translateY(0);
+        }
+        .footer-note {
+            text-align: center;
+            margin-top: 20px;
+            color: #3b5e4b;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        .practice {
+            background: #f4f9ee;
+            border-radius: 30px;
+            padding: 20px 30px;
+            border: 1px solid #b8d9a8;
+        }
+        .practice details {
+            margin: 12px 0;
+            background: white;
+            padding: 12px 20px;
+            border-radius: 40px;
+            border: 1px solid #c8e0bb;
+        }
+        summary {
+            font-weight: 600;
+            cursor: pointer;
+            color: #1f4d2e;
+        }
+        .answer {
+            padding: 10px 0 5px;
+            color: #2b5e3a;
+        }
+        .small-note {
+            font-size: 0.9rem;
+            color: #4a6b53;
+        }
+        hr {
+            border: 1px solid #cde0c0;
+            margin: 20px 0;
+        }
+        @media (max-width: 700px) {
+            .slide { padding: 20px; }
+            h1 { font-size: 2rem; }
+            .grid-2 { grid-template-columns: 1fr; }
+            .equation { font-size: 1.1rem; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="slide" id="slide-main">
+    <h1>光合作用 · 初中生物</h1>
+    <div class="badge">🌱 人教版 · 七年级上册</div>
+    <p style="font-size: 1.2rem; margin-bottom: 10px;"><strong>「绿色植物的能量工厂」</strong> —— 理解光合作用的过程、意义及在农业中的应用。</p>
+    
+    <h2>🎯 学习目标</h2>
+    <ul>
+        <li>✅ 说出光合作用的概念、原料、产物及场所。</li>
+        <li>✅ 正确书写光合作用的总反应式（文字表达式）。</li>
+        <li>✅ 通过探究实验理解“光是光合作用的必要条件”。</li>
+        <li>✅ 举例说明光合作用在农业生产和生态平衡中的意义。</li>
+    </ul>
+
+    <h2>🧪 核心概念</h2>
+    <div class="grid-2">
+        <div class="card">
+            <h3>🔬 场所 & 条件</h3>
+            <p><span class="highlight">叶绿体</span> —— 光合作用的“车间”</p>
+            <p><span class="highlight">光照</span> —— 能量来源（必要条件）</p>
+            <p><span class="highlight">原料</span> —— 二氧化碳 + 水</p>
+            <p><span class="highlight">产物</span> —— 有机物（淀粉等）+ 氧气</p>
+        </div>
+        <div class="card">
+            <h3>⚙️ 能量转变</h3>
+            <p>光能 → <strong>化学能</strong>（储存在有机物中）</p>
+            <p>无机物 → <strong>有机物</strong>（自养作用）</p>
+            <p>同时释放氧气，维持大气碳-氧平衡。</p>
+        </div>
+    </div>
+
+    <div class="equation">
+        🌞 二氧化碳 + 水 <span>→ 叶绿体（光照）</span> → 有机物（储存能量） + 氧气
+    </div>
+
+    <h2>📌 反应式（文字版）</h2>
+    <p style="background: #dcecd2; padding: 12px 20px; border-radius: 40px; font-size: 1.2rem; font-weight: 500;">
+        CO₂ + H₂O  —(光能/叶绿体)—>  (CH₂O)ₙ + O₂
+    </p>
+    <p class="small-note">* 有机物以葡萄糖（C₆H₁₂O₆）为代表，实际产物包含淀粉等。</p>
+
+    <h2>🔍 探究实验 · 绿叶在光下制造有机物</h2>
+    <div class="diagram-box">
+        <pre>
+  暗处理(饥饿) → 部分遮光 → 光照数小时 → 酒精脱色 → 碘液检验
+  ─────────────────────────────────────────────────────
+  遮光部分：不变蓝（无淀粉）   见光部分：变蓝（有淀粉）
+  结论：光是光合作用的必要条件，产物中有淀粉。
+        </pre>
+    </div>
+
+    <h2>🌍 意义与应用</h2>
+    <ul>
+        <li>🌾 为植物自身、动物和人类提供有机物和能量。</li>
+        <li>🫧 维持大气中氧气和二氧化碳的平衡。</li>
+        <li>🌽 农业措施：合理密植、间作套种，提高光能利用率。</li>
+        <li>🏭 温室大棚增加CO₂浓度（气肥），提升产量。</li>
+    </ul>
+
+    <hr>
+
+    <h2>📝 课堂练习 · 小试牛刀</h2>
+    <div class="practice">
+        <details>
+            <summary>1️⃣ 光合作用的原料是？</summary>
+            <div class="answer">✅ 二氧化碳和水。</div>
+        </details>
+        <details>
+            <summary>2️⃣ 光合作用进行的场所是？</summary>
+            <div class="answer">✅ 叶绿体。</div>
+        </details>
+        <details>
+            <summary>3️⃣ 检验光合作用产生氧气常用的方法是？</summary>
+            <div class="answer">✅ 用带火星的卫生香（或木条）检验，若复燃则证明有氧气。</div>
+        </details>
+        <details>
+            <summary>4️⃣ 为什么说光合作用维持了碳-氧平衡？</summary>
+            <div class="answer">✅ 植物吸收CO₂，释放O₂，补充了大气中的氧气，消耗了二氧化碳。</div>
+        </details>
+    </div>
+
+    <div style="text-align: center; margin-top: 30px;">
+        <button class="btn-download" id="downloadBtn">⬇️ 下载课件 (HTML)</button>
+        <p class="small-note" style="margin-top: 10px;">点击即可保存完整课件到本地</p>
+    </div>
+</div>
+
+<div class="footer-note">
+    🌟 初中生物 · 光合作用 · 互动课件
+</div>
+
+<script>
+(function() {
+    // 获取整个课件内容（包括样式和HTML结构）
+    const getFullHTML = () => {
+        // 获取当前文档的完整HTML（包括所有样式和body内容）
+        const doctype = '<!DOCTYPE html>\n';
+        const html = document.documentElement.outerHTML;
+        return doctype + html;
+    };
+
+    // 下载功能
+    const downloadBtn = document.getElementById('downloadBtn');
+    downloadBtn.addEventListener('click', function() {
+        const fullHTML = getFullHTML();
+        // 创建blob对象
+        const blob = new Blob([fullHTML], { type: 'text/html;charset=utf-8' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = '课件-光合作用.html';   // 文件名
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+    });
+})();
+</script>
+
+<!-- 额外说明：课件包含完整样式，下载后可直接打开 -->
+</body>
+</html>

@@ -1,0 +1,56 @@
+交付文件：课件.html
+
+DOWNLOAD_READY
+
+[点击下载 课件.html](https://workbench.aivia.asia/dl/af989307f51742ea82633074b5992edb/file.html)
+
+下载链接（HTTPS）：https://workbench.aivia.asia/dl/af989307f51742ea82633074b5992edb/file.html
+
+（浏览器将直接下载文件；主路径为 https 文件 URL，非 data-URL）
+
+<details><summary>内容预览（备用）</summary>
+
+```html
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>牛顿第一定律 · 初中物理</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Roboto, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+      background: linear-gradient(145deg, #f5f9ff 0%, #e6f0fa 100%);
+      color: #1e2b3c;
+      padding: 2rem 1.5rem;
+      line-height: 1.6;
+    }
+    .slide-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(4px);
+      border-radius: 2.5rem;
+      box-shadow: 0 20px 40px rgba(0, 20, 50, 0.15);
+      padding: 2.5rem 2.8rem;
+      border: 1px solid rgba(255, 255, 255, 0.6);
+    }
+    h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      background: linear-gradient(135deg, #0b3b5c, #2b6a9e);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 0.5rem;
+      border-left: 8px solid #2b6a9e;
+      padding-left: 1.5rem;
+    }
+    .subhead {
+      

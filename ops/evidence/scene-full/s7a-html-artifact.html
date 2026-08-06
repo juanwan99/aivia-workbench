@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>牛顿第一定律 · 初中物理</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Roboto, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+      background: linear-gradient(145deg, #f5f9ff 0%, #e6f0fa 100%);
+      color: #1e2b3c;
+      padding: 2rem 1.5rem;
+      line-height: 1.6;
+    }
+    .slide-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(4px);
+      border-radius: 2.5rem;
+      box-shadow: 0 20px 40px rgba(0, 20, 50, 0.15);
+      padding: 2.5rem 2.8rem;
+      border: 1px solid rgba(255, 255, 255, 0.6);
+    }
+    h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      background: linear-gradient(135deg, #0b3b5c, #2b6a9e);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 0.5rem;
+      border-left: 8px solid #2b6a9e;
+      padding-left: 1.5rem;
+    }
+    .subhead {
+      font-size: 1.2rem;
+      color: #2c5779;
+      margin-bottom: 2rem;
+      padding-left: 2.3rem;
+      font-weight: 400;
+      border-bottom: 2px dashed #b8d4e8;
+      padding-bottom: 0.8rem;
+    }
+    .section {
+      background: white;
+      border-radius: 1.8rem;
+      padding: 1.8rem 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 8px 18px rgba(0, 30, 60, 0.06);
+      border: 1px solid #dbe9f5;
+      transition: all 0.2s;
+    }
+    .section:hover {
+      box-shadow: 0 12px 24px rgba(0, 50, 100, 0.1);
+      border-color: #9bc0dd;
+    }
+    .section h2 {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: #0a3d5e;
+      margin-bottom: 1.2rem;
+      border-bottom: 2px solid #cfe1f0;
+      padding-bottom: 0.6rem;
+    }
+    .section h2 span {
+      background: #1f5f8e;
+      color: white;
+      width: 38px;
+      height: 38px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      font-size: 1.2rem;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    .highlight {
+      background: #e1effa;
+      padding: 0.2rem 0.8rem;
+      border-radius: 30px;
+      font-weight: 600;
+      color: #0b4b7a;
+    }
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+    .card {
+      background: #f8fcff;
+      border-radius: 1.5rem;
+      padding: 1.5rem 1.2rem;
+      border-left: 6px solid #2b6a9e;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+    }
+    .card h3 {
+      font-size: 1.3rem;
+      color: #1a4e75;
+      margin-bottom: 0.8rem;
+    }
+    .card p {
+      color: #2c3e50;
+      font-size: 1rem;
+    }
+    .experiment-box {
+      background: #f0f7fe;
+      border-radius: 1.5rem;
+      padding: 1.5rem 2rem;
+      margin: 1.5rem 0;
+      border: 1px solid #b8d8f0;
+    }
+    .experiment-box h3 {
+      color: #0b4b7a;
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+    }
+    .step-list {
+      list-style-type: none;
+      counter-reset: step-counter;
+    }
+    .step-list li {
+      counter-increment: step-counter;
+      margin-bottom: 0.8rem;
+      padding-left: 2.5rem;
+      position: relative;
+      font-size: 1.05rem;
+    }
+    .step-list li::before {
+      content: counter(step-counter);
+      background: #2b6a9e;
+      color: white;
+      font-weight: bold;
+      width: 1.8rem;
+      height: 1.8rem;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      left: 0;
+      top: 0.1rem;
+      font-size: 0.9rem;
+    }
+    .law-box {
+      background: #0b3b5c;
+      color: white;
+      padding: 1.8rem 2rem;
+      border-radius: 2rem;
+      margin: 1.8rem 0;
+      box-shadow: 0 10px 20px rgba(0, 30, 60, 0.2);
+    }
+    .law-box h3 {
+      font-size: 1.6rem;
+      margin-bottom: 0.8rem;
+      color: #ffd966;
+      letter-spacing: 1px;
+    }
+    .law-box p {
+      font-size: 1.3rem;
+      font-style: italic;
+      font-weight: 500;
+    }
+    .practice {
+      background: #fdf8ed;
+      border-radius: 1.8rem;
+      padding: 1.8rem 2rem;
+      border: 1px solid #f0d9a8;
+    }
+    .practice h3 {
+      color: #7a5a1e;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    .practice ol {
+      padding-left: 1.8rem;
+    }
+    .practice li {
+      margin-bottom: 0.8rem;
+      font-size: 1.05rem;
+    }
+    .btn-download {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #1f5f8e;
+      color: white;
+      border: none;
+      padding: 0.9rem 2.2rem;
+      border-radius: 60px;
+      font-size: 1.2rem;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 1.5rem;
+      box-shadow: 0 8px 18px rgba(0, 60, 120, 0.3);
+      transition: 0.2s;
+      border: 1px solid #3c7bb0;
+    }
+    .btn-download:hover {
+      background: #0b4b7a;
+      transform: translateY(-3px);
+      box-shadow: 0 12px 24px rgba(0, 60, 120, 0.4);
+    }
+    .btn-download:active {
+      transform: scale(0.97);
+    }
+    .footer-note {
+      text-align: center;
+      margin-top: 2rem;
+      color: #4f6f8a;
+      font-size: 0.9rem;
+      border-top: 1px solid #c5d9ea;
+      padding-top: 1.5rem;
+    }
+    .download-area {
+      display: flex;
+      justify-content: flex-end;
+    }
+    @media (max-width: 650px) {
+      .slide-container {
+        padding: 1.5rem;
+      }
+      h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="slide-container" id="courseware">
+    <h1>⚡ 牛顿第一定律</h1>
+    <div class="subhead">初中物理 · 运动和力 · 惯性定律</div>
+
+    <!-- 学习目标 -->
+    <div class="section">
+      <h2><span>🎯</span> 学习目标</h2>
+      <div class="card-grid">
+        <div class="card">
+          <h3>📌 知识</h3>
+          <p>理解牛顿第一定律的内容，知道力不是维持运动的原因，而是改变运动状态的原因。</p>
+        </div>
+        <div class="card">
+          <h3>🔬 科学思维</h3>
+          <p>通过实验和推理，体会“理想实验”的科学方法，培养逻辑推理能力。</p>
+        </div>
+        <div class="card">
+          <h3>🧪 探究</h3>
+          <p>经历探究阻力对物体运动影响的实验过程，学会控制变量法。</p>
+        </div>
+        <div class="card">
+          <h3>🌍 应用</h3>
+          <p>能用惯性解释生活中的现象（刹车、跳远、锤头松动等）。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 核心知识点 -->
+    <div class="section">
+      <h2><span>📖</span> 核心知识点</h2>
+      <div style="display: flex; flex-wrap: wrap; gap: 1.2rem;">
+        <div style="flex: 1; min-width: 200px;">
+          <p><span class="highlight">✔ 历史背景</span> 亚里士多德（力维持运动）→ 伽利略（理想实验）→ 牛顿总结。</p>
+          <p><span class="highlight">✔ 内容</span> 一切物体在没有受到外力作用的时候，总保持静止状态或匀速直线运动状态。</p>
+          <p><span class="highlight">✔ 理解</span> 力不是维持运动的原因，而是改变运动状态的原因。</p>
+        </div>
+        <div style="flex: 1; min-width: 200px; background: #e7f3fc; border-radius: 1.2rem; padding: 1rem;">
+          <p><span class="highlight">✔ 惯性</span> 物体保持原来运动状态不变的性质。惯性大小只与质量有关。</p>
+          <p><span class="highlight">✔ 惯性 ≠ 惯性力</span> 惯性是属性，不是力。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 实验探究 -->
+    <div class="section">
+      <h2><span>🧪</span> 实验探究 · 阻力对运动的影响</h2>
+      <div class="experiment-box">
+        <h3>🔬 伽利略理想斜面实验</h3>
+        <ul class="step-list">
+          <li><strong>实验设计</strong> 同一小车从同一斜面同一高度由静止滑下，改变水平面粗糙程度（毛巾、棉布、木板）。</li>
+          <li><strong>现象</strong> 水平面越光滑，小车滑行距离越远，速度减小得越慢。</li>
+          <li><strong>推理</strong> 如果水平面绝对光滑（无阻力），小车将一直做匀速直线运动。</li>
+          <li><strong>结论</strong> 物体的运动不需要力来维持。</li>
+        </ul>
+        <p style="margin-top: 1rem; background: #d9eaf7; padding: 0.8rem; border-radius: 1rem;">📌 控制变量：同一小车、同一斜面、同一高度 → 保证到达水平面初速度相同。</p>
+      </div>
+    </div>
+
+    <!-- 牛顿第一定律内容 -->
+    <div class="law-box">
+      <h3>⚖️ 牛顿第一定律（惯性定律）</h3>
+      <p>一切物体在没有受到外力作用的时候，总保持静止状态或匀速直线运动状态。</p>
+      <p style="font-size: 1rem; margin-top: 1rem; opacity: 0.9;">✍️ 说明：该定律不是实验直接得出的，而是在大量实验基础上通过推理概括出来的。</p>
+    </div>
+
+    <!-- 惯性现象与练习 -->
+    <div class="section">
+      <h2><span>💡</span> 惯性 · 生活与练习</h2>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+        <div>
+          <h3 style="color: #1a4e75;">🚗 生活现象</h3>
+          <ul style="list-style-type: square; padding-left: 1.5rem;">
+            <li>紧急刹车时，乘客身体前倾。</li>
+            <li>跳远运动员助跑后腾空。</li>
+            <li>锤头松了，锤柄撞击地面锤头套紧。</li>
+            <li>拍打灰尘，衣服运动，灰尘由于惯性脱离。</li>
+          </ul>
+        </div>
+        <div class="practice">
+          <h3>📝 课堂练习</h3>
+          <ol>
+            <li>下列关于牛顿第一定律的说法正确的是（ ）<br> A. 直接由实验得出 &nbsp; B. 通过推理得出 &nbsp; C. 实验+推理</li>
+            <li>正在运动的物体，若所受外力全部消失，它将（ ）<br> A. 立即停止 &nbsp; B. 慢慢停下 &nbsp; C. 做匀速直线运动</li>
+            <li>惯性大小与什么有关？</li>
+          </ol>
+          <p style="margin-top: 0.8rem; color: #2c5779;"><strong>答案：</strong> 1.C  2.C  3. 质量</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 小结 -->
+    <div class="section" style="background: #eef4fa;">
+      <h2><span>📌</span> 课堂小结</h2>
+      <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between;">
+        <p>✅ 力是改变物体运动状态的原因</p>
+        <p>✅ 牛顿第一定律：不受力 → 静止/匀速直线</p>
+        <p>✅ 惯性：一切物体都有惯性，大小只与质量有关</p>
+        <p>✅ 理想实验法：实验+推理</p>
+      </div>
+    </div>
+
+    <!-- 下载按钮区域 -->
+    <div class="download-area">
+      <button class="btn-download" id="downloadBtn">⬇️ 下载课件 (HTML)</button>
+    </div>
+    <div class="footer-note">
+      ⚡ 初中物理 · 牛顿第一定律 · 互动课件
+    </div>
+  </div>
+
+  <script>
+    (function() {
+      const downloadBtn = document.getElementById('downloadBtn');
+      
+      // 获取整个课件的HTML结构（包含所有样式和内容）
+      function getCoursewareHTML() {
+        // 获取课件根元素
+        const container = document.getElementById('courseware');
+        // 获取完整文档样式 (内联style已包含在head中，但为了独立文件，我们手动构建)
+        // 更可靠：提取整个文档的样式 + 课件容器内容
+        const styles = document.querySelector('style').innerHTML;
+        // 构建完整HTML文件
+        return `<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>初中物理 · 牛顿第一定律</title>
+  <style>${styles}</style>
+</head>
+<body style="padding: 2rem 1.5rem; background: linear-gradient(145deg, #f5f9ff 0%, #e6f0fa 100%);">
+  ${container.outerHTML}
+  <script>
+    // 下载按钮在下载的课件中也可以工作（重新绑定）
+    (function() {
+      const btn = document.getElementById('downloadBtn');
+      if (btn) {
+        btn.addEventListener('click', function() {
+          alert('你已经下载了本课件！可保存此HTML文件。');
+        });
+      }
+    })();
+  <\/script>
+</body>
+</html>`;
+      }
+
+      downloadBtn.addEventListener('click', function() {
+        const fullHTML = getCoursewareHTML();
+        // 创建blob并下载
+        const blob = new Blob([fullHTML], { type: 'text/html;charset=utf-8' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = '课件-牛顿第一定律.html';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+      });
+    })();
+  </script>
+</body>
+</html>

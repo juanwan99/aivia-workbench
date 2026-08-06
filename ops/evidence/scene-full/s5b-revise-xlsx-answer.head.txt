@@ -1,0 +1,24 @@
+交付文件：报表-第3周作业提交统计.xlsx
+
+DOWNLOAD_READY
+
+[点击下载 报表-第3周作业提交统计.xlsx](https://workbench.aivia.asia/dl/bcb9000784434cc1827d159a023e4e43/file.xlsx)
+
+下载链接（HTTPS）：https://workbench.aivia.asia/dl/bcb9000784434cc1827d159a023e4e43/file.xlsx
+
+（浏览器将直接下载文件；主路径为 https 文件 URL，非 data-URL）
+
+<details><summary>内容预览（备用）</summary>
+
+```markdown
+| 序号 | 姓名 | 第3周作业提交 | 备注 |
+| --- | --- | --- | --- |
+| 1 | 张伟 | 已提交 | 课堂表现良好 |
+| 2 | 李娜 | 未提交 | 需提醒补交 |
+| 3 | 王强 | 已提交 | 作业完成质量高 |
+| 4 | 赵敏 | 已提交 | 迟交一天 |
+| 5 | 刘洋 | 未提交 | 请假未交 |
+| 6 | 陈静 | 已提交 | 提前完成 |
+```
+
+</details>

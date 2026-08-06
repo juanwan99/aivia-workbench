@@ -1,0 +1,28 @@
+交付文件：报表-初二3班课堂测验得分登记表.xlsx
+
+DOWNLOAD_READY
+
+[点击下载 报表-初二3班课堂测验得分登记表.xlsx](https://workbench.aivia.asia/dl/1e418cbf4ba7482893618ec0a933b0ed/file.xlsx)
+
+下载链接（HTTPS）：https://workbench.aivia.asia/dl/1e418cbf4ba7482893618ec0a933b0ed/file.xlsx
+
+（浏览器将直接下载文件；主路径为 https 文件 URL，非 data-URL）
+
+<details><summary>内容预览（备用）</summary>
+
+```markdown
+| 学号 | 姓名 | 测验得分 | 备注 |
+| --- | --- | --- | --- |
+| 01 | 张伟 | 92 |  |
+| 02 | 王芳 | 85 |  |
+| 03 | 李强 | 78 |  |
+| 04 | 赵敏 | 88 |  |
+| 05 | 刘洋 | 73 |  |
+| 06 | 陈静 | 95 |  |
+| 07 | 杨磊 | 81 |  |
+| 08 | 周杰 | 69 |  |
+| 09 | 吴婷 | 90 |  |
+| 10 | 孙浩 | 76 |
+```
+
+</details>

@@ -1,12 +1,13 @@
 # 任务包 · SCENE-FULL（个人全场景打通 · 对标 WorkBuddy 行为）
 
 ```
-STATUS: BINDING · 单包单卡派发
+STATUS: PASS · CLAIM-SCENE-FULL=YES · 正式上线=否
 DATE: 2026-08-06
 CODE: PHASE-SCENE-FULL
 前提: CLAIM-B · DOC-SOLID · DL-FIX(/dl https) · 正式上线=否
 口径: 内容主靠 DeepSeek API/模型；产品只保证「各场景能要到、能下、能开、能改、失败诚实」
 对标: WorkBuddy 行为 clean-room（不拆闭源、不宣称 1:1 抄功能）
+出口: ops/SCENE-FULL-REPORT.md · ops/evidence/scene-full/
 ```
 
 > **一个任务包 · 一张任务卡 · 一次回写收口。**  
