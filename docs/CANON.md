@@ -3,15 +3,14 @@
 ```
 DATE: 2026-08-06
 STATUS: BINDING
-UPDATED: CLAIM-SCENE-FULL=YES · 主路径=https /dl · 正式上线=否
+UPDATED: 下一刀 = WB-SURVEY（WorkBuddy 全面对标调查 · 不开发）
 ```
 
 ## 现行真相
 
-1. Web + Dify 1.16.1 + DeepSeek。  
-2. 已收：A/B · C-hybrid · D-LITE · E1 · **P0-GATE · CLAIM-B=YES** · **CLAIM-DOC-SOLID** · **DL-FIX** · **CLAIM-SCENE-FULL=YES**。  
+1. Web + Dify + DeepSeek；内容主靠模型 API。  
+2. 已收：CLAIM-B · DOC-SOLID · DL-FIX · CLAIM-SCENE-FULL 等。  
 3. 正式上线=否 · full real=否 · Harness=否。  
-4. 个人全场景 P0（课件/教案/表/大纲/改稿/拒写库/连续切换/真下）打通。  
-5. **下载主路径 = https 文件 URL**（`/dl/...`），非 data-URL。  
-6. 默认入口：`https://workbench.aivia.asia/chat/lOMVPbz7rZmbJSJl`。  
-7. 对标 WorkBuddy **行为** clean-room；内容靠模型 API，不宣称 1:1 功能复制。  
+4. 业主：全面对标 WorkBuddy **能力**；名字可不同；**大量能力归管理员/后端**。  
+5. **下一刀（唯一）：** `ops/PHASE-WB-SURVEY-PACK.md` + `ops/TASK-CARD-WB-SURVEY.md`（**仅调查**）。  
+6. clean-room：不拆闭源；调查完成 ≠ 功能已对齐。  
