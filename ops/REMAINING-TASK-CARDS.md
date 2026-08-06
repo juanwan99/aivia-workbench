@@ -12,7 +12,7 @@
 | S2 | CLAIM-GENERAL-WB | YES → **FULL**（经 S2.1） |
 | **S2.1** | **CLAIM-S2.1-HOTFIX** | **YES** · [报告](./S2.1-HOTFIX-REPORT.md) |
 | S3 | 体感对齐 | **下一刀（待点名）** |
-| S4 | 能力加厚 | 待 |
+| S4 | 能力加厚 | **现行** · [TASK-CARD-S4-CAP.md](./TASK-CARD-S4-CAP.md) |
 
 ## 下一刀
 
