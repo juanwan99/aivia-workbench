@@ -1,0 +1,96 @@
+{
+  "empty_success": 0,
+  "gates": {
+    "F3": {
+      "cid": "9dc8f2d5-5f70-45ac-ba67-3ca9a967183c",
+      "r1_ids": [
+        "1cf3810ff793467eb4eaa9018390e8b0"
+      ],
+      "r2_ids": [
+        "cdcfc779df794b469e0135ed0eaabe00"
+      ],
+      "r1_ok": true,
+      "r2_art": {
+        "ok": true,
+        "ooxml": true,
+        "size": 1742,
+        "cells": [
+          "产品",
+          "单价",
+          "月销量",
+          "估算月营收",
+          "市占率",
+          "产品A",
+          "99",
+          "120",
+          "11880",
+          "40%",
+          "产品B",
+          "79",
+          "200",
+          "15800",
+          "60%",
+          "产品C",
+          "89",
+          "150",
+          "13350",
+          "20%"
+        ]
+      },
+      "pubs": [
+        {
+          "status": 200,
+          "size": 1742,
+          "cd": "attachment; filename=\"file.xlsx\"; filename*=UTF-8''%E8%A1%A8%E6%A0%BC-%E7%AB%9E%E5%93%81-v2.xlsx"
+        },
+        {
+          "status": 200,
+          "size": 1742,
+          "cd": "attachment; filename=\"file.xlsx\"; filename*=UTF-8''%E8%A1%A8%E6%A0%BC-%E7%AB%9E%E5%93%81-v2.xlsx"
+        },
+        {
+          "status": 200,
+          "size": 1742,
+          "cd": "attachment; filename=\"file.xlsx\"; filename*=UTF-8''%E8%A1%A8%E6%A0%BC-%E7%AB%9E%E5%93%81-v2.xlsx"
+        }
+      ],
+      "semantic": {
+        "new_ids": [
+          "cdcfc779df794b469e0135ed0eaabe00"
+        ],
+        "all200": true,
+        "has_share": true,
+        "has_product_c": true,
+        "has_revenue": true,
+        "nested": false,
+        "name_ok": true,
+        "not_generic_报表": true,
+        "cd": "attachment; filename=\"file.xlsx\"; filename*=UTF-8''%E8%A1%A8%E6%A0%BC-%E7%AB%9E%E5%93%81-v2.xlsx",
+        "pass": true
+      },
+      "pass": true,
+      "nested_detect_exit": 0
+    },
+    "F4": {
+      "unit_nested_refuse": true,
+      "note": "pack unit NEST NO_FILE; detect on bad sheet exit 1",
+      "pass": true
+    },
+    "F6_C1": {
+      "ids": [
+        "fdac2f9ddeb04989aad78edb7ca88c9a",
+        "9a9d73217aa94fca8646ecc8b203091b"
+      ],
+      "two": true,
+      "ready": true,
+      "jiaoyan": false,
+      "pass": true
+    },
+    "F6_C5": {
+      "fake": false,
+      "honest": true,
+      "pass": true
+    }
+  },
+  "all_pass": true
+}

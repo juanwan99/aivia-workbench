@@ -7,11 +7,10 @@
 真源: docs/CANON.md · MEMORY-RESET
 
   已过   S1 + S1.1 · S2 + S2.1 · S3-UX
-  否决   S4 FULL（审查：C2 再加工套娃假绿）
-  当前   S4.1 → ops/TASK-CARD-S4.1-HOTFIX.md
-         C2 真数据 v2 + 电池加固 + 部署 + 截图 push
-  其后   CLAIM-S4-CAP FULL → 维护态
+  已过   S4-CAP + S4.1-HOTFIX → CLAIM-S4-CAP=FULL YES
+         报告 ops/S4.1-HOTFIX-REPORT.md · 证据 s4.1/
+  当前   维护态 / 业主点名
 
-禁: 套娃表假绿 · 404 /dl · 无 push 假 FULL · 密钥进仓
+禁: 套娃表假绿 · 404 /dl · 无 push 假 FULL · 密钥进仓 · 像素=完成
 ════════════════════════════════════════════════════════
 ```

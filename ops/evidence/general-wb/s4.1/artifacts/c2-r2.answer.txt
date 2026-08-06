@@ -1,0 +1,24 @@
+## 交付清单
+| # | 文件名 | 类型 | 下载 |
+|---|--------|------|------|
+| 1 | 表格-竞品-v2.xlsx | application/vnd.openxmlformats-officedocument.spreadsheetml.sheet | [点击下载](https://asyncova.com/dl/cdcfc779df794b469e0135ed0eaabe00/file.xlsx) |
+
+DOWNLOAD_READY
+
+- **文件名**：表格-竞品-v2.xlsx
+- **HTTPS**：https://asyncova.com/dl/cdcfc779df794b469e0135ed0eaabe00/file.xlsx
+- **主路径**：https 文件 URL（非 data-URL）
+
+[点击下载 表格-竞品-v2.xlsx](https://asyncova.com/dl/cdcfc779df794b469e0135ed0eaabe00/file.xlsx)
+
+<details><summary>内容预览（备用）</summary>
+
+```markdown
+| 产品 | 单价 | 月销量 | 估算月营收 | 市占率 |
+| --- | --- | --- | --- | --- |
+| 产品A | 99 | 120 | 11880 | 40% |
+| 产品B | 79 | 200 | 15800 | 60% |
+| 产品C | 89 | 150 | 13350 | 20% |
+```
+
+</details>

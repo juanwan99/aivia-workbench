@@ -4,7 +4,7 @@
 DATE: 2026-08-06
 STATUS: BINDING
 新窗: 先读 docs/HANDOFF.md 再读本文
-UPDATED: CLAIM-S4-CAP=YES · CLAIM-S3-UX=YES · CLAIM-GENERAL-WB=FULL YES · workflow=general-wb-s4
+UPDATED: CLAIM-S4-CAP=FULL YES · CLAIM-S4.1-HOTFIX=YES · CLAIM-S3-UX=YES · workflow=general-wb-s4.1
 ```
 
 ## 宏观目标
@@ -33,7 +33,8 @@ UPDATED: CLAIM-S4-CAP=YES · CLAIM-S3-UX=YES · CLAIM-GENERAL-WB=FULL YES · wor
 | **CLAIM-S1.1-HOTFIX** | **YES** |
 | **CLAIM-GENERAL-WB** | **YES**（G4–G7 双轨 · `ops/evidence/general-wb/s2/`） |
 | **CLAIM-S3-UX** | **YES**（U1–U7 · `ops/evidence/general-wb/s3/`） |
-| **CLAIM-S4-CAP** | **YES**（C1–C6 · `ops/evidence/general-wb/s4/`） |
+| **CLAIM-S4-CAP** | **FULL YES**（S4 + S4.1 · `ops/evidence/general-wb/s4.1/`） |
+| **CLAIM-S4.1-HOTFIX** | **YES**（C2 套娃债关） |
 | 运维 CLAIM（QUAD 等） | **≠ 产品对标完成** |
 
 ## 下一刀

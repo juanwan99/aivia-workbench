@@ -3,7 +3,7 @@
 ```
 STATUS: BINDING · 新窗总管开场真源之一
 DATE: 2026-08-06
-UPDATED: CLAIM-S4-CAP=YES · CLAIM-S3-UX=YES · CLAIM-GENERAL-WB=FULL YES · 下一刀=维护态
+UPDATED: CLAIM-S4-CAP=FULL YES · CLAIM-S4.1-HOTFIX=YES · CLAIM-S3-UX=YES · 下一刀=维护态
 仓: https://github.com/juanwan99/aivia-workbench
 冲突裁决: docs/CANON.md > 本文 > 任何旧任务卡/旧 CLAIM 叙事
 ```
@@ -117,10 +117,10 @@ UPDATED: CLAIM-S4-CAP=YES · CLAIM-S3-UX=YES · CLAIM-GENERAL-WB=FULL YES · 下
 | 项 | 内容 |
 |----|------|
 | **主卡** | `ops/TASK-CARD-GENERAL-WB.md` |
-| **已收** | **CLAIM-GENERAL-WB** · **CLAIM-S3-UX** · **CLAIM-S4-CAP** |
-| **下一刀** | **维护态** · 或业主新主线 |
+| **已收** | **CLAIM-GENERAL-WB** · **S3-UX** · **S4-CAP FULL**（S4.1） |
+| **下一刀** | **维护态** · 或业主点名 |
 | **包** | `ops/PHASE-GENERAL-WB-PACK.md` |
-| **S3/S4 报告** | `ops/S3-UX-REPORT.md` · `ops/S4-CAP-REPORT.md` |
+| **S3/S4 报告** | `ops/S3-UX-REPORT.md` · `ops/S4-CAP-REPORT.md` · `ops/S4.1-HOTFIX-REPORT.md` |
 | **执行窗** | 本机浏览器真测 + 轻量探针；**体感变化** 为准 |
 | **出口纪律** | 行为对标 · **≠** 像素 · **≠** 备案/运维绿 · **≠** 教育站 |
 
@@ -156,14 +156,15 @@ UPDATED: CLAIM-S4-CAP=YES · CLAIM-S3-UX=YES · CLAIM-GENERAL-WB=FULL YES · 下
 【S1.1】YES · /experts 通用化
 【S2】CLAIM-GENERAL-WB=FULL YES · S2.1 审查债关
 【S3】CLAIM-S3-UX=YES · U1–U7 体感门
-【S4】CLAIM-S4-CAP=YES · C1–C6 能力纵深
-【证据】ops/evidence/general-wb/s1/…/s4/
+【S4】CLAIM-S4-CAP=FULL YES · S4.1 关 C2 套娃
+【证据】ops/evidence/general-wb/s1/…/s4.1/
 【Chat】https://asyncova.com/chat/lOMVPbz7rZmbJSJl
 【experts】https://asyncova.com/experts
-【App】Aivia 通用 Agent · workflow=general-wb-s4
+【App】Aivia 通用 Agent · workflow=general-wb-s4.1
 【对标】行为级 FULL + 体感 + 纵深 · ≠像素 · ≠备案完成
 【正式上线话术】运维/公网事实；产品对标=行为交付已收，非上线扩权
 ```
+
 
 
 公网入口、Chat 链、下载基址：**以仓库 README / PIN 当前值为准**（asyncova 边缘）；改入口须回写，**不得** 把换域名当对标进度。
@@ -179,12 +180,13 @@ UPDATED: CLAIM-S4-CAP=YES · CLAIM-S3-UX=YES · CLAIM-GENERAL-WB=FULL YES · 下
 教育: 仅需真数时 edu-core 只读 · 非主线
 作废: 教育专家站主线 · 运维CLAIM=对标 · 备案主线
 底盘: Dify+DS+/dl 保留
-已收: CLAIM-GENERAL-WB · S3-UX · S4-CAP
-下一刀: 维护态 / 业主新主线
+已收: CLAIM-GENERAL-WB · S3-UX · S4-CAP FULL（S4.1）
+下一刀: 维护态 / 业主点名
 禁: 空成功 · 写库 · 拆闭源 · 无图假 CLAIM
 Chat: https://asyncova.com/chat/lOMVPbz7rZmbJSJl
 experts: https://asyncova.com/experts
 ```
+
 
 
 ---

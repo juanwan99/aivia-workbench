@@ -1,0 +1,20 @@
+{
+  "phase": "S4.1-HOTFIX",
+  "date": "2026-08-06",
+  "claim": "CLAIM-S4.1-HOTFIX",
+  "result": "PASS",
+  "promotes": "CLAIM-S4-CAP=FULL YES",
+  "gates": {
+    "F1": "PASS",
+    "F2": "PASS",
+    "F3": "PASS",
+    "F4": "PASS",
+    "F5": "PASS",
+    "F6": "PASS",
+    "F7": "PASS"
+  },
+  "workflow": "general-wb-s4.1",
+  "packdownload": "s4.1",
+  "empty_success": 0,
+  "report": "ops/S4.1-HOTFIX-REPORT.md"
+}
