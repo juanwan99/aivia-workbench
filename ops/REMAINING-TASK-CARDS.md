@@ -9,11 +9,10 @@
 |----|-------|------|
 | S1 | CLAIM-S1-GENERAL-WB | FULL YES |
 | S1.1 | CLAIM-S1.1-HOTFIX | YES |
-| S2 | CLAIM-GENERAL-WB | YES → **FULL**（经 S2.1） |
-| **S2.1** | **CLAIM-S2.1-HOTFIX** | **YES** · [报告](./S2.1-HOTFIX-REPORT.md) |
-| S3 | 体感对齐 | **下一刀（待点名）** |
-| S4 | 能力加厚 | **现行** · [TASK-CARD-S4-CAP.md](./TASK-CARD-S4-CAP.md) |
+| S2 / S2.1 | CLAIM-GENERAL-WB | FULL YES |
+| S3 | CLAIM-S3-UX | YES |
+| **S4** | **CLAIM-S4-CAP** | **现行** · [TASK-CARD-S4-CAP.md](./TASK-CARD-S4-CAP.md) |
 
 ## 下一刀
 
-**S3 体感对齐**（完成态/摘要）或业主点名。
+**S4 能力加厚**（多产物 / 再加工 / 连续任务 · 双轨做实）或业主点名。
