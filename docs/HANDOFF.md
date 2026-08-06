@@ -4,7 +4,7 @@
 DOC: docs/HANDOFF.md
 DATE: 2026-08-06
 STATUS: BINDING
-UPDATED: CLAIM-C-REAL(hybrid) · E1 BLOCKED · CLAIM-B NO
+UPDATED: E1 PASS(LE) · CLAIM-C-REAL(hybrid) · CLAIM-B 未勾
 ```
 
 ## 0. 怎么接
@@ -17,21 +17,21 @@ UPDATED: CLAIM-C-REAL(hybrid) · E1 BLOCKED · CLAIM-B NO
 
 | 项 | 状态 |
 |----|------|
-| 工作台 | `https://workbench.aivia.asia/chat/lOMVPbz7rZmbJSJl`（自签） |
+| 工作台 | `https://workbench.aivia.asia/chat/lOMVPbz7rZmbJSJl`（**LE 正式证书**） |
 | bridge 主机 | `http://127.0.0.1:18090/bridge/v1` · hybrid 0.2.0 |
 | bridge 容器 | `aivia-bridge` · dify_default |
 | 烟测 | `bash bridge/smoke.sh` |
 | 密钥 | `~/.secrets/bridge.env` |
-| 证书 | **E1 BLOCKED** · 自签 |
+| 证书 | **E1 PASS** · Let's Encrypt YE2 |
 
 ## 5. 状态模板
 
 ```text
 【状态】Aivia Workbench
-Pin: Dify 1.16.1 · bridge 0.2.0 hybrid
-CLAIM-C-REAL(hybrid): YES · E1: BLOCKED · CLAIM-B: NO · CLAIM-D-LITE: YES
-下一刀: E1 DNS-01（业主）或 edu live 只读 → full real
-正式上线: 否
+Pin: Dify 1.16.1 · bridge 0.2.0 hybrid · TLS LE YE2
+CLAIM-C-REAL(hybrid): YES · E1: PASS · CLAIM-B: 未勾 · CLAIM-D-LITE: YES
+下一刀: CLAIM-B 产品验收 或 edu live 只读
+正式上线: 否（未授权）
 ```
 
 ## 11. 行动令
