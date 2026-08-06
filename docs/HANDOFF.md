@@ -3,6 +3,7 @@
 ```
 STATUS: BINDING · 新窗总管开场真源之一
 DATE: 2026-08-06
+UPDATED: CLAIM-S1-GENERAL-WB=YES · 下一刀=S2-GENERAL-WB
 仓: https://github.com/juanwan99/aivia-workbench
 冲突裁决: docs/CANON.md > 本文 > 任何旧任务卡/旧 CLAIM 叙事
 ```
@@ -45,7 +46,7 @@ DATE: 2026-08-06
 |----|------|
 | 形态 | 浏览器 / 公网 Web（Dify） |
 | 模型 | 默认 **DeepSeek**（内容能力主要靠模型 API） |
-| 编排 | Dify 工作流/应用 |
+| 编排 | Dify 工作流/应用 · **App=Aivia 通用 Agent** · workflow=`general-wb-s1` |
 | 交付 | https **`/dl`** 真文件（禁空成功、禁 data-URL 主路径） |
 | 对标方式 | WorkBuddy **行为** clean-room；名字可不同 |
 
@@ -102,6 +103,7 @@ DATE: 2026-08-06
 4) ops/SUPERSEDED.md             ← 旧卡降级表
 5) ops/TASK-CARD-GENERAL-WB.md   ← 现行唯一产品主卡
 6) ops/PHASE-GENERAL-WB-PACK.md  ← 包
+7) ops/S1-GENERAL-WB-REPORT.md   ← S1 已收（W0+G1–G3）
 （可选）ops/WB-FEATURE-MATRIX.md / WB-ORG-MODEL.md / WB-RESPONSE-LOGIC.md
         → 仅作「通用能力」参考，禁止再收成教育验收
 ```
@@ -110,20 +112,22 @@ DATE: 2026-08-06
 
 ---
 
-## 4. 现行唯一下一刀
+## 4. 现行下一刀
 
 | 项 | 内容 |
 |----|------|
-| **卡** | `ops/TASK-CARD-GENERAL-WB.md` |
-| **包** | `ops/PHASE-GENERAL-WB-PACK.md` |
-| **目标** | 默认入口 = 通用任务台；跨领域验收 G1–G*（办公/表/公号/代码/分析/改稿…） |
+| **主卡** | `ops/TASK-CARD-GENERAL-WB.md` |
+| **已收子段** | **CLAIM-S1-GENERAL-WB=YES**（W0 + G1–G3） |
+| **下一刀** | **S2-GENERAL-WB（G4–G7）** → 冲击 CLAIM-GENERAL-WB |
+| **包** | `ops/PHASE-GENERAL-WB-PACK.md`（W2+） |
+| **目标** | 跨领域验收 G4–G7（改稿/公号/代码/分析…） |
 | **执行窗** | 本机浏览器真测 + SSH 改 Dify/工作流；**体感变化** 为准 |
-| **出口** | `CLAIM-GENERAL-WB`：跨领域电池绿 + 回写；**≠** 教育完成 **≠** 运维上线完成 |
+| **出口** | `CLAIM-GENERAL-WB`：跨领域电池全绿 + 回写；**≠** 教育完成 **≠** 运维上线完成 |
 
 ### 验收纪律（写进执行习惯）
 
 - 推荐问题 / 系统提示必须是 **通用 Agent**，不是「仅教研」  
-- 证据：`ops/evidence/general-wb/` 浏览器/API 真跑  
+- 证据：`ops/evidence/general-wb/` 浏览器/API 真跑（S1 已在 `s1/`）  
 - 教育课件 **最多加分项**，不得替代跨领域电池  
 - edu-core full real：**非本卡默认范围**  
 
@@ -148,13 +152,15 @@ DATE: 2026-08-06
 【教育】后接 edu-core（只读）；非主线
 【底盘】Dify + DeepSeek + /dl · 可用水管
 【清源】MEMORY-RESET 已生效 · 教育/QUAD 主叙事作废
-【体感债】业主明确：多轮优化几乎无「通用工作台」体感变化 → 下一刀必须补这个
-【主卡】GENERAL-WB
-【正式上线话术】若文档仍写「是（受限）」= 运维/公网事实；
-              不得解释为「通用对标已完成」
+【S1】CLAIM-S1-GENERAL-WB=YES · 默认入口=通用 Agent · G1 Word/G2 Excel/G3 短答绿
+【证据】ops/evidence/general-wb/s1/
+【入口】https://asyncova.com/chat/lOMVPbz7rZmbJSJl
+【App】Aivia 通用 Agent · workflow=general-wb-s1
+【主卡】GENERAL-WB · CLAIM-GENERAL-WB 待 S2（G4–G7）
+【正式上线话术】运维/公网事实；不得解释为「通用对标已完成」
 ```
 
-公网入口、Chat 链、下载基址：**以仓库 README / PIN 当前值为准**（可能是边缘域名）；改入口须回写，**不得** 把换域名当对标进度。
+公网入口、Chat 链、下载基址：**以仓库 README / PIN 当前值为准**（asyncova 边缘）；改入口须回写，**不得** 把换域名当对标进度。
 
 ---
 
@@ -167,9 +173,10 @@ DATE: 2026-08-06
 教育: 仅需真数时 edu-core 只读 · 非主线
 作废: 教育专家站主线 · 运维CLAIM=对标 · 备案主线
 底盘: Dify+DS+/dl 保留
-下一刀: TASK-CARD-GENERAL-WB（跨领域 G1–G*）
+已收: CLAIM-S1-GENERAL-WB（W0+G1–G3）
+下一刀: S2-GENERAL-WB（G4–G7）→ CLAIM-GENERAL-WB
 禁: 空成功 · 写库 · 拆闭源 · 无体感假完成
-现网入口: （从 README/PIN 抄写）
+现网入口: https://asyncova.com/chat/lOMVPbz7rZmbJSJl
 ```
 
 ---
@@ -182,6 +189,8 @@ DATE: 2026-08-06
 | [docs/MEMORY-RESET.md](./MEMORY-RESET.md) | 清源公告 |
 | [ops/SUPERSEDED.md](../ops/SUPERSEDED.md) | 旧卡作废表 |
 | [ops/TASK-CARD-GENERAL-WB.md](../ops/TASK-CARD-GENERAL-WB.md) | 现行主卡 |
+| [ops/TASK-CARD-S1-GENERAL-WB.md](../ops/TASK-CARD-S1-GENERAL-WB.md) | S1 子卡（已收） |
+| [ops/S1-GENERAL-WB-REPORT.md](../ops/S1-GENERAL-WB-REPORT.md) | S1 报告 |
 | [ops/PHASE-GENERAL-WB-PACK.md](../ops/PHASE-GENERAL-WB-PACK.md) | 包 |
 | [ops/WB-FEATURE-MATRIX.md](../ops/WB-FEATURE-MATRIX.md) | 通用能力参考（勿收成教育） |
 | [README.md](../README.md) | 对外一页纸 |
@@ -192,4 +201,5 @@ DATE: 2026-08-06
 
 > 业主要的是 **通用能力的 WorkBuddy 级干活台**；  
 > 教育是插头（edu-core），不是整栋楼；  
-> 前面偏航已清源；新窗只准沿 **GENERAL-WB** 把 **跨领域真交付体感** 做出来。
+> 前面偏航已清源；S1 已把默认入口改成通用 Agent 并绿了 Word/Excel/短答；  
+> 新窗沿 **S2-GENERAL-WB** 把 G4–G7 与 **CLAIM-GENERAL-WB** 做完。

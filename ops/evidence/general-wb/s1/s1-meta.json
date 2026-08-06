@@ -1,0 +1,23 @@
+{
+  "phase": "S1-GENERAL-WB",
+  "date": "2026-08-06",
+  "claim": "CLAIM-S1-GENERAL-WB",
+  "result": "PASS",
+  "app_id": "fc3e14da-2861-4009-a888-730a6b993011",
+  "app_name": "Aivia 通用 Agent",
+  "workflow_id": "a853ac87-ec6d-475b-bb25-db0b3026837a",
+  "workflow_marked": "general-wb-s1",
+  "chat_path": "/chat/lOMVPbz7rZmbJSJl",
+  "public_entry": "https://asyncova.com",
+  "dl_public": "https://asyncova.com/dl",
+  "gates": {
+    "W0": "PASS",
+    "G1": "PASS",
+    "G2": "PASS",
+    "G3": "PASS"
+  },
+  "empty_success": 0,
+  "full_real": false,
+  "formal_launch": "restricted_unchanged",
+  "out_of_scope": ["G4-G7", "ICP/dns_ali", "edu full real", "secrets_in_repo"]
+}

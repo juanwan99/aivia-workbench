@@ -1,0 +1,84 @@
+{
+  "W0": {
+    "suggested_count": 8,
+    "suggested": [
+      "写一份本周工作周报（Word 可下载）",
+      "做一张本周任务进度表，要能下载 Excel",
+      "写一篇公众号推文：远程办公的 5 个效率习惯（不要文件）",
+      "解释这段思路：用字典计数统计词频，给 Python 示例",
+      "把下面要点扩写成邮件正文：延期一周、原因供应链、新交期下周五",
+      "只要短答：1+1 等于几？（不要文件）",
+      "改稿：把『大家好我今天想说一下项目进度其实还行』润色成正式周会发言",
+      "做一份会议纪要模板（Word 可下载）：议题/决议/待办"
+    ],
+    "opening": "你好，我是 Aivia 通用 Agent。可帮你：办公 Word、Excel 表、公众号文案、代码说明、分析摘要、改稿润色。要文件会给 HTTPS /dl 下载链接；只要短答不会硬塞文件；做不到会明确说失败。",
+    "has_jinyanjiao": false,
+    "edu_main": false,
+    "general_signals": 8,
+    "pass": true
+  },
+  "G1": {
+    "len": 1523,
+    "links": [
+      "https://asyncova.com/dl/08bde9ecad094e1488fdc4866e6910da/file.docx",
+      "https://asyncova.com/dl/08bde9ecad094e1488fdc4866e6910da/file.docx",
+      "https://asyncova.com/dl/08bde9ecad094e1488fdc4866e6910da/file.docx"
+    ],
+    "has_dl": true,
+    "download_ready": true,
+    "has_deliver_line": false,
+    "has_data_url": false,
+    "mentions_jiaoyan_only": false,
+    "edu_main_narrative": false,
+    "elapsed": 8.1,
+    "fetch": {
+      "ok": true,
+      "size": 2488,
+      "ooxml": true,
+      "public_asyncova_status": 200,
+      "public_asyncova_len": "2488",
+      "public_asyncova_cd": "attachment; filename=\"file.docx\"; filename*=UTF-8''Q3%E9%A1%B9%E7%9B%AE%E5%91%A8%E6%8A%A5.docx"
+    },
+    "pass": true
+  },
+  "G2": {
+    "len": 779,
+    "links": [
+      "https://asyncova.com/dl/690a2677825e434aa9ec0d9ad8affc55/file.xlsx",
+      "https://asyncova.com/dl/690a2677825e434aa9ec0d9ad8affc55/file.xlsx",
+      "https://asyncova.com/dl/690a2677825e434aa9ec0d9ad8affc55/file.xlsx"
+    ],
+    "has_dl": true,
+    "download_ready": true,
+    "has_deliver_line": false,
+    "has_data_url": false,
+    "mentions_jiaoyan_only": false,
+    "edu_main_narrative": false,
+    "elapsed": 1.9,
+    "fetch": {
+      "ok": true,
+      "size": 1906,
+      "ooxml": true,
+      "public_asyncova_status": 200,
+      "public_asyncova_len": "1906",
+      "public_asyncova_cd": "attachment; filename=\"file.xlsx\"; filename*=UTF-8''%E8%A1%A8%E6%A0%BC-%E6%9C%AC%E5%91%A8%E4%BB%BB%E5%8A%A1%E8%BF%9B%E5%BA%A6%E8%A1%A8.xlsx"
+    },
+    "pass": true
+  },
+  "G3": {
+    "len": 2,
+    "links": [],
+    "has_dl": false,
+    "download_ready": false,
+    "has_deliver_line": false,
+    "has_data_url": false,
+    "mentions_jiaoyan_only": false,
+    "edu_main_narrative": false,
+    "elapsed": 1.3,
+    "has_2": true,
+    "empty_success": false,
+    "pass": true
+  },
+  "empty_success_count": 0,
+  "all_pass": true
+}

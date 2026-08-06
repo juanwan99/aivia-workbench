@@ -5,6 +5,7 @@ STATUS: BINDING · 现行唯一产品包
 DATE: 2026-08-06
 CODE: PHASE-GENERAL-WB
 前置: docs/CANON.md MEMORY-RESET
+PROGRESS: W0+W1 = CLAIM-S1-GENERAL-WB=YES · 下一刀 W2+
 ```
 
 ## 目标
@@ -14,14 +15,16 @@ CODE: PHASE-GENERAL-WB
 
 ## 阶段（无人值守可）
 
-| 阶段 | 做 | 过线 |
-|------|-----|------|
-| W0 | 改系统提示/推荐问题为通用办公 | 文案无「仅教研」绑定 |
-| W1 | G1–G3 文档/表/短答 | 真文件 + 短答无假绿 |
-| W2 | G4–G6 改稿 + 非教育任务 + 第六类 | 全绿 |
-| W3 | 专家页降级或改为通用入口文案 | 主 README 不再主推教研五卡为对标 |
-| W4 | 证据 + CLAIM-GENERAL-WB + 回写 | |
+| 阶段 | 做 | 过线 | 状态 |
+|------|-----|------|------|
+| W0 | 改系统提示/推荐问题为通用办公 | 文案无「仅教研」绑定 | **PASS · S1** |
+| W1 | G1–G3 文档/表/短答 | 真文件 + 短答无假绿 | **PASS · S1** |
+| W2 | G4–G6 改稿 + 非教育任务 + 第六类 | 全绿 | **下一刀 S2** |
+| W3 | 专家页降级或改为通用入口文案 | 主 README 不再主推教研五卡为对标 | 待 |
+| W4 | 证据 + CLAIM-GENERAL-WB + 回写 | | 待 |
+
+S1 报告：`ops/S1-GENERAL-WB-REPORT.md` · 证据：`ops/evidence/general-wb/s1/`
 
 ## 证据
 
-`ops/evidence/general-wb/` · `ops/GENERAL-WB-REPORT.md`
+`ops/evidence/general-wb/` · `ops/GENERAL-WB-REPORT.md`（整包）· S1 子证据已落 `s1/`

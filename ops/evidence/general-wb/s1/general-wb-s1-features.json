@@ -1,0 +1,33 @@
+{
+  "opening_statement": "你好，我是 Aivia 通用 Agent。可帮你：办公 Word、Excel 表、公众号文案、代码说明、分析摘要、改稿润色。要文件会给 HTTPS /dl 下载链接；只要短答不会硬塞文件；做不到会明确说失败。",
+  "suggested_questions": [
+    "写一份本周工作周报（Word 可下载）",
+    "做一张本周任务进度表，要能下载 Excel",
+    "写一篇公众号推文：远程办公的 5 个效率习惯（不要文件）",
+    "解释这段思路：用字典计数统计词频，给 Python 示例",
+    "把下面要点扩写成邮件正文：延期一周、原因供应链、新交期下周五",
+    "只要短答：1+1 等于几？（不要文件）",
+    "改稿：把『大家好我今天想说一下项目进度其实还行』润色成正式周会发言",
+    "做一份会议纪要模板（Word 可下载）：议题/决议/待办"
+  ],
+  "file_upload": {
+    "enabled": true,
+    "allowed_file_extensions": [
+      ".txt",
+      ".md",
+      ".csv",
+      ".html",
+      ".docx",
+      ".pdf"
+    ],
+    "allowed_file_types": [
+      "document",
+      "custom"
+    ],
+    "allowed_file_upload_methods": [
+      "local_file",
+      "remote_url"
+    ],
+    "number_limits": 3
+  }
+}

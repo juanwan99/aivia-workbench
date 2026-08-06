@@ -1,0 +1,26 @@
+## 交付清单
+| # | 文件名 | 类型 | 下载 |
+|---|--------|------|------|
+| 1 | 表格-本周任务进度表.xlsx | application/vnd.openxmlformats-officedocument.spreadsheetml.sheet | [点击下载](https://asyncova.com/dl/690a2677825e434aa9ec0d9ad8affc55/file.xlsx) |
+
+DOWNLOAD_READY
+
+- **文件名**：表格-本周任务进度表.xlsx
+- **HTTPS**：https://asyncova.com/dl/690a2677825e434aa9ec0d9ad8affc55/file.xlsx
+- **主路径**：https 文件 URL（非 data-URL）
+
+[点击下载 表格-本周任务进度表.xlsx](https://asyncova.com/dl/690a2677825e434aa9ec0d9ad8affc55/file.xlsx)
+
+<details><summary>内容预览（备用）</summary>
+
+```markdown
+| 任务 | 负责人 | 状态 | 截止日期 |
+| --- | --- | --- | --- |
+| 完成产品需求文档初稿 | 张三 | 进行中 | 2025-06-20 |
+| 开发登录模块接口 | 李四 | 已完成 | 2025-06-18 |
+| 设计首页视觉稿 | 王五 | 待开始 | 2025-06-22 |
+| 修复支付流程Bug | 赵六 | 进行中 | 2025-06-19 |
+| 编写测试用例 | 孙七 | 已完成 | 2025-06-17 |
+```
+
+</details>
