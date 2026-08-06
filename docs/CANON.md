@@ -3,17 +3,13 @@
 ```
 DATE: 2026-08-06
 STATUS: BINDING
-UPDATED: CLAIM-WB-ALIGN=YES · 正式上线=否 · 主路径=https /dl · bridge=0.2.2
+UPDATED: 下一刀 = WB-FIX-DEPLOY（ALIGN 后修复+部署 · 无人值守）
 ```
 
 ## 现行真相
 
-1. Web + Dify 1.16.1 + DeepSeek + bridge **0.2.2**。  
-2. 已收：CLAIM-B · DOC-SOLID · DL-FIX · CLAIM-SCENE-FULL · CLAIM-WB-SURVEY · **CLAIM-WB-ALIGN**。  
-3. 正式上线=否 · full real=否 · Harness=否。  
-4. 个人全场景 P0 + 矩阵 P0/P1 高标准可验收（名字可不同；管理归后台）。  
-5. **下载主路径 = https `/dl/...`**，非 data-URL。  
-6. 默认入口：`https://workbench.aivia.asia/chat/lOMVPbz7rZmbJSJl`。  
-7. clean-room：不拆闭源；**≠** WorkBuddy 1:1。  
-8. 管理可观测：`/ops/metrics` · `/ops/audit/tail` · `/ops/policy` · quality-event。  
-9. **下一刀：** 业主择一（运营推广授权 / 专家目录 UI / full real / 真上传 UI）。  
+1. CLAIM-WB-ALIGN=YES（有条件：多「等价有」）。  
+2. 正式上线=否 · /dl 主路径 · bridge 0.2.2。  
+3. **下一刀（唯一）：** `ops/TASK-CARD-WB-FIX-DEPLOY.md`。  
+4. 消化审查残留：真上传、交付清单、DOCX 稳、大纲弱指令、ops 部署烟测、TLS 说明、真源。  
+5. 模式：F0→F4 自审自修；本机+SSH；高标准浏览器验收。  
